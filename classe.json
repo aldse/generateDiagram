@@ -1,0 +1,16 @@
+{
+  "Pessoa": {
+    "nome": "string",
+    "idade": "int"
+  },
+  "Aluno": {
+    "nome": "string",
+    "idade": "int",
+    "matricula": "string"
+  },
+  "Professor": {
+    "nome": "string",
+    "idade": "int",
+    "disciplina": "string"
+  }
+}

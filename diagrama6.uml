@@ -1,0 +1,17 @@
+class Pessoa {
++ nome: string
++ idade: int
+}
+
+class Aluno {
++ nome: string
++ idade: int
++ matricula: string
+}
+
+class Professor {
++ nome: string
++ idade: int
++ disciplina: string
+}
+
