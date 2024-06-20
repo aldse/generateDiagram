@@ -1,0 +1,11 @@
+{
+    "entidade": {
+      "nome": "string",
+      "idade": "int",
+      "atributo1": "string",
+      "atributo2": "int",
+      "atributo3": "float",
+      "atributo4": "boolean"
+    }
+  }
+  

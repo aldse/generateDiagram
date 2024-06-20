@@ -44,7 +44,7 @@ class_structures = {
     "Professor": Professor.get_class_structure()
 }
 
-with open('classe.json', 'w') as f:
+with open('classe1.json', 'w') as f:
     json.dump(class_structures, f, indent=2)
 
 print("Estrutura das classes salva em estrutura_classes.json")
