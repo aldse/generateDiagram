@@ -1,29 +1,288 @@
 .container {
-    display: flex;
-    height: 100vh; /* Altura total da viewport */
-  }
-  
+  display: flex;
+  height: 100vh;
+}
+
+.white {
+  background-color: white;
+  width: 30%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagecontainer1 {
+  margin-top: -700px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.imagecontainer {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.im {
+  width: 600px;
+  height: 250px;
+}
+.rob {
+  width: 600px;
+  height: 600px;
+}
+.blue {
+  background-color: #367aa7;
+  width: 70%;
+  height: 95.8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  justify-content: flex-start;
+  overflow-y: hidden;
+}
+
+.bluelabel1,
+.bluelabel2 {
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+.bluelabel1 {
+  margin-top: 30px;
+  font-size: 50px;
+  width: 750px;
+  padding-bottom: 35px;
+  height: 160px;
+}
+
+.bluelabel2 {
+  width: 700px;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+.bluelabelinput1,
+.bluelabelinput2 {
+  width: 450px;
+  height: 90px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bluelabelinput1 label,
+.bluelabelinput2 label {
+  margin-bottom: 10px;
+}
+
+.bluelabelinput1 Form.Control,
+.bluelabelinput2 Form.Control {
+  width: 600px !important;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 15px;
+  background-color: #f0f0f0;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bluelabelinput1 Form.Control::placeholder,
+.bluelabelinput2 Form.Control::placeholder {
+  color: #ccc;
+}
+
+.bluelabelinput1 Form.Control:focus,
+.bluelabelinput2 Form.Control:focus {
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.6);
+  outline: none;
+}
+
+.a {
+  width: 450px;
+  height: 70px;
+  border: none;
+  font-size: 20px;
+}
+
+.label {
+  font-size: 25px;
+}
+
+.red {
+  margin: 20px;
+  width: 300px;
+  height: 70px;
+  font-size: 30px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
+
+@media (max-width: 1435px) {
   .white {
-    background-color: white;
-    width: 30%;
-    height: 100%;
-    position: relative; /* Posição relativa para posicionamento absoluto da imagem */
+    width: 35%;
   }
-  
+
+  .im {
+    margin-top: 30%;
+    width: 500px;
+    height: 200px;
+  }
+
+  .rob {
+    width: 500px;
+    height: 530px;
+  }
+
   .blue {
-    background-color: #367aa7;
-    width: 70%;
+    width: 65%;
+    padding: 0px;
     height: 100%;
   }
-  
-  .imagecontainer {
-    position: absolute; /* Posição absoluta para a imagem */
-    bottom: 0; /* Alinhar a imagem ao rodapé */
-    left: 0; /* Alinhar a imagem à esquerda */
-    width: 100%; /* Largura igual ao do elemento branco */
-    height: 700px; /* Altura da imagem */
-    display: flex;
-    justify-content: center; /* Centralizar horizontalmente */
-    align-items: center; /* Centralizar verticalmente */
+
+  .bluelabel1 {
+    font-size: 2vw;
   }
-  
+
+  .bluelabel2 {
+    font-size: 1vw;
+  }
+
+  .bluelabelinput1,
+  .bluelabelinput2 {
+    width: 80%;
+    max-width: 400px;
+
+  }
+
+  .a {
+    font-size: 1.5vw;
+    width: 450px;
+    height: 70px;
+  }
+
+  .label {
+    font-size: 2vw;
+  }
+
+  .red {
+    width: 50%;
+    max-width: 200px;
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 1398px) {
+  .white {
+    width: 50%;
+  }
+
+  .blue {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .bluelabel1 {
+    font-size: 2vw;
+  }
+
+  .bluelabel2 {
+    font-size: 1vw;
+  }
+
+  .bluelabelinput1,
+  .bluelabelinput2 {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .a {
+    font-size: 1.5vw;
+  }
+
+  .label {
+    font-size: 2vw;
+  }
+
+  .red {
+    width: 50%;
+    max-width: 200px;
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 1137px) {
+  .white {
+    width: 40%;
+  }
+
+  .imagecontainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .blue {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .bluelabel1 {
+    font-size: 3vw;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+
+  .bluelabel2 {
+    font-size: 1.5vw;
+    width: 80%;
+  }
+
+  .bluelabelinput1,
+  .bluelabelinput2 {
+    width: 70%;
+    max-width: 300px;
+  }
+
+  .a {
+    font-size: 2vw;
+    width: 90%;
+  }
+
+  .ff {
+    width: 100%;
+  }
+  .label {
+    font-size: 3vw;
+  }
+
+  .red {
+    width: 50%;
+    max-width: 200px;
+    font-size: 2vw;
+  }
+}
