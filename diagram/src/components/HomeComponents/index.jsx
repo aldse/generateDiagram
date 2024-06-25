@@ -1,9 +1,10 @@
 import styles from "./styles.module.scss";
 import roberto from "../../assets/Roberto.png";
-import logo from "../../assets/logolegenda.png";
+import logo from "../../assets/label bosch.png";
 import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import React from "react";
 
 function HomeComponents() {
   return (
@@ -18,13 +19,7 @@ function HomeComponents() {
       </div>
       <div className={styles.blue}>
         <div className={styles.bluelabel1}>
-          <h1>Seja bem-vindo</h1>
-        </div>
-        <div className={styles.bluelabel2}>
-          <h1>
-            Para acessar é necessário realizar seu Login, com usuário e senha
-            válidos
-          </h1>
+          <p className={styles.p}>Login</p>
         </div>
         <div className={styles.bluelabelinput1}>
           <div className={styles.ff}>
@@ -57,10 +52,10 @@ function HomeComponents() {
           </div>
         </div>
         <Button className={styles.red}>Entrar</Button>
+        <Button className={styles.link}>Cadastre-se aqui</Button>
       </div>
     </div>
   );
 }
 
 export default HomeComponents;
-
