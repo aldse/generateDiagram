@@ -6,6 +6,10 @@ import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 
 function AddArqComponents() {
+  const handleClick = () => {
+    console.log("Botão clicado!");
+  };
+
   return (
     <>
       <div className={styles.container}>
@@ -24,14 +28,19 @@ function AddArqComponents() {
                 designada ao lado.
               </p>
             </div>
-            <p className={styles.p}>Gerar Diagrama -></p>
-            <Image src={but} className={styles.im3} alt="botão"/>
+            <a className={styles.a} href="#" onClick={handleClick}>
+              <p className={styles.p}>Gerar Diagrama</p>
+              <Image src={but} className={styles.im3} alt="botão" />
+            </a>
           </div>
           <div className={styles.ima}>
-            <Image src={image} className={styles.im2} alt="imagem principal add"/>
+            <Image
+              src={image}
+              className={styles.im2}
+              alt="imagem principal add"
+            />
           </div>
         </div>
-          
       </div>
     </>
   );
