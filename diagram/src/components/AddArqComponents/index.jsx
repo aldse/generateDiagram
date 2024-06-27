@@ -17,12 +17,14 @@ function AddArqComponents() {
         <div className={styles.aling}>
           <div className={styles.alinhadnh}>
             <div className={styles.label}>
-              <p className={styles.p1}>GERE SEU DIAGRAMA</p>
+              <p className={styles.p1}>GERE SEU</p>
+              <p className={styles.p11}>DIAGRAMA</p>
               <p className={styles.p2}>
                 Faça UPLOAD ou arraste e solte os arquivos necessários na área
                 designada ao lado.
               </p>
             </div>
+            <p className={styles.p}>Gerar Diagrama -></p>
             <Image src={but} className={styles.im3} alt="botão"/>
           </div>
           <div className={styles.ima}>
