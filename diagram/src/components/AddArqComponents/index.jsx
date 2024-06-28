@@ -1,6 +1,7 @@
 import React from "react";
 import bosch from "../../assets/bosch.png";
-import image from "../../assets/image2.png";
+import image from "../../assets/image1.png";
+import add from "../../assets/add.png";
 import but from "../../assets/but.png";
 import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
@@ -29,11 +30,16 @@ function AddArqComponents() {
               </p>
             </div>
             <a className={styles.a} href="#" onClick={handleClick}>
-              <p className={styles.p}>Gerar Diagrama</p>
+              <p className={styles.p}>GERAR DIAGRAMA</p>
               <Image src={but} className={styles.im3} alt="botão" />
             </a>
           </div>
           <div className={styles.ima}>
+          <Image
+              src={add}
+              className={styles.im4}
+              alt=" add"
+            />
             <Image
               src={image}
               className={styles.im2}
