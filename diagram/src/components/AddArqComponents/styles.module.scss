@@ -29,7 +29,7 @@
   justify-content: center;
   align-content: center;
   flex-direction: column;
-  margin-left: 15%
+  margin-left: 15%;
 }
 
 .aling {
@@ -98,27 +98,26 @@
   padding: 0;
 }
 
-.im3{
+.im3 {
   margin-top: 4%;
   align-items: center !important;
   width: 73%;
   transition: transform 0.3s ease;
 }
 
-
-.p{
+.p {
   position: absolute;
-  top: 69.3%; 
-  margin: 0; 
+  top: 69.3%;
+  margin: 0;
   color: #ffffff;
   font-size: 150%;
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
-  z-index: 1; 
+  z-index: 1;
 }
 
-.a{
+.a {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -132,15 +131,112 @@
   color: #5a92b7;
 }
 
-.im4{
+.im4 {
   width: 14.7%;
   height: 29.7%;
   position: absolute;
-  top: 35.3%; 
-  margin-left: 2.2%; 
+  top: 35.3%;
+  margin-left: 15.2%;
 }
-
 
 .im4:hover {
   transform: scale(1.05);
 }
+
+@media only screen and (max-width: 1630px) {
+  .p {
+    position: absolute;
+    top: 71.5%;
+  }
+
+  .im {
+    width: 11%;
+    height: 70%;
+  }
+
+  .container {
+    height: 8vh;
+  }
+
+  .container2 {
+    height: 92vh;
+  }
+}
+
+@media only screen and (max-width: 1550px) {
+  .im {
+    width: 13%;
+  }
+
+  .im2 {
+    width: 83%;
+  }
+}
+
+@media only screen and (max-width: 1450px) {
+  .im2 {
+    width: 90%;
+  }
+  .im4 {
+    position: absolute;
+    top: 36%;
+    width: 15%;
+    height: 27%;
+  }
+}
+
+@media only screen and (max-width: 1345px) {
+  .im2 {
+    width: 95%;
+  }
+
+  .p {
+    position: absolute;
+    top: 73.5%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .im2 {
+    width: 105%;
+  }
+
+  .im4 {
+    position: absolute;
+    top: 36%;
+    width: 17%;
+    height: 27%;
+  }
+  .p{
+    position: absolute;
+    top: 74%;
+  }
+
+  .container2{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+.p1{
+  font-size: 500%;
+}
+.p11{
+  font-size: 500%;
+}
+.p2{
+  font-size: 180%;
+}
+.im3{
+  width: 60%;
+}
+.im{
+  width: 20%;
+height: 60%;
+}
+.p{
+  font-size: 120%;
+  margin-top: -8%;
+}
+}
+

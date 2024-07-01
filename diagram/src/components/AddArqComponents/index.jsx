@@ -1,15 +1,46 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
+import axios from "axios";
+import { useDropzone } from "react-dropzone";
+import { DropdownButton, Dropdown, Image } from "react-bootstrap"; // Importa Dropdown e DropdownButton corretamente
+import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
 import image from "../../assets/image1.png";
 import add from "../../assets/add.png";
 import but from "../../assets/but.png";
-import { Image } from "react-bootstrap";
-import styles from "./styles.module.scss";
 
 function AddArqComponents() {
+  const [selectedFolder, setSelectedFolder] = useState("images");
+
+  const handleFolderChange = (folder) => {
+    setSelectedFolder(folder);
+  };
+
   const handleClick = () => {
     console.log("Botão clicado!");
   };
+
+  const onDrop = useCallback((acceptedFiles) => {
+    const formData = new FormData();
+    formData.append("file", acceptedFiles[0]);
+    formData.append("folder", selectedFolder);
+
+    axios
+      .post("http://localhost:8000/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        alert("File uploaded successfully!");
+      })
+      .catch((error) => {
+        console.error("Error uploading file: ", error);
+        alert("Error uploading file.");
+      });
+  }, [selectedFolder]);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
     <>
@@ -35,11 +66,14 @@ function AddArqComponents() {
             </a>
           </div>
           <div className={styles.ima}>
-          <Image
-              src={add}
-              className={styles.im4}
-              alt=" add"
-            />
+            <div {...getRootProps({ className: "dropzone" })}>
+              <input {...getInputProps()} />
+              {isDragActive ? (
+                <Image src={add} alt=" add" className={styles.im4} />
+              ) : (
+                <Image src={add} alt=" add" className={styles.im4} />
+              )}
+            </div>
             <Image
               src={image}
               className={styles.im2}
@@ -48,6 +82,21 @@ function AddArqComponents() {
           </div>
         </div>
       </div>
+      <DropdownButton
+        id="dropdown-basic-button"
+        title={`Pasta selecionada: ${selectedFolder}`}
+        className={styles.dropdown}
+      >
+        <Dropdown.Item onClick={() => handleFolderChange("images")}>
+          Images
+        </Dropdown.Item>
+        <Dropdown.Item onClick={() => handleFolderChange("pdfs")}>
+          PDFs
+        </Dropdown.Item>
+        <Dropdown.Item onClick={() => handleFolderChange("others")}>
+          Outros
+        </Dropdown.Item>
+      </DropdownButton>
     </>
   );
 }
