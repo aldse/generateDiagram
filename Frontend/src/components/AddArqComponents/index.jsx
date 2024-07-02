@@ -41,16 +41,24 @@ function AddArqComponents() {
           },
         })
         .then((response) => {
-          console.log(response);
+          console.log("Upload response:", response);
           alert("Files uploaded successfully!");
         })
         .catch((error) => {
-          console.error("Error uploading files: ", error);
-          alert("Error uploading files.");
+          if (error.response) {
+            console.error("Error uploading files - Server responded with:", error.response.data);
+            alert("Error uploading files. Server responded with an error.");
+          } else if (error.request) {
+            console.error("Error uploading files - No response received:", error.request);
+            alert("Error uploading files. No response received from server.");
+          } else {
+            console.error("Error uploading files - Request setup error:", error.message);
+            alert("Error uploading files. Request setup error.");
+          }
         });
       })
       .catch((zipError) => {
-        console.error("Error loading ZIP file:", zipError);
+        console.error("Error loading ZIP file:", zipError.message);
         alert("Error loading ZIP file. Please ensure it is a valid ZIP file.");
       });
   }, []);
