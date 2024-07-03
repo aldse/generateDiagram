@@ -21,6 +21,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "zip": "zip -r build.zip build/ some-file.js some-other-folder/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

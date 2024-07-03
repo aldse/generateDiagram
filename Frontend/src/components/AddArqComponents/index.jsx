@@ -35,13 +35,15 @@ function AddArqComponents() {
       });
 
       axios
-        .post("http://localhost:8000/upload", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((response) => {
-          console.log("Upload response:", response);
+      .post("http://localhost:8000/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        timeout: 60000,
+      })
+      .then((response) => {
+        console.log("aqui");
+        console.log("Upload response:", response);
           alert("Files uploaded successfully!");
         })
         .catch((error) => {
