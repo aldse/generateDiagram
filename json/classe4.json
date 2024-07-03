@@ -1,0 +1,42 @@
+{
+    "Pessoa": {
+      "nome": "oi",
+      "idade": "1",
+      "genero": "oi",
+      "endereco": {
+        "logradouro": "oi",
+        "cidade": "oi",
+        "estado": "oi",
+        "cep": "oi"
+      }
+    },
+    "Aluno": {
+      "nome": "oi",
+      "idade": "1",
+      "matricula": "oi",
+      "curso": "oi",
+      "notas": {
+        "matematica": "1.1",
+        "historia": "1.1",
+        "ingles": "1.1"
+      }
+    },
+    "Professor": {
+      "nome": "oi",
+      "idade": "1",
+      "disciplina": "oi",
+      "faculdade": "oi",
+      "horario_atendimento": {
+        "inicio": "oi",
+        "fim": "oi"
+      }
+    },
+    "Funcionario": {
+      "nome": "oi",
+      "idade": "1",
+      "cargo": "oi",
+      "salario": "1.7",
+      "departamento": "oi"
+    }
+  }
+  
