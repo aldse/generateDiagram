@@ -1,0 +1,61 @@
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
+
+require('dotenv').config()
+
+const app = express();
+async function connectToDB() {
+  try {
+    await mongoose.connect(process.env.MONGODB_CONNECT_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Conectado ao MongoDB Atlas");
+  } catch (error) {
+    console.error("Erro ao conectar ao MongoDB Atlas:", error);
+  }
+}
+
+connectToDB();
+
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+  })
+);
+
+// require("./startup/routes")(app);
+
+// const port = process.env.PORT || 8080;
+// app.listen(port, () => console.log(`Acesse: http://localhost:${port}/`));
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/'); 
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname); 
+  }
+});
+
+const upload = multer({ storage: storage });
+
+app.post('/upload', upload.single('file'), (req, res) => {
+  const file = req.file; 
+  if (!file) {
+    return res.status(400).send('Nenhum arquivo foi enviado.');
+  }
+  res.status(200).send('Arquivo enviado com sucesso.');
+});
+
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`Servidor está rodando em http://localhost:${port}/`);
+});
