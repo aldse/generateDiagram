@@ -13,7 +13,7 @@ const user = mongoose.model(
         },
         email: {
             type: String,
-            required: false
+            required: true
         },
         cpf: {
             type: String,
@@ -29,11 +29,11 @@ const user = mongoose.model(
         },
         street: {
             type: String,
-            required: false
+            required: true
         },
         number: {
             type: Number,
-            required: false
+            required: true
         },
         complement: {
             type: String,
