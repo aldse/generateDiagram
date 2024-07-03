@@ -29,15 +29,15 @@ const user = mongoose.model(
         },
         street: {
             type: String,
-            required: true
+            required: false
         },
         number: {
             type: Number,
-            required: true
+            required: false
         },
         complement: {
             type: String,
-            require: true
+            require: false
         },
         password: {
             type: String,
