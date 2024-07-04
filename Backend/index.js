@@ -1,61 +1,75 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
+// const express = require("express");
+// const cors = require("cors");
+// const multer = require("multer");
 
-require('dotenv').config()
+// const app = express();
+// const port = process.env.PORT || 8080;
+
+// app.use(cors({
+//   origin: 'http://localhost:5173',
+//   methods: ['GET', 'POST', 'DELETE', 'PUT'],
+//   credentials: true
+// }));
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, 'uploads/');
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname);
+//   }
+// });
+
+// const upload = multer({ storage: storage });
+
+// app.post('/upload', upload.single('file'), (req, res) => {
+//   const file = req.file;
+//   if (!file) {
+//     return res.status(400).send('Nenhum arquivo foi enviado.');
+//   }
+//   res.status(200).send('Arquivo enviado com sucesso.');
+// });
+
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).send('Erro interno no servidor.');
+// });
+
+// app.listen(port, () => {
+//   console.log(`Servidor está rodando em http://localhost:${port}/`);
+// });
+
+
+const express = require("express");
+const multer = require("multer");
 
 const app = express();
-async function connectToDB() {
-  try {
-    await mongoose.connect(process.env.MONGODB_CONNECT_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("Conectado ao MongoDB Atlas");
-  } catch (error) {
-    console.error("Erro ao conectar ao MongoDB Atlas:", error);
-  }
-}
-
-connectToDB();
-
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    preflightContinue: false,
-    optionsSuccessStatus: 204
-  })
-);
-
-// require("./startup/routes")(app);
-
-// const port = process.env.PORT || 8080;
-// app.listen(port, () => console.log(`Acesse: http://localhost:${port}/`));
+const port = process.env.PORT || 8080;
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/'); 
+    cb(null, 'uploads/');
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname); 
+    cb(null, file.originalname);
   }
 });
 
 const upload = multer({ storage: storage });
 
 app.post('/upload', upload.single('file'), (req, res) => {
-  const file = req.file; 
+  const file = req.file;
   if (!file) {
     return res.status(400).send('Nenhum arquivo foi enviado.');
   }
   res.status(200).send('Arquivo enviado com sucesso.');
 });
 
-const port = process.env.PORT || 8080;
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Erro interno no servidor.');
+});
+
 app.listen(port, () => {
   console.log(`Servidor está rodando em http://localhost:${port}/`);
 });
