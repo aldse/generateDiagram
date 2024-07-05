@@ -5,7 +5,7 @@ import  Home  from "./pages/Home";
 import  AddArq  from "./pages/AddArq";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Teste from "./pages/Teste/index.jsx";
+import SingleFileUploader from "./components/UploadComponents/SingleFileUploader";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/page1",
-    element: <Teste />,
+    element: <SingleFileUploader />,
   },
 ]);
 
