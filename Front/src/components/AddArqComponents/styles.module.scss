@@ -215,7 +215,51 @@
   position: absolute;
   top: 35.3%;
   margin-left: 15.2%;
+
+  @media (max-width: 1650px) {
+    width: 12.7%;
+    height: 27.7%;
+    top: 36%;
+    margin-left: 15%;
+  }
+  
+  @media (max-width: 1560px) {
+    width: 10.7%;
+    height: 23.7%;
+    top: 38%;
+    margin-left: 15%;
+  }
+
+  @media (max-width: 1400px) {
+    width: 10.7%;
+    height: 20.7%;
+    top: 40%;
+    margin-left: 14%;
+  }
+
+  @media (max-width: 1250px) {
+    width: 9.7%;
+    height: 15.7%;
+    top: 42%;
+    margin-left: 13.5%;
+  }
+
+  @media (max-width: 900px) {
+    width: 18%;
+    height: 20%;
+    top: 38%;
+    margin-left: 13%;
+  }
+}
+
+.input {
+  width: 14.7%;
+  height: 29.7%;
+  position: absolute;
+  top: 35.3%;
+  margin-left: 15.2%;
   z-index: 1;
+  background-color: transparent;
 
   @media (max-width: 1650px) {
     width: 12.7%;

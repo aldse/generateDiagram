@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 const CORS_ALLOWED_ORIGINS = [
-  'http://localhost:3000'
+  'http://localhost:5174'
 ];
 
 app.post('/upload', upload.single('file'), (req, res) => {
