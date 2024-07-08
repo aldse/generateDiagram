@@ -5,7 +5,7 @@ import  Home  from "./pages/Home";
 import  AddArq  from "./pages/AddArq";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import SingleFileUploader from "./components/UploadComponents/SingleFileUploader";
+import Cadastro from "./pages/Cadastro/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,12 +13,12 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/page2",
-    element: <AddArq />,
+    path: "/page1",
+    element: <Cadastro />,
   },
   {
-    path: "/page1",
-    element: <SingleFileUploader />,
+    path: "/page2",
+    element: <AddArq />,
   },
 ]);
 

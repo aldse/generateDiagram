@@ -76,8 +76,23 @@
   font-optical-sizing: auto;
   font-weight: 450;
   width: 60%;
-  height: 7%;
-  margin-bottom: 4%;
+  height: 5%;
+  margin-bottom: 3%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bluelabelinput3 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  width: 30%;
+  height: 5%;
+  margin-bottom: 3%;
   background-color: white;
   border-radius: 10px;
   padding: 2.5%;
@@ -89,7 +104,7 @@
 
 .bluelabelinput1 label,
 .bluelabelinput2 label {
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 
 .bluelabelinput1 Form.Control,
@@ -133,11 +148,11 @@
   width: 100%;
   height: 150%;
   border: none;
-  font-size: 105%;
+  font-size: 100%;
 }
 
 .label {
-  font-size: 145%;
+  font-size: 120%;
 }
 
 @keyframes pulse {
@@ -254,7 +269,7 @@
   }
 
   .label {
-    font-size: 110%;
+    font-size: 90%;
   }
 
   .red {
