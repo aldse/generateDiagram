@@ -2,12 +2,81 @@ import styles from "./styles.module.scss";
 import roberto from "../../assets/Roberto.png";
 import logo from "../../assets/label bosch.png";
 import { Image } from "react-bootstrap";
+import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { generateDiagram } from "../../api/genereateDiagram";
+import { useNavigate } from "react-router-dom";
 
 function CadastroComponents() {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [dateBirth, setDateBirth] = useState("1999-05-11");
+  const [cpf, setCpf] = useState("");
+  const [edv, setEdv] = useState("");
+  const [cep, setCep] = useState("");
+  const [street, setStreet] = useState("");
+  const [number, setNumber] = useState("");
+  const [complement, setComplement] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+
+  const navigate = useNavigate();
+  
+    const fetchAddressByCep = async (cep) => {
+      try {
+        const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = response.data;
+  
+        if (!data.erro) {
+          setStreet(data.logradouro);
+        } else {
+          alert("CEP não encontrado. Verifique o CEP informado.");
+        }
+      } catch (error) {
+        console.error("Erro ao buscar o CEP:", error);
+      }
+    };
+  
+    useEffect(() => {
+      setStreet("");
+      setNumber("");
+      setComplement("");
+    }, [cpf]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("Senhas não são iguais!");
+      return;
+    }
+    try {
+      const response = await generateDiagram.post("/user/register", {
+        name,
+        email,
+        dateBirth,
+        cpf,
+        edv,
+        cep,
+        street,
+        number,
+        complement,
+        password,
+        confirmPassword
+      });
+      console.log("Create register!")
+      navigate("/");
+    } catch (error) {
+      console.error("Erro ao chamar a API:", error);
+    }
+  };
+
+
   return (
     <div className={styles.container}>
       <div className={styles.white}>
@@ -25,15 +94,17 @@ function CadastroComponents() {
 
         <div className={styles.bluelabelinput1}>
           <div className={styles.ff}>
-            <label className={styles.label} htmlFor="user">
+            <label className={styles.label} htmlFor="name">
               Nome
             </label>
             <Form.Floating className="mb-3">
               <Form.Control
                 className={styles.a}
-                id="user"
-                type="username"
-                placeholder="Digite seu usuário"
+                id="name"
+                type="text"
+                placeholder="Digite seu nome"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </Form.Floating>
           </div>
@@ -41,15 +112,17 @@ function CadastroComponents() {
 
         <div className={styles.bluelabelinput2}>
           <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
+            <label className={styles.label} htmlFor="email">
               Email
             </label>
             <Form.Floating className="mb-3">
               <Form.Control
                 className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
+                id="email"
+                type="email"
+                placeholder="Digite seu email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Floating>
           </div>
@@ -57,15 +130,17 @@ function CadastroComponents() {
 
         <div className={styles.bluelabelinput2}>
           <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              Cpf
+            <label className={styles.label} htmlFor="cpf">
+              CPF
             </label>
             <Form.Floating className="mb-3">
               <Form.Control
                 className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
+                id="cpf"
+                type="text"
+                placeholder="Digite seu CPF"
+                value={cpf}
+                onChange={(e) => setCpf(e.target.value)}
               />
             </Form.Floating>
           </div>
@@ -73,22 +148,24 @@ function CadastroComponents() {
 
         <div className={styles.bluelabelinput2}>
           <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
+            <label className={styles.label} htmlFor="edv">
               EDV
             </label>
             <Form.Floating className="mb-3">
               <Form.Control
                 className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
+                id="edv"
+                type="text"
+                placeholder="Digite seu EDV"
+                value={edv}
+                onChange={(e) => setEdv(e.target.value)}
               />
             </Form.Floating>
           </div>
         </div>
 
         <div className={styles.inlineInputs}>
-          <div className={styles.bluelabelinput3}>
+        <div className={styles.bluelabelinput3}>
             <div className={styles.ff}>
               <label className={styles.label} htmlFor="cep">
                 CEP
@@ -99,6 +176,11 @@ function CadastroComponents() {
                   id="cep"
                   type="text"
                   placeholder="Digite seu CEP"
+                  value={cep}
+                  onChange={(e) => {
+                    setCep(e.target.value);
+                    fetchAddressByCep(e.target.value);
+                  }}
                 />
               </Form.Floating>
             </div>
@@ -112,44 +194,52 @@ function CadastroComponents() {
               <Form.Floating className="mb-3">
                 <Form.Control
                   className={styles.a}
-                  id="rua"
+                  id="street"
                   type="text"
                   placeholder="Digite sua rua"
+                  value={street}
+                  onChange={(e) => setStreet(e.target.value)}
                 />
               </Form.Floating>
             </div>
           </div>
         </div>
 
-        <div className={styles.bluelabelinput3}>
-          <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              Numero
-            </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
-              />
-            </Form.Floating>
+        <div className={styles.inlineInputs}>
+          <div className={styles.bluelabelinput3}>
+            <div className={styles.ff}>
+              <label className={styles.label} htmlFor="senha">
+                Numero
+              </label>
+              <Form.Floating className="mb-3">
+                <Form.Control
+                  className={styles.a}
+                  id="number"
+                  type="text"
+                  placeholder="Digite seu número"
+                  value={number}
+                  onChange={(e) => setNumber(e.target.value)}
+                />
+              </Form.Floating>
+            </div>
           </div>
-        </div>
 
-        <div className={styles.bluelabelinput3}>
-          <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              Complemento
-            </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
-              />
-            </Form.Floating>
+          <div className={styles.bluelabelinput3}>
+            <div className={styles.ff}>
+              <label className={styles.label} htmlFor="senha">
+                Complemento
+              </label>
+              <Form.Floating className="mb-3">
+                <Form.Control
+                  className={styles.a}
+                  id="complement"
+                  type="text"
+                  placeholder="Digite seu complemento"
+                  value={complement}
+                  onChange={(e) => setComplement(e.target.value)}
+                />
+              </Form.Floating>
+            </div>
           </div>
         </div>
 
@@ -161,9 +251,11 @@ function CadastroComponents() {
             <Form.Floating className="mb-3">
               <Form.Control
                 className={styles.a}
-                id="senha"
+                id="password"
                 type="password"
                 placeholder="Digite sua senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Floating>
           </div>
@@ -177,14 +269,18 @@ function CadastroComponents() {
             <Form.Floating className="mb-3">
               <Form.Control
                 className={styles.a}
-                id="senha"
+                id="confirmPassword"
                 type="password"
-                placeholder="Digite sua senha"
+                placeholder="Digite sua senha novamente"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </Form.Floating>
           </div>
         </div>
-        <Button className={styles.red}>Entrar</Button>
+
+
+        <Button className={styles.red} onClick={handleSubmit}>Entrar</Button>
         <Link to="/page2" className={styles.linka}>
           <Button className={styles.link}>Cadastre-se aqui</Button>
         </Link>
