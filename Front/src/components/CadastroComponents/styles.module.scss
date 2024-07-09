@@ -90,16 +90,22 @@
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-weight: 450;
-  width: 30%;
-  height: 5%;
+  width: calc(42.5%);
   margin-bottom: 3%;
   background-color: white;
   border-radius: 10px;
   padding: 2.5%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height:75%;
+
+}
+
+.inlineInputs {
+  display: flex;
+  justify-content: space-between; /* Para espaçamento entre os elementos */
+  width: 65%; /* Garante que ocupe toda a largura disponível */
+  margin-bottom: 3%; /* Espaçamento inferior entre os grupos de inputs */
+height:10%;
 }
 
 .bluelabelinput1 label,

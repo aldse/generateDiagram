@@ -5,7 +5,7 @@ import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function CadastroComponents() {
   return (
@@ -87,35 +87,37 @@ function CadastroComponents() {
           </div>
         </div>
 
-        <div className={styles.bluelabelinput3}>
-          <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              CEP
-            </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
-              />
-            </Form.Floating>
+        <div className={styles.inlineInputs}>
+          <div className={styles.bluelabelinput3}>
+            <div className={styles.ff}>
+              <label className={styles.label} htmlFor="cep">
+                CEP
+              </label>
+              <Form.Floating className="mb-3">
+                <Form.Control
+                  className={styles.a}
+                  id="cep"
+                  type="text"
+                  placeholder="Digite seu CEP"
+                />
+              </Form.Floating>
+            </div>
           </div>
-        </div>
 
-        <div className={styles.bluelabelinput3}>
-          <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              Rua
-            </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
-              />
-            </Form.Floating>
+          <div className={styles.bluelabelinput3}>
+            <div className={styles.ff}>
+              <label className={styles.label} htmlFor="rua">
+                Rua
+              </label>
+              <Form.Floating className="mb-3">
+                <Form.Control
+                  className={styles.a}
+                  id="rua"
+                  type="text"
+                  placeholder="Digite sua rua"
+                />
+              </Form.Floating>
+            </div>
           </div>
         </div>
 
@@ -184,7 +186,7 @@ function CadastroComponents() {
         </div>
         <Button className={styles.red}>Entrar</Button>
         <Link to="/page2" className={styles.linka}>
-        <Button className={styles.link}>Cadastre-se aqui</Button>
+          <Button className={styles.link}>Cadastre-se aqui</Button>
         </Link>
       </div>
     </div>
