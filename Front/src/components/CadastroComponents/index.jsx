@@ -23,6 +23,7 @@ function CadastroComponents() {
           <p className={styles.p}>Cadastro</p>
         </div>
 
+        {/* <div className={styles.inlineInputs}> */}
         <div className={styles.bluelabelinput1}>
           <div className={styles.ff}>
             <label className={styles.label} htmlFor="user">
@@ -38,6 +39,23 @@ function CadastroComponents() {
             </Form.Floating>
           </div>
         </div>
+
+        {/* <div className={styles.bluelabelinput3}>
+          <div className={styles.ff}>
+            <label className={styles.label} htmlFor="user">
+              Data de Nascimento
+            </label>
+            <Form.Floating className="mb-3">
+              <Form.Control
+                className={styles.a}
+                id="user"
+                type="username"
+                placeholder="Digite seu usuário"
+              />
+            </Form.Floating>
+          </div>
+        </div>
+        </div> */}
 
         <div className={styles.bluelabelinput2}>
           <div className={styles.ff}>
@@ -121,72 +139,77 @@ function CadastroComponents() {
           </div>
         </div>
 
-        <div className={styles.bluelabelinput3}>
-          <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              Numero
-            </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
-              />
-            </Form.Floating>
+        <div className={styles.inlineInputs}>
+          <div className={styles.bluelabelinput3}>
+            <div className={styles.ff}>
+              <label className={styles.label} htmlFor="senha">
+                Numero
+              </label>
+              <Form.Floating className="mb-3">
+                <Form.Control
+                  className={styles.a}
+                  id="senha"
+                  type="password"
+                  placeholder="Digite sua senha"
+                />
+              </Form.Floating>
+            </div>
+          </div>
+
+          <div className={styles.bluelabelinput3}>
+            <div className={styles.ff}>
+              <label className={styles.label} htmlFor="senha">
+                Complemento
+              </label>
+              <Form.Floating className="mb-3">
+                <Form.Control
+                  className={styles.a}
+                  id="senha"
+                  type="password"
+                  placeholder="Digite sua senha"
+                />
+              </Form.Floating>
+            </div>
           </div>
         </div>
 
-        <div className={styles.bluelabelinput3}>
-          <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              Complemento
-            </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
-              />
-            </Form.Floating>
+        <div className={styles.inlineInputs}>
+          <div className={styles.bluelabelinput3}>
+            <div className={styles.ff}>
+              <label className={styles.label} htmlFor="senha">
+                Senha
+              </label>
+              <Form.Floating className="mb-3">
+                <Form.Control
+                  className={styles.a}
+                  id="senha"
+                  type="password"
+                  placeholder="Digite sua senha"
+                />
+              </Form.Floating>
+            </div>
+          </div>
+
+          <div className={styles.bluelabelinput3}>
+            <div className={styles.ff}>
+              <label className={styles.label} htmlFor="senha">
+                Confirme sua senha
+              </label>
+              <Form.Floating className="mb-3">
+                <Form.Control
+                  className={styles.a}
+                  id="senha"
+                  type="password"
+                  placeholder="Digite sua senha"
+                />
+              </Form.Floating>
+            </div>
           </div>
         </div>
 
-        <div className={styles.bluelabelinput2}>
-          <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              Senha
-            </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
-              />
-            </Form.Floating>
-          </div>
-        </div>
-
-        <div className={styles.bluelabelinput2}>
-          <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              Confirme sua senha
-            </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="senha"
-                type="password"
-                placeholder="Digite sua senha"
-              />
-            </Form.Floating>
-          </div>
-        </div>
-        <Button className={styles.red}>Entrar</Button>
-        <Link to="/page2" className={styles.linka}>
-          <Button className={styles.link}>Cadastre-se aqui</Button>
+        <Button className={styles.red}>Feito!</Button>
+        <Link to="/" className={styles.linka}>
+          <Button className={styles.link}>Faça login aqui</Button>
         </Link>
       </div>
     </div>

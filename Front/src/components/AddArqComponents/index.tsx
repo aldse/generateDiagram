@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useRef } from "react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
 import image from "../../assets/image1.png";
@@ -53,12 +53,18 @@ function AddArqComponents() {
     }
   };
 
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const toggleModal = () => {
+    setIsModalVisible(wasModalVisible => !wasModalVisible)
+  }
   return (
     <>
       <div className={styles.container}>
         <div className={styles.centerimg}>
           <Image src={bosch} className={styles.im} alt="Logo cima" />
         </div>
+        <Button>Modal</Button>
+        <BaseModalWrapper/>
       </div>
       <div className={styles.container2}>
         <div className={styles.aling}>

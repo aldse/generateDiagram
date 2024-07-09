@@ -1,6 +1,5 @@
 import "./App.css";
 
-import SingleFileUploader from "./components/UploadComponents/SingleFileUploader";
 
 function App() {
   return (
@@ -8,7 +7,7 @@ function App() {
       <h1>React File Upload</h1>
 
       <h2>Single File Upload</h2>
-      <SingleFileUploader />
+
 
 
 
