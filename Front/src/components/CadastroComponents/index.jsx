@@ -26,27 +26,31 @@ function CadastroComponents() {
 
 
   const navigate = useNavigate();
-  
-    const fetchAddressByCep = async (cep) => {
-      try {
-        const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-        const data = response.data;
-  
-        if (!data.erro) {
-          setStreet(data.logradouro);
-        } else {
-          alert("CEP não encontrado. Verifique o CEP informado.");
-        }
-      } catch (error) {
-        console.error("Erro ao buscar o CEP:", error);
-      }
-    };
-  
-    useEffect(() => {
-      setStreet("");
-    }, [cpf]);
 
-    
+  const fetchAddressByCep = async (cep) => {
+    try {
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      const data = response.data;
+
+      if (!data.erro) {
+        setStreet(data.logradouro);
+      } else {
+        alert("CEP não encontrado. Verifique o CEP informado.");
+      }
+    } catch (error) {
+      console.error("Erro ao buscar o CEP:", error);
+    }
+  };
+
+  useEffect(() => {
+    setStreet("");
+  }, [cep]);
+
+  const handleBlur = (e) => {
+    fetchAddressByCep(e.target.value);
+  };
+
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -166,7 +170,7 @@ function CadastroComponents() {
         </div>
 
         <div className={styles.inlineInputs}>
-        <div className={styles.bluelabelinput3}>
+          <div className={styles.bluelabelinput3}>
             <div className={styles.ff}>
               <label className={styles.label} htmlFor="cep">
                 CEP
@@ -180,12 +184,13 @@ function CadastroComponents() {
                   value={cep}
                   onChange={(e) => {
                     setCep(e.target.value);
-                    fetchAddressByCep(e.target.value);
                   }}
+                  onBlur={handleBlur}
                 />
               </Form.Floating>
             </div>
           </div>
+
 
           <div className={styles.bluelabelinput3}>
             <div className={styles.ff}>
