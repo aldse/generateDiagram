@@ -1,17 +1,20 @@
 import "./App.css";
-
+import { useState } from "react";
+import BaseModalWrapper from "./components/ModalPopUp/BaseModalWrapper";
 
 function App() {
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const toggleModal = () => {
+    setIsModalVisible(wasModalVisible => !wasModalVisible)
+  }
+
   return (
     <>
-      <h1>React File Upload</h1>
-
-      <h2>Single File Upload</h2>
-
-
-
-
-      <p className="read-the-docs">This app is built with Vite and React.</p>
+     <div className="App">
+        <button>SHOW MODAL</button>
+        <BaseModalWrapper isModalVisible={isModalVisible} onBackdropClick={toggleModal}/>
+     </div>
     </>
   );
 }

@@ -125,7 +125,7 @@ function CadastroComponents() {
           <div className={styles.bluelabelinput3}>
             <div className={styles.ff}>
               <label className={styles.label} htmlFor="rua">
-                Rua
+              Número
               </label>
               <Form.Floating className="mb-3">
                 <Form.Control
@@ -138,12 +138,10 @@ function CadastroComponents() {
             </div>
           </div>
         </div>
-
-        <div className={styles.inlineInputs}>
-          <div className={styles.bluelabelinput3}>
+          <div className={styles.bluelabelinput5}>
             <div className={styles.ff}>
               <label className={styles.label} htmlFor="senha">
-                Numero
+                Rua
               </label>
               <Form.Floating className="mb-3">
                 <Form.Control
@@ -155,23 +153,7 @@ function CadastroComponents() {
               </Form.Floating>
             </div>
           </div>
-
-          <div className={styles.bluelabelinput3}>
-            <div className={styles.ff}>
-              <label className={styles.label} htmlFor="senha">
-                Complemento
-              </label>
-              <Form.Floating className="mb-3">
-                <Form.Control
-                  className={styles.a}
-                  id="senha"
-                  type="password"
-                  placeholder="Digite sua senha"
-                />
-              </Form.Floating>
-            </div>
-          </div>
-        </div>
+     
 
         <div className={styles.inlineInputs}>
           <div className={styles.bluelabelinput3}>
