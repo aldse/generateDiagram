@@ -3,6 +3,7 @@ import ReactDOM  from "react-dom";
 
 interface ModalProps{
     onBackdropClick: () => void;
+    children?: React.ReactNode; 
 }
 
 const Modal : React.FC<ModalProps> = ({onBackdropClick, children}) => {

@@ -8,6 +8,7 @@ import image from "../../assets/image1.png";
 import add from "../../assets/add.png";
 import but from "../../assets/but.png";
 import JSZip from "jszip";
+import BaseModalWrapper from "../ModalPopUp/BaseModalWrapper";
 
 function AddArqComponents() {
   const fileInputRef = useRef<HTMLInputElement>(null);
