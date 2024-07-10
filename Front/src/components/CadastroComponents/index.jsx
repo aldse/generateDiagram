@@ -44,9 +44,9 @@ function CadastroComponents() {
   
     useEffect(() => {
       setStreet("");
-      setNumber("");
-      setComplement("");
     }, [cpf]);
+
+    
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -69,6 +69,7 @@ function CadastroComponents() {
         password,
         confirmPassword
       });
+      console.log("Dados:", response)
       console.log("Create register!")
       navigate("/");
     } catch (error) {
