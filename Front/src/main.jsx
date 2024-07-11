@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import  Home  from "./pages/Home";
 import  AddArq  from "./pages/AddArq";
+import  TestJ  from "./pages/Teste";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Cadastro from "./pages/Cadastro/index.jsx";
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/page2",
     element: <AddArq />,
+  },
+  {
+    path: "/test",
+    element: <TestJ />,
   },
 ]);
 

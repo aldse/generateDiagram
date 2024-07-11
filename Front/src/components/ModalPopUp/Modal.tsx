@@ -8,7 +8,7 @@ interface ModalProps{
 
 const Modal : React.FC<ModalProps> = ({onBackdropClick, children}) => {
     return ReactDOM.createPortal(<div onClick={onBackdropClick}>
-        <span>Eu sou modal</span>
+        {children}
     </div>, document.getElementById('modal-root')!);
 }
 

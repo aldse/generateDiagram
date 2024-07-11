@@ -11,4 +11,16 @@ const ModalContainer = styled.div`
 export const DekstopModalContainer = styled(ModalContainer)`
     border-radius: 7px;
     box-shadow: 0 0 32px rgba(0,0,0,0,5);
+    padding: 40px;
+    width: 450px;
+    font-size:26px;
+`;
+
+export const Header = styled.h3`
+    color: white;
+    font-size:35px;
+    line-heigth: 1em;
+    font-weigth: 300;
+    margin: 5px 0 10px;
+    text-align: center;
 `;

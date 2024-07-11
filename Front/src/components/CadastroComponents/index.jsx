@@ -172,7 +172,7 @@ function CadastroComponents() {
         <div className={styles.inlineInputs}>
           <div className={styles.bluelabelinput3}>
             <div className={styles.ff}>
-              <label className={styles.label} htmlFor="cep">
+              <label className={styles.label1} htmlFor="cep">
                 CEP
               </label>
               <Form.Floating className="mb-3">

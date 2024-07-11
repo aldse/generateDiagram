@@ -1,32 +1,28 @@
 import React, { useCallback, useState, useRef } from "react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
-import { Button, Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
 import image from "../../assets/image1.png";
 import add from "../../assets/add.png";
 import but from "../../assets/but.png";
-import JSZip from "jszip";
 import BaseModalWrapper from "../ModalPopUp/BaseModalWrapper";
+import Button from "react-bootstrap/Button";
+
 
 function AddArqComponents() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
-  const [status, setStatus] = useState<
-    "initial" | "uploading" | "success" | "fail"
-  >("initial");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setStatus("initial");
       setFile(e.target.files[0]);
     }
   };
 
   const handleUpload = async () => {
     if (file) {
-      setStatus("uploading");
 
       const formData = new FormData();
       formData.append("file", file);
@@ -40,10 +36,8 @@ function AddArqComponents() {
         const data = await result.json();
 
         console.log(data);
-        setStatus("success");
       } catch (error) {
         console.error(error);
-        setStatus("fail");
       }
     }
   };
@@ -56,16 +50,18 @@ function AddArqComponents() {
 
   const [isModalVisible, setIsModalVisible] = useState(false)
   const toggleModal = () => {
+    console.log("to aqui");
     setIsModalVisible(wasModalVisible => !wasModalVisible)
   }
+    
   return (
     <>
       <div className={styles.container}>
         <div className={styles.centerimg}>
           <Image src={bosch} className={styles.im} alt="Logo cima" />
         </div>
-        <Button>Modal</Button>
-        <BaseModalWrapper/>
+        <Button onClick={toggleModal}>SHOW MODAL</Button>
+        <BaseModalWrapper isModalVisible={isModalVisible} onBackdropClick={toggleModal}/>
       </div>
       <div className={styles.container2}>
         <div className={styles.aling}>

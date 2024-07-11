@@ -12,7 +12,7 @@ function App() {
   return (
     <>
      <div className="App">
-        <button>SHOW MODAL</button>
+        <button onClick={toggleModal}>SHOW MODAL</button>
         <BaseModalWrapper isModalVisible={isModalVisible} onBackdropClick={toggleModal}/>
      </div>
     </>

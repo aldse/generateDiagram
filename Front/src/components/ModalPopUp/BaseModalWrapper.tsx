@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
+import { DekstopModalContainer, Header } from './ModalPopup.styles';
 
 interface BaseModalWrapperProps {
     isModalVisible: boolean;
@@ -11,7 +12,11 @@ const BaseModalWrapper: React.FC<BaseModalWrapperProps> = ({onBackdropClick, isM
         return null
     }
     
-    return (<Modal onBackdropClick={onBackdropClick} />);
+    return (<Modal onBackdropClick={onBackdropClick} >
+        <DekstopModalContainer>
+            <Header> O modal parceiro</Header>
+        </DekstopModalContainer>
+    </Modal>);
 }
 
 export default BaseModalWrapper
