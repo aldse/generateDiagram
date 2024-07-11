@@ -20,7 +20,7 @@ function CadastroComponents() {
   const [cep, setCep] = useState("");
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
-  const [complement, setComplement] = useState("");
+  const [complement, setComplement] = useState("ji");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -191,27 +191,6 @@ function CadastroComponents() {
             </div>
           </div>
 
-
-          <div className={styles.bluelabelinput3}>
-            <div className={styles.ff}>
-              <label className={styles.label} htmlFor="rua">
-                Rua
-              </label>
-              <Form.Floating className="mb-3">
-                <Form.Control
-                  className={styles.a}
-                  id="street"
-                  type="text"
-                  placeholder="Digite sua rua"
-                  value={street}
-                  onChange={(e) => setStreet(e.target.value)}
-                />
-              </Form.Floating>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.inlineInputs}>
           <div className={styles.bluelabelinput3}>
             <div className={styles.ff}>
               <label className={styles.label} htmlFor="numero">
@@ -229,27 +208,28 @@ function CadastroComponents() {
               </Form.Floating>
             </div>
           </div>
+        </div>
 
-          <div className={styles.bluelabelinput3}>
+          <div className={styles.bluelabelinput5}>
             <div className={styles.ff}>
-              <label className={styles.label} htmlFor="complemento">
-                Complemento
+              <label className={styles.label} htmlFor="rua">
+                Rua
               </label>
               <Form.Floating className="mb-3">
                 <Form.Control
                   className={styles.a}
-                  id="complement"
+                  id="street"
                   type="text"
-                  placeholder="Digite seu complemento"
-                  value={complement}
-                  onChange={(e) => setComplement(e.target.value)}
+                  placeholder="Digite sua rua"
+                  value={street}
+                  onChange={(e) => setStreet(e.target.value)}
                 />
               </Form.Floating>
             </div>
           </div>
-        </div>
 
-        <div className={styles.bluelabelinput2}>
+        <div className={styles.inlineInputs}>
+        <div className={styles.bluelabelinput3}>
           <div className={styles.ff}>
             <label className={styles.label} htmlFor="senha">
               Senha
@@ -267,7 +247,7 @@ function CadastroComponents() {
           </div>
         </div>
 
-        <div className={styles.bluelabelinput2}>
+        <div className={styles.bluelabelinput3}>
           <div className={styles.ff}>
             <label className={styles.label} htmlFor="senha">
               Confirme sua senha
@@ -283,6 +263,7 @@ function CadastroComponents() {
               />
             </Form.Floating>
           </div>
+        </div>
         </div>
 
 
