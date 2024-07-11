@@ -73,8 +73,7 @@ function CadastroComponents() {
         password,
         confirmPassword
       });
-      console.log("Dados:", response)
-      console.log("Create register!")
+      console.log("Create register!");
       navigate("/");
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
