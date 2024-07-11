@@ -14,9 +14,17 @@ const BaseModalWrapper: React.FC<BaseModalWrapperProps> = ({onBackdropClick, isM
     
     return (<Modal onBackdropClick={onBackdropClick} >
         <DekstopModalContainer>
-            <Header> O modal parceiro</Header>
+            <Header>Nome: </Header>
+            <Header>Email:</Header>
+            <Header>Cpf: </Header>
+            <Header>Edv:</Header>
+            <Header>CEP:</Header>
+            <Header>Rua:</Header>
+            <Header>Número:</Header>
+            <Header>Senha:</Header>
         </DekstopModalContainer>
     </Modal>);
 }
 
 export default BaseModalWrapper
+

@@ -60,8 +60,10 @@ function AddArqComponents() {
         <div className={styles.centerimg}>
           <Image src={bosch} className={styles.im} alt="Logo cima" />
         </div>
+        <div>
         <Button onClick={toggleModal}>SHOW MODAL</Button>
         <BaseModalWrapper isModalVisible={isModalVisible} onBackdropClick={toggleModal}/>
+        </div>
       </div>
       <div className={styles.container2}>
         <div className={styles.aling}>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ModalContainer = styled.div`
-    background-color: black;
+    background-color: #367aa7;
     display: flex;
     flex-direction: column;
     align-itens: center;
@@ -11,16 +11,18 @@ const ModalContainer = styled.div`
 export const DekstopModalContainer = styled(ModalContainer)`
     border-radius: 7px;
     box-shadow: 0 0 32px rgba(0,0,0,0,5);
-    padding: 40px;
-    width: 450px;
+    padding: 25px;
+    width: 350px;
     font-size:26px;
 `;
 
 export const Header = styled.h3`
+    font-family: "Kantumruy Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     color: white;
-    font-size:35px;
+    font-size:20px;
     line-heigth: 1em;
     font-weigth: 300;
-    margin: 5px 0 10px;
-    text-align: center;
+    margin: 3px 0 6px;
 `;
