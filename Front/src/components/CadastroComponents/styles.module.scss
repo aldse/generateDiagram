@@ -63,11 +63,28 @@
   color: white;
   font-size: 400%;
   padding: 0;
-  margin-top: 0;
+  margin-top: 2%;
 }
 
 .bluelabelinput1 {
   margin-top: 5%;
+}
+
+.bluelabelinput5 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  width: 60%;
+  height: 4%;
+  margin-bottom: 2%;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: -0.6%;
+  padding: 2.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .bluelabelinput1,
@@ -76,8 +93,8 @@
   font-optical-sizing: auto;
   font-weight: 450;
   width: 60%;
-  height: 5%;
-  margin-bottom: 3%;
+  height: 4%;
+  margin-bottom: 2%;
   background-color: white;
   border-radius: 10px;
   padding: 2.5%;
@@ -90,22 +107,34 @@
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-weight: 450;
-  width: calc(42.5%);
+  width: calc(43.5%);
   margin-bottom: 3%;
   background-color: white;
   border-radius: 10px;
   padding: 2.5%;
   display: flex;
-  height:75%;
+  height: 55%;
+}
 
+.bluelabelinput4 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  width: calc(100%);
+  margin-bottom: 3%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2.5%;
+  display: flex;
+  height: 55%;
 }
 
 .inlineInputs {
   display: flex;
-  justify-content: space-between; /* Para espaçamento entre os elementos */
-  width: 65%; /* Garante que ocupe toda a largura disponível */
-  margin-bottom: 3%; /* Espaçamento inferior entre os grupos de inputs */
-height:10%;
+  justify-content: space-between; 
+  width: 65%; 
+  margin-bottom: -0.5%; 
+  height: 10%;
 }
 
 .bluelabelinput1 label,
@@ -152,13 +181,16 @@ height:10%;
   font-optical-sizing: auto;
   font-weight: 500;
   width: 100%;
-  height: 150%;
+  height: 120%;
   border: none;
-  font-size: 100%;
+  font-size: 90%;
+  margin-left: -2%;
 }
 
 .label {
-  font-size: 120%;
+  margin-top: -2%;
+  margin-left: -2%;
+  font-size: 110%;
 }
 
 @keyframes pulse {
@@ -166,11 +198,16 @@ height:10%;
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1);
   }
   100% {
     transform: scale(1);
   }
+}
+
+.red:hover{
+  // animation: pulse 1s;
+  animation: transform(1);
 }
 
 .red {
@@ -185,22 +222,21 @@ height:10%;
   color: white;
   border: none;
   border-radius: 20px;
-  animation: pulse 1s infinite;
 }
 
 @keyframes pulse {
   0% {
-    transform: scale(1);
+    transform: scale(0.5);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(0.5);
   }
   100% {
-    transform: scale(1);
+    transform: scale(0.5);
   }
 }
 
-.linka{
+.linka {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -331,7 +367,6 @@ height:10%;
   }
 }
 
-
 @media only screen and (max-width: 780px) {
   .white {
     width: 50%;
@@ -369,7 +404,7 @@ height:10%;
   }
 
   .blue {
-    height:40%;
+    height: 40%;
     width: 100%;
   }
 
@@ -397,7 +432,7 @@ height:10%;
   .bluelabelinput2 {
     width: 50%;
     height: 10%;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
     padding: 3%;
   }
 
@@ -428,7 +463,7 @@ height:10%;
   }
 
   .blue {
-    height:40%;
+    height: 40%;
     width: 100%;
   }
 
@@ -480,13 +515,11 @@ height:10%;
   }
 }
 
-
 @media only screen and (max-width: 380px) {
   .bluelabelinput1,
   .bluelabelinput2 {
     height: 15%;
   }
-
 
   .link {
     font-size: 70%;

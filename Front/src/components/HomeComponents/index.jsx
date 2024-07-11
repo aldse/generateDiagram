@@ -5,7 +5,7 @@ import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function HomeComponents() {
   return (
@@ -54,7 +54,7 @@ function HomeComponents() {
         </div>
         <Button className={styles.red}>Entrar</Button>
         <Link to="/page1" className={styles.linka}>
-        <Button className={styles.link}>Cadastre-se aqui</Button>
+          <Button className={styles.link}>Cadastre-se aqui</Button>
         </Link>
       </div>
     </div>
