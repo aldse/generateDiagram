@@ -14,13 +14,11 @@ function CadastroComponents() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [dateBirth, setDateBirth] = useState("1999-05-11");
   const [cpf, setCpf] = useState("");
   const [edv, setEdv] = useState("");
   const [cep, setCep] = useState("");
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
-  const [complement, setComplement] = useState("ji");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -63,13 +61,11 @@ function CadastroComponents() {
       const response = await generateDiagram.post("/user/register", {
         name,
         email,
-        dateBirth,
         cpf,
         edv,
         cep,
         street,
         number,
-        complement,
         password,
         confirmPassword
       });
