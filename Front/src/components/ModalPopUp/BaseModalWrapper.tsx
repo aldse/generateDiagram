@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "./Modal";
 import {
   Botao,
@@ -10,11 +10,26 @@ import {
   Titulo,
   VAMBORA,
 } from "./ModalPopup.styles";
+import { generateDiagram } from "../../api/genereateDiagram";
+import { useNavigate } from "react-router-dom";
+
 
 interface BaseModalWrapperProps {
   isModalVisible: boolean;
   onBackdropClick: () => void;
 }
+
+const navigate = useNavigate();
+const response = await generateDiagram.get("/user/", {
+  name,
+  email,
+  cpf, 
+  edv,
+  cep,
+  street, 
+  number,
+  password
+});
 
 const BaseModalWrapper: React.FC<BaseModalWrapperProps> = ({
   onBackdropClick,
@@ -28,15 +43,15 @@ const BaseModalWrapper: React.FC<BaseModalWrapperProps> = ({
     <Modal onBackdropClick={onBackdropClick}>
       <DekstopModalContainer>
         <VAMBORA>
-          <Titulo>PERFIL </Titulo>
-          <Header>Nome: </Header>
-          <Header>Email:</Header>
-          <Header>Cpf: </Header>
-          <Header>EDV:</Header>
-          <Header>Cep:</Header>
-          <Header>Rua:</Header>
-          <Header>Número:</Header>
-          <Header>Senha:</Header>
+          <Titulo>PERFIL</Titulo>
+          <Header>Nome: {name}</Header>
+          <Header>Email: {email}</Header>
+          <Header>Cpf: {cpf}</Header>
+          <Header>EDV: {edv}</Header>
+          <Header>Cep: {cep}</Header>
+          <Header>Rua: {street}</Header>
+          <Header>Número: {number}</Header>
+          <Header>Senha: {password}</Header>
           <Centralizar>
             <Botao1>Editar Perfil</Botao1>
             <Botao2>Excluir Perfil</Botao2>
