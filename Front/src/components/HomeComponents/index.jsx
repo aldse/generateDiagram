@@ -21,14 +21,14 @@ function HomeComponents() {
     try {
       const response = await generateDiagram.post("/user/login", {
         edv,
-        password
+        password,
       });
       console.log("Login successful!");
       navigate("/page2");
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
     }
-  }
+  };
 
   return (
     <div className={styles.container}>
@@ -78,7 +78,9 @@ function HomeComponents() {
             </Form.Floating>
           </div>
         </div>
-        <Button className={styles.red} onClick={handleSubmit}>Entrar</Button>
+        <Button className={styles.red} onClick={handleSubmit}>
+          Entrar
+        </Button>
         <Link to="/page1" className={styles.linka}>
           <Button className={styles.link}>Cadastre-se aqui</Button>
         </Link>

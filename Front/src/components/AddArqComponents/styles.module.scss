@@ -1,4 +1,4 @@
-body{
+body {
   overflow: hidden;
   margin: 0%;
 }
@@ -19,7 +19,7 @@ body{
   height: 95vh;
   overflow: hidden;
   background-color: #5a92b7;
-
+  z-index: 1;
   @media (max-width: 900px) {
     height: 90vh;
   }
@@ -186,9 +186,9 @@ body{
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 90%;
+  z-index: 1;
   position: absolute;
-  bottom: 0%;
   left: 0;
   padding: 0;
   margin: 0;
@@ -307,7 +307,6 @@ body{
     width: 60%;
     left: -5%;
     position: relative;
-
   }
 
   @media (max-width: 900px) {
@@ -320,7 +319,7 @@ body{
 
 .p {
   position: absolute;
-  top: 67.9%;
+  top: 69.9%;
   margin: 0;
   color: #ffffff;
   font-size: 150%;
@@ -360,6 +359,17 @@ body{
   }
 }
 
+.butao{
+  position: absolute;
+  top: 10px; 
+  right: 10px; 
+  z-index: 1000; 
+  background-color: #5a92b7;
+  padding: 10px;
+}
+.vem {
+  z-index: 1000;
+}
 .p:hover {
   color: #5a92b7;
 
@@ -381,7 +391,7 @@ body{
     top: 37%;
     margin-left: 14%;
   }
-  
+
   @media (max-width: 1590px) {
     width: 11.7%;
     height: 24.7%;
@@ -473,7 +483,6 @@ body{
     margin-left: 13.5%;
   }
 
-
   @media (max-width: 900px) {
     width: 18%;
     height: 20%;
@@ -497,7 +506,7 @@ body{
     top: 36%;
     margin-left: 15%;
   }
-  
+
   @media (max-width: 1560px) {
     width: 10.7%;
     height: 23.7%;

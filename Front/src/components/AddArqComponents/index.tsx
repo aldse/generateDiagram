@@ -61,9 +61,11 @@ function AddArqComponents() {
           <Image src={bosch} className={styles.im} alt="Logo cima" />
         </div>
         <div>
-        <Button onClick={toggleModal}>SHOW MODAL</Button>
-        <BaseModalWrapper isModalVisible={isModalVisible} onBackdropClick={toggleModal}/>
         </div>
+      </div>
+      <div className={styles.butao}>
+        <Button className={styles.vem} onClick={toggleModal}>Perfil</Button>
+        <BaseModalWrapper isModalVisible={isModalVisible} onBackdropClick={toggleModal}/>
       </div>
       <div className={styles.container2}>
         <div className={styles.aling}>
