@@ -23,6 +23,10 @@ function HomeComponents() {
         edv,
         password,
       });
+      const data = response.data; 
+      
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('userId', data.userId);
       console.log("Login successful!");
       navigate("/page2");
     } catch (error) {
