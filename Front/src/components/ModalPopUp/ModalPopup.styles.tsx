@@ -48,7 +48,7 @@ export const Titulo = styled.h3`
   
 `;
 
-export const VAMBORA = styled.h3`
+export const VAMBORA = styled.div`
     display: flex;
     flex-direction: column;
     background: white;

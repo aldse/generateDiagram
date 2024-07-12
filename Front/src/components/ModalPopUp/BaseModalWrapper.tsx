@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import Modal from "./Modal";
 import {
   Botao,
@@ -10,7 +10,7 @@ import {
   Titulo,
   VAMBORA,
 } from "./ModalPopup.styles";
-import { generateDiagram } from "../../api/genereateDiagram";
+import { generateDiagram } from "../../api/genereateDiagram2";
 import { useNavigate } from "react-router-dom";
 
 
@@ -19,25 +19,43 @@ interface BaseModalWrapperProps {
   onBackdropClick: () => void;
 }
 
-const navigate = useNavigate();
-const response = await generateDiagram.get("/user/", {
-  name,
-  email,
-  cpf, 
-  edv,
-  cep,
-  street, 
-  number,
-  password
-});
-
 const BaseModalWrapper: React.FC<BaseModalWrapperProps> = ({
   onBackdropClick,
   isModalVisible,
 }) => {
+  const [userData, setUserData] =useState<any>({
+    name: "",
+    email: "",
+    cpf: "",
+    edv: "",
+    cep: "",
+    street: "",
+    number: "",
+    password: "",
+  });
+  
+  const navigate = useNavigate();
+
+   useEffect(() => {
+    if (isModalVisible) {
+      fetchData(); 
+    }
+  }, [isModalVisible]); 
+
+  const fetchData = async () => {
+    try {
+      const response = await generateDiagram.get("/user/");
+      setUserData(response.data); 
+    } catch (error) {
+      console.error("Erro ao buscar dados do usuário:", error);
+    }
+  };
+
   if (!isModalVisible) {
     return null;
   }
+
+  const { name, email, cpf, edv, cep, street, number, password } = userData;
 
   return (
     <Modal onBackdropClick={onBackdropClick}>
@@ -56,7 +74,7 @@ const BaseModalWrapper: React.FC<BaseModalWrapperProps> = ({
             <Botao1>Editar Perfil</Botao1>
             <Botao2>Excluir Perfil</Botao2>
           </Centralizar>
-          <Botao>Sair</Botao>
+          <Botao onClick={() => navigate("/logout")}>Sair</Botao>
         </VAMBORA>
       </DekstopModalContainer>
     </Modal>
