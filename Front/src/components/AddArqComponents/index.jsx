@@ -5,6 +5,7 @@ import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
 import image from "../../assets/image1.png";
+import perfil from "../../assets/icone.png";
 import add from "../../assets/add.png";
 import but from "../../assets/but.png";
 import BaseModalWrapper from "../ModalPopUp/BaseModalWrapper";
@@ -60,7 +61,7 @@ function AddArqComponents() {
       </div>
       <div className={styles.butao}>
         <Button className={styles.vem} onClick={toggleModal}>
-          Perfil
+        <Image src={perfil} className={styles.perfil} alt="Perfil" />
         </Button>
         <BaseModalWrapper
           isModalVisible={isModalVisible}
