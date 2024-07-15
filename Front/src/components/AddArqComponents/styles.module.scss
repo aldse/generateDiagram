@@ -21,10 +21,12 @@ body {
   height: 10%;
   display: flex;
   justify-content: flex-end;
+  width: 65px;
+
 }
 
 .perfil{
-  width: 10%;
+  width: 100%;
 }
 
 .container2 {
@@ -213,7 +215,6 @@ body {
 
 .im2 {
   width: 70%;
-
   @media (max-width: 1500px) {
     width: 80%;
   }
