@@ -28,7 +28,7 @@ function HomeComponents() {
       localStorage.setItem('token', data.token);
       localStorage.setItem('userId', data.userId);
       console.log("Login successful!");
-      navigate("/page2");
+      navigate("/home");
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
     }
@@ -85,7 +85,7 @@ function HomeComponents() {
         <Button className={styles.red} onClick={handleSubmit}>
           Entrar
         </Button>
-        <Link to="/page1" className={styles.linka}>
+        <Link to="/cadastro" className={styles.linka}>
           <Button className={styles.link}>Cadastre-se aqui</Button>
         </Link>
       </div>

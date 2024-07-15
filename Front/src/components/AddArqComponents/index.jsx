@@ -25,8 +25,6 @@ function AddArqComponents() {
     if (file) {
       const formData = new FormData();
       formData.append("file", file);
-
-      console.log("ADD")
       try {
         const result = await fetch("https://httpbin.org/post", {
           method: "POST",
