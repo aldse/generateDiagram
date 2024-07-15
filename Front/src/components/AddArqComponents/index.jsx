@@ -10,12 +10,11 @@ import but from "../../assets/but.png";
 import BaseModalWrapper from "../ModalPopUp/BaseModalWrapper";
 import Button from "react-bootstrap/Button";
 
-
 function AddArqComponents() {
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [file, setFile] = useState<File | null>(null);
+  const fileInputRef = useRef(null);
+  const [file, setFile] = useState(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e) => {
     if (e.target.files) {
       setFile(e.target.files[0]);
     }
@@ -23,10 +22,10 @@ function AddArqComponents() {
 
   const handleUpload = async () => {
     if (file) {
-
       const formData = new FormData();
       formData.append("file", file);
 
+      console.log("ADD")
       try {
         const result = await fetch("https://httpbin.org/post", {
           method: "POST",
@@ -48,24 +47,27 @@ function AddArqComponents() {
     }
   };
 
-  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const toggleModal = () => {
-    console.log("to aqui");
-    setIsModalVisible(wasModalVisible => !wasModalVisible)
-  }
-    
+    setIsModalVisible((wasModalVisible) => !wasModalVisible);
+  };
+
   return (
     <>
       <div className={styles.container}>
         <div className={styles.centerimg}>
           <Image src={bosch} className={styles.im} alt="Logo cima" />
         </div>
-        <div>
-        </div>
+        <div></div>
       </div>
       <div className={styles.butao}>
-        <Button className={styles.vem} onClick={toggleModal}>Perfil</Button>
-        <BaseModalWrapper isModalVisible={isModalVisible} onBackdropClick={toggleModal}/>
+        <Button className={styles.vem} onClick={toggleModal}>
+          Perfil
+        </Button>
+        <BaseModalWrapper
+          isModalVisible={isModalVisible}
+          onBackdropClick={toggleModal}
+        />
       </div>
       <div className={styles.container2}>
         <div className={styles.aling}>
@@ -93,7 +95,12 @@ function AddArqComponents() {
                 onChange={handleFileChange}
                 style={{ display: "none" }}
               />
-              <Image src={add} alt=" botao" className={styles.im4} onClick={handleImageClick}/>
+              <Image
+                src={add}
+                alt=" botao"
+                className={styles.im4}
+                onClick={handleImageClick}
+              />
             </div>
             <Image
               src={image}
