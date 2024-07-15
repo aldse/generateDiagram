@@ -14,14 +14,15 @@ export const DekstopModalContainer = styled(ModalContainer)`
   height: 105vh;
   position: absolute;
   top: -2%;
-  background: rgba(0, 0, 0, 0.1);
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: flex-end;
   flex-shrink: 0;
 `;
 
 export const Header = styled.h3`
-font-family: "Noto Sans JP", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 500;
@@ -31,10 +32,11 @@ font-family: "Noto Sans JP", sans-serif;
   margin: 0px 0 5px;
   display: flex;
   align-items: center;
+  word-break: break-word; /* Quebra palavras longas */
 `;
 
 export const Titulo = styled.h3`
- font-family: "Alegreya Sans", sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
   font-weight: 700;
   font-style: normal;
   color: #367aa7;
@@ -44,6 +46,7 @@ export const Titulo = styled.h3`
   display: flex;
   align-items: center;
   justify-content: center; 
+  word-break: break-word; /* Quebra palavras longas */
 `;
 
 export const VAMBORA = styled.div`
@@ -54,10 +57,11 @@ export const VAMBORA = styled.div`
   height: 100%;
   padding: 1.5rem;
   position: relative;
+  overflow: auto; /* Garante que o conteúdo não saia do modal */
 `;
 
 export const Botao = styled.button`
- font-family: "Alegreya Sans", sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-style: normal;
   background-color: #367aa7;
@@ -74,7 +78,7 @@ export const Botao = styled.button`
 `;
 
 export const Botao1 = styled.button`
- font-family: "Alegreya Sans", sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-style: normal;
   background-color: orange;
@@ -88,7 +92,7 @@ export const Botao1 = styled.button`
 `;
 
 export const Botao2 = styled.button`
- font-family: "Alegreya Sans", sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-style: normal;
   background-color: red;
@@ -109,14 +113,14 @@ export const Centralizar = styled.div`
 
 export const Input = styled.input`
   border-color: #367aa7;
-  border: 1;
-  margin-left: 2%
+  border: 1px solid;
+  margin-left: 2%;
 `;
 
 export const Diva = styled.div`
- width: 20%;
+  width: 80%;
 `;
 
 export const Dive = styled.div`
- width: 90%;
+  width: 90%;
 `;

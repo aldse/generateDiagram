@@ -10,7 +10,7 @@ const Modal = ({ onBackdropClick, children }) => {
     <div 
       onClick={onBackdropClick} 
       style={{
-        zIndex: 9999
+ zIndex: 9999,
       }}
     >
       <div 
@@ -20,7 +20,7 @@ const Modal = ({ onBackdropClick, children }) => {
           padding: '20px',
           borderRadius: '10px',
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          maxWidth: '90%',
+          maxWidth: '100%',
           maxHeight: '90%',
           overflow: 'auto',
         }}
@@ -33,3 +33,5 @@ const Modal = ({ onBackdropClick, children }) => {
 };
 
 export default Modal;
+
+
