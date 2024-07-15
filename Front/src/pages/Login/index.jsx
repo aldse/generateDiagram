@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import HomeComponents from "../../components/HomeComponents";
+import LoginComponents from "../../components/LoginComponents";
 import React from 'react';
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
       <Col>
         <Row >
           <Col xs={12} sm={8} md={4}>
-            <HomeComponents/>
+            <LoginComponents/>
           </Col>
         </Row>
       </Col>

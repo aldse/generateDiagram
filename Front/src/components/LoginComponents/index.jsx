@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
 
-function HomeComponents() {
+function LoginComponents() {
   const [edv, setEdv] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,6 +27,7 @@ function HomeComponents() {
       
       localStorage.setItem('token', data.token);
       localStorage.setItem('userId', data.userId);
+      // login(data.token);
       console.log("Login successful!");
       navigate("/home");
     } catch (error) {
@@ -93,4 +94,4 @@ function HomeComponents() {
   );
 }
 
-export default HomeComponents;
+export default LoginComponents;
