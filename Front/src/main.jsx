@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import  Home  from "./pages/Home";
-import  AddArq  from "./pages/AddArq";
-import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Cadastro from "./pages/Cadastro/index.jsx";
+import { AuthProvider } from "./context/authContext";
+import Login from "./pages/Login";
+import AddArq from "./pages/AddArq";
+import Cadastro from "./pages/Cadastro";
+import ProtectedRoute from "./components/ProtectedRoutes/protectedRoute";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Login />,
   },
   {
     path: "/cadastro",
@@ -17,14 +19,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    element: <AddArq />,
-  },
-
+    element: <ProtectedRoute element={<AddArq />} />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <>
-        <RouterProvider router={router}/>
-       
-  </>
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
 );
