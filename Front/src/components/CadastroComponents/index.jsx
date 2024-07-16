@@ -263,8 +263,8 @@ function CadastroComponents() {
 
 
         <Button className={styles.red} onClick={handleSubmit}>Entrar</Button>
-        <Link to="/page2" className={styles.linka}>
-          <Button className={styles.link}>Cadastre-se aqui</Button>
+        <Link to="/" className={styles.linka}>
+          <Button className={styles.link}>Login</Button>
         </Link>
       </div>
     </div>

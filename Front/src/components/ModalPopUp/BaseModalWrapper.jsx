@@ -135,9 +135,9 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
               <Header>
                 Número: <Input type="text" name="number" value={editData.number} onChange={handleInputChange} />
               </Header>
-              <Header>
+              {/* <Header>
                 Senha: <Input type="password" name="password" value={editData.password} onChange={handleInputChange} />
-              </Header>
+              </Header> */}
               </Diva>
               <Centralizar>
                 <Botao1 onClick={handleSave}>Salvar</Botao1>
@@ -154,7 +154,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
               <Header>Cep: {cep}</Header>
               <Header>Rua: {street}</Header>
               <Header>Número: {number}</Header>
-              <Header>Senha: {password}</Header>
+              {/* <Header>Senha: {password}</Header> c */}
               </Dive>
               <Centralizar>
                 <Botao1 onClick={() => setIsEditing(true)}>Editar Perfil</Botao1>
