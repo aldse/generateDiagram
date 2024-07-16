@@ -8,12 +8,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function LoginComponents() {
   const [edv, setEdv] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const notify = () => toast.error('Usuário ou senha incorretos');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,17 +27,19 @@ function LoginComponents() {
         edv,
         password,
       });
-      const data = response.data; 
+      const data = response.data;
       
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('userId', data.userId);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("userId", data.userId);
       // login(data.token);
       console.log("Login successful!");
       navigate("/home");
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
+      notify();
     }
   };
+  
 
   return (
     <div className={styles.container}>
@@ -86,6 +92,19 @@ function LoginComponents() {
         <Button className={styles.red} onClick={handleSubmit}>
           Entrar
         </Button>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          transition:Bounce
+        />
         <Link to="/cadastro" className={styles.linka}>
           <Button className={styles.link}>Cadastre-se aqui</Button>
         </Link>

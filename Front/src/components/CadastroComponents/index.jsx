@@ -9,9 +9,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CadastroComponents() {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
@@ -22,9 +23,12 @@ function CadastroComponents() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-
   const navigate = useNavigate();
 
+  const sucesso = () => toast.success("Usuário cadastrado com sucesso");
+  const alertsenhadif = () => toast.warn("As senhas não foram inseridas iguais!");
+  const alertcepnencont = () => toast.warn("CEP não encontrado. Verifique o CEP informado.");
+  const naocadastrado = () => toast.error("Informações inválidas");
   const fetchAddressByCep = async (cep) => {
     try {
       const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
@@ -33,7 +37,7 @@ function CadastroComponents() {
       if (!data.erro) {
         setStreet(data.logradouro);
       } else {
-        alert("CEP não encontrado. Verifique o CEP informado.");
+        alertcepnencont();
       }
     } catch (error) {
       console.error("Erro ao buscar o CEP:", error);
@@ -48,13 +52,11 @@ function CadastroComponents() {
     fetchAddressByCep(e.target.value);
   };
 
-
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Senhas não são iguais!");
+      alertsenhadif();
       return;
     }
     try {
@@ -67,15 +69,16 @@ function CadastroComponents() {
         street,
         number,
         password,
-        confirmPassword
+        confirmPassword,
       });
       console.log("Create register!");
+      sucesso();
       navigate("/");
     } catch (error) {
+      naocadastrado();
       console.error("Erro ao chamar a API:", error);
     }
   };
-
 
   return (
     <div className={styles.container}>
@@ -205,66 +208,80 @@ function CadastroComponents() {
           </div>
         </div>
 
-          <div className={styles.bluelabelinput5}>
+        <div className={styles.bluelabelinput5}>
+          <div className={styles.ff}>
+            <label className={styles.label} htmlFor="rua">
+              Rua
+            </label>
+            <Form.Floating className="mb-3">
+              <Form.Control
+                className={styles.a}
+                id="street"
+                type="text"
+                placeholder="Digite sua rua"
+                value={street}
+                onChange={(e) => setStreet(e.target.value)}
+              />
+            </Form.Floating>
+          </div>
+        </div>
+
+        <div className={styles.inlineInputs}>
+          <div className={styles.bluelabelinput3}>
             <div className={styles.ff}>
-              <label className={styles.label} htmlFor="rua">
-                Rua
+              <label className={styles.label} htmlFor="senha">
+                Senha
               </label>
               <Form.Floating className="mb-3">
                 <Form.Control
                   className={styles.a}
-                  id="street"
-                  type="text"
-                  placeholder="Digite sua rua"
-                  value={street}
-                  onChange={(e) => setStreet(e.target.value)}
+                  id="password"
+                  type="password"
+                  placeholder="Digite sua senha"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Floating>
             </div>
           </div>
 
-        <div className={styles.inlineInputs}>
-        <div className={styles.bluelabelinput3}>
-          <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              Senha
-            </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="password"
-                type="password"
-                placeholder="Digite sua senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Form.Floating>
+          <div className={styles.bluelabelinput3}>
+            <div className={styles.ff}>
+              <label className={styles.label} htmlFor="senha">
+                Confirme sua senha
+              </label>
+              <Form.Floating className="mb-3">
+                <Form.Control
+                  className={styles.a}
+                  id="confirmPassword"
+                  type="password"
+                  placeholder="Digite sua senha novamente"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              </Form.Floating>
+            </div>
           </div>
         </div>
 
-        <div className={styles.bluelabelinput3}>
-          <div className={styles.ff}>
-            <label className={styles.label} htmlFor="senha">
-              Confirme sua senha
-            </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="confirmPassword"
-                type="password"
-                placeholder="Digite sua senha novamente"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </Form.Floating>
-          </div>
-        </div>
-        </div>
-
-
-        <Button className={styles.red} onClick={handleSubmit}>Entrar</Button>
+        <Button className={styles.red} onClick={handleSubmit}>
+          Entrar
+        </Button>
         <Link to="/" className={styles.linka}>
           <Button className={styles.link}>Login</Button>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+            transition:Bounce
+          />
         </Link>
       </div>
     </div>

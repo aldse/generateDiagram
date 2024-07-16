@@ -112,10 +112,27 @@ export const Centralizar = styled.div`
 `;
 
 export const Input = styled.input`
-  border-color: #367aa7;
-  border: 1px solid;
-  margin-left: 2%;
+  border: 2px solid #367aa7; /* Bordas */
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 10px; /* Padding */
+  width: 65%; /* Largura fixa para centralização */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transições suaves */
+
+  /* Centraliza os inputs */
+  margin: 10px auto; /* Centraliza horizontalmente e adiciona margem superior/inferior */
+
+  &:focus {
+    border-color: #ff8c00; /* Cor da borda ao focar */
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.5); /* Efeito de brilho */
+    outline: none; /* Remove o contorno padrão */
+  }
+
+  &:hover {
+    border-color: #ff8c00; /* Cor da borda ao passar o mouse */
+  }
 `;
+
 
 export const Diva = styled.div`
   width: 80%;

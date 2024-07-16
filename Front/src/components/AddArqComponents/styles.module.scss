@@ -27,7 +27,13 @@ body {
 
 .perfil{
   width: 100%;
+  transition: all 0.3s ease; 
 }
+
+.perfil:hover{
+  transform: scale(1.1);
+}
+
 
 .container2 {
   display: flex;
@@ -382,13 +388,13 @@ body {
   padding: 10px;
 }
 
-.p:hover {
-  color: #5a92b7;
+// .p:hover {
+//   color: #5a92b7;
 
-  @media (max-width: 900px) {
-    color: #5a92b7;
-  }
-}
+//   @media (max-width: 900px) {
+//     color: #5a92b7;
+//   }
+// }
 
 .im4 {
   width: 12.7%;
