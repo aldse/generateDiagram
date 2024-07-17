@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
     "@uploadcare/blocks": "^0.49.0",
     "@uploadcare/react-widget": "^2.4.5",
     "axios": "^1.7.2",

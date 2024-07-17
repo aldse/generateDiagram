@@ -10,9 +10,32 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { generateDiagram } from "../../api/genereateDiagram";
+import IconButton from "@material-ui/core/IconButton";
+import InputLabel from "@material-ui/core/InputLabel";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Input from "@material-ui/core/Input";
+  
 function LoginComponents() {
   const [edv, setEdv] = useState("");
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
+  const [values, setPassword] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setPassword({ ...values, showPassword: !values.showPassword });
+  };
+  
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  
+  const handlePasswordChange = (prop) => (event) => {
+    setPassword({ ...values, [prop]: event.target.value });
+  };
 
   const navigate = useNavigate();
 
@@ -76,16 +99,25 @@ function LoginComponents() {
             <label className={styles.label} htmlFor="password">
               Senha
             </label>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                className={styles.a}
-                id="password"
-                type="password"
-                placeholder="Digite sua senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Form.Floating>
+            <Input
+                  className={styles.a}
+                  // id="password"
+                  type={values.showPassword ? "text" : "password"}
+                  // onChange={(e) => handlePasswordChange(e.target.value)}
+                  onChange={handlePasswordChange("password")}
+                  placeholder="Digite sua senha"
+                  value={values.password}
+                  endAdornment={
+                    <InputAdornment position="end">
+                    <IconButton
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                />
           </div>
         </div>
         <Button className={styles.red} onClick={handleSubmit}>

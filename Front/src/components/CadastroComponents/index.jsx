@@ -11,6 +11,12 @@ import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import IconButton from "@material-ui/core/IconButton";
+import InputLabel from "@material-ui/core/InputLabel";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Input from "@material-ui/core/Input";
 
 function CadastroComponents() {
   const [name, setName] = useState("");
@@ -20,8 +26,40 @@ function CadastroComponents() {
   const [cep, setCep] = useState("");
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [values, setPassword] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+  
+  const [valuesconfirm, setConfirmPassword] = React.useState({
+    confirmpassword: "",
+    showconfirmPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setPassword({ ...values, showPassword: !values.showPassword });
+  };
+  
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  
+  const handlePasswordChange = (prop) => (event) => {
+    setPassword({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowconfirmPassword = () => {
+    setConfirmPassword({ ...valuesconfirm, showconfirmPassword: !valuesconfirm.showconfirmPassword });
+  };
+  
+  const handleMouseDownconfirmPassword = (event) => {
+    event.preventDefault();
+  };
+  
+  const handleconfirmPasswordChange = (prop) => (event) => {
+    setConfirmPassword({ ...valuesconfirm, [prop]: event.target.value });
+  };
 
   const navigate = useNavigate();
 
@@ -232,16 +270,27 @@ function CadastroComponents() {
               <label className={styles.label} htmlFor="senha">
                 Senha
               </label>
-              <Form.Floating className="mb-3">
-                <Form.Control
+
+              <Input
                   className={styles.a}
-                  id="password"
-                  type="password"
+                  // id="password"
+                  type={values.showPassword ? "text" : "password"}
+                  onChange={handlePasswordChange("password")}
+                  // onChange={(e) => handlePasswordChange(e.target.value)}
                   placeholder="Digite sua senha"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={values.password}
+                  endAdornment={
+                    <InputAdornment position="end">
+                    <IconButton
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
                 />
-              </Form.Floating>
+
             </div>
           </div>
 
@@ -250,16 +299,25 @@ function CadastroComponents() {
               <label className={styles.label} htmlFor="senha">
                 Confirme sua senha
               </label>
-              <Form.Floating className="mb-3">
-                <Form.Control
+              <Input
                   className={styles.a}
-                  id="confirmPassword"
-                  type="password"
-                  placeholder="Digite sua senha novamente"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  // id="password"
+                  type={valuesconfirm.showconfirmPassword ? "text" : "confirmpassword"}
+                  onChange={handleconfirmPasswordChange("confirmpassword")}
+                  // onChange={(e) => handleconfirmPasswordChange(e.target.value)}
+                  placeholder="Digite sua senha"
+                  value={valuesconfirm.confirmpassword}
+                  endAdornment={
+                    <InputAdornment position="end">
+                    <IconButton
+                      onClick={handleClickShowconfirmPassword}
+                      onMouseDown={handleMouseDownconfirmPassword}
+                    >
+                      {valuesconfirm.showconfirmPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
                 />
-              </Form.Floating>
             </div>
           </div>
         </div>
