@@ -70,11 +70,25 @@ export const Botao = styled.button`
   padding: 10px 15px;
   border: none;
   cursor: pointer;
-  position: absolute;
-  bottom: 70px;
-  left: 50%; 
-  transform: translateX(-50%);
+  position: absolute; 
+  overflow: hidden; 
   border-radius: 25% 10%;
+  transition: color 0.3s, background-position 0.3s;
+
+  background: linear-gradient(to right, #367aa7 50%, #245e85 50%);
+  background-size: 200% 100%; 
+
+  &:hover {
+    background-position: -100% 0; 
+    color: #fff; 
+  }
+`;
+
+export const Divi = styled.div`
+  display: flex;
+  justify-content: center;
+  aling-content: end;
+  margin-top: 82%;
 `;
 
 export const Botao1 = styled.button`
@@ -89,6 +103,13 @@ export const Botao1 = styled.button`
   margin: 1%;
   margin-top: 9%;
   border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const Botao2 = styled.button`
@@ -103,6 +124,13 @@ export const Botao2 = styled.button`
   margin: 1%;
   margin-top: 9%;
   border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const Centralizar = styled.div`

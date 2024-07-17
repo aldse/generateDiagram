@@ -6,11 +6,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { generateDiagram } from "../../api/genereateDiagram";
 function LoginComponents() {
   const [edv, setEdv] = useState("");
   const [password, setPassword] = useState("");

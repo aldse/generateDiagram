@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
+import { generateDiagram } from "../../api/genereateDiagram";
+import { useNavigate } from "react-router-dom";
+import BaseModalSair from "../ModalSair/BaseModalSair";
 import {
   Botao,
   Botao1,
@@ -12,9 +15,8 @@ import {
   Input,
   Titulo,
   VAMBORA,
+  Divi
 } from "./ModalPopup.styles";
-import { generateDiagram } from "../../api/genereateDiagram";
-import { useNavigate } from "react-router-dom";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
   const [userData, setUserData] = useState({
@@ -56,7 +58,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     }
   };
   
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditData((prevData) => ({ ...prevData, [name]: value }));
@@ -77,34 +78,22 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
       console.error("Erro ao atualizar dados do usuário:", error.response ? error.response.data : error.message);
     }
   };
-
-  
-  const handleDelete = async () => {
-    const userId = localStorage.getItem('userId');
-    if (!userId) {
-        console.error("Usuário não está logado.");
-        return;
-    }
-
-    try {
-        await generateDiagram.delete(`/user/${userId}`);
-        console.log("Usuário deletado com sucesso");
-    } catch (error) {
-        console.error("Erro ao deletar usuário:", error.response ? error.response.data : error.message);
-    }
-};
-
   
   const handleCancel = () => {
     setEditData(userData);
     setIsEditing(false);
   };
 
+  const { name, email, cpf, edv, cep, street, number } = userData;
+
+  const [isModalVisiblee, setIsModalVisiblee] = useState(false);
+  const toggleModale = () => {
+    setIsModalVisiblee((wasModalVisiblee) => !wasModalVisiblee);
+  };
+
   if (!isModalVisible) {
     return null;
   }
-
-  const { name, email, cpf, edv, cep, street, number, password } = userData;
 
   return (
     <Modal onBackdropClick={onBackdropClick}>
@@ -112,7 +101,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
         <VAMBORA onClick={(e) => e.stopPropagation()}>
           <Titulo>PERFIL</Titulo>
           {isEditing ? (
-            <>
             <Diva>
               <Header>
                 Nome: <Input type="text" name="name" value={editData.name} onChange={handleInputChange} />
@@ -135,17 +123,8 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
               <Header>
                 Número: <Input type="text" name="number" value={editData.number} onChange={handleInputChange} />
               </Header>
-              {/* <Header>
-                Senha: <Input type="password" name="password" value={editData.password} onChange={handleInputChange} />
-              </Header> */}
-              </Diva>
-              <Centralizar>
-                <Botao1 onClick={handleSave}>Salvar</Botao1>
-                <Botao2 onClick={handleCancel}>Cancelar</Botao2>
-              </Centralizar>
-            </>
+            </Diva>
           ) : (
-            <>
             <Dive>
               <Header>Nome: {name}</Header>
               <Header>Email: {email}</Header>
@@ -154,15 +133,26 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
               <Header>Cep: {cep}</Header>
               <Header>Rua: {street}</Header>
               <Header>Número: {number}</Header>
-              {/* <Header>Senha: {password}</Header> c */}
-              </Dive>
-              <Centralizar>
-                <Botao1 onClick={() => setIsEditing(true)}>Editar Perfil</Botao1>
-                <Botao2 onClick={handleDelete}>Excluir Perfil</Botao2>
-              </Centralizar>
-            </>
+            </Dive>
           )}
-          <Botao onClick={() => navigate("/logout")}>Sair</Botao>
+          <Centralizar>
+            {isEditing ? (
+              <>
+                <Botao1 onClick={handleSave}>Salvar</Botao1>
+                <Botao2 onClick={handleCancel}>Cancelar</Botao2>
+              </>
+            ) : (
+              <>
+                <Botao1 onClick={() => setIsEditing(true)}>Editar Perfil</Botao1>
+                <Botao2 onClick={toggleModale}>Excluir Perfil</Botao2>
+                <BaseModalSair isModalVisiblee={isModalVisiblee} onBackdropClicke={toggleModale} />
+              </>
+            )}
+          </Centralizar>
+          <Divi>
+            <Botao onClick={() => navigate("/logout")}>Sair</Botao>
+  
+          </Divi>
         </VAMBORA>
       </DekstopModalContainer>
     </Modal>
