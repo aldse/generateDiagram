@@ -57,7 +57,11 @@ function CadastroComponents() {
   const navigate = useNavigate();
 
   const sucesso = () => toast.success("Usuário cadastrado com sucesso");
+  const nomecompleto = () => toast.warn("Por favor, insira um nome completo válido (nome e sobrenome).");
+  const emailcompleto = () => toast.warn("Por favor, insira um email válido.");
+  const numerocasa = () => toast.warn("Insira um número válido");
   const alertsenhadif = () => toast.warn("As senhas não foram inseridas iguais!");
+  const alertsenhapequena = () => toast.warn("Senha menor que 8 digitos, NÃO!");
   const alertcepnencont = () => toast.warn("CEP não encontrado. Verifique o CEP informado.");
   const naocadastrado = () => toast.error("Informações inválidas");
   const fetchAddressByCep = async (cep) => {
@@ -83,14 +87,47 @@ function CadastroComponents() {
     fetchAddressByCep(e.target.value);
   };
 
+  const isValidFullName = (Name) => {
+    if (Name.trim() === "") {
+      return false; 
+    }
+  
+    const parts = Name.trim().split(" ");
+    return parts.length >= 2; 
+  };
+
+  function validateEmail(Email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(password)
-    console.log(confirmPassword)
-    // if (password !== confirmPassword) {
-    //   alertsenhadif();
-    //   return;
-    // }
+
+    if (!isValidFullName(name)) {
+      nomecompleto();
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      emailcompleto();
+      return;
+    }
+
+    if (password.password.length < 8) {
+      alertsenhapequena();
+      return;
+    }
+
+    if (password.password !== confirmPassword.confirmPassword) {
+      alertsenhadif();
+      return;
+    }
+
+    if (number.length < 1) {
+      numerocasa();
+      return;
+    }
     try {
       const response = await generateDiagram.post("/user/register", {
         name,
@@ -104,12 +141,18 @@ function CadastroComponents() {
         confirmPassword: confirmPassword.confirmPassword 
       });
 
-      console.log("Create register!");
+      console.log("Usuário registrado com sucesso!");
       sucesso();
       navigate("/");
     } catch (error) {
-      naocadastrado();
-      console.error("Erro ao chamar a API:", error);
+      if (error.response) {
+        console.error("Erro ao chamar a API:", error.response.data);
+        naocadastrado(); 
+      } else if (error.request) {
+        console.error("Erro na requisição:", error.request);
+      } else {
+        console.error("Erro inesperado:", error.message);
+      }
     }
   };
 
@@ -131,7 +174,7 @@ function CadastroComponents() {
         <div className={styles.bluelabelinput1}>
           <div className={styles.ff}>
             <label className={styles.label} htmlFor="name">
-              Nome
+              Nome Completo
             </label>
             <Form.Floating className="mb-3">
               <Form.Control
@@ -268,11 +311,8 @@ function CadastroComponents() {
 
               <Input
                   className={styles.a}
-                  // id="password"
                   type={password.showPassword ? "text" : "password"}
                   onChange={(e) => setPassword({ ...password, password: e.target.value })}
-                  // onChange={handlePasswordChange("password")}
-                  // onChange={(e) => handlePasswordChange(e.target.value)}
                   placeholder="Digite sua senha"
                   value={password.password}
                   endAdornment={
@@ -297,11 +337,8 @@ function CadastroComponents() {
               </label>
               <Input
                   className={styles.a}
-                  // id="password"
                   type={confirmPassword.showconfirmPassword ? "text" : "password"}
                   onChange={(e) => setConfirmPassword({ ...confirmPassword, confirmPassword: e.target.value })}
-                  // onChange={handleconfirmPasswordChange("confirmpassword")}
-                  // onChange={(e) => handleconfirmPasswordChange(e.target.value)}
                   placeholder="Digite sua senha"
                   value={confirmPassword.confirmPassword}
                   endAdornment={

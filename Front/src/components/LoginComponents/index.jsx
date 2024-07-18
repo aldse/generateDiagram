@@ -97,11 +97,8 @@ function LoginComponents() {
             </label>
             <Input
                   className={styles.a}
-                  // id="password"
                   type={password.showPassword ? "text" : "password"}
                   onChange={(e) => setPassword({ ...password, password: e.target.value })}
-                  // onChange={(e) => handlePasswordChange(e.target.value)}
-                  // onChange={handlePasswordChange("password")}
                   placeholder="Digite sua senha"
                   value={password.password}
                   endAdornment={
