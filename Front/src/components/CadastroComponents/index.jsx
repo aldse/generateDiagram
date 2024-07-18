@@ -310,7 +310,7 @@ function CadastroComponents() {
               </label>
 
               <Input
-                  className={styles.a}
+                  className={styles.aa}
                   type={password.showPassword ? "text" : "password"}
                   onChange={(e) => setPassword({ ...password, password: e.target.value })}
                   placeholder="Digite sua senha"
@@ -326,7 +326,6 @@ function CadastroComponents() {
                   </InputAdornment>
                 }
                 />
-
             </div>
           </div>
 
