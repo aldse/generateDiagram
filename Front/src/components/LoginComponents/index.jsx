@@ -20,21 +20,17 @@ import Input from "@material-ui/core/Input";
 function LoginComponents() {
   const [edv, setEdv] = useState("");
   // const [password, setPassword] = useState("");
-  const [values, setPassword] = React.useState({
+  const [password, setPassword] = React.useState({
     password: "",
     showPassword: false,
   });
 
   const handleClickShowPassword = () => {
-    setPassword({ ...values, showPassword: !values.showPassword });
+    setPassword({ ...password, showPassword: !password.showPassword });
   };
   
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
-  };
-  
-  const handlePasswordChange = (prop) => (event) => {
-    setPassword({ ...values, [prop]: event.target.value });
   };
 
   const navigate = useNavigate();
@@ -47,7 +43,7 @@ function LoginComponents() {
     try {
       const response = await generateDiagram.post("/user/login", {
         edv,
-        password,
+        password:password.password,
       });
       const data = response.data;
       
@@ -102,18 +98,19 @@ function LoginComponents() {
             <Input
                   className={styles.a}
                   // id="password"
-                  type={values.showPassword ? "text" : "password"}
+                  type={password.showPassword ? "text" : "password"}
+                  onChange={(e) => setPassword({ ...password, password: e.target.value })}
                   // onChange={(e) => handlePasswordChange(e.target.value)}
-                  onChange={handlePasswordChange("password")}
+                  // onChange={handlePasswordChange("password")}
                   placeholder="Digite sua senha"
-                  value={values.password}
+                  value={password.password}
                   endAdornment={
                     <InputAdornment position="end">
                     <IconButton
                       onClick={handleClickShowPassword}
                       onMouseDown={handleMouseDownPassword}
                     >
-                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                      {password.showPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                   </InputAdornment>
                 }

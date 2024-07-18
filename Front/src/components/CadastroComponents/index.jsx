@@ -27,39 +27,32 @@ function CadastroComponents() {
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
 
-  const [values, setPassword] = React.useState({
+  const [password, setPassword] = React.useState({
     password: "",
     showPassword: false,
   });
   
-  const [valuesconfirm, setConfirmPassword] = React.useState({
-    confirmpassword: "",
+  const [confirmPassword, setConfirmPassword] = React.useState({
+    confirmPassword: "",
     showconfirmPassword: false,
   });
 
   const handleClickShowPassword = () => {
-    setPassword({ ...values, showPassword: !values.showPassword });
+    setPassword({ ...password, showPassword: !password.showPassword });
   };
   
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
   
-  const handlePasswordChange = (prop) => (event) => {
-    setPassword({ ...values, [prop]: event.target.value });
-  };
-
   const handleClickShowconfirmPassword = () => {
-    setConfirmPassword({ ...valuesconfirm, showconfirmPassword: !valuesconfirm.showconfirmPassword });
+    setConfirmPassword({ ...confirmPassword, showconfirmPassword: !confirmPassword.showconfirmPassword });
   };
   
   const handleMouseDownconfirmPassword = (event) => {
     event.preventDefault();
   };
   
-  const handleconfirmPasswordChange = (prop) => (event) => {
-    setConfirmPassword({ ...valuesconfirm, [prop]: event.target.value });
-  };
 
   const navigate = useNavigate();
 
@@ -92,11 +85,12 @@ function CadastroComponents() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    if (password !== confirmPassword) {
-      alertsenhadif();
-      return;
-    }
+    console.log(password)
+    console.log(confirmPassword)
+    // if (password !== confirmPassword) {
+    //   alertsenhadif();
+    //   return;
+    // }
     try {
       const response = await generateDiagram.post("/user/register", {
         name,
@@ -106,9 +100,10 @@ function CadastroComponents() {
         cep,
         street,
         number,
-        password,
-        confirmPassword,
+        password: password.password,
+        confirmPassword: confirmPassword.confirmPassword 
       });
+
       console.log("Create register!");
       sucesso();
       navigate("/");
@@ -274,18 +269,19 @@ function CadastroComponents() {
               <Input
                   className={styles.a}
                   // id="password"
-                  type={values.showPassword ? "text" : "password"}
-                  onChange={handlePasswordChange("password")}
+                  type={password.showPassword ? "text" : "password"}
+                  onChange={(e) => setPassword({ ...password, password: e.target.value })}
+                  // onChange={handlePasswordChange("password")}
                   // onChange={(e) => handlePasswordChange(e.target.value)}
                   placeholder="Digite sua senha"
-                  value={values.password}
+                  value={password.password}
                   endAdornment={
                     <InputAdornment position="end">
                     <IconButton
                       onClick={handleClickShowPassword}
                       onMouseDown={handleMouseDownPassword}
                     >
-                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                      {password.showPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                   </InputAdornment>
                 }
@@ -302,18 +298,19 @@ function CadastroComponents() {
               <Input
                   className={styles.a}
                   // id="password"
-                  type={valuesconfirm.showconfirmPassword ? "text" : "confirmpassword"}
-                  onChange={handleconfirmPasswordChange("confirmpassword")}
+                  type={confirmPassword.showconfirmPassword ? "text" : "password"}
+                  onChange={(e) => setConfirmPassword({ ...confirmPassword, confirmPassword: e.target.value })}
+                  // onChange={handleconfirmPasswordChange("confirmpassword")}
                   // onChange={(e) => handleconfirmPasswordChange(e.target.value)}
                   placeholder="Digite sua senha"
-                  value={valuesconfirm.confirmpassword}
+                  value={confirmPassword.confirmPassword}
                   endAdornment={
                     <InputAdornment position="end">
                     <IconButton
                       onClick={handleClickShowconfirmPassword}
                       onMouseDown={handleMouseDownconfirmPassword}
                     >
-                      {valuesconfirm.showconfirmPassword ? <Visibility /> : <VisibilityOff />}
+                      {confirmPassword.showconfirmPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                   </InputAdornment>
                 }
