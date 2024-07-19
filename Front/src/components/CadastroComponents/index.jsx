@@ -286,7 +286,7 @@ function CadastroComponents() {
 
         <div className={styles.bluelabelinput5}>
           <div className={styles.ff}>
-            <label className={styles.label} htmlFor="rua">
+            <label className={styles.label2} htmlFor="rua">
               Rua
             </label>
             <Form.Floating className="mb-3">
@@ -308,7 +308,6 @@ function CadastroComponents() {
               <label className={styles.label} htmlFor="senha">
                 Senha
               </label>
-
               <Input
                   className={styles.aa}
                   type={password.showPassword ? "text" : "password"}
@@ -335,7 +334,7 @@ function CadastroComponents() {
                 Confirme sua senha
               </label>
               <Input
-                  className={styles.a}
+                  className={styles.aa}
                   type={confirmPassword.showconfirmPassword ? "text" : "password"}
                   onChange={(e) => setConfirmPassword({ ...confirmPassword, confirmPassword: e.target.value })}
                   placeholder="Digite sua senha"

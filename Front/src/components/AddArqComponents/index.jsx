@@ -25,6 +25,8 @@ function AddArqComponents() {
     if (file) {
       const formData = new FormData();
       formData.append("file", file);
+      console.log(file);
+
       try {
         const result = await fetch("https://httpbin.org/post", {
           method: "POST",
@@ -45,7 +47,7 @@ function AddArqComponents() {
       fileInputRef.current.click();
     }
   };
-
+  
   const [isModalVisible, setIsModalVisible] = useState(false);
   const toggleModal = () => {
     setIsModalVisible((wasModalVisible) => !wasModalVisible);
@@ -79,10 +81,12 @@ function AddArqComponents() {
                 designada ao lado.
               </p>
             </div>
+            <div className={styles.hov}>
             <a className={styles.a} href="#" onClick={handleUpload}>
               <p className={styles.p}>GERAR DIAGRAMA</p>
               <Image src={but} className={styles.im3} alt="botão" />
             </a>
+            </div>
           </div>
           <div className={styles.ima}>
             <div>

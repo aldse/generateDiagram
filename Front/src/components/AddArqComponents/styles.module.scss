@@ -371,12 +371,17 @@ body {
   justify-content: center;
 }
 
-.im3:hover {
-  transform: scale(1.1);
+.hov {
+  display: inline-block; 
+}
 
-  @media (max-width: 900px) {
-    transform: scale(1.1);
-  }
+.hov:hover .im3 {
+  transform: scale(1.1); 
+}
+
+.hov:hover .p {
+  color: #cccccc; 
+  transform: scale(1.016); 
 }
 
 .butao{
