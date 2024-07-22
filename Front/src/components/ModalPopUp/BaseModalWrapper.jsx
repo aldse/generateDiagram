@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
-// import { decode } from 'jwt-decode';
-// import jwt_decode from 'jwt-decode';
+import { jwtDecode } from "jwt-decode";
+// import jwt_decode from 'jwt-decode';  // Corrigido a importação
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
@@ -37,28 +37,43 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
   const [editData, setEditData] = useState({ ...userData });
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const [userId, setUserId] = useState(null);
+  const [isModalVisiblee, setIsModalVisiblee] = useState(false);
 
   useEffect(() => {
     if (isModalVisible) {
-      fetchData();
+      console.log("Modal está visível. Buscando ID do usuário.");
+      const id = getUserIdFromToken();
+      setUserId(id);
+      fetchData(id);
     }
   }, [isModalVisible]);
 
-  const handleLogout = () => {
-    logout();
-    navigate('/');
+  const getUserIdFromToken = () => {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      console.log("Token não encontrado.");
+      return null;
+    }
+
+    try {
+      const decoded = jwtDecode(token);
+      return decoded.id;
+    } catch (error) {
+      console.error("Erro ao decodificar o token:", error);
+      return null;
+    }
   };
 
-  const fetchData = async () => {
-    const userId = getUserIdFromToken();
-    
-    if (!userId) {
+  const fetchData = async (id) => {
+    if (!id) {
       console.error("Usuário não está logado.");
       return;
     }
-  
-    try {
-      const response = await generateDiagram.get(`/user/${userId}`);
+
+    try {   
+      const response = await generateDiagram.get(`/user/${id}`);
       setUserData(response.data);
       setEditData(response.data);
     } catch (error) {
@@ -66,48 +81,36 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     }
   };
 
-  const getUserIdFromToken = () => {
-    const token = localStorage.getItem('token');
-    if (!token) return console.log("Token não encontrado");
-
-    try {
-      // const decoded = jwt_decode(token);
-      // return decoded.id;
-    } catch (error) {
-      console.error("Erro ao decodificar o token:", error);
-      return null;
-    }
-  };
-  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   const handleSave = async () => {
-    const userId = localStorage.getItem('userId');
     if (!userId) {
       console.error("Usuário não está logado.");
       return;
     }
-  
+
     try {
       await generateDiagram.put(`/user/${userId}`, editData);
       setUserData(editData);
       setIsEditing(false);
     } catch (error) {
-      console.error("Erro ao atualizar dados do usuário:", error.response ? error.response.data : error.message);
+      console.error("Erro ao atualizar dados do usuário:", error);
     }
   };
-  
+
   const handleCancel = () => {
     setEditData(userData);
     setIsEditing(false);
   };
 
-  const { name, email, cpf, edv, cep, street, number } = userData;
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
-  const [isModalVisiblee, setIsModalVisiblee] = useState(false);
   const toggleModale = () => {
     setIsModalVisiblee((wasModalVisiblee) => !wasModalVisiblee);
   };
@@ -147,13 +150,13 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             </Diva>
           ) : (
             <Dive>
-              <Header>Nome: {name}</Header>
-              <Header>Email: {email}</Header>
-              <Header>Cpf: {cpf}</Header>
-              <Header>EDV: {edv}</Header>
-              <Header>Cep: {cep}</Header>
-              <Header>Rua: {street}</Header>
-              <Header>Número: {number}</Header>
+              <Header>Nome: {userData.name}</Header>
+              <Header>Email: {userData.email}</Header>
+              <Header>Cpf: {userData.cpf}</Header>
+              <Header>EDV: {userData.edv}</Header>
+              <Header>Cep: {userData.cep}</Header>
+              <Header>Rua: {userData.street}</Header>
+              <Header>Número: {userData.number}</Header>
             </Dive>
           )}
           <Centralizar>
@@ -172,7 +175,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
           </Centralizar>
           <Divi>
             <Botao onClick={handleLogout}>Sair</Botao>
-  
           </Divi>
         </VAMBORA>
       </DekstopModalContainer>
