@@ -18,7 +18,7 @@ const BaseModalSair = ({ onBackdropClicke, isModalVisiblee }) => {
     try {
       await generateDiagram.delete(`/user/${userId}`);
       notify();
-      console.log("Usuário deletado com sucesso");
+      
       navigate("/");
     } catch (error) {
       console.error("Erro ao deletar usuário:", error.response ? error.response.data : error.message);
