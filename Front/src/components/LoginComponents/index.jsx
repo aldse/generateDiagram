@@ -4,9 +4,8 @@ import logo from "../../assets/label bosch.png";
 import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { generateDiagram } from "../../api/genereateDiagram";
@@ -16,14 +15,17 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
-  
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../../context/authContext";
+
 function LoginComponents() {
   const [edv, setEdv] = useState("");
-  // const [password, setPassword] = useState("");
   const [password, setPassword] = React.useState({
     password: "",
     showPassword: false,
   });
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   const handleClickShowPassword = () => {
     setPassword({ ...password, showPassword: !password.showPassword });
@@ -32,33 +34,42 @@ function LoginComponents() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
-  const navigate = useNavigate();
-
+  
   const notify = () => toast.error('Usuário ou senha incorretos');
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/home');
+    }
+  }, [isAuthenticated, navigate]);
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      console.log("Iniciou")
       const response = await generateDiagram.post("/user/login", {
         edv,
-        password:password.password,
+        password: password.password,
       });
       const data = response.data;
-      
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("userId", data.userId);
-      // login(data.token);
-      console.log("Login successful!");
-      navigate("/home");
+      console.log("DATA:", data)
+
+      if (data && data.token) {
+        login(data.token);
+      } else {
+        console.error("Token não encontrado na resposta da API.");
+        notify();
+      }
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
       notify();
     }
   };
-  
 
+  
+  
   return (
     <div className={styles.container}>
       <div className={styles.white}>

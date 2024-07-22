@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
+// import { decode } from 'jwt-decode';
+// import jwt_decode from 'jwt-decode';
+import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
 import BaseModalSair from "../ModalSair/BaseModalSair";
@@ -32,7 +35,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
 
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState({ ...userData });
-
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,9 +44,14 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     }
   }, [isModalVisible]);
 
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   const fetchData = async () => {
-    const userId = localStorage.getItem('userId');
-    console.log("ID do usuário:", userId);
+    const userId = getUserIdFromToken();
+    
     if (!userId) {
       console.error("Usuário não está logado.");
       return;
@@ -55,6 +63,19 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
       setEditData(response.data);
     } catch (error) {
       console.error("Erro ao buscar dados do usuário:", error);
+    }
+  };
+
+  const getUserIdFromToken = () => {
+    const token = localStorage.getItem('token');
+    if (!token) return console.log("Token não encontrado");
+
+    try {
+      // const decoded = jwt_decode(token);
+      // return decoded.id;
+    } catch (error) {
+      console.error("Erro ao decodificar o token:", error);
+      return null;
     }
   };
   
@@ -150,7 +171,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             )}
           </Centralizar>
           <Divi>
-            <Botao onClick={() => navigate("/logout")}>Sair</Botao>
+            <Botao onClick={handleLogout}>Sair</Botao>
   
           </Divi>
         </VAMBORA>

@@ -1,6 +1,4 @@
 import React, { useCallback, useState, useRef } from "react";
-import axios from "axios";
-import { useDropzone } from "react-dropzone";
 import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
