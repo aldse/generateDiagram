@@ -309,7 +309,7 @@ function CadastroComponents() {
                 Senha
               </label>
               <Input
-                  className={styles.aa}
+                  className={styles.aa1}
                   type={password.showPassword ? "text" : "password"}
                   onChange={(e) => setPassword({ ...password, password: e.target.value })}
                   placeholder="Digite sua senha"
@@ -334,7 +334,7 @@ function CadastroComponents() {
                 Confirme sua senha
               </label>
               <Input
-                  className={styles.aa}
+                  className={styles.aa1}
                   type={confirmPassword.showconfirmPassword ? "text" : "password"}
                   onChange={(e) => setConfirmPassword({ ...confirmPassword, confirmPassword: e.target.value })}
                   placeholder="Digite sua senha"

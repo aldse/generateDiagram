@@ -185,6 +185,15 @@
   height: 65%;
   font-size: 10%;
 }
+
+.aa1 {
+  font-family: "Kantumruy Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  width: 100%;
+  height: 65%;
+  font-size: 95% !important;
+}
 .a {
   font-family: "Kantumruy Pro", sans-serif;
   font-optical-sizing: auto;
@@ -360,9 +369,16 @@
     height: 5.2%;
     font-size: 100%;
   }
+
+  .aa1 {
+    font-size: 85% !important;
+  }
 }
 
 @media only screen and (max-width: 1310px) {
+  .aa1 {
+    font-size: 80% !important;
+  }
   .bluelabelinput5{
     margin-top: -3.6%;
   }
@@ -496,9 +512,17 @@
   .inlineInputs{
     margin-bottom: -3%; 
   }
+
+  .aa1 {
+    height: 60% !important;
+    font-size: 70% !important;
+  }
 }
 
 @media only screen and (max-width: 880px) {
+  .aa1 {
+    height: 50% !important;
+  }
   .p{
     font-size: 90%;
   }
@@ -531,6 +555,9 @@
 @media only screen and (max-width: 710px) {
   .inlineInputs{
     margin-bottom: -6%; 
+  }
+  .aa1 {
+    height: 40% !important;
   }
 }
 
