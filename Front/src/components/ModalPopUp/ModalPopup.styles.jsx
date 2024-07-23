@@ -29,10 +29,28 @@ export const Header = styled.h3`
   color: #367aa7;
   font-size: 20px;
   line-height: 1.5em; 
-  margin: 0px 0 5px;
+  margin: 0px 0 9px;
   display: flex;
   align-items: center;
-  word-break: break-word; /* Quebra palavras longas */
+  word-break: break-word;
+`;
+
+export const Header2 = styled.h3`
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  color: #367aa7;
+  font-size: 20px;
+  line-height: 0.1em; 
+  margin: 0px 0 2px;
+  display: flex;
+  align-items: center;
+  word-break: break-word;
+`;
+
+export const Letras = styled.h3`
+  min-width:115px;
 `;
 
 export const Titulo = styled.h3`
@@ -46,7 +64,7 @@ export const Titulo = styled.h3`
   display: flex;
   align-items: center;
   justify-content: center; 
-  word-break: break-word; /* Quebra palavras longas */
+  word-break: break-word; 
 `;
 
 export const VAMBORA = styled.div`
@@ -57,7 +75,7 @@ export const VAMBORA = styled.div`
   height: 100%;
   padding: 1.5rem;
   position: relative;
-  overflow: auto; /* Garante que o conteúdo não saia do modal */
+  overflow: auto; 
 `;
 
 export const Botao = styled.button`
@@ -88,7 +106,7 @@ export const Divi = styled.div`
   display: flex;
   justify-content: center;
   aling-content: end;
-  margin-top: 82%;
+  margin-top: 72%;
 `;
 
 export const Botao1 = styled.button`
@@ -140,24 +158,23 @@ export const Centralizar = styled.div`
 `;
 
 export const Input = styled.input`
-  border: 2px solid #367aa7; /* Bordas */
-  border-radius: 8px; /* Cantos arredondados */
-  padding: 10px; /* Padding */
-  width: 65%; /* Largura fixa para centralização */
-  font-size: 16px; /* Tamanho da fonte */
-  transition: border-color 0.3s, box-shadow 0.3s; /* Transições suaves */
+  border: 2px solid #367aa7; 
+  border-radius: 8px;
+  padding: 10px; 
+  width: 100%; 
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s; 
 
-  /* Centraliza os inputs */
-  margin: 10px auto; /* Centraliza horizontalmente e adiciona margem superior/inferior */
+  margin: 10px auto; 
 
   &:focus {
-    border-color: #ff8c00; /* Cor da borda ao focar */
-    box-shadow: 0 0 5px rgba(255, 140, 0, 0.5); /* Efeito de brilho */
-    outline: none; /* Remove o contorno padrão */
+    border-color: #ff8c00; 
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.5); 
+    outline: none;
   }
 
   &:hover {
-    border-color: #ff8c00; /* Cor da borda ao passar o mouse */
+    border-color: #ff8c00; 
   }
 `;
 

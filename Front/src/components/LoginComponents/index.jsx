@@ -4,6 +4,10 @@ import logo from "../../assets/label bosch.png";
 import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { red, green } from '@material-ui/core/colors';  
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -18,7 +22,44 @@ import Input from "@material-ui/core/Input";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../../context/authContext";
 
+const useStyles = makeStyles((theme) => ({
+  buttonError: {
+    backgroundColor: red[500], 
+    '&:hover': {
+      backgroundColor: red[700],  
+    },
+  },
+  buttonSuccess: {
+    backgroundColor: red[500],  
+    '&:hover': {
+      backgroundColor: red[700],
+    },
+  },
+}));
+
 function LoginComponents() {
+  const classes = useStyles();
+  const [loading, setLoading] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
+  const timer = React.useRef();
+
+  React.useEffect(() => {
+    return () => {
+      clearTimeout(timer.current);
+    };
+  }, []);
+
+  const handleButtonClick = () => {
+    if (!loading) {
+      setSuccess(false);
+      setLoading(true);
+      timer.current = window.setTimeout(() => {
+        setSuccess(true);
+        setLoading(false);
+      }, 2000);
+    }
+  };
+
   const [edv, setEdv] = useState("");
   const [password, setPassword] = React.useState({
     password: "",
@@ -30,11 +71,11 @@ function LoginComponents() {
   const handleClickShowPassword = () => {
     setPassword({ ...password, showPassword: !password.showPassword });
   };
-  
+
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  
+
   const notify = () => toast.error('Usuário ou senha incorretos');
 
   useEffect(() => {
@@ -46,6 +87,15 @@ function LoginComponents() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!loading) {
+      setSuccess(false);
+      setLoading(true);
+      timer.current = window.setTimeout(() => {
+        setSuccess(true);
+        setLoading(false);
+      }, 2000);
+    }
 
     try {
       console.log("Iniciou")
@@ -68,8 +118,6 @@ function LoginComponents() {
     }
   };
 
-  
-  
   return (
     <div className={styles.container}>
       <div className={styles.white}>
@@ -107,27 +155,41 @@ function LoginComponents() {
               Senha
             </label>
             <Input
-                  className={styles.a}
-                  type={password.showPassword ? "text" : "password"}
-                  onChange={(e) => setPassword({ ...password, password: e.target.value })}
-                  placeholder="Digite sua senha"
-                  value={password.password}
-                  endAdornment={
-                    <InputAdornment position="end">
-                    <IconButton
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                    >
-                      {password.showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                />
+              className={styles.a}
+              type={password.showPassword ? "text" : "password"}
+              onChange={(e) => setPassword({ ...password, password: e.target.value })}
+              placeholder="Digite sua senha"
+              value={password.password}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {password.showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
           </div>
         </div>
-        <Button className={styles.red} onClick={handleSubmit}>
-          Entrar
+        <Button
+          variant="contained"
+          color="primary"
+          className={clsx(styles.red, {
+            [classes.buttonSuccess]: success,
+            [classes.buttonError]: !success && !loading,
+          })}
+          disabled={loading}
+          onClick={handleSubmit}
+        >
+          {loading ? (
+            <CircularProgress size={24} color="inherit" />
+          ) : (
+            'Entrar'
+          )}
         </Button>
+
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -139,7 +201,7 @@ function LoginComponents() {
           draggable
           pauseOnHover
           theme="colored"
-          transition:Bounce
+          transition="Bounce"
         />
         <Link to="/cadastro" className={styles.linka}>
           <Button className={styles.link}>Cadastre-se aqui</Button>
