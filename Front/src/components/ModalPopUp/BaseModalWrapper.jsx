@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import { jwtDecode } from "jwt-decode";
-// import jwt_decode from 'jwt-decode';  // Corrigido a importação
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
@@ -219,6 +218,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                 </Botao3>
                 <Botao4 onClick={toggleModale}>Excluir Perfil</Botao4>
                 <BaseModalSair
+                  userId={userId}
                   isModalVisiblee={isModalVisiblee}
                   onBackdropClicke={toggleModale}
                 />
