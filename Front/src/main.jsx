@@ -34,8 +34,11 @@ const router = createBrowserRouter(routes);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
     <RouterProvider router={router}>
-      {routes.map((route, index) => (
+      {/* {routes.map((route, index) => (
         <Route key={index} path={route.path} element={route.element} />
+      ))} */}
+      {routes.map((route) => (
+        <Route key={route.path} path={route.path} element={route.element} />
       ))}
     </RouterProvider>
   </AuthProvider>

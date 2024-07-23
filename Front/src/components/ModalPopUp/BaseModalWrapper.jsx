@@ -41,13 +41,13 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
   const [isModalVisiblee, setIsModalVisiblee] = useState(false);
 
   useEffect(() => {
-    if (isModalVisible) {
-      console.log("Modal está visível. Buscando ID do usuário.");
-      const id = getUserIdFromToken();
-      setUserId(id);
+    console.log("Buscando ID do usuário para carregar dados...");
+    const id = getUserIdFromToken();
+    setUserId(id);
+    if (id) {
       fetchData(id);
     }
-  }, [isModalVisible]);
+  }, []);
 
   const getUserIdFromToken = () => {
     const token = localStorage.getItem('token');
