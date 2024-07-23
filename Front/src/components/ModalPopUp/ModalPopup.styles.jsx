@@ -120,6 +120,8 @@ export const Botao1 = styled.button`
   border: none;
   margin: 1%;
   margin-top: 9%;
+  width: 25%;
+  heigth:10%;
   border-radius: 50px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -140,6 +142,8 @@ export const Botao2 = styled.button`
   padding: 10px 20px;
   border: none;
   margin: 1%;
+  width: 25%;
+  heigth:10%;
   margin-top: 9%;
   border-radius: 50px;
   cursor: pointer;
@@ -151,6 +155,49 @@ export const Botao2 = styled.button`
   }
 `;
 
+export const Botao3 = styled.button`
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: orange;
+  color: white;
+  font-size: 19px;
+  padding: 10px 20px;
+  border: none;
+  margin: 1%;
+  margin-top: 9%;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const Botao4 = styled.button`
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: red;
+  color: white;
+  font-size: 19px;
+  padding: 10px 20px;
+  border: none;
+  margin: 1%;
+  margin-top: 9%;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+
 export const Centralizar = styled.div`
   display: flex;
   align-items: center;
@@ -161,7 +208,6 @@ export const Input = styled.input`
   border: 2px solid #367aa7; 
   border-radius: 8px;
   padding: 10px; 
-  width: 100%; 
   font-size: 16px;
   transition: border-color 0.3s, box-shadow 0.3s; 
 
@@ -180,9 +226,27 @@ export const Input = styled.input`
 
 
 export const Diva = styled.div`
-  width: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Dive = styled.div`
   width: 90%;
+`;
+
+export const Negr = styled.h1`
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 700;
+  color: #367aa7;
+  font-size: 20px;
+  min-width:100px;
+  // display: flex;
+  // justify-content: center;
+  line-height: 0.05em; 
+  margin: 0px 0 1px;
 `;

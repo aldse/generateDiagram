@@ -21,6 +21,9 @@ import {
   Divi,
   Letras,
   Header2,
+  Botao3,
+  Botao4,
+  Negr,
 } from "./ModalPopup.styles";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
@@ -194,13 +197,13 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             </Diva>
           ) : (
             <Dive>
-              <Header>Nome: {userData.name}</Header>
-              <Header>Email: {userData.email}</Header>
-              <Header>Cpf: {userData.cpf}</Header>
-              <Header>EDV: {userData.edv}</Header>
-              <Header>Cep: {userData.cep}</Header>
-              <Header>Rua: {userData.street}</Header>
-              <Header>Número: {userData.number}</Header>
+              <Header><Negr>Nome:</Negr> {userData.name}</Header>
+              <Header><Negr>Email:</Negr>{userData.email}</Header>
+              <Header><Negr>Cpf:</Negr>{userData.cpf}</Header>
+              <Header><Negr>EDV:</Negr>{userData.edv}</Header>
+              <Header><Negr>Cep:</Negr>{userData.cep}</Header>
+              <Header><Negr>Rua:</Negr>{userData.street}</Header>
+              <Header><Negr>Número:</Negr>{userData.number}</Header>
             </Dive>
           )}
           <Centralizar>
@@ -211,10 +214,10 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
               </>
             ) : (
               <>
-                <Botao1 onClick={() => setIsEditing(true)}>
+                <Botao3 onClick={() => setIsEditing(true)}>
                   Editar Perfil
-                </Botao1>
-                <Botao2 onClick={toggleModale}>Excluir Perfil</Botao2>
+                </Botao3>
+                <Botao4 onClick={toggleModale}>Excluir Perfil</Botao4>
                 <BaseModalSair
                   isModalVisiblee={isModalVisiblee}
                   onBackdropClicke={toggleModale}
