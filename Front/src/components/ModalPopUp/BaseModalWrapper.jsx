@@ -18,7 +18,9 @@ import {
   Input,
   Titulo,
   VAMBORA,
-  Divi
+  Divi,
+  Letras,
+  Header2,
 } from "./ModalPopup.styles";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
@@ -50,7 +52,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
   }, [isModalVisible]);
 
   const getUserIdFromToken = () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
     if (!token) {
       console.log("Token não encontrado.");
@@ -72,7 +74,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
       return;
     }
 
-    try {   
+    try {
       const response = await generateDiagram.get(`/user/${id}`);
       setUserData(response.data);
       setEditData(response.data);
@@ -108,7 +110,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate("/");
   };
 
   const toggleModale = () => {
@@ -126,27 +128,69 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
           <Titulo>PERFIL</Titulo>
           {isEditing ? (
             <Diva>
-              <Header>
-                Nome: <Input type="text" name="name" value={editData.name} onChange={handleInputChange} />
-              </Header>
-              <Header>
-                Email: <Input type="email" name="email" value={editData.email} onChange={handleInputChange} />
-              </Header>
-              <Header>
-                Cpf: <Input type="text" name="cpf" value={editData.cpf} onChange={handleInputChange} />
-              </Header>
-              <Header>
-                EDV: <Input type="text" name="edv" value={editData.edv} onChange={handleInputChange} />
-              </Header>
-              <Header>
-                Cep: <Input type="text" name="cep" value={editData.cep} onChange={handleInputChange} />
-              </Header>
-              <Header>
-                Rua: <Input type="text" name="street" value={editData.street} onChange={handleInputChange} />
-              </Header>
-              <Header>
-                Número: <Input type="text" name="number" value={editData.number} onChange={handleInputChange} />
-              </Header>
+              <Header2>
+                <Letras>Nome:</Letras>{" "}
+                <Input
+                  type="text"
+                  name="name"
+                  value={editData.name}
+                  onChange={handleInputChange}
+                />
+              </Header2>
+              <Header2>
+                <Letras>Email:</Letras>{" "}
+                <Input
+                  type="email"
+                  name="email"
+                  value={editData.email}
+                  onChange={handleInputChange}
+                />
+              </Header2>
+              <Header2>
+                <Letras>Cpf:</Letras>{" "}
+                <Input
+                  type="text"
+                  name="cpf"
+                  value={editData.cpf}
+                  onChange={handleInputChange}
+                />
+              </Header2>
+              <Header2>
+                <Letras>EDV:</Letras>{" "}
+                <Input
+                  type="text"
+                  name="edv"
+                  value={editData.edv}
+                  onChange={handleInputChange}
+                />
+              </Header2>
+              <Header2>
+                <Letras>Cep:</Letras>{" "}
+                <Input
+                  type="text"
+                  name="cep"
+                  value={editData.cep}
+                  onChange={handleInputChange}
+                />
+              </Header2>
+              <Header2>
+                <Letras>Rua:</Letras>
+                <Input
+                  type="text"
+                  name="street"
+                  value={editData.street}
+                  onChange={handleInputChange}
+                />
+              </Header2>
+              <Header2>
+                <Letras>Número:</Letras>
+                <Input
+                  type="text"
+                  name="number"
+                  value={editData.number}
+                  onChange={handleInputChange}
+                />
+              </Header2>
             </Diva>
           ) : (
             <Dive>
@@ -167,9 +211,14 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
               </>
             ) : (
               <>
-                <Botao1 onClick={() => setIsEditing(true)}>Editar Perfil</Botao1>
+                <Botao1 onClick={() => setIsEditing(true)}>
+                  Editar Perfil
+                </Botao1>
                 <Botao2 onClick={toggleModale}>Excluir Perfil</Botao2>
-                <BaseModalSair isModalVisiblee={isModalVisiblee} onBackdropClicke={toggleModale} />
+                <BaseModalSair
+                  isModalVisiblee={isModalVisiblee}
+                  onBackdropClicke={toggleModale}
+                />
               </>
             )}
           </Centralizar>
