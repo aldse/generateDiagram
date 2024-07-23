@@ -6,10 +6,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { generateDiagram } from "../../api/genereateDiagram";
 
-const BaseModalSair = ({ onBackdropClicke, isModalVisiblee }) => {
+const BaseModalSair = ({ userId, onBackdropClicke, isModalVisiblee }) => {
   const navigate = useNavigate();
+
   const handleDelete = async () => {
-    const userId = localStorage.getItem('userId');
     if (!userId) {
       console.error("Usuário não está logado.");
       return;
@@ -18,7 +18,6 @@ const BaseModalSair = ({ onBackdropClicke, isModalVisiblee }) => {
     try {
       await generateDiagram.delete(`/user/${userId}`);
       notify();
-      
       navigate("/");
     } catch (error) {
       console.error("Erro ao deletar usuário:", error.response ? error.response.data : error.message);

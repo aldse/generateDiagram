@@ -215,6 +215,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                 </Botao1>
                 <Botao2 onClick={toggleModale}>Excluir Perfil</Botao2>
                 <BaseModalSair
+                  userId={userId}
                   isModalVisiblee={isModalVisiblee}
                   onBackdropClicke={toggleModale}
                 />
