@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import IconButton from "@material-ui/core/IconButton";
-import InputLabel from "@material-ui/core/InputLabel";
 import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -308,7 +307,7 @@ function CadastroComponents() {
               <label className={styles.label} htmlFor="senha">
                 Senha
               </label>
-              <Input
+              {/* <Input
                   className={styles.aa1}
                   type={password.showPassword ? "text" : "password"}
                   onChange={(e) => setPassword({ ...password, password: e.target.value })}
@@ -324,7 +323,7 @@ function CadastroComponents() {
                     </IconButton>
                   </InputAdornment>
                 }
-                />
+                /> */}
             </div>
           </div>
 
@@ -333,7 +332,7 @@ function CadastroComponents() {
               <label className={styles.label} htmlFor="senha">
                 Confirme sua senha
               </label>
-              <Input
+              {/* <Input
                   className={styles.aa1}
                   type={confirmPassword.showconfirmPassword ? "text" : "password"}
                   onChange={(e) => setConfirmPassword({ ...confirmPassword, confirmPassword: e.target.value })}
@@ -349,7 +348,7 @@ function CadastroComponents() {
                     </IconButton>
                   </InputAdornment>
                 }
-                />
+                /> */}
             </div>
           </div>
         </div>

@@ -5,40 +5,39 @@ import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { red, green } from '@material-ui/core/colors';  
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { generateDiagram } from "../../api/genereateDiagram";
-import IconButton from "@material-ui/core/IconButton";
-import InputLabel from "@material-ui/core/InputLabel";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../../context/authContext";
+import { generateDiagram } from "../../api/genereateDiagram";
+// import { red } from '@material-ui/core/colors';  
+// import CircularProgress from '@material-ui/core/CircularProgress';
+// import { makeStyles } from '@material-ui/core/styles';
+// import IconButton from "@material-ui/core/IconButton";
+// import Visibility from "@material-ui/icons/Visibility";
+// import InputAdornment from "@material-ui/core/InputAdornment";
+// import VisibilityOff from "@material-ui/icons/VisibilityOff";
+// import Input from "@material-ui/core/Input";
 
-const useStyles = makeStyles((theme) => ({
-  buttonError: {
-    backgroundColor: red[500], 
-    '&:hover': {
-      backgroundColor: red[700],  
-    },
-  },
-  buttonSuccess: {
-    backgroundColor: red[500],  
-    '&:hover': {
-      backgroundColor: red[700],
-    },
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   buttonError: {
+//     backgroundColor: red[500], 
+//     '&:hover': {
+//       backgroundColor: red[700],  
+//     },
+//   },
+//   buttonSuccess: {
+//     backgroundColor: red[500],  
+//     '&:hover': {
+//       backgroundColor: red[700],
+//     },
+//   },
+// }));
 
 function LoginComponents() {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
   const timer = React.useRef();
@@ -154,7 +153,7 @@ function LoginComponents() {
             <label className={styles.label} htmlFor="password">
               Senha
             </label>
-            <Input
+            {/* <Input
               className={styles.a}
               type={password.showPassword ? "text" : "password"}
               onChange={(e) => setPassword({ ...password, password: e.target.value })}
@@ -170,24 +169,25 @@ function LoginComponents() {
                   </IconButton>
                 </InputAdornment>
               }
-            />
+            /> */}
+            
           </div>
         </div>
         <Button
           variant="contained"
           color="primary"
-          className={clsx(styles.red, {
-            [classes.buttonSuccess]: success,
-            [classes.buttonError]: !success && !loading,
-          })}
+          // className={clsx(styles.red, {
+          //   [classes.buttonSuccess]: success,
+          //   [classes.buttonError]: !success && !loading,
+          // })}
           disabled={loading}
           onClick={handleSubmit}
         >
-          {loading ? (
+          {/* {loading ? (
             <CircularProgress size={24} color="inherit" />
           ) : (
             'Entrar'
-          )}
+          )} */}
         </Button>
 
         <ToastContainer
