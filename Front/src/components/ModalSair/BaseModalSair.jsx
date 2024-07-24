@@ -5,9 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { generateDiagram } from "../../api/genereateDiagram";
+import { useAuth } from "../../context/authContext";
+
 
 const BaseModalSair = ({ userId, onBackdropClicke, isModalVisiblee }) => {
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const handleDelete = async () => {
     if (!userId) {
@@ -18,6 +21,7 @@ const BaseModalSair = ({ userId, onBackdropClicke, isModalVisiblee }) => {
     try {
       await generateDiagram.delete(`/user/${userId}`);
       notify();
+      logout();
       navigate("/");
     } catch (error) {
       console.error("Erro ao deletar usuário:", error.response ? error.response.data : error.message);
