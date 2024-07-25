@@ -1,24 +1,49 @@
+# Dependency directories
+/node_modules
+
+# Production build directory
+/build
+
+# Environment variables
+.env
+
+# IDE files
+*.idea
+.vscode
+
 # Logs
-logs
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+.idea/
+.vscode/
+
+# Mac specific files
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+
+# Jest testing library
+coverage/
+
+# Ignore artifact files
+*.orig
+
+# Ignore npm package-lock.json or yarn.lock files
+package-lock.json
+yarn.lock
+
+# Ignore any compiled JavaScript
+*.min.js
+
+# Ignore .env.local if it's in the root of your project
+.env.local
+
+# Ignore .env.development.local if it's in the root of your project
+.env.development.local
+
+# Ignore .env.test.local if it's in the root of your project
+.env.test.local
+
+# Ignore .env.production.local if it's in the root of your project
+.env.production.local

@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import AddArqComponents from "../../components/AddArqComponents";
+import AddArqComponents from "../../components/AddFile";
 import React from 'react';
 
 export default function AddArq() {

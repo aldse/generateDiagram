@@ -1,11 +1,11 @@
 import React, { useCallback, useState, useRef } from "react";
 import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
-import bosch from "../../assets/bosch.png";
-import image from "../../assets/image1.png";
-import perfil from "../../assets/icone.png";
-import add from "../../assets/add.png";
-import but from "../../assets/but.png";
+import bosch from "../../assets/images//bosch.png";
+import image from "../../assets/images//image1.png";
+import perfil from "../../assets/images//icone.png";
+import add from "../../assets/images//add.png";
+import but from "../../assets/images//but.png";
 import BaseModalWrapper from "../ModalPopUp/BaseModalWrapper";
 import Button from "react-bootstrap/Button";
 

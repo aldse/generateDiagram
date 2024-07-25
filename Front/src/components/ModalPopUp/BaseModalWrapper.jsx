@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import { jwtDecode } from "jwt-decode";
 import { useAuth } from "../../context/authContext";
-import { generateDiagram } from "../../api/genereateDiagram";
+import { generateDiagram } from "../../services/genereateDiagram";
 import { useNavigate } from "react-router-dom";
 import BaseModalSair from "../ModalSair/BaseModalSair";
 import {

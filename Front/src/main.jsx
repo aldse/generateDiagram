@@ -29,12 +29,11 @@ const router = createBrowserRouter(routes);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
     <RouterProvider router={router}>
- 
-    <React.StrictMode>
-      {routes.map((route) => (
-        <Route key={route.path} path={route.path} element={route.element} />
-      ))}
-  </React.StrictMode>
+      <React.StrictMode>
+        {routes.map((route) => (
+          <Route key={route.path} path={route.path} element={route.element} />
+        ))}
+      </React.StrictMode>
     </RouterProvider>
   </AuthProvider>
 );

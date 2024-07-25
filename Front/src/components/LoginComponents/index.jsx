@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
-import roberto from "../../assets/Roberto.png";
-import logo from "../../assets/label bosch.png";
+import roberto from "../../assets/images//Roberto.png";
+import logo from "../../assets/images//label bosch.png";
 import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -11,7 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../../context/authContext";
-import { generateDiagram } from "../../api/genereateDiagram";
+import { generateDiagram } from "../../services/genereateDiagram";
 // import { red } from '@material-ui/core/colors';  
 // import CircularProgress from '@material-ui/core/CircularProgress';
 // import { makeStyles } from '@material-ui/core/styles';
