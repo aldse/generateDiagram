@@ -140,6 +140,14 @@
   font-size: 145%;
 }
 
+.container2{
+width: auto;
+height: auto;
+display: flex;
+justify-content: center;
+align-content: center
+}
+
 .red {
   position: relative;
   overflow: hidden;
@@ -170,6 +178,7 @@
   transform: translateY(-100%); 
   transition: transform 0.4s ease; 
   z-index: 0; 
+
 }
 
 .red:hover {
@@ -186,7 +195,20 @@
   z-index: 999; 
 }
 
+.loader {
+  width: 225px;
+  height: 225px;
+}
 
+.svg-fill {
+  fill: transparent; 
+  transition: fill 2s ease-in-out; 
+}
+
+.path-animation {
+  fill: rgb(255, 255, 255); 
+  transition: fill 2s ease-in-out; 
+}
 
 .linka{
   width: 100%;

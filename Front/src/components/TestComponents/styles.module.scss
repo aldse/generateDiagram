@@ -1,0 +1,31 @@
+.loader {
+    width: 225px;
+    height: 225px;
+  }
+  
+  .svg-fill {
+    fill: transparent; 
+    transition: fill 2s ease-in-out; 
+  }
+  
+  .path-animation {
+    fill: rgb(255, 255, 255); 
+    transition: fill 2s ease-in-out;
+  }
+  
+  
+  body {
+    overflow: hidden;
+    margin: 0%;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #5a92b7;
+  
+    @media (max-width: 900px) {
+      height: 4vh;
+    }
+  }
