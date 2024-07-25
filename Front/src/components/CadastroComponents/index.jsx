@@ -11,11 +11,11 @@ import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
+// import IconButton from "@material-ui/core/IconButton";
+// import Visibility from "@material-ui/icons/Visibility";
+// import InputAdornment from "@material-ui/core/InputAdornment";
+// import VisibilityOff from "@material-ui/icons/VisibilityOff";
+// import Input from "@material-ui/core/Input";
 
 function CadastroComponents() {
   const [name, setName] = useState("");
