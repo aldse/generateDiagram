@@ -1,6 +1,6 @@
 .loader {
-    width: 225px;
-    height: 225px;
+    width: 35px;
+    height: 35px;
   }
   
   .svg-fill {
@@ -14,18 +14,3 @@
   }
   
   
-  body {
-    overflow: hidden;
-    margin: 0%;
-  }
-  
-  .container {
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #5a92b7;
-  
-    @media (max-width: 900px) {
-      height: 4vh;
-    }
-  }

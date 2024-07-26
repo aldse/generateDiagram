@@ -11,11 +11,7 @@ import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import IconButton from "@material-ui/core/IconButton";
-// import Visibility from "@material-ui/icons/Visibility";
-// import InputAdornment from "@material-ui/core/InputAdornment";
-// import VisibilityOff from "@material-ui/icons/VisibilityOff";
-// import Input from "@material-ui/core/Input";
+import { Eye, EyeSlash } from "react-bootstrap-icons";
 
 function CadastroComponents() {
   const [name, setName] = useState("");
@@ -30,38 +26,34 @@ function CadastroComponents() {
     password: "",
     showPassword: false,
   });
-  
-  const [confirmPassword, setConfirmPassword] = React.useState({
-    confirmPassword: "",
-    showconfirmPassword: false,
+
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
+  const [confpassword, setconfPassword] = React.useState({
+    confpassword: "",
+    showconfPassword: false,
   });
+  const [isconfPasswordVisible, setIsconfPasswordVisible] = useState(false);
 
-  const handleClickShowPassword = () => {
-    setPassword({ ...password, showPassword: !password.showPassword });
+  const toggleconfPasswordVisibility = () => {
+    setIsconfPasswordVisible(!isconfPasswordVisible);
   };
-  
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-  
-  const handleClickShowconfirmPassword = () => {
-    setConfirmPassword({ ...confirmPassword, showconfirmPassword: !confirmPassword.showconfirmPassword });
-  };
-  
-  const handleMouseDownconfirmPassword = (event) => {
-    event.preventDefault();
-  };
-  
-
   const navigate = useNavigate();
 
   const sucesso = () => toast.success("Usuário cadastrado com sucesso");
-  const nomecompleto = () => toast.warn("Por favor, insira um nome completo válido (nome e sobrenome).");
+  const nomecompleto = () =>
+    toast.warn("Por favor, insira um nome completo válido (nome e sobrenome).");
   const emailcompleto = () => toast.warn("Por favor, insira um email válido.");
   const numerocasa = () => toast.warn("Insira um número válido");
-  const alertsenhadif = () => toast.warn("As senhas não foram inseridas iguais!");
+  const alertsenhadif = () =>
+    toast.warn("As senhas não foram inseridas iguais!");
   const alertsenhapequena = () => toast.warn("Senha menor que 8 digitos, NÃO!");
-  const alertcepnencont = () => toast.warn("CEP não encontrado. Verifique o CEP informado.");
+  const alertcepnencont = () =>
+    toast.warn("CEP não encontrado. Verifique o CEP informado.");
   const naocadastrado = () => toast.error("Informações inválidas");
   const fetchAddressByCep = async (cep) => {
     try {
@@ -88,11 +80,11 @@ function CadastroComponents() {
 
   const isValidFullName = (Name) => {
     if (Name.trim() === "") {
-      return false; 
+      return false;
     }
-  
+
     const parts = Name.trim().split(" ");
-    return parts.length >= 2; 
+    return parts.length >= 2;
   };
 
   function validateEmail(Email) {
@@ -137,7 +129,7 @@ function CadastroComponents() {
         street,
         number,
         password: password.password,
-        confirmPassword: confirmPassword.confirmPassword 
+        confirmPassword: confirmPassword.confirmPassword,
       });
 
       console.log("Usuário registrado com sucesso!");
@@ -146,7 +138,7 @@ function CadastroComponents() {
     } catch (error) {
       if (error.response) {
         console.error("Erro ao chamar a API:", error.response.data);
-        naocadastrado(); 
+        naocadastrado();
       } else if (error.request) {
         console.error("Erro na requisição:", error.request);
       } else {
@@ -307,23 +299,32 @@ function CadastroComponents() {
               <label className={styles.label} htmlFor="senha">
                 Senha
               </label>
-              {/* <Input
-                  className={styles.aa1}
-                  type={password.showPassword ? "text" : "password"}
-                  onChange={(e) => setPassword({ ...password, password: e.target.value })}
-                  placeholder="Digite sua senha"
-                  value={password.password}
-                  endAdornment={
-                    <InputAdornment position="end">
-                    <IconButton
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                    >
-                      {password.showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                /> */}
+              <div className={styles.rowneles}>
+                <Form.Floating>
+                  <Form.Control
+                    className={styles.a}
+                    id="password"
+                    type={isPasswordVisible ? "text" : "password"}
+                    placeholder="Senha"
+                    value={password.password}
+                    onChange={(e) =>
+                      setPassword({ ...password, password: e.target.value })
+                    }
+                  />
+                </Form.Floating>
+                <button
+                  type="button"
+                  className={styles.btn2}
+                  onClick={togglePasswordVisibility}
+                  style={{ background: "none", border: "none" }}
+                >
+                  {isPasswordVisible ? (
+                    <EyeSlash size={20} />
+                  ) : (
+                    <Eye size={20} />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
 
@@ -332,23 +333,32 @@ function CadastroComponents() {
               <label className={styles.label} htmlFor="senha">
                 Confirme sua senha
               </label>
-              {/* <Input
-                  className={styles.aa1}
-                  type={confirmPassword.showconfirmPassword ? "text" : "password"}
-                  onChange={(e) => setConfirmPassword({ ...confirmPassword, confirmPassword: e.target.value })}
-                  placeholder="Digite sua senha"
-                  value={confirmPassword.confirmPassword}
-                  endAdornment={
-                    <InputAdornment position="end">
-                    <IconButton
-                      onClick={handleClickShowconfirmPassword}
-                      onMouseDown={handleMouseDownconfirmPassword}
-                    >
-                      {confirmPassword.showconfirmPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                /> */}
+              <div className={styles.rowneles}>
+                <Form.Floating>
+                  <Form.Control
+                    className={styles.a}
+                    id="confpassword"
+                    type={isconfPasswordVisible ? "text" : "password"}
+                    placeholder="Confirme senha"
+                    value={confpassword.confpassword}
+                    onChange={(e) =>
+                      setconfPassword({ ...confpassword, confpassword: e.target.value })
+                    }
+                  />
+                </Form.Floating>
+                <button
+                  type="button"
+                  className={styles.btn2}
+                  onClick={toggleconfPasswordVisibility}
+                  style={{ background: "none", border: "none" }}
+                >
+                  {isconfPasswordVisible ? (
+                    <EyeSlash size={20} />
+                  ) : (
+                    <Eye size={20} />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </div>

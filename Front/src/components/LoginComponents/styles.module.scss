@@ -4,6 +4,7 @@
   overflow: hidden;
 }
 
+
 .white {
   background-color: white;
   width: 65%;
@@ -41,6 +42,7 @@
 
 .blue {
   background-color: #367aa7;
+  // background-color: #2548eb;
   width: 35%;
   height: 100%;
   display: flex;
@@ -134,7 +136,57 @@
   height: 110% !important;
   border: none;
   font-size: 105%;
+  background-color: white; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
 }
+
+.a:focus {
+  background-color: white; 
+  outline: none;
+}
+
+.a::placeholder {
+  background-color: white; 
+}
+
+.a2 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  width: 140%;
+  height: 110% !important;
+  border: none;
+  font-size: 105%;
+  background-color: white; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.a2:focus {
+  background-color: white; 
+  outline: none;
+}
+
+.a2::placeholder {
+  background-color: white; 
+}
+
+.btn2{
+  margin-left: 55%;
+  width:50%;
+  background: none;
+  border: none;
+  display: flex;          
+  align-items: center;    
+  justify-content: center;
+  cursor: pointer;  
+}
+
+.rowneles{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  align-content: space-around;
+} 
 
 .label {
   font-size: 145%;
@@ -196,8 +248,8 @@ align-content: center
 }
 
 .loader {
-  width: 225px;
-  height: 225px;
+  width: 35px;
+  height: 35px;
 }
 
 .svg-fill {
@@ -207,7 +259,7 @@ align-content: center
 
 .path-animation {
   fill: rgb(255, 255, 255); 
-  transition: fill 2s ease-in-out; 
+  transition: fill 2s ease-in-out;
 }
 
 .linka{

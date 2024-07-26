@@ -17,14 +17,13 @@ function TestComponents() {
 
   return (
     <>
-    <div className={styles.container}>
     <div className="loader-container">
       <div className={styles.loader}>
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
-          width="225.000000pt"
-          height="225.000000pt"
+          width="35.000000pt"
+          height="35.000000pt"
           viewBox="0 0 225.000000 225.000000"
           preserveAspectRatio="xMidYMid meet"
           className={styles["svg-fill"]}
@@ -53,7 +52,6 @@ function TestComponents() {
           </g>
         </svg>
       </div>
-    </div>
     </div>
     </>
   );
