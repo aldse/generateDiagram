@@ -47,8 +47,22 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
     }
   };
 
+  const alertTypeClass = {
+    'Senha Incorreta': 'error',
+    'Informações inválidas': 'error',
+    'Usuário ou senha incorretos': 'error',
+    'Usuário cadastrado com sucesso': 'success',
+    'Por favor, insira um nome completo válido (nome e sobrenome).': 'warning',
+    'Por favor, insira um email válido.': 'warning',
+    'Insira um número válido': 'warning',
+    'As senhas não foram inseridas iguais!': 'warning',
+    'Senha menor que 8 digitos, NÃO!': 'warning',
+    'CEP não encontrado. Verifique o CEP informado.': 'warning',
+    'info': 'info'
+  }[type] || 'info';
+
   return (
-    <div className={`${styles.alert} ${styles[`alert--${type}`]} ${isExiting ? styles.exiting : styles.entering}`}>
+    <div className={`${styles.alert} ${styles[`alert--${alertTypeClass}`]} ${isExiting ? styles.exiting : styles.entering}`}>
       <div className={styles['alert-icon']}>
         {renderIcon()}
       </div>
@@ -64,7 +78,6 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
   );
 };
 
-// Component for managing Alert list
 const AlertComponents = () => {
   const [alerts, setAlerts] = React.useState([]);
   const [nextId, setNextId] = React.useState(0);
@@ -121,7 +134,7 @@ const AlertComponents = () => {
         <button onClick={() => addAlert('Senha menor que 8 digitos, NÃO!')} className="p-2 bg-yellow-500 text-white rounded">Senha menor que 8 dígitos</button>
         <button onClick={() => addAlert('CEP não encontrado. Verifique o CEP informado.')} className="p-2 bg-yellow-500 text-white rounded">CEP não encontrado</button>
         {/* Info Alert */}
-        <button onClick={() => addAlert('info' )} className="p-2 bg-blue-500 text-white rounded">Add Info Alert</button>
+        <button onClick={() => addAlert('info')} className="p-2 bg-blue-500 text-white rounded">Add Info Alert</button>
       </div>
       <div className={styles['alert-container']}>
         {alerts.map((alert) => (
