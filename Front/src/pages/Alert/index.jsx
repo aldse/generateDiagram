@@ -1,14 +1,14 @@
 import { Col, Row } from "react-bootstrap";
+import AlertComponents from "../../components/AlertComponents";
 import React from 'react';
-import TestComponents from "../../components/TestComponents";
 
-export default function Teste() {
+export default function Alert() {
   return (
     <>
       <Col>
         <Row >
           <Col xs={12} sm={8} md={4}>
-            <TestComponents/>
+            <AlertComponents/>
           </Col>
         </Row>
       </Col>

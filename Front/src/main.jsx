@@ -8,7 +8,8 @@ import AddArq from "./pages/AddArq";
 import Cadastro from "./pages/Cadastro";
 import ProtectedRoute from "./components/ProtectedRoutes/protectedRoute";
 import "./index.css";
-import Teste from "./pages/Teste";
+import Logo from "./pages/Logo";
+import Alert from "./pages/Alert";
 
 const routes = [
   {
@@ -24,8 +25,12 @@ const routes = [
     element: <ProtectedRoute element={<AddArq />} />,
   },
   {
-    path: "/teste",
-    element: <Teste />,
+    path: "/logo",
+    element: <Logo />,
+  },
+  {
+    path: "/alert",
+    element: <Alert />,
   },
 ];
 

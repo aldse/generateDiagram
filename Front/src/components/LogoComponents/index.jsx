@@ -1,9 +1,7 @@
-// TestComponents.jsx
-
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 
-function TestComponents() {
+function LogoComponents() {
   const [isFilled, setIsFilled] = useState(false);
 
   useEffect(() => {
@@ -57,4 +55,4 @@ function TestComponents() {
   );
 }
 
-export default TestComponents;
+export default LogoComponents;

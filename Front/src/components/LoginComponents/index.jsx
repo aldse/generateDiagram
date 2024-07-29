@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/genereateDiagram";
-import TestComponents from "../TestComponents";
+import LogoComponents from "../LogoComponents";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
 
 function LoginComponents() {
@@ -138,7 +138,7 @@ function LoginComponents() {
 
         {loading ? (
           <div className={styles.container2} onClick={handleButtonClick}>
-            <TestComponents />
+            <LogoComponents />
           </div>
         ) : (
           <Button

@@ -1,0 +1,132 @@
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.alert-container {
+  position: fixed;  
+  right: 1rem;  
+  top: 1rem;  
+  display: flex;
+  flex-direction: column;  
+  gap: 1rem;  
+  z-index: 9999;
+}
+
+.alert {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1.25rem;
+  border-radius: 0.375rem;
+  border-bottom-width: 2px;
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  position: relative;  
+  width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transition: opacity 0.5s ease;
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 9999px;
+    font-size: 1.5rem;
+
+    svg {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  &-content {
+    margin-left: 1rem;
+
+    &-title {
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin-bottom: 0.25rem;
+    }
+
+    &-description {
+      font-size: 0.875rem;
+    }
+  }
+
+  &--error {
+    background-color: #fef2f2;
+    border-color: #fecaca;
+    color: #b91c1c;
+
+    .alert-icon {
+      background-color: #fee2e2;
+      border-color: #f87171;
+      color: #f87171;
+    }
+  }
+
+  &--success {
+    background-color: #d1fae5;
+    border-color: #a7f3d0;
+    color: #064e3b;
+
+    .alert-icon {
+      background-color: #d1fae5;
+      border-color: #4ade80;
+      color: #4ade80;
+    }
+  }
+
+  &--warning {
+    background-color: #fef3c7;
+    border-color: #fcd34d;
+    color: #713f12;
+
+    .alert-icon {
+      background-color: #fef9c3;
+      border-color: #facc15;
+      color: #facc15;
+    }
+  }
+
+  &--info {
+    background-color: #dbeafe;
+    border-color: #93c5fd;
+    color: #1e40af;
+
+    .alert-icon {
+      background-color: #dbeafe;
+      border-color: #60a5fa;
+      color: #60a5fa;
+    }
+  }
+
+  &.entering {
+    animation: slideInFromRight 0.5s forwards;
+  }
+
+  &.exiting {
+    animation: slideOutToLeft 0.5s forwards;
+  }
+}
