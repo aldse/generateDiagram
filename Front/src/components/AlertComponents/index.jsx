@@ -4,7 +4,7 @@ import React, { forwardRef, useImperativeHandle, useState } from 'react';
 const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
   React.useEffect(() => {
     if (isExiting) {
-      const exitTimer = setTimeout(() => onRemove(index), 500);
+      const exitTimer = setTimeout(() => onRemove(index), 1000);
       return () => clearTimeout(exitTimer);
     }
   }, [isExiting, onRemove, index]);

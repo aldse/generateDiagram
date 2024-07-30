@@ -35,14 +35,19 @@ function LoginComponents() {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
-  // const handleButtonClick = () => {
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 2000);
-  // };
+  const handleButtonClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
 
   const handleSubmit = async (event) => {
+    // setLoading(true);
+    // setTimeout(() => {
+    //   setLoading(false);
+    // }, 2000);
+
     event.preventDefault();
 
     if (!loading) {
@@ -63,13 +68,21 @@ function LoginComponents() {
       } else {
         console.error("Token não encontrado na resposta da API.");
         if (alertRef.current) {
-          alertRef.current.addAlert('Informações inválidas', 'Informações inválidas', 'Usuário ou senha não coincidem.');
+          alertRef.current.addAlert(
+            "Informações inválidas",
+            "Informações inválidas",
+            "Usuário ou senha não coincidem."
+          );
         }
       }
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
       if (alertRef.current) {
-        alertRef.current.addAlert('Informações inválidas', 'Informações inválidas', 'Usuário ou senha não coincidem.');
+        alertRef.current.addAlert(
+          "Informações inválidas",
+          "Informações inválidas",
+          "Usuário ou senha não coincidem."
+        );
       }
     } finally {
       setLoading(false);
@@ -139,7 +152,7 @@ function LoginComponents() {
         </div>
 
         {loading ? (
-          <div className={styles.container2} >
+          <div className={styles.container2} onClick={handleSubmit}>
             <LogoComponents />
           </div>
         ) : (
@@ -147,7 +160,7 @@ function LoginComponents() {
             variant="contained"
             color="primary"
             className={styles.red}
-            onClick={handleSubmit}
+            onClick={{handleButtonClick}{handleSubmit} }
           >
             Entrar
           </Button>

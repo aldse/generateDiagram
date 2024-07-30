@@ -90,36 +90,35 @@ function CadastroComponents() {
 
     if (!isValidFullName(name)) {
       if (alertRef.current) {
-        alertRef.current.addAlert('Nome Completo Inválido', 'Por favor, insira um nome completo válido (nome e sobrenome).', 'Nome completo é necessário.');
-        alertRef.current.addAlert( 'Por favor, insira um nome completo válido (nome e sobrenome).', 'Nome Completo Inválido', 'Nome completo é necessário.');
+        alertRef.current.addAlert( 'Por favor, insira um nome completo válido (nome e sobrenome).', 'Nome Completo Inválido', 'Por favor, insira um nome completo válido (nome e sobrenome).');
       }
       return;
     }
 
     if (!validateEmail(email)) {
       if (alertRef.current) {
-        alertRef.current.addAlert('Email Inválido', 'Por favor, insira um email válido.', 'O email fornecido não é válido.');
+        alertRef.current.addAlert( 'Por favor, insira um email válido.', 'Por favor, insira um email válido.', 'O email fornecido não é válido, seu formato deve ter (@) ou (.com), exemplo (teste@teste.com)');
       }
       return;
     }
 
     if (password.password.length < 8) {
       if (alertRef.current) {
-        alertRef.current.addAlert('Senha Curta', 'Senha menor que 8 dígitos, NÃO!', 'A senha deve ter pelo menos 8 dígitos.');
+        alertRef.current.addAlert('Senha menor que 8 digitos, NÃO!', 'Senha menor que 8 dígitos, NÃO!', 'A senha deve ter pelo menos 8 dígitos.');
       }
       return;
     }
 
     if (password.password !== confpassword.confpassword) {
       if (alertRef.current) {
-        alertRef.current.addAlert('Senhas Não Coincidem', 'As senhas não foram inseridas iguais!', 'As senhas devem ser iguais.');
+        alertRef.current.addAlert('As senhas não foram inseridas iguais!', 'As senhas não foram inseridas iguais!', 'As senhas devem ser iguais.');
       }
       return;
     }
 
     if (number.length < 1) {
       if (alertRef.current) {
-        alertRef.current.addAlert('Número Inválido', 'Insira um número válido.', 'O número da casa é necessário.');
+        alertRef.current.addAlert('Insira um número válido', 'Insira um número válido', 'O número da casa é necessário.');
       }
       return;
     }
@@ -137,16 +136,18 @@ function CadastroComponents() {
         confirmPassword: confpassword.confpassword,
       });
 
-      console.log("Usuário registrado com sucesso!");
+      alertRef.current.addAlert('Usuário cadastrado com sucesso', 'Usuário cadastrado com sucesso', 'Você foi cadastrado, seja bem vindo.');
+
       if (alertRef.current) {
-        alertRef.current.addAlert('Cadastro Realizado', 'Usuário cadastrado com sucesso', 'Você foi cadastrado com sucesso.');
+        alertRef.current.addAlert('Usuário cadastrado com sucesso', 'Usuário cadastrado com sucesso', 'Você foi cadastrado, seja bem vindo.');
       }
+      console.log("Usuário registrado com sucesso!");
       navigate("/");
     } catch (error) {
       if (error.response) {
         console.error("Erro ao chamar a API:", error.response.data);
         if (alertRef.current) {
-          alertRef.current.addAlert('Erro no Cadastro', 'Informações inválidas', 'Não foi possível realizar o cadastro. Tente novamente.');
+          alertRef.current.addAlert('Informações inválidas', 'Informações inválidas', 'Não foi possível realizar o cadastro. Tente novamente.');
         }
       } else if (error.request) {
         console.error("Erro na requisição:", error.request);
