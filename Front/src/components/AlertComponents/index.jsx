@@ -1,5 +1,5 @@
-import React from 'react';
 import styles from './styles.module.scss';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 
 const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
   React.useEffect(() => {
@@ -13,7 +13,6 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
     switch (type) {
       case 'Senha Incorreta':
       case 'Informações inválidas':
-      case 'Usuário ou senha incorretos':
         return (
           <svg fill="currentColor" viewBox="0 0 20 20" className="h-6 w-6">
             <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
@@ -50,7 +49,6 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
   const alertTypeClass = {
     'Senha Incorreta': 'error',
     'Informações inválidas': 'error',
-    'Usuário ou senha incorretos': 'error',
     'Usuário cadastrado com sucesso': 'success',
     'Por favor, insira um nome completo válido (nome e sobrenome).': 'warning',
     'Por favor, insira um email válido.': 'warning',
@@ -67,10 +65,10 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
         {renderIcon()}
       </div>
       <div className={styles['alert-content']}>
-        <div className={styles['alert-content-title']}>
+        <div className={styles['alert-content-title']} style={{ color: alertTypeClass === 'error' ? 'red' : alertTypeClass === 'success' ? 'green' : 'black' }}>
           {title}
         </div>
-        <div className={styles['alert-content-description']}>
+        <div className={styles['alert-content-description']} style={{ color: alertTypeClass === 'error' ? 'red' : alertTypeClass === 'success' ? 'green' : 'black' }}>
           {description}
         </div>
       </div>
@@ -78,33 +76,31 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
   );
 };
 
-const AlertComponents = () => {
-  const [alerts, setAlerts] = React.useState([]);
-  const [nextId, setNextId] = React.useState(0);
+const AlertComponents = forwardRef((_, ref) => {
+  const [alerts, setAlerts] = useState([]);
+  const [nextId, setNextId] = useState(0);
 
-  React.useEffect(() => {
-    return () => setAlerts([]);
-  }, []);
+  useImperativeHandle(ref, () => ({
+    addAlert(type, title, description) {
+      const id = nextId;
+      setAlerts((prevAlerts) => [
+        { id, type, title, description, isExiting: false },
+        ...prevAlerts
+      ]);
+      setNextId(id + 1);
 
-  const addAlert = (type) => {
-    const id = nextId;
-    setAlerts((prevAlerts) => [
-      { id, type, title: type.charAt(0).toUpperCase() + type.slice(1), description: ` ${type} `, isExiting: false },
-      ...prevAlerts
-    ]);
-    setNextId(id + 1);
-
-    setTimeout(() => {
-      setAlerts((prevAlerts) => {
-        return prevAlerts.map(alert =>
-          alert.id === id ? { ...alert, isExiting: true } : alert
-        );
-      });
       setTimeout(() => {
-        setAlerts((prevAlerts) => prevAlerts.filter(alert => alert.id !== id));
-      }, 500); 
-    }, 1500 ); 
-  };
+        setAlerts((prevAlerts) => {
+          return prevAlerts.map(alert =>
+            alert.id === id ? { ...alert, isExiting: true } : alert
+          );
+        });
+        setTimeout(() => {
+          setAlerts((prevAlerts) => prevAlerts.filter(alert => alert.id !== id));
+        }, 500);
+      }, 1500);
+    }
+  }));
 
   const handleRemoveAlert = (id) => {
     setAlerts((prevAlerts) => {
@@ -114,43 +110,24 @@ const AlertComponents = () => {
     });
     setTimeout(() => {
       setAlerts((prevAlerts) => prevAlerts.filter(alert => alert.id !== id));
-    }, 500); 
+    }, 500);
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 py-6">
-      <div className="relative font-semibold text-2xl pb-4 border-b border-gray-300">
-        {/* Error Alerts */}
-        <button onClick={() => addAlert('Senha Incorreta')} className="p-2 bg-red-500 text-white rounded">Senha Incorreta</button>
-        <button onClick={() => addAlert('Informações inválidas')} className="p-2 bg-red-500 text-white rounded">Informações inválidas</button>
-        <button onClick={() => addAlert('Usuário ou senha incorretos')} className="p-2 bg-red-500 text-white rounded">Usuário ou senha incorretos</button>
-        {/* Success Alert */}
-        <button onClick={() => addAlert('Usuário cadastrado com sucesso')} className="p-2 bg-green-500 text-white rounded">Usuário cadastrado com sucesso</button>
-        {/* Warning Alerts */}
-        <button onClick={() => addAlert('Por favor, insira um nome completo válido (nome e sobrenome).')} className="p-2 bg-yellow-500 text-white rounded">Insira um nome completo válido</button>
-        <button onClick={() => addAlert('Por favor, insira um email válido.')} className="p-2 bg-yellow-500 text-white rounded">Insira um email válido</button>
-        <button onClick={() => addAlert('Insira um número válido')} className="p-2 bg-yellow-500 text-white rounded">Insira um número válido</button>
-        <button onClick={() => addAlert('As senhas não foram inseridas iguais!')} className="p-2 bg-yellow-500 text-white rounded">Senhas não iguais</button>
-        <button onClick={() => addAlert('Senha menor que 8 digitos, NÃO!')} className="p-2 bg-yellow-500 text-white rounded">Senha menor que 8 dígitos</button>
-        <button onClick={() => addAlert('CEP não encontrado. Verifique o CEP informado.')} className="p-2 bg-yellow-500 text-white rounded">CEP não encontrado</button>
-        {/* Info Alert */}
-        <button onClick={() => addAlert('info')} className="p-2 bg-blue-500 text-white rounded">Add Info Alert</button>
-      </div>
-      <div className={styles['alert-container']}>
-        {alerts.map((alert) => (
-          <Alert
-            key={alert.id}
-            type={alert.type}
-            title={alert.title}
-            description={alert.description}
-            onRemove={handleRemoveAlert}
-            index={alert.id}
-            isExiting={alert.isExiting}
-          />
-        ))}
-      </div>
+    <div className={styles['alert-container']}>
+      {alerts.map((alert) => (
+        <Alert
+          key={alert.id}
+          type={alert.type}
+          title={alert.title}
+          description={alert.description}
+          onRemove={handleRemoveAlert}
+          index={alert.id}
+          isExiting={alert.isExiting}
+        />
+      ))}
     </div>
   );
-};
+});
 
 export default AlertComponents;

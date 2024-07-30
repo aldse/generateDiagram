@@ -40,6 +40,7 @@
 }
 
 .blue {
+  // background-color: #2649EC;
   background-color: #367aa7;
   width: 35%;
   height: 100%;
@@ -334,10 +335,12 @@
   padding: 1%;
   font-size: 90%;
   transition: background-color 0.3s ease;
+  opacity: 0.8;
 }
 
 .link:hover {
-  color: red;
+  opacity: 1;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 1600px) {

@@ -1,17 +1,16 @@
 import styles from "./styles.module.scss";
 import roberto from "../../assets/Roberto.png";
-import logo from "../../assets/label bosch.png";
+import logo from "../../assets/label bosch 3.png";
 import { Image } from "react-bootstrap";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
+import AlertComponents from "../AlertComponents";
 
 function CadastroComponents() {
   const [name, setName] = useState("");
@@ -22,7 +21,9 @@ function CadastroComponents() {
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
 
-  const [password, setPassword] = React.useState({
+  const alertRef = useRef();
+
+  const [password, setPassword] = useState({
     password: "",
     showPassword: false,
   });
@@ -33,28 +34,18 @@ function CadastroComponents() {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
-  const [confpassword, setconfPassword] = React.useState({
+  const [confpassword, setConfPassword] = useState({
     confpassword: "",
-    showconfPassword: false,
+    showConfPassword: false,
   });
-  const [isconfPasswordVisible, setIsconfPasswordVisible] = useState(false);
+  const [isConfPasswordVisible, setIsConfPasswordVisible] = useState(false);
 
-  const toggleconfPasswordVisibility = () => {
-    setIsconfPasswordVisible(!isconfPasswordVisible);
+  const toggleConfPasswordVisibility = () => {
+    setIsConfPasswordVisible(!isConfPasswordVisible);
   };
+
   const navigate = useNavigate();
 
-  const sucesso = () => toast.success("Usuário cadastrado com sucesso");
-  const nomecompleto = () =>
-    toast.warn("Por favor, insira um nome completo válido (nome e sobrenome).");
-  const emailcompleto = () => toast.warn("Por favor, insira um email válido.");
-  const numerocasa = () => toast.warn("Insira um número válido");
-  const alertsenhadif = () =>
-    toast.warn("As senhas não foram inseridas iguais!");
-  const alertsenhapequena = () => toast.warn("Senha menor que 8 digitos, NÃO!");
-  const alertcepnencont = () =>
-    toast.warn("CEP não encontrado. Verifique o CEP informado.");
-  const naocadastrado = () => toast.error("Informações inválidas");
   const fetchAddressByCep = async (cep) => {
     try {
       const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
@@ -63,7 +54,9 @@ function CadastroComponents() {
       if (!data.erro) {
         setStreet(data.logradouro);
       } else {
-        alertcepnencont();
+        if (alertRef.current) {
+          alertRef.current.addAlert('Informações inválidas', 'Informações inválidas', 'CEP não encontrado. Verifique o CEP informado.');
+        }
       }
     } catch (error) {
       console.error("Erro ao buscar o CEP:", error);
@@ -78,47 +71,59 @@ function CadastroComponents() {
     fetchAddressByCep(e.target.value);
   };
 
-  const isValidFullName = (Name) => {
-    if (Name.trim() === "") {
+  const isValidFullName = (name) => {
+    if (name.trim() === "") {
       return false;
     }
 
-    const parts = Name.trim().split(" ");
+    const parts = name.trim().split(" ");
     return parts.length >= 2;
   };
 
-  function validateEmail(Email) {
+  const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
-  }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!isValidFullName(name)) {
-      nomecompleto();
+      if (alertRef.current) {
+        alertRef.current.addAlert('Nome Completo Inválido', 'Por favor, insira um nome completo válido (nome e sobrenome).', 'Nome completo é necessário.');
+        alertRef.current.addAlert( 'Por favor, insira um nome completo válido (nome e sobrenome).', 'Nome Completo Inválido', 'Nome completo é necessário.');
+      }
       return;
     }
 
     if (!validateEmail(email)) {
-      emailcompleto();
+      if (alertRef.current) {
+        alertRef.current.addAlert('Email Inválido', 'Por favor, insira um email válido.', 'O email fornecido não é válido.');
+      }
       return;
     }
 
     if (password.password.length < 8) {
-      alertsenhapequena();
+      if (alertRef.current) {
+        alertRef.current.addAlert('Senha Curta', 'Senha menor que 8 dígitos, NÃO!', 'A senha deve ter pelo menos 8 dígitos.');
+      }
       return;
     }
 
-    if (password.password !== confirmPassword.confirmPassword) {
-      alertsenhadif();
+    if (password.password !== confpassword.confpassword) {
+      if (alertRef.current) {
+        alertRef.current.addAlert('Senhas Não Coincidem', 'As senhas não foram inseridas iguais!', 'As senhas devem ser iguais.');
+      }
       return;
     }
 
     if (number.length < 1) {
-      numerocasa();
+      if (alertRef.current) {
+        alertRef.current.addAlert('Número Inválido', 'Insira um número válido.', 'O número da casa é necessário.');
+      }
       return;
     }
+
     try {
       const response = await generateDiagram.post("/user/register", {
         name,
@@ -129,16 +134,20 @@ function CadastroComponents() {
         street,
         number,
         password: password.password,
-        confirmPassword: confirmPassword.confirmPassword,
+        confirmPassword: confpassword.confpassword,
       });
 
       console.log("Usuário registrado com sucesso!");
-      sucesso();
+      if (alertRef.current) {
+        alertRef.current.addAlert('Cadastro Realizado', 'Usuário cadastrado com sucesso', 'Você foi cadastrado com sucesso.');
+      }
       navigate("/");
     } catch (error) {
       if (error.response) {
         console.error("Erro ao chamar a API:", error.response.data);
-        naocadastrado();
+        if (alertRef.current) {
+          alertRef.current.addAlert('Erro no Cadastro', 'Informações inválidas', 'Não foi possível realizar o cadastro. Tente novamente.');
+        }
       } else if (error.request) {
         console.error("Erro na requisição:", error.request);
       } else {
@@ -149,6 +158,7 @@ function CadastroComponents() {
 
   return (
     <div className={styles.container}>
+      <AlertComponents ref={alertRef} />
       <div className={styles.white}>
         <div className={styles.imagecontainer1}>
           <Image src={logo} className={styles.im} alt="Logo" />
@@ -259,7 +269,7 @@ function CadastroComponents() {
           <div className={styles.bluelabelinput3}>
             <div className={styles.ff}>
               <label className={styles.label} htmlFor="numero">
-                Numero
+                Número
               </label>
               <Form.Floating className="mb-3">
                 <Form.Control
@@ -338,21 +348,21 @@ function CadastroComponents() {
                   <Form.Control
                     className={styles.a}
                     id="confpassword"
-                    type={isconfPasswordVisible ? "text" : "password"}
+                    type={isConfPasswordVisible ? "text" : "password"}
                     placeholder="Confirme senha"
                     value={confpassword.confpassword}
                     onChange={(e) =>
-                      setconfPassword({ ...confpassword, confpassword: e.target.value })
+                      setConfPassword({ ...confpassword, confpassword: e.target.value })
                     }
                   />
                 </Form.Floating>
                 <button
                   type="button"
                   className={styles.btn2}
-                  onClick={toggleconfPasswordVisibility}
+                  onClick={toggleConfPasswordVisibility}
                   style={{ background: "none", border: "none" }}
                 >
-                  {isconfPasswordVisible ? (
+                  {isConfPasswordVisible ? (
                     <EyeSlash size={20} />
                   ) : (
                     <Eye size={20} />
@@ -368,19 +378,6 @@ function CadastroComponents() {
         </Button>
         <Link to="/" className={styles.linka}>
           <Button className={styles.link}>Login</Button>
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-            transition:Bounce
-          />
         </Link>
       </div>
     </div>

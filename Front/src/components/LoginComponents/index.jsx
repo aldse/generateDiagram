@@ -1,35 +1,29 @@
 import styles from "./styles.module.scss";
 import roberto from "../../assets/Roberto.png";
-import logo from "../../assets/label bosch.png";
+import logo from "../../assets/label bosch 3.png";
 import { Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/genereateDiagram";
+import AlertComponents from "../AlertComponents";
 import LogoComponents from "../LogoComponents";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
 
 function LoginComponents() {
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
   const [edv, setEdv] = useState("");
-  const [password, setPassword] = React.useState({
+  const [password, setPassword] = useState({
     password: "",
     showPassword: false,
   });
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
-  const togglePasswordVisibility = () => {
-    setIsPasswordVisible(!isPasswordVisible);
-  };
+  const alertRef = useRef();
 
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
-  const notify = () => toast.error("Usuário ou senha incorretos");
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -37,21 +31,22 @@ function LoginComponents() {
     }
   }, [isAuthenticated, navigate]);
 
-  const handleButtonClick = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
   };
+
+  // const handleButtonClick = () => {
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000);
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!loading) {
       setLoading(true);
-      timer.current = window.setTimeout(() => {
-        setLoading(false);
-      }, 2000);
     }
 
     try {
@@ -67,16 +62,23 @@ function LoginComponents() {
         login(data.token);
       } else {
         console.error("Token não encontrado na resposta da API.");
-        notify();
+        if (alertRef.current) {
+          alertRef.current.addAlert('Informações inválidas', 'Informações inválidas', 'Usuário ou senha não coincidem.');
+        }
       }
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
-      notify();
+      if (alertRef.current) {
+        alertRef.current.addAlert('Informações inválidas', 'Informações inválidas', 'Usuário ou senha não coincidem.');
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className={styles.container}>
+      <AlertComponents ref={alertRef} />
       <div className={styles.white}>
         <div className={styles.imagecontainer1}>
           <Image src={logo} className={styles.im} alt="Logo" />
@@ -112,18 +114,18 @@ function LoginComponents() {
               Senha
             </label>
             <div className={styles.rowneles}>
-            <Form.Floating>
-              <Form.Control
-                className={styles.a2}
-                id="password"
-                type={isPasswordVisible ? "text" : "password"}
-                placeholder="Digite sua senha"
-                value={password.password}
-                onChange={(e) =>
-                  setPassword({ ...password, password: e.target.value })
-                }
-              />
-            </Form.Floating>
+              <Form.Floating>
+                <Form.Control
+                  className={styles.a2}
+                  id="password"
+                  type={isPasswordVisible ? "text" : "password"}
+                  placeholder="Digite sua senha"
+                  value={password.password}
+                  onChange={(e) =>
+                    setPassword({ ...password, password: e.target.value })
+                  }
+                />
+              </Form.Floating>
               <button
                 type="button"
                 className={styles.btn2}
@@ -132,12 +134,12 @@ function LoginComponents() {
               >
                 {isPasswordVisible ? <EyeSlash size={20} /> : <Eye size={20} />}
               </button>
-              </div>
+            </div>
           </div>
         </div>
 
         {loading ? (
-          <div className={styles.container2} onClick={handleButtonClick}>
+          <div className={styles.container2} >
             <LogoComponents />
           </div>
         ) : (
@@ -150,19 +152,6 @@ function LoginComponents() {
             Entrar
           </Button>
         )}
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-          transition="Bounce"
-        />
         <Link to="/cadastro" className={styles.linka}>
           <Button className={styles.link}>Cadastre-se aqui</Button>
         </Link>
