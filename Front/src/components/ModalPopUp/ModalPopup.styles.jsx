@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import backgroundModal from "../../assets/backgroundModal.png";
 
 const ModalContainer = styled.div`
   background-color: #367aa7;
@@ -26,7 +27,7 @@ export const Header = styled.h3`
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 500;
-  color: #367aa7;
+  color: white;
   font-size: 20px;
   line-height: 1.5em; 
   margin: 0px 0 9px;
@@ -40,7 +41,7 @@ export const Header2 = styled.h3`
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 500;
-  color: #367aa7;
+  color: white;
   font-size: 20px;
   line-height: 0.1em; 
   margin: 0px 0 2px;
@@ -57,7 +58,7 @@ export const Titulo = styled.h3`
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 700;
   font-style: normal;
-  color: #367aa7;
+  color: white;
   font-size: 40px;
   line-height: 3em;
   margin: 15px 0 0;
@@ -70,7 +71,10 @@ export const Titulo = styled.h3`
 export const VAMBORA = styled.div`
   display: flex;
   flex-direction: column;
-  background: white;
+ background-image: url(${backgroundModal});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 22%;
   height: 100%;
   padding: 1.5rem;
@@ -82,7 +86,7 @@ export const Botao = styled.button`
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-style: normal;
-  background-color: #367aa7;
+  background-color: #2649EC;
   color: white;
   font-size: 25px;
   padding: 10px 15px;
@@ -93,7 +97,7 @@ export const Botao = styled.button`
   border-radius: 25% 10%;
   transition: color 0.3s, background-position 0.3s;
 
-  background: linear-gradient(to right, #367aa7 50%, #245e85 50%);
+  background: linear-gradient(to right, #2D335C 50%, #5D6FF4 50%);
   background-size: 200% 100%; 
 
   &:hover {
@@ -103,6 +107,13 @@ export const Botao = styled.button`
 `;
 
 export const Divi = styled.div`
+  display: flex;
+  justify-content: center;
+  aling-content: end;
+  margin-top: 37.5%;
+`;
+
+export const Divii = styled.div`
   display: flex;
   justify-content: center;
   aling-content: end;
@@ -242,7 +253,7 @@ export const Negr = styled.h1`
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 700;
-  color: #367aa7;
+  color: white;
   font-size: 20px;
   min-width:100px;
   // display: flex;

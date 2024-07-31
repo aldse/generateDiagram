@@ -4,7 +4,7 @@ export const Label = styled.h3`
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 700;
   font-style: normal;
-  color: #367aa7;
+  color: #2D335C;
   font-size: 30px;
   line-height: 3em;
   margin: 15px 0 0;
@@ -29,7 +29,7 @@ export const Botao = styled.button`
   border-radius: 25% 10%;
   transition: color 0.3s, background-position 0.3s;
 
-  background: linear-gradient(to right, #245e85 50%, red 50%);
+  background: linear-gradient(to right, #2D335C 50%, red 50%);
   background-size: 200% 100%; 
 
   &:hover {
@@ -53,7 +53,7 @@ overflow: hidden;
 border-radius: 25% 10%;
 transition: color 0.3s, background-position 0.3s;
 
-background: linear-gradient(to right, #245e85 50%, orange  50%);
+background: linear-gradient(to right, #2D335C 50%, orange  50%);
 background-size: 200% 100%; 
 
 &:hover {

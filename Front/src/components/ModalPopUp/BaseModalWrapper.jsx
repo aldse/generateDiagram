@@ -23,6 +23,7 @@ import {
   Botao3,
   Botao4,
   Negr,
+  Divii,
 } from "./ModalPopup.styles";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
@@ -225,9 +226,15 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
               </>
             )}
           </Centralizar>
+          {isEditing ? (
           <Divi>
             <Botao onClick={handleLogout}>Sair</Botao>
           </Divi>
+           ) : (
+            <Divii>
+            <Botao onClick={handleLogout}>Sair</Botao>
+            </Divii>
+           )}
         </VAMBORA>
       </DekstopModalContainer>
     </Modal>

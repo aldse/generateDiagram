@@ -11,6 +11,7 @@ import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
 import AlertComponents from "../AlertComponents";
+import LogoComponents from "../LogoComponents";
 
 function CadastroComponents() {
   const [name, setName] = useState("");
@@ -20,7 +21,7 @@ function CadastroComponents() {
   const [cep, setCep] = useState("");
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const alertRef = useRef();
 
   const [password, setPassword] = useState({
@@ -85,8 +86,24 @@ function CadastroComponents() {
     return regex.test(email);
   };
 
+
+  const handleButtonClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!loading) {
+      setLoading(true);
+    }
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
 
     if (!isValidFullName(name)) {
       if (alertRef.current) {
@@ -95,9 +112,40 @@ function CadastroComponents() {
       return;
     }
 
+    if (!cpf || !/^\d{11}$/.test(cpf)) {
+      if (alertRef.current) {
+          alertRef.current.addAlert('Insira o CPF', 'Insira o CPF', 'Insira um CPF válido, contendo exatamente 11 dígitos sem contar pontuações e traços.');
+      }
+      return;
+  }
+    if (edv == "") {
+      if (alertRef.current) {
+        alertRef.current.addAlert('Insira o EDV', 'Insira o EDV', 'Insira um EDV válido');
+      }
+      return;
+    }
+
+    if (!cep || !/^\d{8}$/.test(cep)) {
+      if (alertRef.current) {
+          alertRef.current.addAlert(
+              'CEP inválido',
+              'CEP inválido',
+              'Insira um CEP válido contendo exatamente 8 dígitos numéricos.'
+          );
+      }
+      return;
+  }
+
     if (!validateEmail(email)) {
       if (alertRef.current) {
         alertRef.current.addAlert( 'Por favor, insira um email válido.', 'Por favor, insira um email válido.', 'O email fornecido não é válido, seu formato deve ter (@) ou (.com), exemplo (teste@teste.com)');
+      }
+      return;
+    }
+
+    if (number.length < 1) {
+      if (alertRef.current) {
+        alertRef.current.addAlert('Insira um número válido', 'Insira um número válido', 'O número da casa é necessário.');
       }
       return;
     }
@@ -116,12 +164,6 @@ function CadastroComponents() {
       return;
     }
 
-    if (number.length < 1) {
-      if (alertRef.current) {
-        alertRef.current.addAlert('Insira um número válido', 'Insira um número válido', 'O número da casa é necessário.');
-      }
-      return;
-    }
 
     try {
       const response = await generateDiagram.post("/user/register", {
@@ -136,13 +178,15 @@ function CadastroComponents() {
         confirmPassword: confpassword.confpassword,
       });
 
-      alertRef.current.addAlert('Usuário cadastrado com sucesso', 'Usuário cadastrado com sucesso', 'Você foi cadastrado, seja bem vindo.');
-
       if (alertRef.current) {
         alertRef.current.addAlert('Usuário cadastrado com sucesso', 'Usuário cadastrado com sucesso', 'Você foi cadastrado, seja bem vindo.');
       }
       console.log("Usuário registrado com sucesso!");
-      navigate("/");
+
+      setTimeout(() => {
+        navigate("/");
+    }, 2000);
+
     } catch (error) {
       if (error.response) {
         console.error("Erro ao chamar a API:", error.response.data);
@@ -374,9 +418,15 @@ function CadastroComponents() {
           </div>
         </div>
 
-        <Button className={styles.red} onClick={handleSubmit}>
+        {loading ? (
+          <div className={styles.container2} onClick={handleSubmit}>
+            <LogoComponents />
+          </div>
+        ) : (
+        <Button className={styles.red} onClick={loading ? handleButtonClick : handleSubmit}>
           Entrar
         </Button>
+         )}
         <Link to="/" className={styles.linka}>
           <Button className={styles.link}>Login</Button>
         </Link>

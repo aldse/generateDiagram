@@ -43,51 +43,51 @@ function LoginComponents() {
   };
 
   const handleSubmit = async (event) => {
-    // setLoading(true);
-    // setTimeout(() => {
-    //   setLoading(false);
-    // }, 2000);
-
     event.preventDefault();
 
     if (!loading) {
-      setLoading(true);
+        setLoading(true);
     }
+
+    setTimeout(() => {
+        setLoading(false);
+    }, 2000);
 
     try {
-      console.log("Iniciou");
-      const response = await generateDiagram.post("/user/login", {
-        edv,
-        password: password.password,
-      });
-      const data = response.data;
-      console.log("DATA:", data);
+        console.log("Iniciou");
+        const response = await generateDiagram.post("/user/login", {
+            edv,
+            password: password.password,
+        });
+        const data = response.data;
+        console.log("DATA:", data);
 
-      if (data && data.token) {
-        login(data.token);
-      } else {
-        console.error("Token não encontrado na resposta da API.");
-        if (alertRef.current) {
-          alertRef.current.addAlert(
-            "Informações inválidas",
-            "Informações inválidas",
-            "Usuário ou senha não coincidem."
-          );
+        if (data && data.token) {
+            login(data.token);
+        } else {
+            console.error("Token não encontrado na resposta da API.");
+            if (alertRef.current) {
+                alertRef.current.addAlert(
+                    "Informações inválidas",
+                    "Informações inválidas",
+                    "Usuário ou senha não coincidem."
+                );
+            }
         }
-      }
     } catch (error) {
-      console.error("Erro ao chamar a API:", error);
-      if (alertRef.current) {
-        alertRef.current.addAlert(
-          "Informações inválidas",
-          "Informações inválidas",
-          "Usuário ou senha não coincidem."
-        );
-      }
+        console.error("Erro ao chamar a API:", error);
+        if (alertRef.current) {
+            alertRef.current.addAlert(
+                "Informações inválidas",
+                "Informações inválidas",
+                "Usuário ou senha não coincidem."
+            );
+        }
     } finally {
-      setLoading(false);
+       
     }
-  };
+};
+
 
   return (
     <div className={styles.container}>
@@ -160,8 +160,9 @@ function LoginComponents() {
             variant="contained"
             color="primary"
             className={styles.red}
-            onClick={{handleButtonClick}{handleSubmit} }
+            onClick={loading ? handleButtonClick : handleSubmit}
           >
+          {/* {handleSubmit} */}
             Entrar
           </Button>
         )}
