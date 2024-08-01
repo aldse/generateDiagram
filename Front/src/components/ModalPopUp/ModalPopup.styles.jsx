@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backgroundModal from "../../assets/backgroundModal.png";
+import backgroundModal from "../../assets/back7.png";
 
 const ModalContainer = styled.div`
   background-color: #367aa7;
@@ -97,7 +97,7 @@ export const Botao = styled.button`
   border-radius: 25% 10%;
   transition: color 0.3s, background-position 0.3s;
 
-  background: linear-gradient(to right, #2D335C 50%, #5D6FF4 50%);
+  background: linear-gradient(to right, #4146EC 50%, #5D6FF4 50%);
   background-size: 200% 100%; 
 
   &:hover {
