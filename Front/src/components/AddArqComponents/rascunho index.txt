@@ -3,8 +3,7 @@ import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
 import image from "../../assets/image1.png";
-import background from "../../assets/Backgrounde.png";
-import perfil from "../../assets/menu.png";
+import perfil from "../../assets/icone.png";
 import add from "../../assets/add.png";
 import but from "../../assets/but.png";
 import BaseModalWrapper from "../ModalPopUp/BaseModalWrapper";
@@ -46,7 +45,7 @@ function AddArqComponents() {
       fileInputRef.current.click();
     }
   };
-
+  
   const [isModalVisible, setIsModalVisible] = useState(false);
   const toggleModal = () => {
     setIsModalVisible((wasModalVisible) => !wasModalVisible);
@@ -54,33 +53,6 @@ function AddArqComponents() {
 
   return (
     <>
-    <div className={styles.roundedpolygon}>
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <clipPath id="blobClip">
-            <path d="
-                M 150,50
-                C 180,40 250,60 210,150
-                C 180,220 100,150 90,120
-                C 80,80 150,50 150,50
-                Z"/>
-          </clipPath>
-        </defs>
-
-        <image href={background} x="0" y="0" width="300" height="200" clip-path="url(#blobClip)" />
-
-        <path d="
-            M 150,50
-            C 180,40 250,60 210,150
-            C 180,220 100,150 90,120
-            C 80,80 150,50 150,50
-            Z"
-            fill="none" 
-            stroke-width="2"
-            />
-      </svg>
-      </div>
-
       <div className={styles.container}>
         <div className={styles.centerimg}>
           <Image src={bosch} className={styles.im} alt="Logo cima" />
@@ -89,7 +61,7 @@ function AddArqComponents() {
       </div>
       <div className={styles.butao}>
         <Button className={styles.vem} onClick={toggleModal}>
-          <Image src={perfil} className={styles.perfil} alt="Perfil" />
+        <Image src={perfil} className={styles.perfil} alt="Perfil" />
         </Button>
         <BaseModalWrapper
           isModalVisible={isModalVisible}
@@ -103,17 +75,18 @@ function AddArqComponents() {
               <p className={styles.p1}>GERE SEU</p>
               <p className={styles.p11}>DIAGRAMA</p>
               <p className={styles.p2}>
-                Faça UPLOAD ou arraste e solte os arquivos necessários na área designada ao lado.
+                Faça UPLOAD ou arraste e solte os arquivos necessários na área
+                designada ao lado.
               </p>
             </div>
             <div className={styles.hov}>
-              <a className={styles.a} href="#" onClick={handleUpload}>
-                <p className={styles.p}>GERAR DIAGRAMA</p>
-                <Image src={but} className={styles.im3} alt="botão" />
-              </a>
+            <a className={styles.a} href="#" onClick={handleUpload}>
+              <p className={styles.p}>GERAR DIAGRAMA</p>
+              <Image src={but} className={styles.im3} alt="botão" />
+            </a>
             </div>
           </div>
-          {/* <div className={styles.ima}>
+          <div className={styles.ima}>
             <div>
               <input
                 ref={fileInputRef}
@@ -135,7 +108,7 @@ function AddArqComponents() {
               className={styles.im2}
               alt="imagem principal botao"
             />
-          </div> */}
+          </div>
         </div>
       </div>
     </>
