@@ -25,6 +25,17 @@ body {
 
 }
 
+.svgTopRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  width: auto; 
+  height: auto;
+  z-index: 10; 
+}
+
 .perfil{
   width: 100%;
   transition: all 0.3s ease; 
@@ -418,9 +429,10 @@ border-radius: 100px 10px 10px 10px 10px 10px 3rem;
 }
 
 .roundedpolygon {
-  width: 100%;
+  width: 300px;
   height: 200px;
   clip-path: url(#roundedPolygon);
+  z-index: 10; 
 }
 
 
