@@ -24,6 +24,7 @@ import {
   Botao4,
   Negr,
   Divii,
+  Titulo2,
 } from "./ModalPopup.styles";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
@@ -128,7 +129,8 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     <Modal onBackdropClick={onBackdropClick}>
       <DekstopModalContainer onClick={onBackdropClick}>
         <VAMBORA onClick={(e) => e.stopPropagation()}>
-          <Titulo>PERFIL</Titulo>
+          <Titulo>DADOS</Titulo>
+          <Titulo2> PESSOAIS</Titulo2>
           {isEditing ? (
             <Diva>
               <Header2>

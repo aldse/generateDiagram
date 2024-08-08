@@ -11,7 +11,7 @@ export const Label = styled.h3`
   display: flex;
   align-items: center;
   justify-content: center; 
-  word-break: break-word; /* Quebra palavras longas */
+  word-break: break-word; 
 `;
 
 export const Botao = styled.button`

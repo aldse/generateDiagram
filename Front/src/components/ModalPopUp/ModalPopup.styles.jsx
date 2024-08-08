@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backgroundModal from "../../assets/back7.png";
+import backgroundModal from "../../assets/backofc.png";
 
 const ModalContainer = styled.div`
   background-color: #367aa7;
@@ -56,15 +56,25 @@ export const Letras = styled.h3`
 
 export const Titulo = styled.h3`
   font-family: "Alegreya Sans", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   color: white;
   font-size: 40px;
   line-height: 3em;
   margin: 15px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center; 
+  margin-left: 40px;
+  word-break: break-word; 
+`;
+
+export const Titulo2 = styled.h3`
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  font-size: 40px;
+  line-height: 3em;
+  margin: -80px 0 0;
+  margin-left: 40px;
   word-break: break-word; 
 `;
 

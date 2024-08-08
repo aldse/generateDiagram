@@ -22,7 +22,29 @@ body {
   display: flex;
   justify-content: flex-end;
   width: 65px;
+}
 
+.svgBottomCenter {
+  position: absolute;
+  bottom: 0;
+  left: 65%;
+  transform: translateX(-50%);
+  margin: -10px;
+  padding: 0;
+  width: auto; 
+  height: auto;
+  z-index: 10; 
+}
+
+.svgTopLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: auto; 
+  height: auto;
+  z-index: 10; 
 }
 
 .svgTopRight {
@@ -45,22 +67,111 @@ body {
   transform: scale(1.1);
 }
 
-
 .container2 {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   height: 95vh;
   overflow: hidden;
   background-color: #102582;
   z-index: 1;
+}
 
+.alinharpracima{
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+margin-top: -3%;
+}
+
+.gereseu{
+  color: white;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 700%;
+  margin: 0;
+  width: 30%;
+  padding: 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.diagrama{
+  color: white;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 700%;
+  margin: 0;
+  margin-top: -2%;
+  width: 30%;
+  padding: 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.conteudo{
+  color: white;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 200%;
+  margin: 0;
+  width: 30%;
+  padding: 0;
+  margin-left:3.5%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.adicionararea{
+  margin-top: 3%;
+width: 150px;
+z-index: 99;
+}
+
+.adicionararea:hover {
+  transform: scale(1.05); 
+}
+
+
+.adicionar{
+  width: 100%;
+}
+
+.image{
+  width: 250px;
+  margin-top: 25%;
+}
+
+.hov {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease; 
+  z-index:10;
+}
+
+.hov a {
+  display: block; 
+}
+
+.hov:hover {
+  transform: scale(1.1); 
 }
 
 .centerimg {
   width: 100%;
   display: flex;
   justify-content: center;
-
-
 }
 
 .im {
@@ -194,418 +305,12 @@ body {
   }
 }
 
-.label {
-  margin-top: 20px;
-  width: 77%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  margin-left: 15%;
-
-  @media (max-width: 900px) {
-    width: 90%;
-    margin-left: 5%;
-  }
-}
-
-.aling {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 90%;
-  z-index: 1;
-  position: absolute;
-  left: 0;
-  padding: 0;
-  margin: 0;
-
-}
-
-.im2 {
-  width: 65%;
-  @media (max-width: 1500px) {
-    width: 75%;
-  }
-
-  @media (max-width: 1200px) {
-    width: 85%;
-  }
-
-  @media (max-width: 1150px) {
-    width: 90%;
-  }
-
-  @media (max-width: 900px) {
-    width: 120%;
-    margin-left: -20%;
-  }
-
-  @media (max-width: 710px) {
-    width: 110%;
-  }
-}
-
-.p1,
-.p11 {
-  font-size: 800%;
-  margin: 0%;
-  margin-left: -1.5%;
-  padding: 0%;
-  margin-bottom: -4%;
-  color: white;
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-
-  @media (max-width: 900px) {
-    font-size: 350%;
-    position: relative;
-    left: -10%;
-    top: 15%;
-  }
-}
-
-.p1 {
-  @media (max-width: 1350px) {
-    font-size: 600%;
-    position: relative;
-    left: -1%;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 500%;
-  }
-
-  @media (max-width:710px) {
-    font-size: 400%;
-  }
-}
-
-.p11 {
-  @media (max-width: 1350px) {
-    font-size: 600%;
-    position: relative;
-    left: -1%;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 500%;
-  }
-
-  @media (max-width: 710px) {
-    font-size: 400%;
-  }
-}
-
-.p2 {
-  font-size: 210%;
-  margin: 0%;
-  padding: 0;
-  color: white;
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-
-  @media (max-width: 1350px) {
-    font-size: 190%;
-    position: relative;
-    left: -1%;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 150% !important;
-    position: relative;
-    top: 30%;
-    left: -11%;
-    width: 80%;
-  }
-
-  @media (max-width: 710px) {
-    font-size: 100% !important;
-    position: relative;
-    top: 30%;
-    left: -1.2%;
-  }
-
-}
-
-.ima {
-  width: 80%;
-  margin-top: -2%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-
-}
-
-.alinhadnh {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  padding: 0;
-
-}
-
-.im3 {
-  margin-top: 4%;
-  align-items: center !important;
-  width: 75%;
-  transition: transform 0.3s ease;
-
-  @media (max-width: 1650px) {
-    width: 60%;
-    left: -5%;
-    position: relative;
-  }
-
-}
-
-.p {
-  position: absolute;
-  top: 69.9%;
-  margin: 0;
-  color: #ffffff;
-  font-size: 150%;
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  z-index: 1;
-  text-decoration: none;
-
-  @media (max-width: 1650px) {
-    width: 100%;
-    left: 48%;
-    position: relative;
-    margin-top: 10px;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 100%;
-  }
-
-  @media (max-width: 710px) {
-    font-size: 70% !important;
-  }
-}
-
-.a {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  text-decoration: none; 
-
-  @media (max-width: 1630px) {
-    width: 90%;
-  }
-
-  @media (max-width: 900px) {
-    width: 80%;
-    margin-left: -10%;
-  }
-}
-
-.hov {
-  display: inline-block; 
-}
-
-.hov:hover .im3 {
-  transform: scale(1.1); 
-}
-
-.hov:hover .p {
-  color: #cccccc; 
-  transform: scale(1.016); 
-}
-
-.teste{
-  clip-path: polygon(8% 13%, 66% 24%, 87% 47%, 89% 88%, 46% 88%, 6% 71%, 30% 44%);
-background-color: red;
-height: 100vh;
-border-radius: 100px 10px 10px 10px 10px 10px 3rem;
-}
-
-.roundedpolygon {
-  width: 300px;
-  height: 200px;
-  clip-path: url(#roundedPolygon);
-  z-index: 10; 
-}
-
-
 .butao{
   position: absolute;
   top: 10px; 
   right: 10px; 
   z-index: 1000; 
-  background-color: #102582;
   padding: 10px;
 }
 
-// .p:hover {
-//   color: #5a92b7;
 
-//   @media (max-width: 900px) {
-//     color: #5a92b7;
-//   }
-// }
-
-.im4 {
-  width: 11.7%;
-  height: 26.7%;
-  position: absolute;
-  top: 34%;
-  margin-left: 15%;
-
-  @media (max-width: 1650px) {
-    width: 11.7%;
-    height: 25.7%;
-    top: 35.2%;
-    margin-left: 15.2%;
-  }
-
-  @media (max-width: 1520px) {
-    width: 11.7%;
-    height: 24.7%;
-    top: 36%;
-    margin-left: 14.2%;
-  }
-
-  @media (max-width: 1500px) {
-    top: 36%;
-    margin-left: 16.2%;
-  }
-
-  @media (max-width: 1470px) {
-    top: 36%;
-    margin-left: 16%;
-  }
-
-  @media (max-width: 1410px) {
-    width: 11.2%;
-    height: 22.7%;
-    top: 37%;
-    margin-left: 15.7%;
-  }
-
-
-  @media (max-width: 1300px) {
-    width: 11.5%;
-    height: 21.9%;
-    top: 37.5%;
-    margin-left: 15.5%;
-  }
-
-  @media (max-width: 1235px) {
-    margin-left: 15%;
-  }
-
-  @media (max-width: 1200px) {
-    width: 13%;
-    height: 21%;
-    top: 38.5%;
-    margin-left: 16.5%;
-  }
-
-  @media (max-width: 1115px) {
-    width: 12.5%;
-    height: 19%;
-    top: 39%;
-    margin-left: 16%;
-  }
-
-  @media (max-width: 1050px) {
-    width: 11.5%;
-    height: 17%;
-    top: 40.2%;
-    margin-left: 17.5%;
-  }
-
-  @media (max-width: 985px) {
-    width: 11.5%;
-    height: 16.5%;
-    top: 40.5%;
-    margin-left: 17%;
-  }
-
-  @media (max-width: 985px) {
-    width: 11%;
-    height: 15%;
-    top: 41%;
-    margin-left: 16.8%;
-  }
-
-  @media (max-width: 920px) {
-    top: 41.5%;
-    margin-left: 16%;
-  }
-
-  @media (max-width: 900px) {
-    width: 16%;
-    height: 20%;
-    top: 39.5%;
-    margin-left: 14%;
-  }
-
-  @media (max-width: 785px) {
-    width: 15%;
-    height: 17%;
-    top: 40.5%;
-  }
-
-  @media (max-width: 765px) {
-    width: 14%;
-    height: 15%;
-    top: 41.5%;
-  }
-}
-
-.input {
-  width: 14.7%;
-  height: 29.7%;
-  position: absolute;
-  top: 35.3%;
-  margin-left: 15.2%;
-  z-index: 1;
-  background-color: transparent;
-
-  @media (max-width: 1650px) {
-    width: 12.7%;
-    height: 27.7%;
-    top: 36%;
-    margin-left: 15%;
-  }
-
-  @media (max-width: 1560px) {
-    width: 10.7%;
-    height: 23.7%;
-    top: 38%;
-    margin-left: 15%;
-  }
-
-  @media (max-width: 1400px) {
-    width: 10.7%;
-    height: 20.7%;
-    top: 40%;
-    margin-left: 14%;
-  }
-
-  @media (max-width: 1250px) {
-    width: 9.7%;
-    height: 15.7%;
-    top: 42%;
-    margin-left: 13.5%;
-  }
-
-}
-
-.im4:hover {
-  transform: scale(1.05);
-
-  @media (max-width: 900px) {
-    transform: scale(1.05);
-  }
-}

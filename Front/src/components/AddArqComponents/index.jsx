@@ -2,11 +2,9 @@ import React, { useCallback, useState, useRef } from "react";
 import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
-import image from "../../assets/image1.png";
-import background from "../../assets/Backgrounde.png";
 import perfil from "../../assets/menu.png";
-import add from "../../assets/add.png";
-import but from "../../assets/but.png";
+import butaogeraraqui from "../../assets/geraraqui.png";
+import adicionar from "../../assets/adicionar.png";
 import BaseModalWrapper from "../ModalPopUp/BaseModalWrapper";
 import Button from "react-bootstrap/Button";
 
@@ -33,7 +31,6 @@ function AddArqComponents() {
         });
 
         const data = await result.json();
-
         console.log(data);
       } catch (error) {
         console.error(error);
@@ -46,7 +43,7 @@ function AddArqComponents() {
       fileInputRef.current.click();
     }
   };
-
+  
   const [isModalVisible, setIsModalVisible] = useState(false);
   const toggleModal = () => {
     setIsModalVisible((wasModalVisible) => !wasModalVisible);
@@ -54,76 +51,52 @@ function AddArqComponents() {
 
   return (
     <>
-
       <div className={styles.container}>
-      <div className={styles.roundedpolygon}>
-        {/* <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <clipPath id="blobClip">
-            <path d="
-                M 150,50
-                C 180,40 250,60 210,150
-                C 180,220 100,150 90,120
-                C 80,80 150,50 150,50
-                Z"/>
-          </clipPath>
-        </defs>
-
-        <image href={background} x="0" y="0" width="300" height="200" clip-path="url(#blobClip)" />
-
-        <path d="
-            M 150,50
-            C 180,40 250,60 210,150
-            C 180,220 100,150 90,120
-            C 80,80 150,50 150,50
-            Z"
-            fill="none" 
-            stroke-width="2"
-            />
-            </svg> */}
-        <svg
-          version="1.0"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-          width="794"
-          height="614"
-          viewBox="0 0 794 614"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          <defs>
-            <radialGradient
-              id="grad1"
-              cx="50%"
-              cy="50%"
-              r="50%"
-              fx="50%"
-              fy="50%"
+        <div className={styles.roundedpolygon}>
+          <div className={styles.svgTopLeft}>
+            <svg
+              version="1.0"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              width="794"
+              height="614"
+              viewBox="0 0 794 614"
+              preserveAspectRatio="xMidYMid meet"
             >
-              <stop
-                offset="0%"
-                style={{ stopColor: "rgba(61,124,236,1)", stopOpacity: 1 }}
-              />
-              <stop
-                offset="60%"
-                style={{ stopColor: "rgba(38,72,235,1)", stopOpacity: 1 }}
-              />
-              <stop
-                offset="100%"
-                style={{ stopColor: "rgba(75,95,236,1)", stopOpacity: 1 }}
-              />
-            </radialGradient>
-            <clipPath id="blobClip">
-              <path d="M 150,50 C 180,40 250,60 210,150 C 180,220 100,150 90,120 C 80,80 150,50 150,50 Z" />
-            </clipPath>
-          </defs>
+              <defs>
+                <radialGradient
+                  id="grad1"
+                  cx="50%"
+                  cy="50%"
+                  r="50%"
+                  fx="50%"
+                  fy="50%"
+                >
+                  <stop
+                    offset="0%"
+                    style={{ stopColor: "rgba(61,124,236,1)", stopOpacity: 1 }}
+                  />
+                  <stop
+                    offset="60%"
+                    style={{ stopColor: "rgba(38,72,235,1)", stopOpacity: 1 }}
+                  />
+                  <stop
+                    offset="100%"
+                    style={{ stopColor: "rgba(75,95,236,1)", stopOpacity: 1 }}
+                  />
+                </radialGradient>
+                <clipPath id="blobClip">
+                  <path d="M 150,50 C 180,40 250,60 210,150 C 180,220 100,150 90,120 C 80,80 150,50 150,50 Z" />
+                </clipPath>
+              </defs>
 
-          <g
-            transform="translate(0, 614) scale(0.1, -0.1)"
-            fill="url(#grad1)"
-            stroke="none"
-          >
-            <path
-              d="M0 4515 c0 -1433 2 -1626 15 -1631 8 -4 12 -10 9 -15 -3 -5 -1 -9 4
+              <g
+                transform="translate(0, 614) scale(0.1, -0.1)"
+                fill="url(#grad1)"
+                stroke="none"
+              >
+                <path
+                  d="M0 4515 c0 -1433 2 -1626 15 -1631 8 -4 12 -10 9 -15 -3 -5 -1 -9 4
             -9 6 0 23 -20 39 -45 15 -25 31 -45 34 -45 4 0 19 -19 34 -42 26 -39 48 -66
             97 -118 9 -10 14 -21 11 -24 -4 -3 -1 -6 5 -6 14 0 73 -56 66 -63 -3 -3 4 -8
             15 -12 12 -3 21 -11 21 -16 0 -12 49 -59 61 -59 5 0 9 -7 9 -15 0 -8 4 -15 10
@@ -160,35 +133,59 @@ function AddArqComponents() {
             -52 72 0 6 -4 10 -10 10 -5 0 -10 7 -10 15 0 8 -4 15 -10 15 -5 0 -10 5
             -10 12 0 6 -13 32 -29 57 -54 85 -109 256 -126 386 -24 194 -24 656 1
             696 2 4 7 37 10 73 l5 66 -2186 0 -2185 0 0 -1625z"
-            />
-          </g>
-        </svg>
+                />
+              </g>
+            </svg>
+          </div>
 
-<div className={styles.svgTopRight}>
-        <svg
-          version="1.0"
-          xmlns="http://www.w3.org/2000/svg"
-          width="398.000000pt"
-          height="333.000000pt"
-          viewBox="0 0 398.000000 333.000000"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          <g
-            transform="translate(0.000000,333.000000) scale(0.100000,-0.100000)"
-            fill="url(#grad1)"
-            stroke="none"
-          >
-            <path
-              d="M912 4163 c-251 -249 -506 -548 -636 -747 -124 -188 -213 -403 -251
+          <div className={styles.svgTopRight}>
+            <svg
+              version="1.0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="398.000000pt"
+              height="333.000000pt"
+              viewBox="0 0 398.000000 333.000000"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <g
+                transform="translate(0.000000,333.000000) scale(0.100000,-0.100000)"
+                fill="url(#grad1)"
+                stroke="none"
+              >
+                <path
+                  d="M912 4163 c-251 -249 -506 -548 -636 -747 -124 -188 -213 -403 -251
               -606 -29 -149 -25 -371 8 -531 57 -272 175 -523 395 -839 507 -726 1267 -1241
               2048 -1385 443 -82 903 -45 1371 111 502 166 851 431 1079 816 l54 92 0 1628
               0 1628 -1950 0 -1950 0 -168 -167z"
-            />
-          </g>
-        </svg>
-          
-</div>
-      </div>
+                />
+              </g>
+            </svg>
+          </div>
+
+          <div className={styles.svgBottomCenter}>
+            <svg
+              version="1.0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="615.000000pt"
+              height="306.000000pt"
+              viewBox="0 0 715.000000 406.000000"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <g
+                transform="translate(0.000000,466.000000) scale(0.100000,-0.100000)"
+                fill="url(#grad1)"
+                stroke="none"
+              >
+                <path
+                  d="M3581 4058 c-383 -40 -705 -307 -944 -784 -304 -606 -497 -1683 -514
+-2871 l-6 -403 2796 0 2797 0 -6 33 c-52 304 -132 544 -280 838 -277 553 -769
+1182 -1436 1834 -887 868 -1594 1307 -2182 1354 -66 6 -128 9 -136 8 -8 -1
+-48 -5 -89 -9z"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
         <div className={styles.centerimg}>
           <Image src={bosch} className={styles.im} alt="Logo cima" />
         </div>
@@ -204,46 +201,39 @@ function AddArqComponents() {
         />
       </div>
       <div className={styles.container2}>
-        <div className={styles.aling}>
-          <div className={styles.alinhadnh}>
-            <div className={styles.label}>
-              <p className={styles.p1}>GERE SEU</p>
-              <p className={styles.p11}>DIAGRAMA</p>
-              <p className={styles.p2}>
-                Faça UPLOAD ou arraste e solte os arquivos necessários na área
-                designada ao lado.
-              </p>
-            </div>
-            <div className={styles.hov}>
-              <a className={styles.a} href="#" onClick={handleUpload}>
-                <p className={styles.p}>GERAR DIAGRAMA</p>
-                <Image src={but} className={styles.im3} alt="botão" />
-              </a>
-            </div>
-          </div>
-          {/* <div className={styles.ima}>
-            <div>
-              <input
-                ref={fileInputRef}
-                className={styles.input}
-                id="file"
-                type="file"
-                onChange={handleFileChange}
-                style={{ display: "none" }}
-              />
-              <Image
-                src={add}
-                alt=" botao"
-                className={styles.im4}
-                onClick={handleImageClick}
-              />
-            </div>
-            <Image
-              src={image}
-              className={styles.im2}
-              alt="imagem principal botao"
+        <div className={styles.alinharpracima}>
+          <p className={styles.gereseu}>GERE SEU</p>
+          <p className={styles.diagrama}>DIAGRAMA</p>
+          <p className={styles.conteudo}>
+            Faça UPLOAD ou arraste e solte os arquivos necessários na área
+            designada abaixo.
+          </p>
+
+          <div className={styles.adicionararea}>
+            <input
+              ref={fileInputRef}
+              id="file"
+              type="file"
+              onChange={handleFileChange}
+              style={{ display: "none" }}
             />
-          </div> */}
+            <Image
+              src={adicionar}
+              className={styles.adicionar}
+              alt="adicionar"
+              onClick={handleImageClick} 
+            />
+          </div>
+
+          <div className={styles.hov}>
+            <a href="#" onClick={handleUpload}>
+              <Image
+                src={butaogeraraqui}
+                className={styles.image}
+                alt="botão"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </>
