@@ -23,13 +23,14 @@ export const DekstopModalContainer = styled(ModalContainer)`
 `;
 
 export const Header = styled.h3`
+background-color: white;
+border-radius: 50px;
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 500;
-  color: white;
+  color: #102482;
   font-size: 20px;
-  line-height: 1.5em; 
   margin: 0px 0 9px;
   display: flex;
   align-items: center;
@@ -62,7 +63,7 @@ export const Titulo = styled.h3`
   font-size: 40px;
   line-height: 3em;
   margin: 15px 0 0;
-  margin-left: 40px;
+  margin-left: 50px;
   word-break: break-word; 
 `;
 
@@ -258,16 +259,28 @@ export const Dive = styled.div`
   width: 90%;
 `;
 
-export const Negr = styled.h1`
+export const HeaderNegr = styled.h3`
+  background-color: #102482;
+  height: 50px;
+  position: relative; /* Ensure positioning context */
+  z-index: 0; /* Lower z-index */
+  display: flex; /* Ensures proper alignment */
+  align-items: center; /* Centers the content vertically */
+  margin: 0; /* Removes margin to ensure proper alignment with Negr */
+`;
+
+export const Negr = styled.h3`
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 700;
   color: white;
   font-size: 20px;
-  min-width:100px;
-  // display: flex;
-  // justify-content: center;
-  line-height: 0.05em; 
-  margin: 0px 0 1px;
+  min-width: 100px;
+  line-height: 0.05em;
+  position: absolute; /* Positioning to overlay correctly */
+  z-index: 1; /* Higher z-index */
+  margin: 0; /* Ensures there’s no extra margin */
+  top: 0; /* Aligns with the top of HeaderNegr */
+  left: 0; /* Aligns with the left of HeaderNegr */
 `;

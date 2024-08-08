@@ -25,6 +25,7 @@ import {
   Negr,
   Divii,
   Titulo2,
+  HeaderNegr,
 } from "./ModalPopup.styles";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
@@ -140,7 +141,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                   name="name"
                   value={editData.name}
                   onChange={handleInputChange}
-                />
+                  />
               </Header2>
               <Header2>
                 <Letras>Email:</Letras>{" "}
@@ -199,13 +200,13 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             </Diva>
           ) : (
             <Dive>
-              <Header><Negr>Nome:</Negr> {userData.name}</Header>
-              <Header><Negr>Email:</Negr>{userData.email}</Header>
-              <Header><Negr>Cpf:</Negr>{userData.cpf}</Header>
-              <Header><Negr>EDV:</Negr>{userData.edv}</Header>
-              <Header><Negr>Cep:</Negr>{userData.cep}</Header>
-              <Header><Negr>Rua:</Negr>{userData.street}</Header>
-              <Header><Negr>Número:</Negr>{userData.number}</Header>
+              <Header><HeaderNegr><Negr>Nome:</Negr></HeaderNegr> {userData.name}</Header>
+              <Header><HeaderNegr><Negr>Email:</Negr></HeaderNegr>{userData.email}</Header>
+              <Header><HeaderNegr><Negr>Cpf:</Negr></HeaderNegr>{userData.cpf}</Header>
+              <Header><HeaderNegr><Negr>EDV:</Negr></HeaderNegr>{userData.edv}</Header>
+              <Header><HeaderNegr><Negr>Cep:</Negr></HeaderNegr>{userData.cep}</Header>
+              <Header><HeaderNegr><Negr>Rua:</Negr></HeaderNegr>{userData.street}</Header>
+              <Header><HeaderNegr><Negr>Número:</Negr></HeaderNegr>{userData.number}</Header>
             </Dive>
           )}
           <Centralizar>
