@@ -14,16 +14,6 @@ body {
   }
 }
 
-.vem {
-  z-index: 1000;
-  background-color: transparent;
-  border: none;
-  height: 10%;
-  display: flex;
-  justify-content: flex-end;
-  width: 65px;
-}
-
 .svgBottomCenter {
   position: absolute;
   bottom: 0;
@@ -56,6 +46,24 @@ body {
   width: auto; 
   height: auto;
   z-index: 10; 
+}
+
+.butao{
+  position: absolute;
+  top: 10px; 
+  right: 10px; 
+  z-index: 1000; 
+  padding: 10px;
+}
+
+.vem {
+  z-index: 1000;
+  background-color: transparent;
+  border: none;
+  height: 10%;
+  display: flex;
+  justify-content: flex-end;
+  width: 65px;
 }
 
 .perfil{
@@ -304,13 +312,4 @@ z-index: 99;
     width: 65.5%;
   }
 }
-
-.butao{
-  position: absolute;
-  top: 10px; 
-  right: 10px; 
-  z-index: 1000; 
-  padding: 10px;
-}
-
 

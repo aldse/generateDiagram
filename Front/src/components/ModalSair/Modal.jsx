@@ -16,8 +16,8 @@ const ModalContainer = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background-color: black;
-  padding: 50px; /* Aumenta o padding interno para aumentar o espaço branco */
+  background-color: #2B48EC;
+  padding: 50px; 
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: calc(100% - 40px); 

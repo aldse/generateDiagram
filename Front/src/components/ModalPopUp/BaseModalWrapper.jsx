@@ -9,7 +9,6 @@ import {
   Botao,
   Botao1,
   Botao2,
-  Centralizar,
   DekstopModalContainer,
   Diva,
   Dive,
@@ -25,7 +24,9 @@ import {
   Negr,
   Divii,
   Titulo2,
-  HeaderNegr,
+  Content,
+  DiminuirTam,
+  Imagem,
 } from "./ModalPopup.styles";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
@@ -122,6 +123,10 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     setIsModalVisiblee((wasModalVisiblee) => !wasModalVisiblee);
   };
 
+  const handleImageClick = () => {
+    onBackdropClick();
+  };
+
   if (!isModalVisible) {
     return null;
   }
@@ -130,6 +135,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     <Modal onBackdropClick={onBackdropClick}>
       <DekstopModalContainer onClick={onBackdropClick}>
         <VAMBORA onClick={(e) => e.stopPropagation()}>
+          <Imagem onClick={handleImageClick}></Imagem>
           <Titulo>DADOS</Titulo>
           <Titulo2> PESSOAIS</Titulo2>
           {isEditing ? (
@@ -200,42 +206,35 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             </Diva>
           ) : (
             <Dive>
-              <Header><HeaderNegr><Negr>Nome:</Negr></HeaderNegr> {userData.name}</Header>
-              <Header><HeaderNegr><Negr>Email:</Negr></HeaderNegr>{userData.email}</Header>
-              <Header><HeaderNegr><Negr>Cpf:</Negr></HeaderNegr>{userData.cpf}</Header>
-              <Header><HeaderNegr><Negr>EDV:</Negr></HeaderNegr>{userData.edv}</Header>
-              <Header><HeaderNegr><Negr>Cep:</Negr></HeaderNegr>{userData.cep}</Header>
-              <Header><HeaderNegr><Negr>Rua:</Negr></HeaderNegr>{userData.street}</Header>
-              <Header><HeaderNegr><Negr>Número:</Negr></HeaderNegr>{userData.number}</Header>
+              <Header><Negr>Nome:</Negr><Content>{userData.name} </Content></Header>
+              <Header><Negr>Email:</Negr><Content>{userData.email}</Content></Header>
+              <Header><Negr>Cpf:</Negr><Content>{userData.cpf}</Content></Header>
+              <Header><Negr>EDV:</Negr><Content>{userData.edv}</Content></Header>
+              <Header><Negr>Cep:</Negr><Content>{userData.cep}</Content></Header>
+              <Header><Negr>Rua:</Negr><Content>{userData.street}</Content></Header>
+              <Header><Negr>Número:</Negr><Content>{userData.number}</Content></Header>
             </Dive>
           )}
-          <Centralizar>
-            {isEditing ? (
-              <>
-                <Botao1 onClick={handleSave}>Salvar</Botao1>
-                <Botao2 onClick={handleCancel}>Cancelar</Botao2>
-              </>
-            ) : (
-              <>
-                <Botao3 onClick={() => setIsEditing(true)}>
-                  Editar Perfil
-                </Botao3>
-                <Botao4 onClick={toggleModale}>Excluir Perfil</Botao4>
-                <BaseModalSair
-                  userId={userId}
-                  isModalVisiblee={isModalVisiblee}
-                  onBackdropClicke={toggleModale}
-                />
-              </>
-            )}
-          </Centralizar>
           {isEditing ? (
-          <Divi>
+            <Divi>
+            <Botao1 onClick={handleSave}>Salvar</Botao1>
+            <Botao2 onClick={handleCancel}>Cancelar</Botao2>
             <Botao onClick={handleLogout}>Sair</Botao>
           </Divi>
            ) : (
-            <Divii>
-            <Botao onClick={handleLogout}>Sair</Botao>
+             <Divii>
+              <Botao3 onClick={() => setIsEditing(true)}>
+                Editar Perfil
+              </Botao3>
+              <Botao4 onClick={toggleModale}>Excluir Perfil</Botao4>
+              <BaseModalSair
+                userId={userId}
+                isModalVisiblee={isModalVisiblee}
+                onBackdropClicke={toggleModale}
+              />
+              <DiminuirTam>
+             <Botao onClick={handleLogout}>Sair</Botao>
+              </DiminuirTam>
             </Divii>
            )}
         </VAMBORA>
