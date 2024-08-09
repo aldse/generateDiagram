@@ -43,7 +43,7 @@ function AddArqComponents() {
       fileInputRef.current.click();
     }
   };
-  
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const toggleModal = () => {
     setIsModalVisible((wasModalVisible) => !wasModalVisible);
@@ -138,6 +138,22 @@ function AddArqComponents() {
             </svg>
           </div>
 
+          <div className={styles.svgTopLeft2}>
+            <svg
+              version="1.0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="775.000000pt"
+              height="666.000000pt"
+              viewBox="0 0 675.000000 566.000000"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <g
+                transform="translate(0.000000,566.000000) scale(0.100000,-0.100000)"
+                fill="#000000"
+                stroke="none"
+              ></g>
+            </svg>
+          </div>
           <div className={styles.svgTopRight}>
             <svg
               version="1.0"
@@ -221,7 +237,7 @@ function AddArqComponents() {
               src={adicionar}
               className={styles.adicionar}
               alt="adicionar"
-              onClick={handleImageClick} 
+              onClick={handleImageClick}
             />
           </div>
 

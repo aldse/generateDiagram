@@ -37,6 +37,18 @@ body {
   z-index: 10; 
 }
 
+.svgTopLeft2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: auto; 
+  height: auto;
+  z-index: 11; 
+}
+
+
 .svgTopRight {
   position: absolute;
   top: 0;

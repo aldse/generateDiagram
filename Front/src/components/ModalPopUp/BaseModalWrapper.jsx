@@ -27,6 +27,7 @@ import {
   Content,
   DiminuirTam,
   Imagem,
+  Content2,
 } from "./ModalPopup.styles";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
@@ -142,66 +143,80 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             <Diva>
               <Header2>
                 <Letras>Nome:</Letras>{" "}
+                <Content2>
                 <Input
                   type="text"
                   name="name"
                   value={editData.name}
                   onChange={handleInputChange}
                   />
+                  </Content2>
               </Header2>
               <Header2>
                 <Letras>Email:</Letras>{" "}
+                <Content2>
                 <Input
                   type="email"
                   name="email"
                   value={editData.email}
                   onChange={handleInputChange}
                 />
+                </Content2>
               </Header2>
               <Header2>
                 <Letras>Cpf:</Letras>{" "}
+                <Content2>
                 <Input
                   type="text"
                   name="cpf"
                   value={editData.cpf}
                   onChange={handleInputChange}
                 />
+                 </Content2>
               </Header2>
               <Header2>
                 <Letras>EDV:</Letras>{" "}
+                <Content2>
                 <Input
                   type="text"
                   name="edv"
                   value={editData.edv}
                   onChange={handleInputChange}
                 />
+                 </Content2>
               </Header2>
               <Header2>
                 <Letras>Cep:</Letras>{" "}
+                <Content2>
                 <Input
                   type="text"
                   name="cep"
                   value={editData.cep}
                   onChange={handleInputChange}
                 />
+                </Content2>
               </Header2>
               <Header2>
                 <Letras>Rua:</Letras>
+                <Content2>
                 <Input
                   type="text"
                   name="street"
                   value={editData.street}
                   onChange={handleInputChange}
                 />
+                </Content2>
               </Header2>
               <Header2>
                 <Letras>Número:</Letras>
+                <Content2>
                 <Input
                   type="text"
                   name="number"
                   value={editData.number}
                   onChange={handleInputChange}
                 />
+                </Content2>
               </Header2>
             </Diva>
           ) : (
@@ -219,13 +234,13 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             <Divi>
             <Botao1 onClick={handleSave}>Salvar</Botao1>
             <Botao2 onClick={handleCancel}>Cancelar</Botao2>
+            <DiminuirTam>
             <Botao onClick={handleLogout}>Sair</Botao>
+            </DiminuirTam>
           </Divi>
            ) : (
              <Divii>
-              <Botao3 onClick={() => setIsEditing(true)}>
-                Editar Perfil
-              </Botao3>
+              <Botao3 onClick={() => setIsEditing(true)}>Editar Perfil</Botao3>
               <Botao4 onClick={toggleModale}>Excluir Perfil</Botao4>
               <BaseModalSair
                 userId={userId}
