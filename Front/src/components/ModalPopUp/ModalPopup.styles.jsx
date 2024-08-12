@@ -42,7 +42,7 @@ export const Header = styled.div`
   box-sizing: border-box;
 `;
 
-export const Header2 = styled.h3`
+export const Header2 = styled.div`
   background-color: white;
   border-radius: 50px;
   font-family: "Noto Sans JP", sans-serif;
@@ -56,30 +56,11 @@ export const Header2 = styled.h3`
   display: flex;
   align-items: center;
   position: relative;
-  height: 48px;
-  max-width: 85%;
+  height: 48px; 
+  max-width: 84.5%;
   box-sizing: border-box;
 `;
 
-export const Letras = styled.h3`
-  background-color: #102482;
-  font-family: "Noto Sans JP", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 20px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 10%;
-  left: 0px;
-  transform: translateY(-50%);
-  height: 100%;
-  width: 30%;
-`;
 
 export const Titulo = styled.h3`
   font-family: "Alegreya Sans", sans-serif;
@@ -270,16 +251,23 @@ export const Botao = styled.button`
     color: #fff;
   }
 `;
-
 export const Input = styled.input`
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
   border: none;
   border-radius: 50px;
   padding: 8px;
-  font-size: 16px;
+  font-size: 17px;
   transition: border-color 0.3s, box-shadow 0.3s;
-  width: 90%;
+  width: 100%; 
+  height: 40px;
   color: #102482;
-  margin: 10px auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
 
   &:focus {
     border-color: #ff8c00;
@@ -291,6 +279,7 @@ export const Input = styled.input`
     border-color: #ff8c00;
   }
 `;
+
 
 export const Diva = styled.div`
   width: 100%;
@@ -330,6 +319,26 @@ export const Negr = styled.div`
   width: 30%;
 `;
 
+export const Letras = styled.h3`
+  background-color: #102482;
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0px;
+  transform: translateY(0%); 
+  height: 48px;
+  width: 30.2%;
+  margin-left: -2px;
+  `;
+
 export const Content = styled.div`
   margin-left: 100px;
   font-size: 17px;
@@ -341,11 +350,11 @@ export const Content = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.2; /
+  line-height: 1.2; 
 `;
 
 export const Content2 = styled.div`
-  margin-left: 110px;
+  margin-left: 95px;
   font-size: 17px;
   white-space: normal;
   word-wrap: break-word;
@@ -355,5 +364,5 @@ export const Content2 = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.2; /
+  line-height: 1.2; 
 `;

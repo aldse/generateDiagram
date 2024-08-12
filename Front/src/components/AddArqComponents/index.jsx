@@ -2,13 +2,16 @@ import React, { useCallback, useState, useRef } from "react";
 import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
+import ajuda from "../../assets/help.png";
 import perfil from "../../assets/menu.png";
 import butaogeraraqui from "../../assets/geraraqui.png";
 import adicionar from "../../assets/adicionar.png";
 import BaseModalWrapper from "../ModalPopUp/BaseModalWrapper";
 import Button from "react-bootstrap/Button";
+import { Link, useNavigate } from "react-router-dom";
 
 function AddArqComponents() {
+  const navigate = useNavigate();
   const fileInputRef = useRef(null);
   const [file, setFile] = useState(null);
 
@@ -58,8 +61,8 @@ function AddArqComponents() {
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
-              width="794"
-              height="614"
+              width="260%"
+              height="auto"
               viewBox="0 0 794 614"
               preserveAspectRatio="xMidYMid meet"
             >
@@ -138,28 +141,12 @@ function AddArqComponents() {
             </svg>
           </div>
 
-          <div className={styles.svgTopLeft2}>
-            <svg
-              version="1.0"
-              xmlns="http://www.w3.org/2000/svg"
-              width="775.000000pt"
-              height="666.000000pt"
-              viewBox="0 0 675.000000 566.000000"
-              preserveAspectRatio="xMidYMid meet"
-            >
-              <g
-                transform="translate(0.000000,566.000000) scale(0.100000,-0.100000)"
-                fill="#000000"
-                stroke="none"
-              ></g>
-            </svg>
-          </div>
           <div className={styles.svgTopRight}>
             <svg
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
-              width="398.000000pt"
-              height="333.000000pt"
+               width="200%"
+              height="auto"
               viewBox="0 0 398.000000 333.000000"
               preserveAspectRatio="xMidYMid meet"
             >
@@ -182,9 +169,9 @@ function AddArqComponents() {
             <svg
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
-              width="615.000000pt"
-              height="306.000000pt"
-              viewBox="0 0 715.000000 406.000000"
+              width="300%"
+              height="auto"
+              viewBox="0 0 815.000000 406.000000"
               preserveAspectRatio="xMidYMid meet"
             >
               <g
@@ -205,7 +192,9 @@ function AddArqComponents() {
         <div className={styles.centerimg}>
           <Image src={bosch} className={styles.im} alt="Logo cima" />
         </div>
-        <div></div>
+        <Link to="/landingpage">
+          <Image src={ajuda} className={styles.ajuda} alt="ajuda" />
+        </Link>
       </div>
       <div className={styles.butao}>
         <Button className={styles.vem} onClick={toggleModal}>

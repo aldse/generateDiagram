@@ -7,9 +7,10 @@ import Login from "./pages/Login";
 import AddArq from "./pages/AddArq";
 import Cadastro from "./pages/Cadastro";
 import ProtectedRoute from "./components/ProtectedRoutes/protectedRoute";
-import "./index.css";
 import Logo from "./pages/Logo";
 import Alert from "./pages/Alert";
+import LandingPage from "./pages/LandingPage";
+import LandingPageComponents from "./components/LandingPageComponents";
 
 const routes = [
   {
@@ -26,11 +27,15 @@ const routes = [
   },
   {
     path: "/logo",
-    element: <Logo />,
+    element: <ProtectedRoute element={<Logo />} />,
   },
   {
     path: "/alert",
-    element: <Alert />,
+    element: <ProtectedRoute element={<Alert />} />,
+  },
+  {
+    path: "/landingpage",
+    element: <ProtectedRoute element={<LandingPage />} />,
   },
 ];
 
