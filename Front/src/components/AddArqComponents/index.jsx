@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef } from "react";
+import React, { useCallback, useState, useRef, useEffect } from "react";
 import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
@@ -52,8 +52,24 @@ function AddArqComponents() {
     setIsModalVisible((wasModalVisible) => !wasModalVisible);
   };
 
+  useEffect(() => {
+    // Adiciona a classe no scroll ao contêiner específico
+    const container = document.getElementById('scrollContainer');
+    if (container) {
+      container.classList.add(styles.noScroll);
+    }
+
+    // Remove a classe quando o componente é desmontado
+    return () => {
+      if (container) {
+        container.classList.remove(styles.noScroll);
+      }
+    };
+  }, []);
+
   return (
     <>
+    <div id="scrollContainer" className={styles.pageContainer}>
       <div className={styles.container}>
         <div className={styles.roundedpolygon}>
           <div className={styles.svgTopLeft}>
@@ -240,6 +256,7 @@ function AddArqComponents() {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

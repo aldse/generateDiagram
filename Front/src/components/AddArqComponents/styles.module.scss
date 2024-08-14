@@ -1,13 +1,21 @@
 body {
-  overflow: hidden;
   margin: 0%;
-  background-color: #102582;
+  // background-color: #102582;
+}
+
+.noScroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
 .container {
   display: flex;
   height: 5vh;
-  overflow: hidden;
+  overflow: hidden !important;
   background-color: #102582;
 
   @media (max-width: 900px) {
@@ -16,6 +24,7 @@ body {
 }
 
 .ajuda{
+  overflow: hidden !important;
   position: absolute;
   top: 0;
   left: 0;
@@ -29,7 +38,7 @@ body {
   bottom: 0;
   left: 55%;
   transform: translateX(-50%);
-  margin: -10px;
+  margin: -20px;
   padding: 0;
   width: auto; 
   height: auto;
