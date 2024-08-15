@@ -53,13 +53,11 @@ function AddArqComponents() {
   };
 
   useEffect(() => {
-    // Adiciona a classe no scroll ao contêiner específico
     const container = document.getElementById('scrollContainer');
     if (container) {
       container.classList.add(styles.noScroll);
     }
 
-    // Remove a classe quando o componente é desmontado
     return () => {
       if (container) {
         container.classList.remove(styles.noScroll);

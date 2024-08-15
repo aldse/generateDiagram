@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  // overflow: hidden;
 }
 
 .div {
@@ -54,7 +55,8 @@ body {
     display: flex;
     flex-wrap: wrap; 
     gap: 16px; 
-    padding: 16px; 
+    padding: 16px;
+    padding-top: 0px;  
     justify-content: space-between; 
   }
 
@@ -68,15 +70,29 @@ body {
     justify-content: space-between; 
   }
 
-.card11,
-.card22{
-  background-color: #ffffff;
-  flex: 1 1 calc(33.333% - 16px); 
+.card10{
+  flex: 0 1 50%; 
   height: 0;
-  padding-bottom: 23.333%; 
-  border: 1px solid #ddd; 
+  padding-bottom: 10.7%; 
   box-sizing: border-box; 
-  border-radius: 30px
+  border-radius: 30px;
+  width: 150%;
+} 
+
+.card11{
+  flex: 1 1; 
+  height: 0;
+  padding-bottom: 13.7%; 
+  box-sizing: border-box; 
+  border-radius: 30px;
+} 
+
+.card22{
+  flex: 1 1; 
+  height: 0;
+  padding-bottom: 13.7%; 
+  box-sizing: border-box; 
+  border-radius: 30px;
 } 
 
 .line2 {
@@ -86,14 +102,14 @@ body {
     padding: 16px; 
     padding-top: 0px; 
     justify-content: space-between; 
+    margin-top: 32px;
   }
 
+
 .card111{
-  background-color: #ffffff;
-  flex: 1 1 calc(33.333% - 16px); 
+  flex: 1 1 calc(23.333% - 16px); 
   height: 0;
-  padding-bottom: 25.333%; 
-  border: 1px solid #ddd; 
+  padding-bottom: 15%; 
   box-sizing: border-box; 
   border-radius: 30px
 } 
@@ -103,18 +119,15 @@ body {
   flex-wrap: wrap; 
   gap: 16px; 
   padding: 16px; 
-  padding-top: 0px; 
   justify-content: space-between; 
 }
 
 .card1,
 .card2,
 .card3 {
-  background-color: #ffffff;
-  flex: 1 1 calc(33.333% - 16px); 
+  flex: 1 1 calc(13.333% - 16px); 
   height: 0;
-  padding-bottom: 23.333%; 
-  border: 1px solid #ddd; 
+  padding-bottom:20.133%; 
   box-sizing: border-box; 
   border-radius: 30px
 }

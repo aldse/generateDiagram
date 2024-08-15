@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-function Card1LadingPageComponents() {
+function Card2LadingPageComponents() {
   return (
       <div
       className={styles.card11}
         data-aos="fade-left"
         data-aos-duration="2000"
       >
-        primeiro quadrado
+        segundo quadrado
       </div>
   );
 }
 
-export default Card1LadingPageComponents;
+export default Card2LadingPageComponents;
 
