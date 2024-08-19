@@ -9,6 +9,9 @@ import Card4LadingPageComponents from "../Card4LadingPageComponents";
 import Card5LadingPageComponents from "../Card5LadingPageComponents";
 import Card6LadingPageComponents from "../Card6LadingPageComponents";
 import Card7LadingPageComponents from "../Card7LadingPageComponents";
+import Card8LadingPageComponents from "../Card8LadingPageComponents";
+import Card9LadingPageComponents from "../Card9LadingPageComponents";
+import Card10LadingPageComponents from "../Card10LadingPageComponents";
 
 function LandingPageComponents() {
   useEffect(() => {
@@ -59,13 +62,13 @@ function LandingPageComponents() {
 
         <div className={styles.line3}>
           <div className={styles.card1}>
-            <Card4LadingPageComponents />
+            <Card8LadingPageComponents />
           </div>
           <div className={styles.card2}>
-            <Card5LadingPageComponents />
+            <Card9LadingPageComponents />
           </div>
           <div className={styles.card3}>
-            <Card6LadingPageComponents />
+            <Card10LadingPageComponents />
           </div>
         </div>
       </div>

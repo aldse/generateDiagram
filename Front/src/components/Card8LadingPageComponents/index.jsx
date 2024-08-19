@@ -5,10 +5,10 @@ function Card8LadingPageComponents() {
   return (
       <div
       className={styles.card11}
-        data-aos="fade-left"
-        data-aos-duration="2000"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
       >
-        8 quadrado
+        4 quadrado
       </div>
   );
 }

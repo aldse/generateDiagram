@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-function Card8LadingPageComponents() {
+function Card10LadingPageComponents() {
   return (
       <div
       className={styles.card11}
-        data-aos="fade-left"
+        data-aos="zoom-in"
         data-aos-duration="2000"
       >
-        8 quadrado
+        10 quadrado
       </div>
   );
 }
 
-export default Card8LadingPageComponents;
+export default Card10LadingPageComponents;
 
