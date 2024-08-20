@@ -41,8 +41,10 @@
 }
 
 .blue {
-  background-color: #367aa7;
+  // background-color: #102482;
   // background-color: #2548eb;
+  // background: linear-gradient(0deg, rgba(55,78,247,0.9023984593837535) 33%, rgba(34,40,87,1) 84%);
+  background: linear-gradient(0deg, rgba(55,78,247,0.9023984593837535) 23%, rgba(34,40,87,1) 67%);
   width: 35%;
   height: 100%;
   display: flex;
@@ -274,7 +276,7 @@ align-content: center
   font-optical-sizing: auto;
   font-weight: 500;
   margin-top: 2%;
-  background-color: #367aa7;
+  background-color: transparent;
   text-decoration: none;
   border: none;
   color: white;
