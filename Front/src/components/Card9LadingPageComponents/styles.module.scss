@@ -14,7 +14,8 @@
   font-style: normal;
   font-size: 35px;
   margin: 0;
-  padding: 6%;
+  padding: 5.5%;
+  padding-bottom: 4%;
 }
 
 .linha{
@@ -26,8 +27,83 @@ color: #A5A9B2;
 }
 
 .h1{
+  display: flex;
+  justify-content: center;
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 25px;
+  font-size: 20px;
+  margin: 4px;
+}
+
+.envoltazero{
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+.zero{
+  width: 150px;
+  padding: 0;
+  margin: 0;
+}
+
+.centralizar {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  width: 100%;
+  flex-direction: column;
+}
+
+.feedbackGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 87%;
+}
+
+.textarea {
+  width:50%; 
+  margin-bottom: 15px; 
+}
+
+.submitButton {
+  align-self: flex-end; 
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 0;
+  margin: 0;
+  background-color: #3B58E6;
+  color: white;
+}
+
+.selectGroup{
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+.categoryButton {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  margin: 2px;
+  padding: 10px 15px;
+  border: 2px solid #a5a9b2e3;
+  transition: border-color 0.3s ease;
+}
+
+.categoryButton:hover {
+  border-color: #888; 
+}
+
+.selected {
+  border-color: #3B58E6 !important;
+}
+
+.textarea{
+  resize: none;
+  border: 1px solid #a5a9b2e3;
+  border-radius: 5px;
 }

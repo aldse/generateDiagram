@@ -44,8 +44,10 @@
   // background-color: #102482;
   // background-color: #2548eb;
   // background: linear-gradient(0deg, rgba(55,78,247,0.9023984593837535) 33%, rgba(34,40,87,1) 84%);
-  background: linear-gradient(0deg, rgba(55,78,247,0.9023984593837535) 23%, rgba(34,40,87,1) 67%);
-  width: 35%;
+  // background: linear-gradient(270deg, rgba(34,40,87,1) 0%, rgba(53,110,236,1) 49%, rgba(166,191,247,1) 68%, rgba(255,255,255,1) 99%);   
+
+ background: linear-gradient(270deg, rgba(34,40,87,1) 0%, rgba(53,110,236,1) 50%, rgba(166,191,247,1) 71%, rgba(255,255,255,1) 100%);
+  width: 45%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -79,8 +81,8 @@
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-weight: 450;
-  width: 60%;
-  height: 7%;
+  width: 50%;
+  height: 6%;
   margin-bottom: 4%;
   background-color: white;
   border-radius: 10px;
