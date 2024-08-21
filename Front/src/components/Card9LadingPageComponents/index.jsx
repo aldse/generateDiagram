@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./styles.module.scss";
 import { Image, Button, Form } from "react-bootstrap";
 import zero from "../../assets/0.png";
@@ -10,9 +10,67 @@ import cinco from "../../assets/5.png";
 
 function Card9LadingPageComponents() {
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [currentImage, setCurrentImage] = useState(zero);
+  const [feedbackText, setFeedbackText] = useState("");
+  const alertRef = useRef()
+  const regions = [
+    { xMin: 0, xMax: 0.2, yMin: 0, yMax: 1, image: um },
+    { xMin: 0.2, xMax: 0.4, yMin: 0, yMax: 1, image: dois },
+    { xMin: 0.4, xMax: 0.6, yMin: 0, yMax: 1, image: tres },
+    { xMin: 0.6, xMax: 0.8, yMin: 0, yMax: 1, image: quatro },
+    { xMin: 0.8, xMax: 1, yMin: 0, yMax: 1, image: cinco }
+  ];
 
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
+  const handleImageClick = (event) => {
+    const { offsetX, offsetY, target } = event.nativeEvent;
+    const { width, height } = target;
+
+    const xPercent = offsetX / width;
+    const yPercent = offsetY / height;
+
+    const clickedRegion = regions.find(
+      (region) =>
+        xPercent >= region.xMin &&
+        xPercent <= region.xMax &&
+        yPercent >= region.yMin &&
+        yPercent <= region.yMax
+    );
+
+    setCurrentImage(clickedRegion ? clickedRegion.image : zero);
+  };
+
+  const handleFeedbackChange = (event) => {
+    setFeedbackText(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    console.log("aqui")
+    if (currentImage === zero) {
+      if (alertRef.current) {
+        alertRef.current.addAlert( 'Opinião sobre a página não inserida', 'Selecione uma opinião nos emojis.', 'Opinião sobre a página não inserida');
+      }
+      return;
+    }
+    if (!selectedCategory) {
+      if (alertRef.current) {
+        alertRef.current.addAlert( 'Categoria do Feedback não inserida', 'Insira uma categoria para nós sabermos o nicho que o assunto se insere.', 'Categoria do Feedback não inserida');
+      }
+      return;
+    }
+    if (!feedbackText.trim()) {
+      if (alertRef.current) {
+        alertRef.current.addAlert( 'Feedback não inserido', 'Digite o seu feedback no campo abaixo.', 'Feedback não inserido');
+      }
+      return;
+    }
+
+    console.log("Imagem selecionada:", regions.find(region => region.image === currentImage)?.image);
+    console.log("Categoria selecionada:", selectedCategory);
+    console.log("Feedback:", feedbackText);
+    
+    setSelectedCategory("");
+    setCurrentImage(zero);
+    setFeedbackText("");
   };
 
   return (
@@ -21,7 +79,13 @@ function Card9LadingPageComponents() {
       <hr className={styles.linha} />
       <h1 className={styles.h1}>Qual sua opinião sobre a página?</h1>
       <div className={styles.envoltazero}>
-        <Image src={zero} className={styles.zero} alt="Zero" />
+        <Image 
+          src={currentImage} 
+          className={styles.zero} 
+          alt="Feedback"
+          onClick={handleImageClick}
+          style={{ cursor: 'pointer' }} 
+        />
       </div>
 
       <h1 className={styles.h1}>Selecione a categoria do seu feedback:</h1>
@@ -30,7 +94,7 @@ function Card9LadingPageComponents() {
           variant={
             selectedCategory === "Sugestão" ? "primary" : "outline-primary"
           }
-          onClick={() => handleCategoryClick("Sugestão")}
+          onClick={() => setSelectedCategory("Sugestão")}
           className={`${styles.categoryButton} ${selectedCategory === "Sugestão" && styles.selected}`}
         >
           Sugestão
@@ -39,7 +103,7 @@ function Card9LadingPageComponents() {
           variant={
             selectedCategory === "Algo não está certo" ? "primary" : "outline-primary"
           }
-          onClick={() => handleCategoryClick("Algo não está certo")}
+          onClick={() => setSelectedCategory("Algo não está certo")}
           className={`${styles.categoryButton} ${selectedCategory === "Algo não está certo" && styles.selected}`}
         >
           Algo não está certo
@@ -50,7 +114,7 @@ function Card9LadingPageComponents() {
               ? "primary"
               : "outline-primary"
           }
-          onClick={() => handleCategoryClick("Elogio")}
+          onClick={() => setSelectedCategory("Elogio")}
           className={`${styles.categoryButton} ${selectedCategory === "Elogio" && styles.selected}`}
         >
           Elogio
@@ -65,8 +129,10 @@ function Card9LadingPageComponents() {
             rows={3}
             placeholder="Digite seu feedback aqui..."
             className={styles.textarea}
+            value={feedbackText}
+            onChange={handleFeedbackChange}
           />
-          <Button variant="primary" className={styles.submitButton}>
+          <Button variant="primary" className={styles.submitButton} onClick={handleSubmit}>
             Enviar Feedback
           </Button>
         </Form.Group>
