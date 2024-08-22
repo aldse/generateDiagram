@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
-import styles from "./styles.module.scss";
+import React, { useState } from "react";
 import { Image, Button, Form } from "react-bootstrap";
+import styles from "./styles.module.scss";
 import zero from "../../assets/0.png";
 import um from "../../assets/1.png";
 import dois from "../../assets/2.png";
@@ -8,11 +8,11 @@ import tres from "../../assets/3.png";
 import quatro from "../../assets/4.png";
 import cinco from "../../assets/5.png";
 
-function Card9LadingPageComponents() {
+function Card9LadingPageComponents({ showAlert }) {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [currentImage, setCurrentImage] = useState(zero);
   const [feedbackText, setFeedbackText] = useState("");
-  const alertRef = useRef()
+
   const regions = [
     { xMin: 0, xMax: 0.2, yMin: 0, yMax: 1, image: um },
     { xMin: 0.2, xMax: 0.4, yMin: 0, yMax: 1, image: dois },
@@ -43,35 +43,25 @@ function Card9LadingPageComponents() {
     setFeedbackText(event.target.value);
   };
 
-  const handleSubmit = () => {
-    console.log("aqui")
-    if (currentImage === zero) {
-      if (alertRef.current) {
-        alertRef.current.addAlert( 'Opinião sobre a página não inserida', 'Selecione uma opinião nos emojis.', 'Opinião sobre a página não inserida');
-      }
-      return;
-    }
-    if (!selectedCategory) {
-      if (alertRef.current) {
-        alertRef.current.addAlert( 'Categoria do Feedback não inserida', 'Insira uma categoria para nós sabermos o nicho que o assunto se insere.', 'Categoria do Feedback não inserida');
-      }
-      return;
-    }
-    if (!feedbackText.trim()) {
-      if (alertRef.current) {
-        alertRef.current.addAlert( 'Feedback não inserido', 'Digite o seu feedback no campo abaixo.', 'Feedback não inserido');
-      }
-      return;
-    }
+ const handleSubmit = () => {
+  if (currentImage === zero) {
+    showAlert('Opinião sobre a página não inserida', 'Selecione uma opinião nos emojis.', 'Opinião sobre a página não inserida');
+    return;
+  }
+  if (!selectedCategory) {
+    showAlert('Categoria do Feedback não inserida', 'Insira uma categoria para nós sabermos o nicho que o assunto se insere.', 'Categoria do Feedback não inserida');
+    return;
+  }
+  if (!feedbackText.trim()) {
+    showAlert('Feedback não inserido', 'Digite o seu feedback no campo abaixo.', 'Feedback não inserido');
+    return;
+  }
+    showAlert('Feedback enviado com sucesso', 'Feedback enviado.', 'Feedback enviado com sucesso');
+  setSelectedCategory("");
+  setCurrentImage(zero);
+  setFeedbackText("");
+};
 
-    console.log("Imagem selecionada:", regions.find(region => region.image === currentImage)?.image);
-    console.log("Categoria selecionada:", selectedCategory);
-    console.log("Feedback:", feedbackText);
-    
-    setSelectedCategory("");
-    setCurrentImage(zero);
-    setFeedbackText("");
-  };
 
   return (
     <div className={styles.card11} data-aos="zoom-in" data-aos-duration="1500">

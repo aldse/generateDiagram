@@ -19,6 +19,7 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
           </svg>
         );
       case 'Usuário cadastrado com sucesso':
+      case 'Feedback enviado com sucesso':
         return (
           <svg fill="currentColor" viewBox="0 0 20 20" className="h-6 w-6">
             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
@@ -63,7 +64,11 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
     'As senhas não foram inseridas iguais!': 'warning',
     'Senha menor que 8 digitos, NÃO!': 'warning',
     'CEP inválido': 'warning',
-    'info': 'info'
+    'info': 'info',
+    'Opinião sobre a página não inserida': 'warning',
+    'Categoria do Feedback não inserida': 'warning',  
+    'Feedback não inserido': 'warning',
+    'Feedback enviado com sucesso': 'success',
   }[type] || 'info';
 
   return (

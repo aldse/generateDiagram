@@ -1,24 +1,35 @@
-import styles from "./styles.module.scss";
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Card1LadingPageComponents from "../Card1LadingPageComponents";
-import Card2LadingPageComponents from "../Card2LadingPageComponents";
-import Card3LadingPageComponents from "../Card3LadingPageComponents";
-import Card4LadingPageComponents from "../Card4LadingPageComponents";
-import Card5LadingPageComponents from "../Card5LadingPageComponents";
-import Card6LadingPageComponents from "../Card6LadingPageComponents";
-import Card7LadingPageComponents from "../Card7LadingPageComponents";
-import Card8LadingPageComponents from "../Card8LadingPageComponents";
-import Card9LadingPageComponents from "../Card9LadingPageComponents";
-import Card10LadingPageComponents from "../Card10LadingPageComponents";
+import React, { useRef, useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import styles from './styles.module.scss';
+import Card1LadingPageComponents from '../Card1LadingPageComponents';
+import Card2LadingPageComponents from '../Card2LadingPageComponents';
+import Card3LadingPageComponents from '../Card3LadingPageComponents';
+import Card4LadingPageComponents from '../Card4LadingPageComponents';
+import Card5LadingPageComponents from '../Card5LadingPageComponents';
+import Card6LadingPageComponents from '../Card6LadingPageComponents';
+import Card7LadingPageComponents from '../Card7LadingPageComponents';
+import Card8LadingPageComponents from '../Card8LadingPageComponents';
+import Card9LadingPageComponents from '../Card9LadingPageComponents';
+import Card10LadingPageComponents from '../Card10LadingPageComponents';
+import AlertComponents from '../AlertComponents';
 
 function LandingPageComponents() {
+  const alertRef = useRef(null);
+
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const showAlertMessage = (type, title, description) => {
+    if (alertRef.current) {
+      alertRef.current.addAlert(type, title, description);
+    }
+  };
+
   return (
     <>
+      <AlertComponents ref={alertRef} />
       <div className={styles.div}>
         <div className={styles.nav}>
           <h1 className={styles.titlenav}>PYDIAGRAM</h1>
@@ -65,7 +76,7 @@ function LandingPageComponents() {
             <Card8LadingPageComponents />
           </div>
           <div className={styles.card2}>
-            <Card9LadingPageComponents />
+            <Card9LadingPageComponents showAlert={showAlertMessage} />
           </div>
           <div className={styles.card3}>
             <Card10LadingPageComponents />
