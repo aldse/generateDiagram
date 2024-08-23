@@ -23,7 +23,7 @@ export const DekstopModalContainer = styled(ModalContainer)`
   flex-shrink: 0;
 `;
 
-export const Header = styled.div`
+const BaseHeader = styled.div`
   background-color: white;
   border-radius: 50px;
   font-family: "Noto Sans JP", sans-serif;
@@ -38,53 +38,31 @@ export const Header = styled.div`
   align-items: center;
   position: relative;
   height: 48px;
-  max-width: 85%;
+  max-width: ${(props) => props.maxWidth || "85%"};
   box-sizing: border-box;
 `;
 
-export const Header2 = styled.div`
-  background-color: white;
-  border-radius: 50px;
-  font-family: "Noto Sans JP", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 500;
-  color: #102482;
-  font-size: 20px;
-  margin: 8px;
-  padding: 8px 20px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 48px; 
-  max-width: 84.5%;
-  box-sizing: border-box;
-`;
+export const Header = (props) => <BaseHeader maxWidth="85%" {...props} />;
 
+export const Header2 = (props) => <BaseHeader maxWidth="84.5%" {...props} />;
 
-export const Titulo = styled.h3`
+const BaseTitulo = styled.h3`
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
   color: white;
   font-size: 40px;
   line-height: 3em;
-  margin: 10px 0 0;
-  margin-left: -275px;
+  margin: ${(props) => props.margin || "10px 0 0"};
+  margin-left: ${(props) => props.marginLeft || "-275px"};
   word-break: break-word;
 `;
 
-export const Titulo2 = styled.h3`
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: white;
-  font-size: 40px;
-  line-height: 3em;
-  margin: -80px 0 0;
-  margin-left: -238px;
-  word-break: break-word;
-`;
+export const Titulo = (props) => <BaseTitulo {...props} />;
+
+export const Titulo2 = (props) => (
+  <BaseTitulo margin="-80px 0 0" marginLeft="-238px" {...props} />
+);
 
 export const VAMBORA = styled.div`
   display: flex;
@@ -130,14 +108,6 @@ export const Divi = styled.div`
   margin-top: 45%;
 `;
 
-export const Divii = styled.div`
-  display: flex;
-  flex-direction: column;
-  aling-items: center;
-  justify-content: center;
-  margin-top: 45%;
-`;
-
 export const Botao1 = styled.button`
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
@@ -159,20 +129,20 @@ export const Botao1 = styled.button`
   }
 `;
 
-export const Botao2 = styled.button`
+const BaseBotao = styled.button`
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-style: normal;
-  background-color: transparent;
-  color: red;
+  background-color: ${(props) => props.backgroundColor || "transparent"};
+  color: ${(props) => props.color || "red"};
   font-size: 19px;
   padding: 10px 20px;
-  border: 2px solid red;
-  margin: 1%;
-  width: 200px;
-  margin-top: 5%;
+  border: 2px solid ${(props) => props.borderColor || "red"};
   border-radius: 50px;
   cursor: pointer;
+  width: 200px;
+  margin: ${(props) => props.margin || "1%"};
+  margin-top: ${(props) => props.marginTop || "5%"};
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
   &:hover {
@@ -180,54 +150,22 @@ export const Botao2 = styled.button`
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
 `;
+export const Botao2 = styled(BaseBotao)`
+  color: red;
+  border-color: red;
+`;
 
-export const Botao3 = styled.button`
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  background-color: transparent;
+export const Botao3 = styled(BaseBotao)`
   color: orange;
-  font-size: 19px;
-  padding: 10px 20px;
-  border: 2px solid orange;
+  border-color: orange;
   margin-top: -30%;
-  border-radius: 50px;
-  cursor: pointer;
-  width: 200px;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
 `;
 
-export const Botao4 = styled.button`
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  background-color: transparent;
+export const Botao4 = styled(BaseBotao)`
   color: red;
-  font-size: 19px;
-  padding: 10px 20px;
-  border: 2px solid red;
-  margin: 1%;
-  width: 200px;
-  margin-top: 5%;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-color: red;
+`;
 
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-`;
-export const DiminuirTam = styled.div`
-  width: 200px;
-  display: flex;
-  justify-content: center;
-`;
 export const Botao = styled.button`
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
@@ -251,6 +189,13 @@ export const Botao = styled.button`
     color: #fff;
   }
 `;
+
+export const DiminuirTam = styled.div`
+  width: 200px;
+  display: flex;
+  justify-content: center;
+`;
+
 export const Input = styled.input`
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
@@ -261,7 +206,7 @@ export const Input = styled.input`
   padding: 8px;
   font-size: 17px;
   transition: border-color 0.3s, box-shadow 0.3s;
-  width: 100%; 
+  width: 100%;
   height: 40px;
   color: #102482;
   box-sizing: border-box;
@@ -270,36 +215,27 @@ export const Input = styled.input`
   line-height: 1.2;
 
   &:focus {
-    border-color: #ff8c00;
-    box-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
     outline: none;
   }
-
-  &:hover {
-    border-color: #ff8c00;
-  }
 `;
 
-
-export const Diva = styled.div`
+const BaseContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   overflow: hidden;
 `;
 
-export const Dive = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+export const Diva = styled(BaseContainer)`
+  align-items: center;
+`;
+
+export const Dive = styled(BaseContainer)`
   margin-left: 45px;
-  overflow: hidden;
 `;
 
-export const Negr = styled.div`
+const BaseLabel = styled.div`
   background-color: #102482;
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
@@ -312,49 +248,28 @@ export const Negr = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
+  top: ${props => props.top || 'auto'};
+  left: ${props => props.left || '0px'};
+  transform: translateY(${props => props.transformY || '0%'});
+  height: ${props => props.height || '100%'};
+  width: ${props => props.width || '30%'};
+  margin-left: ${props => props.marginLeft || '0'};
+`;
+
+export const Negr = styled(BaseLabel)`
   top: 50%;
-  left: 0px;
   transform: translateY(-50%);
-  height: 100%;
-  width: 30%;
 `;
 
-export const Letras = styled.h3`
-  background-color: #102482;
-  font-family: "Noto Sans JP", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 20px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 0px;
-  transform: translateY(0%); 
+export const Letras = styled(BaseLabel)`
+  top: auto;
   height: 48px;
   width: 30.2%;
   margin-left: -2px;
-  `;
-
-export const Content = styled.div`
-  margin-left: 100px;
-  font-size: 17px;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  display: inline-block;
-  max-width: calc(100% - 120px);
-  box-sizing: border-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.2; 
+  transform: translateY(0%);
 `;
 
-export const Content2 = styled.div`
-  margin-left: 95px;
+const BaseContent = styled.div`
   font-size: 17px;
   white-space: normal;
   word-wrap: break-word;
@@ -364,5 +279,14 @@ export const Content2 = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.2; 
+  line-height: 1.2;
+  margin-left: ${props => props.marginLeft || '0px'};
+`;
+
+export const Content = styled(BaseContent)`
+  margin-left: 100px;
+`;
+
+export const Content2 = styled(BaseContent)`
+  margin-left: 95px;
 `;
