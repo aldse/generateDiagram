@@ -14,7 +14,7 @@ import LandingPageComponents from "./components/LandingPageComponents";
 
 const routes = [
   {
-    path: "/",
+    path: "/login",
     element: <Login />,
   },
   {
@@ -34,8 +34,8 @@ const routes = [
     element: <ProtectedRoute element={<Alert />} />,
   },
   {
-    path: "/landingpage",
-    element: <ProtectedRoute element={<LandingPage />} />,
+    path: "/",
+    element: <LandingPage />,
   },
 ];
 
