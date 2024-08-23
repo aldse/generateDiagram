@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/authContext";
+import { generateDiagram } from "../../api/genereateDiagram";
 import Modal from "./Modal";
 import {
   Label,
@@ -15,6 +18,20 @@ import BaseModalCadastro from "../ModalCadastro/BaseModalCadastro";
 
 const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
   const [isModalVisiblee, setIsModalVisiblee] = useState(false);
+  // const [email, setEmail] = useState("");
+  const [edv, setEdv] = useState("");
+  const [password, setPassword] = useState({
+    password: "",
+    showPassword: false,
+  });
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const alertRef = useRef(null);
+  // const togglePasswordVisibility = () => {
+  //   setIsPasswordVisible(!isPasswordVisible);
+  // };
 
   const openCadastroModal = () => {
     onBackdropClick(); 

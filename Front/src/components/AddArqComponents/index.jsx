@@ -6,7 +6,7 @@ import ajuda from "../../assets/help.png";
 import perfil from "../../assets/menu.png";
 import butaogeraraqui from "../../assets/geraraqui.png";
 import adicionar from "../../assets/adicionar.png";
-import BaseModalWrapper from "../ModalPopUp/BaseModalWrapper";
+import BaseModalWrapper from "../SettingsComponents/BaseModalWrapper";
 import Button from "react-bootstrap/Button";
 import { Link, useNavigate } from "react-router-dom";
 

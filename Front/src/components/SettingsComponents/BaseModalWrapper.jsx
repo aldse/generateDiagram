@@ -5,7 +5,7 @@ import { jwtDecode } from "jwt-decode";
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
-import BaseModalSair from "../ModalSair/BaseModalSair";
+import BaseModalSair from "../ExitComponents/BaseModalSair";
 import {
   Botao,
   Botao1,
@@ -23,7 +23,6 @@ import {
   Botao3,
   Botao4,
   Negr,
-  Divii,
   Titulo2,
   Content,
   DiminuirTam,
@@ -202,17 +201,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                  </Content2>
               </Header2>
               <Header2>
-                <Letras>EDV:</Letras>{" "}
-                <Content2>
-                <Input
-                  type="text"
-                  name="edv"
-                  value={editData.edv}
-                  onChange={handleInputChange}
-                />
-                 </Content2>
-              </Header2>
-              <Header2>
                 <Letras>Cep:</Letras>{" "}
                 <Content2>
                 <Input
@@ -252,7 +240,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
               <Header><Negr>Nome:</Negr><Content>{userData.name} </Content></Header>
               <Header><Negr>Email:</Negr><Content>{userData.email}</Content></Header>
               <Header><Negr>Cpf:</Negr><Content>{userData.cpf}</Content></Header>
-              <Header><Negr>EDV:</Negr><Content>{userData.edv}</Content></Header>
               <Header><Negr>Cep:</Negr><Content>{userData.cep}</Content></Header>
               <Header><Negr>Rua:</Negr><Content>{userData.street}</Content></Header>
               <Header><Negr>Número:</Negr><Content>{userData.number}</Content></Header>
@@ -267,7 +254,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             </DiminuirTam>
           </Divi>
            ) : (
-             <Divii>
+             <Divi>
               <Botao3 onClick={() => setIsEditing(true)}>Editar Perfil</Botao3>
               <Botao4 onClick={toggleModale}>Excluir Perfil</Botao4>
               <BaseModalSair
@@ -278,7 +265,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
               <DiminuirTam>
              <Botao onClick={handleLogout}>Sair</Botao>
               </DiminuirTam>
-            </Divii>
+            </Divi>
            )}
         </VAMBORA>
       </DekstopModalContainer>

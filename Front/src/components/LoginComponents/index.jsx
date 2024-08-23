@@ -162,7 +162,6 @@ function LoginComponents() {
             className={styles.red}
             onClick={loading ? handleButtonClick : handleSubmit}
           >
-          {/* {handleSubmit} */}
             Entrar
           </Button>
         )}

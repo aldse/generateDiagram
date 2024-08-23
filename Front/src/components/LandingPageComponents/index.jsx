@@ -34,10 +34,7 @@ function LandingPageComponents() {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const toggleModal = () => {
-    console.log("aqui");
     setIsModalVisible((wasModalVisible) => !wasModalVisible);
-    console.log("aqui denovo");
-
   };
   return (
     <>
