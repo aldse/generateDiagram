@@ -5,7 +5,7 @@ import { jwtDecode } from "jwt-decode";
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/genereateDiagram";
 import { useNavigate } from "react-router-dom";
-import BaseModalSair from "../ModalSair/BaseModalSair";
+import BaseModalSair from "../ExitComponents/BaseModalSair";
 import {
   Botao,
   Botao1,
