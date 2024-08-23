@@ -41,14 +41,13 @@ export const Div = styled.div`
   margin-top: 80px;
 `;
 
-export const Link = styled.p`
+export const Link = styled.a`
   font-family: "General Sans", sans-serif;
   color: #2D56ED;
   text-decoration: none;
   font-weight: 500;
-  margin: 0 5px; /* Remove o espaçamento extra nas laterais */
-  cursor: pointer;
-
+  margin-left: 5px;
+  margin-right: 5px;
   &:hover {
     text-decoration: underline;
   }

@@ -13,7 +13,7 @@ const ModalContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 9999;
-    overflow: hidden;
+  overflow: hidden;
 `;
 
 const ModalContent = styled.div`
