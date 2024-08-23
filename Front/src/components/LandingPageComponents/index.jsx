@@ -1,4 +1,3 @@
-import React, { useRef, useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import styles from './styles.module.scss';
@@ -14,6 +13,12 @@ import Card9LadingPageComponents from '../Card9LadingPageComponents';
 import Card10LadingPageComponents from '../Card10LadingPageComponents';
 import AlertComponents from '../AlertComponents';
 
+import React, { useCallback, useState, useRef, useEffect } from "react";
+import BaseModalLogin from "../ModalLogin/BaseModalLogin";
+import Button from "react-bootstrap/Button";
+import { Link, useNavigate } from "react-router-dom";
+
+
 function LandingPageComponents() {
   const alertRef = useRef(null);
 
@@ -27,15 +32,26 @@ function LandingPageComponents() {
     }
   };
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const toggleModal = () => {
+    console.log("aqui");
+    setIsModalVisible((wasModalVisible) => !wasModalVisible);
+    console.log("aqui denovo");
+
+  };
   return (
     <>
       <AlertComponents ref={alertRef} />
       <div className={styles.div}>
         <div className={styles.nav}>
           <h1 className={styles.titlenav}>PYDIAGRAM</h1>
-          <button className={styles.button}>
-            <p className={styles.p}>Open an Account</p>
-          </button>
+          <Button className={styles.button} onClick={toggleModal}>
+          <p className={styles.p}>Open an Account</p>
+        </Button>
+        <BaseModalLogin
+          isModalVisible={isModalVisible}
+          onBackdropClick={toggleModal}
+        />
         </div>
 
         <div className={styles.line3}>
