@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Modal from "./Modal";
+import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/genereateDiagram";
@@ -48,6 +49,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
   const navigate = useNavigate();
   const [userId, setUserId] = useState(null);
   const [isModalVisiblee, setIsModalVisiblee] = useState(false);
+  const alertRef = useRef(null);
 
   useEffect(() => {
     console.log("Buscando ID do usuário para carregar dados...");
@@ -90,9 +92,34 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     }
   };
 
+  const fetchAddressByCep = async (cep) => {
+    try {
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      const data = response.data;
+
+      if (!data.erro) {
+        setEditData((prevData) => ({
+          ...prevData,
+          street: data.logradouro,
+        }));
+      } else {
+        if (alertRef.current) {
+          alertRef.current.addAlert('Informações inválidas', 'Informações inválidas', 'CEP não encontrado. Verifique o CEP informado.');
+        }
+      }
+    } catch (error) {
+      console.error("Erro ao buscar o CEP:", error);
+    }
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
     setEditData((prevData) => ({ ...prevData, [name]: value }));
+
+    if (name === "cep") {
+      fetchAddressByCep(value);
+    }
   };
 
   const handleSave = async () => {
@@ -204,6 +231,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                   name="street"
                   value={editData.street}
                   onChange={handleInputChange}
+                  readOnly
                 />
                 </Content2>
               </Header2>
