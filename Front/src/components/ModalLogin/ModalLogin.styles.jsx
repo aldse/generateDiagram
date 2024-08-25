@@ -19,23 +19,18 @@ font-size: 30px;
 margin: 0;
 `;
 
-export const A = styled.p`
+
+export const A = styled.div`
   font-family: "General Sans", sans-serif;
   font-weight: 400;
   color: #626262;
-  font-size: 20px;
   margin-top: 40px; 
   margin-bottom: 7px; 
+  justify-content: "initial";
+  display: ${({ $variant }) => ($variant === "A2" ? "flex" : "block")};
+  font-size: ${({ $variant }) => ($variant === "A2" ? "18px" : "20px")};
 `;
 
-export const A2 = styled.p`
-  font-family: "General Sans", sans-serif;
-  color: #626262;
-  display: flex;
-  justify-content: center;
-  font-size: 18px;
-  margin-top: 40px;
-`;
 
 export const Div = styled.div`
   margin-top: 80px;
@@ -75,10 +70,6 @@ export const Botao = styled.button`
     color: white; 
   }
   `;
-
-export const Image = styled.image`
-
-`;
 
 export const Input = styled.input`
   font-family: "General Sans", sans-serif;

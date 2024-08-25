@@ -6,7 +6,7 @@ import ajuda from "../../assets/help.png";
 import perfil from "../../assets/menu.png";
 import butaogeraraqui from "../../assets/geraraqui.png";
 import adicionar from "../../assets/adicionar.png";
-import BaseModalWrapper from "../SettingsComponents/BaseModalWrapper";
+import BaseModalWrapper from "../ModalSettings/BaseModalWrapper";
 import Button from "react-bootstrap/Button";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -76,7 +76,7 @@ function AddArqComponents() {
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
               width="260%"
-              height="auto"
+              height="100%"
               viewBox="0 0 794 614"
               preserveAspectRatio="xMidYMid meet"
             >
@@ -160,7 +160,7 @@ function AddArqComponents() {
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
                width="200%"
-              height="auto"
+              height="100%"
               viewBox="0 0 398.000000 333.000000"
               preserveAspectRatio="xMidYMid meet"
             >
@@ -184,7 +184,7 @@ function AddArqComponents() {
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
               width="300%"
-              height="auto"
+              height="100%"
               viewBox="0 0 815.000000 406.000000"
               preserveAspectRatio="xMidYMid meet"
             >

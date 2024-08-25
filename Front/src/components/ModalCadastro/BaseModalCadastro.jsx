@@ -6,7 +6,6 @@ import {
   A,
   Div,
   Botao,
-  Image,
   A2,
   Input,
   Link
@@ -52,7 +51,6 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
       <Input />
       <Div>
         <Botao>Sign up</Botao>
-        <Image />
       </Div>
       <A2>
         Do you already have an account? 

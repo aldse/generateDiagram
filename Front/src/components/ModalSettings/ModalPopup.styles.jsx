@@ -38,13 +38,14 @@ const BaseHeader = styled.div`
   align-items: center;
   position: relative;
   height: 48px;
-  max-width: ${(props) => props.maxWidth || "85%"};
+  max-width: ${(props) => props.$maxWidth || "85%"};
   box-sizing: border-box;
 `;
 
-export const Header = (props) => <BaseHeader maxWidth="85%" {...props} />;
+export const Header = (props) => <BaseHeader $maxWidth="85%" {...props} />;
 
-export const Header2 = (props) => <BaseHeader maxWidth="84.5%" {...props} />;
+export const Header2 = (props) => <BaseHeader $maxWidth="84.5%" {...props} />;
+
 
 const BaseTitulo = styled.h3`
   font-family: "Alegreya Sans", sans-serif;
@@ -53,16 +54,17 @@ const BaseTitulo = styled.h3`
   color: white;
   font-size: 40px;
   line-height: 3em;
-  margin: ${(props) => props.margin || "10px 0 0"};
-  margin-left: ${(props) => props.marginLeft || "-275px"};
+  margin: ${(props) => props.$margin || "10px 0 0"};
+  margin-left: ${(props) => props.$marginLeft || "-275px"};
   word-break: break-word;
 `;
 
 export const Titulo = (props) => <BaseTitulo {...props} />;
 
 export const Titulo2 = (props) => (
-  <BaseTitulo margin="-80px 0 0" marginLeft="-238px" {...props} />
+  <BaseTitulo $margin="-80px 0 0" $marginLeft="-238px" {...props} />
 );
+
 
 export const VAMBORA = styled.div`
   display: flex;
@@ -248,13 +250,14 @@ const BaseLabel = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: ${props => props.top || 'auto'};
-  left: ${props => props.left || '0px'};
-  transform: translateY(${props => props.transformY || '0%'});
-  height: ${props => props.height || '100%'};
-  width: ${props => props.width || '30%'};
-  margin-left: ${props => props.marginLeft || '0'};
+  top: ${props => props.$top || 'auto'};
+  left: ${props => props.$left || '0px'};
+  transform: translateY(${props => props.$transformY || '0%'});
+  height: ${props => props.$height || '100%'};
+  width: ${props => props.$width || '30%'};
+  margin-left: ${props => props.$marginLeft || '0'};
 `;
+
 
 export const Negr = styled(BaseLabel)`
   top: 50%;
@@ -268,6 +271,7 @@ export const Letras = styled(BaseLabel)`
   margin-left: -2px;
   transform: translateY(0%);
 `;
+
 
 const BaseContent = styled.div`
   font-size: 17px;

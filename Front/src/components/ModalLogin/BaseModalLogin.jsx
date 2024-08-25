@@ -9,8 +9,6 @@ import {
   A,
   Div,
   Botao,
-  Image,
-  A2,
   Input,
   Link
 } from "./ModalLogin.styles";
@@ -18,23 +16,58 @@ import BaseModalCadastro from "../ModalCadastro/BaseModalCadastro";
 
 const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
   const [isModalVisiblee, setIsModalVisiblee] = useState(false);
-  // const [email, setEmail] = useState("");
-  const [edv, setEdv] = useState("");
-  const [password, setPassword] = useState({
-    password: "",
-    showPassword: false,
-  });
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const alertRef = useRef(null);
-  // const togglePasswordVisibility = () => {
-  //   setIsPasswordVisible(!isPasswordVisible);
-  // };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (!loading) {
+      setLoading(true);
+    }
+
+    try {
+      const response = await generateDiagram.post("/user/login", {
+        email,
+        password,
+      });
+      const data = response.data;
+
+      if (data && data.token) {
+        login(data.token);
+      } else {
+        console.error("Token não encontrado na resposta da API.");
+        if (alertRef.current) {
+          alertRef.current.addAlert(
+            "Informações inválidas",
+            "Usuário ou senha não coincidem."
+          );
+        }
+      }
+    } catch (error) {
+      console.error("Erro ao chamar a API:", error);
+      if (alertRef.current) {
+        alertRef.current.addAlert(
+          "Informações inválidas",
+          "Usuário ou senha não coincidem."
+        );
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const openCadastroModal = () => {
-    onBackdropClick(); 
+    onBackdropClick();
     setIsModalVisiblee(true);
   };
 
@@ -52,19 +85,30 @@ const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
         <Modal onBackdropClick={onBackdropClick}>
           <Label>Log in</Label>
           <P>to start diagraming</P>
-          <A>Username</A>
-          <Input />
-          <A>Password</A>
-          <Input />
+          <A>Email</A>
+          <Input 
+            id="email"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <A $variant="A2">Password</A>
+          <Input 
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <Div>
-            <Botao>Log in</Botao>
-            <Image />
+            <Botao onClick={handleSubmit} disabled={loading}>
+              {loading ? "Loading..." : "Log in"}
+            </Botao>
           </Div>
-          <A2>
+          <A $variant="A2">
             Don’t have an account? 
             <Link onClick={openCadastroModal}> Sign Up</Link>
             now!
-          </A2>
+          </A>
         </Modal>
       )}
       {isModalVisiblee && (

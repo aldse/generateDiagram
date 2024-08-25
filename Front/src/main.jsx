@@ -3,9 +3,7 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
 import { Route } from "react-router-dom";
-import Login from "./pages/Login";
 import AddArq from "./pages/AddArq";
-import Cadastro from "./pages/Cadastro";
 import ProtectedRoute from "./components/ProtectedRoutes/protectedRoute";
 import Logo from "./pages/Logo";
 import Alert from "./pages/Alert";
@@ -13,14 +11,6 @@ import LandingPage from "./pages/LandingPage";
 import LandingPageComponents from "./components/LandingPageComponents";
 
 const routes = [
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/cadastro",
-    element: <Cadastro />,
-  },
   {
     path: "/home",
     element: <ProtectedRoute element={<AddArq />} />,
