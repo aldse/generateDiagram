@@ -6,13 +6,21 @@ import {
   A,
   Div,
   Botao,
-  A2,
   Input,
   Link
 } from "./ModalCadastro.styles";
 import BaseModalLogin from "../ModalLogin/BaseModalLogin";
 
 const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [cep, setCep] = useState("");
+  const [street, setStreet] = useState("");
+  const [number, setNumber] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
 
   const openLoginModal = () => {
@@ -47,15 +55,17 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
       <Input />
       <A>CEP</A>
       <Input />
+      <A>Street</A>
+      <Input />
       <A>Number</A>
       <Input />
       <Div>
         <Botao>Sign up</Botao>
       </Div>
-      <A2>
+      <A $variant="A2">
         Do you already have an account? 
         <Link onClick={openLoginModal}> Log In</Link>
-      </A2>
+      </A>
     </Modal>
   );
 };

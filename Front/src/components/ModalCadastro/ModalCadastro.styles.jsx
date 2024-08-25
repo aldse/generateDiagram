@@ -19,29 +19,41 @@ font-size: 30px;
 margin: 0;
 `;
 
+
 export const A = styled.p`
   font-family: "General Sans", sans-serif;
-  font-weight: 400;
+  font-weight: ${({ $variant }) => ($variant === 'A2' ? 'normal' : 400)};
   color: #626262;
-  font-size: 20px;
-  margin-top: 20px; 
-  margin-bottom: 7px; 
+  font-size: ${({ $variant }) => ($variant === 'A2' ? '18px' : '20px')};
+  margin-top: ${({ $variant }) => ($variant === 'A2' ? '40px' : '20px')};
+  margin-bottom: ${({ $variant }) => ($variant === 'A2' ? '0' : '7px')};
+  display: ${({ $variant }) => ($variant === 'A2' ? 'flex' : 'block')};
+  justify-content: ${({ $variant }) => ($variant === 'A2' ? 'center' : 'flex-start')};
 `;
 
-export const A2 = styled.p`
-  font-family: "General Sans", sans-serif;
-  color: #626262;
-  display: flex;
-  justify-content: center;
-  font-size: 18px;
-  margin-top: 40px;
-`;
+// export const A = styled.p`
+//   font-family: "General Sans", sans-serif;
+//   font-weight: 400;
+//   color: #626262;
+//   font-size: 20px;
+//   margin-top: 20px; 
+//   margin-bottom: 7px; 
+// `;
+
+// export const A2 = styled.p`
+//   font-family: "General Sans", sans-serif;
+//   color: #626262;
+//   display: flex;
+//   justify-content: center;
+//   font-size: 18px;
+//   margin-top: 40px;
+// `;
 
 export const Div = styled.div`
   margin-top: 80px;
 `;
 
-export const Link = styled.p`
+export const Link = styled.a`
   font-family: "General Sans", sans-serif;
   color: #2D56ED;
   text-decoration: none;

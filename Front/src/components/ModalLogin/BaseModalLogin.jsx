@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/genereateDiagram";
@@ -21,7 +21,6 @@ const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
   const [loading, setLoading] = useState(false);
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
-  const alertRef = useRef(null);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -46,21 +45,10 @@ const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
         login(data.token);
       } else {
         console.error("Token não encontrado na resposta da API.");
-        if (alertRef.current) {
-          alertRef.current.addAlert(
-            "Informações inválidas",
-            "Usuário ou senha não coincidem."
-          );
-        }
       }
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
-      if (alertRef.current) {
-        alertRef.current.addAlert(
-          "Informações inválidas",
-          "Usuário ou senha não coincidem."
-        );
-      }
+
     } finally {
       setLoading(false);
     }
