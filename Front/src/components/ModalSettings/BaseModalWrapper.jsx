@@ -190,17 +190,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                 </Content2>
               </Header2>
               <Header2>
-                <Letras>Cpf:</Letras>{" "}
-                <Content2>
-                <Input
-                  type="text"
-                  name="cpf"
-                  value={editData.cpf}
-                  onChange={handleInputChange}
-                />
-                 </Content2>
-              </Header2>
-              <Header2>
                 <Letras>Cep:</Letras>{" "}
                 <Content2>
                 <Input
@@ -239,7 +228,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             <Dive>
               <Header><Negr>Nome:</Negr><Content>{userData.name} </Content></Header>
               <Header><Negr>Email:</Negr><Content>{userData.email}</Content></Header>
-              <Header><Negr>Cpf:</Negr><Content>{userData.cpf}</Content></Header>
               <Header><Negr>Cep:</Negr><Content>{userData.cep}</Content></Header>
               <Header><Negr>Rua:</Negr><Content>{userData.street}</Content></Header>
               <Header><Negr>Número:</Negr><Content>{userData.number}</Content></Header>
