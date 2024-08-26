@@ -8,7 +8,9 @@ import {
   Div,
   Botao,
   Input,
-  Link
+  Link,
+  LabelContainer,
+  InputsWrapper,
 } from "./ModalCadastro.styles";
 import BaseModalLogin from "../ModalLogin/BaseModalLogin";
 import { generateDiagram } from "../../api/genereateDiagram";
@@ -30,9 +32,11 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
     const newErrors = {};
 
     if (!name) newErrors.name = "Name is required.";
-    if (!email || !emailPattern.test(email)) newErrors.email = "A valid email is required.";
+    if (!email || !emailPattern.test(email))
+      newErrors.email = "A valid email is required.";
     if (!password) newErrors.password = "Password is required.";
-    if (password !== confPassword) newErrors.confPassword = "Passwords must match.";
+    if (password !== confPassword)
+      newErrors.confPassword = "Passwords must match.";
     if (!number) newErrors.number = "Number is required.";
 
     if (Object.keys(newErrors).length > 0) {
@@ -42,14 +46,10 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  
   const openLoginModal = () => {
-    
     setIsLoginModalVisible(true);
-    onBackdropClicke(); 
+    onBackdropClicke();
   };
-
-  
 
   const handleBlur = (e) => {
     fetchAddressByCep(e.target.value);
@@ -98,7 +98,6 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
       setLoading(false);
 
       openLoginModal();
-
     } catch (error) {
       setLoading(false);
       if (error.response) {
@@ -129,7 +128,7 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
       <form onSubmit={handleSubmit}>
         <Label>Sign Up</Label>
         <P>Welcome to the team</P>
-        <A>Name</A>
+        <A>Username</A>
         <Input value={name} onChange={(e) => setName(e.target.value)} />
         <A>Email</A>
         <Input value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -145,27 +144,35 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
           value={confPassword}
           onChange={(e) => setConfPassword(e.target.value)}
         />
-        <A>CEP</A>
-        <Input
-          id="cep"
-          type="text"
-          value={cep}
-          onChange={(e) => setCep(e.target.value)}
-          onBlur={handleBlur}
-        />
+        <InputsWrapper>
+          <LabelContainer>
+            <A>CEP</A>
+            <Input $variant="Input2"
+              id="cep"
+              type="text"
+              value={cep}
+              onChange={(e) => setCep(e.target.value)}
+              onBlur={handleBlur}
+            />
+          </LabelContainer>
+
+          <LabelContainer $variant="LabelContainer2">
+            <A>Number</A>
+            <Input $variant="Input2"
+              id="number"
+              type="text"
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
+            />
+          </LabelContainer>
+        </InputsWrapper>
+
         <A>Street</A>
         <Input
           id="street"
           type="text"
           value={street}
           onChange={(e) => setStreet(e.target.value)}
-        />
-        <A>Number</A>
-        <Input
-          id="number"
-          type="text"
-          value={number}
-          onChange={(e) => setNumber(e.target.value)}
         />
         <Div>
           <Botao type="submit" disabled={loading}>

@@ -19,6 +19,19 @@ font-size: 30px;
 margin: 0;
 `;
 
+export const LabelContainer = styled.div`
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  margin-right: 20px;
+  margin-left:  ${({ $variant }) => ($variant === 'LabelContainer2' ? '5%' : '0')}; 
+`;
+
+export const InputsWrapper = styled.div`
+  display: flex;
+  align-items: flex-start; 
+
+  `;
 
 export const A = styled.p`
   font-family: "General Sans", sans-serif;
@@ -31,24 +44,6 @@ export const A = styled.p`
   justify-content: ${({ $variant }) => ($variant === 'A2' ? 'center' : 'flex-start')};
 `;
 
-// export const A = styled.p`
-//   font-family: "General Sans", sans-serif;
-//   font-weight: 400;
-//   color: #626262;
-//   font-size: 20px;
-//   margin-top: 20px; 
-//   margin-bottom: 7px; 
-// `;
-
-// export const A2 = styled.p`
-//   font-family: "General Sans", sans-serif;
-//   color: #626262;
-//   display: flex;
-//   justify-content: center;
-//   font-size: 18px;
-//   margin-top: 40px;
-// `;
-
 export const Div = styled.div`
   margin-top: 80px;
 `;
@@ -58,7 +53,7 @@ export const Link = styled.a`
   color: #2D56ED;
   text-decoration: none;
   font-weight: 500;
-  margin: 0 5px; /* Remove o espaçamento extra nas laterais */
+  margin: 0 5px; 
   cursor: pointer;
 
   &:hover {
@@ -94,7 +89,7 @@ export const Image = styled.image`
 
 export const Input = styled.input`
   font-family: "General Sans", sans-serif;
-  width: 100%;
+  width: ${({ $variant }) => ($variant === "Input2" ? "115%" : "100%")};
   height: 60px;
   margin: 0;
   border: 1px solid #DDDDDD; 
