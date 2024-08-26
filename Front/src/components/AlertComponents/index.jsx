@@ -25,7 +25,7 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
           </svg>
         );
-      case 'Por favor, insira um nome completo válido (nome e sobrenome).':
+      case 'Por favor, insira um nome de usuário válido.':
       case 'Por favor, insira um email válido.':
       case 'Insira um número válido':
       case 'Insira o CPF':
@@ -56,7 +56,7 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
     'Senha Incorreta': 'error',
     'Informações inválidas': 'error',
     'Usuário cadastrado com sucesso': 'success',
-    'Por favor, insira um nome completo válido (nome e sobrenome).': 'warning',
+    'Por favor, insira um nome de usuário válido.': 'warning',
     'Por favor, insira um email válido.': 'warning',
     'Insira um número válido': 'warning',
     'Insira o CPF': 'warning',

@@ -45,7 +45,7 @@ export const A = styled.p`
 `;
 
 export const Div = styled.div`
-  margin-top: 80px;
+  margin-top: 40px;
 `;
 
 export const Link = styled.a`

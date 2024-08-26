@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/genereateDiagram";
@@ -13,6 +13,7 @@ import {
   Link
 } from "./ModalLogin.styles";
 import BaseModalCadastro from "../ModalCadastro/BaseModalCadastro";
+import AlertComponents from "../AlertComponents";
 
 const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
   const [isModalVisiblee, setIsModalVisiblee] = useState(false);
@@ -21,6 +22,7 @@ const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
   const [loading, setLoading] = useState(false);
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const alertRef = useRef();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -45,10 +47,23 @@ const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
         login(data.token);
       } else {
         console.error("Token não encontrado na resposta da API.");
+        if (alertRef.current) {
+          alertRef.current.addAlert(
+              "Informações inválidas",
+              "Informações inválidas",
+              "Usuário ou senha não coincidem."
+          );
+        }
       }
     } catch (error) {
       console.error("Erro ao chamar a API:", error);
-
+      if (alertRef.current) {
+        alertRef.current.addAlert(
+            "Informações inválidas",
+            "Informações inválidas",
+            "Usuário ou senha não coincidem."
+        );
+      }
     } finally {
       setLoading(false);
     }
@@ -71,6 +86,7 @@ const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
     <>
       {isModalVisible && (
         <Modal onBackdropClick={onBackdropClick}>
+          <AlertComponents ref={alertRef} />
           <Label>Log in</Label>
           <P>to start diagraming</P>
           <A>Email</A>

@@ -164,63 +164,63 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
         <VAMBORA onClick={(e) => e.stopPropagation()}>
           <Imagem onClick={handleImageClick}></Imagem>
           <Titulo>DADOS</Titulo>
-          <Titulo2> PESSOAIS</Titulo2>
+          <Titulo2>PESSOAIS</Titulo2>
           {isEditing ? (
             <Diva>
               <Header2>
-                <Letras>Nome:</Letras>{" "}
+                <Letras>Nome:</Letras>
                 <Content2>
-                <Input
-                  type="text"
-                  name="name"
-                  value={editData.name}
-                  onChange={handleInputChange}
+                  <Input
+                    type="text"
+                    name="name"
+                    value={editData.name}
+                    onChange={handleInputChange}
                   />
-                  </Content2>
-              </Header2>
-              <Header2>
-                <Letras>Email:</Letras>{" "}
-                <Content2>
-                <Input
-                  type="email"
-                  name="email"
-                  value={editData.email}
-                  onChange={handleInputChange}
-                />
                 </Content2>
               </Header2>
               <Header2>
-                <Letras>Cep:</Letras>{" "}
+                <Letras>Email:</Letras>
                 <Content2>
-                <Input
-                  type="text"
-                  name="cep"
-                  value={editData.cep}
-                  onChange={handleInputChange}
-                />
+                  <Input
+                    type="email"
+                    name="email"
+                    value={editData.email}
+                    onChange={handleInputChange}
+                  />
+                </Content2>
+              </Header2>
+              <Header2>
+                <Letras>Cep:</Letras>
+                <Content2>
+                  <Input
+                    type="text"
+                    name="cep"
+                    value={editData.cep}
+                    onChange={handleInputChange}
+                  />
                 </Content2>
               </Header2>
               <Header2>
                 <Letras>Rua:</Letras>
                 <Content2>
-                <Input
-                  type="text"
-                  name="street"
-                  value={editData.street}
-                  onChange={handleInputChange}
-                  readOnly
-                />
+                  <Input
+                    type="text"
+                    name="street"
+                    value={editData.street}
+                    onChange={handleInputChange}
+                    readOnly
+                  />
                 </Content2>
               </Header2>
               <Header2>
                 <Letras>Número:</Letras>
                 <Content2>
-                <Input
-                  type="text"
-                  name="number"
-                  value={editData.number}
-                  onChange={handleInputChange}
-                />
+                  <Input
+                    type="text"
+                    name="number"
+                    value={editData.number}
+                    onChange={handleInputChange}
+                  />
                 </Content2>
               </Header2>
             </Diva>
@@ -234,15 +234,15 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             </Dive>
           )}
           {isEditing ? (
+            <Divi $variant="Divi1">
+              <Botao1 onClick={handleSave}>Salvar</Botao1>
+              <Botao2 onClick={handleCancel}>Cancelar</Botao2>
+              <DiminuirTam>
+                <Botao onClick={handleLogout}>Sair</Botao>
+              </DiminuirTam>
+            </Divi>
+          ) : (
             <Divi>
-            <Botao1 onClick={handleSave}>Salvar</Botao1>
-            <Botao2 onClick={handleCancel}>Cancelar</Botao2>
-            <DiminuirTam>
-            <Botao onClick={handleLogout}>Sair</Botao>
-            </DiminuirTam>
-          </Divi>
-           ) : (
-             <Divi>
               <Botao3 onClick={() => setIsEditing(true)}>Editar Perfil</Botao3>
               <Botao4 onClick={toggleModale}>Excluir Perfil</Botao4>
               <BaseModalSair
@@ -251,14 +251,15 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                 onBackdropClicke={toggleModale}
               />
               <DiminuirTam>
-             <Botao onClick={handleLogout}>Sair</Botao>
+                <Botao onClick={handleLogout}>Sair</Botao>
               </DiminuirTam>
             </Divi>
-           )}
+          )}
         </VAMBORA>
       </DekstopModalContainer>
     </Modal>
   );
+  
 };
 
 export default BaseModalWrapper;

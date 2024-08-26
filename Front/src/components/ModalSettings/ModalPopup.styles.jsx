@@ -44,7 +44,7 @@ const BaseHeader = styled.div`
 
 export const Header = (props) => <BaseHeader $maxWidth="85%" {...props} />;
 
-export const Header2 = (props) => <BaseHeader $maxWidth="84.5%" {...props} />;
+export const Header2 = (props) => <BaseHeader $maxWidth="85%" {...props} />;
 
 
 const BaseTitulo = styled.h3`
@@ -54,15 +54,15 @@ const BaseTitulo = styled.h3`
   color: white;
   font-size: 40px;
   line-height: 3em;
-  margin: ${(props) => props.$margin || "10px 0 0"};
-  margin-left: ${(props) => props.$marginLeft || "-275px"};
+  margin: ${(props) => props.$margin || "-5% 0 0"};
+  margin-left: ${(props) => props.$marginLeft || "-248px"};
   word-break: break-word;
 `;
 
 export const Titulo = (props) => <BaseTitulo {...props} />;
 
 export const Titulo2 = (props) => (
-  <BaseTitulo $margin="-80px 0 0" $marginLeft="-238px" {...props} />
+  <BaseTitulo $margin="-80px 0 0" $marginLeft="-210px" $marginBotton="200%"{...props} />
 );
 
 
@@ -107,7 +107,7 @@ export const Divi = styled.div`
   flex-direction: column;
   aling-items: center;
   justify-content: center;
-  margin-top: 45%;
+  margin-top: ${({ $variant }) => ($variant === "Divi1" ? "60%" : "60%")};
 `;
 
 export const Botao1 = styled.button`
@@ -119,7 +119,7 @@ export const Botao1 = styled.button`
   font-size: 19px;
   padding: 10px 20px;
   border: 2px solid #06e229;
-  margin-top: -30%;
+  margin-top: -40%;
   border-radius: 50px;
   cursor: pointer;
   width: 200px;
@@ -231,10 +231,14 @@ const BaseContainer = styled.div`
 
 export const Diva = styled(BaseContainer)`
   align-items: center;
+  margin-top: 12%;
+  margin-bottom: -1%;
 `;
+
 
 export const Dive = styled(BaseContainer)`
   margin-left: 45px;
+  margin-top: 12%;
 `;
 
 const BaseLabel = styled.div`

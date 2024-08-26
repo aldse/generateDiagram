@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Modal from "./Modal";
 import {
@@ -14,6 +14,7 @@ import {
 } from "./ModalCadastro.styles";
 import BaseModalLogin from "../ModalLogin/BaseModalLogin";
 import { generateDiagram } from "../../api/genereateDiagram";
+import AlertComponents from "../AlertComponents";
 
 const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
   const [name, setName] = useState("");
@@ -25,19 +26,76 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
-
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const alertRef = useRef();
 
   const validateForm = () => {
     const newErrors = {};
 
-    if (!name) newErrors.name = "Name is required.";
-    if (!email || !emailPattern.test(email))
-      newErrors.email = "A valid email is required.";
-    if (!password) newErrors.password = "Password is required.";
-    if (password !== confPassword)
-      newErrors.confPassword = "Passwords must match.";
-    if (!number) newErrors.number = "Number is required.";
+    if (!isValidUsername(name)) {
+      if (alertRef.current) {
+        alertRef.current.addAlert(
+          'Por favor, insira um nome de usuário válido.',
+          'Nome de Usuário Inválido',
+          'O nome de usuário deve ter pelo menos 2 caracteres.'
+        );
+      }
+      setLoading(false);
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      if (alertRef.current) {
+        alertRef.current.addAlert(
+          'Por favor, insira um email válido.',
+          'Por favor, insira um email válido.',
+          'O email fornecido não é válido, seu formato deve ter (@) ou (.com), exemplo (teste@teste.com)'
+        );
+      }
+      setLoading(false);
+      return;
+    }
+
+    if (password.length < 8) {
+      if (alertRef.current) {
+        alertRef.current.addAlert(
+          'Senha menor que 8 digitos, NÃO!',
+          'Senha Inválida',
+          'A senha deve ter pelo menos 8 dígitos.'
+        );
+      }
+      setLoading(false);
+      return;
+    }
+  
+    if (password !== confPassword) {
+      if (alertRef.current) {
+        alertRef.current.addAlert(
+          'As senhas não foram inseridas iguais!',
+          'As senhas não foram inseridas iguais!',
+          'As senhas devem ser iguais.'
+        );
+      }
+      setLoading(false);
+      return;
+    }
+
+    if (!cep || !/^\d{8}$/.test(cep)) {
+      if (alertRef.current) {
+          alertRef.current.addAlert(
+              'CEP inválido',
+              'CEP inválido',
+              'Insira um CEP válido contendo exatamente 8 dígitos numéricos.'
+          );
+      }
+      return;
+    }
+
+     if (number.length < 1) {
+      if (alertRef.current) {
+          alertRef.current.addAlert('Insira um número válido', 'Insira um número válido', 'O número da casa é necessário.');
+      }
+      return;
+    }
 
     if (Object.keys(newErrors).length > 0) {
       console.log("Validation Errors:", newErrors);
@@ -46,6 +104,15 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const isValidUsername = (name) => {
+    return name.trim().length >= 2;
+  };
+  
+  const validateEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+  
   const openLoginModal = () => {
     setIsLoginModalVisible(true);
     onBackdropClicke();
@@ -64,9 +131,23 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
         setStreet(data.logradouro);
       } else {
         console.log("Erro: CEP não encontrado.");
+        if (alertRef.current) {
+          alertRef.current.addAlert(
+              'CEP inválido',
+              'CEP inválido',
+              'Insira um CEP válido contendo exatamente 8 dígitos numéricos.'
+          );
+        }
       }
     } catch (error) {
       console.error("Erro ao buscar o CEP:", error);
+      if (alertRef.current) {
+        alertRef.current.addAlert(
+            'CEP inválido',
+            'CEP inválido',
+            'Insira um CEP válido contendo exatamente 8 dígitos numéricos.'
+        );
+      }
     }
   };
 
@@ -95,6 +176,9 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
       });
 
       console.log("Usuário registrado com sucesso!", response.data);
+      if (alertRef.current) {
+        alertRef.current.addAlert('Usuário cadastrado com sucesso', 'Usuário cadastrado com sucesso', 'Você foi cadastrado, seja bem vindo.');
+      }
       setLoading(false);
 
       openLoginModal();
@@ -125,6 +209,7 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
 
   return (
     <Modal onBackdropClicke={onBackdropClicke}>
+       <AlertComponents ref={alertRef} />
       <form onSubmit={handleSubmit}>
         <Label>Sign Up</Label>
         <P>Welcome to the team</P>
