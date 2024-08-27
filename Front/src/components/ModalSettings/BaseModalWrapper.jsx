@@ -8,24 +8,21 @@ import { useNavigate } from "react-router-dom";
 import BaseModalSair from "../ModalExit/BaseModalSair";
 import {
   Botao,
-  Botao1,
-  Botao2,
   DekstopModalContainer,
-  Diva,
-  Dive,
-  Header,
+  BaseContainer,
+  BaseHeader,
   Input,
   Titulo,
   VAMBORA,
   Divi,
   BaseLabel,
-  Botao3,
-  Botao4,
+  BotaoOrange,
+  BotaoRed,
+  BotaoGreen,
   Titulo2,
-  Content,
+  BaseContent,
   DiminuirTam,
   Imagem,
-  Content2,
 } from "./ModalPopup.styles";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
@@ -164,43 +161,43 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
           <Titulo>DADOS</Titulo>
           <Titulo2> PESSOAIS</Titulo2>
           {isEditing ? (
-            <Diva>
-              <Header>
-                <BaseLabel>Nome.:</BaseLabel>{" "}
-                <Content2>
+            <BaseContainer>
+              <BaseHeader>
+                <BaseLabel>Nome:</BaseLabel>{" "}
+                <BaseContent>
                 <Input
                   type="text"
                   name="name"
                   value={editData.name}
                   onChange={handleInputChange}
                   />
-                  </Content2>
-              </Header>
-              <Header>
+                  </BaseContent>
+              </BaseHeader>
+              <BaseHeader>
                 <BaseLabel>Email:</BaseLabel>{" "}
-                <Content2>
+                <BaseContent>
                 <Input
                   type="email"
                   name="email"
                   value={editData.email}
                   onChange={handleInputChange}
                 />
-                </Content2>
-              </Header>
-              <Header>
+                </BaseContent>
+              </BaseHeader>
+              <BaseHeader>
                 <BaseLabel>Cep:</BaseLabel>{" "}
-                <Content2>
+                <BaseContent>
                 <Input
                   type="text"
                   name="cep"
                   value={editData.cep}
                   onChange={handleInputChange}
                 />
-                </Content2>
-              </Header>
-              <Header>
+                </BaseContent>
+              </BaseHeader>
+              <BaseHeader>
                 <BaseLabel>Rua:</BaseLabel>
-                <Content2>
+                <BaseContent>
                 <Input
                   type="text"
                   name="street"
@@ -208,41 +205,41 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                   onChange={handleInputChange}
                   readOnly
                 />
-                </Content2>
-              </Header>
-              <Header>
+                </BaseContent>
+              </BaseHeader>
+              <BaseHeader>
                 <BaseLabel>Número:</BaseLabel>
-                <Content2>
+                <BaseContent>
                 <Input
                   type="text"
                   name="number"
                   value={editData.number}
                   onChange={handleInputChange}
                 />
-                </Content2>
-              </Header>
-            </Diva>
+                </BaseContent>
+              </BaseHeader>
+            </BaseContainer>
           ) : (
-            <Dive>
-              <Header><BaseLabel>Nome:</BaseLabel><Content>{userData.name} </Content></Header>
-              <Header><BaseLabel>Email:</BaseLabel><Content>{userData.email}</Content></Header>
-              <Header><BaseLabel>Cep:</BaseLabel><Content>{userData.cep}</Content></Header>
-              <Header><BaseLabel>Rua:</BaseLabel><Content>{userData.street}</Content></Header>
-              <Header><BaseLabel>Número:</BaseLabel><Content>{userData.number}</Content></Header>
-            </Dive>
+            <BaseContainer>
+              <BaseHeader><BaseLabel>Nome:</BaseLabel><BaseContent>{userData.name} </BaseContent></BaseHeader>
+              <BaseHeader><BaseLabel>Email:</BaseLabel><BaseContent>{userData.email}</BaseContent></BaseHeader>
+              <BaseHeader><BaseLabel>Cep:</BaseLabel><BaseContent>{userData.cep}</BaseContent></BaseHeader>
+              <BaseHeader><BaseLabel>Rua:</BaseLabel><BaseContent>{userData.street}</BaseContent></BaseHeader>
+              <BaseHeader><BaseLabel>Número:</BaseLabel><BaseContent>{userData.number}</BaseContent></BaseHeader>
+            </BaseContainer>
           )}
           {isEditing ? (
             <Divi>
-            <Botao1 onClick={handleSave}>Salvar</Botao1>
-            <Botao2 onClick={handleCancel}>Cancelar</Botao2>
+            <BotaoGreen onClick={handleSave}>Salvar</BotaoGreen>
+            <BotaoRed onClick={handleCancel}>Cancelar</BotaoRed>
             <DiminuirTam>
             <Botao onClick={handleLogout}>Sair</Botao>
             </DiminuirTam>
           </Divi>
            ) : (
              <Divi>
-              <Botao3 onClick={() => setIsEditing(true)}>Editar Perfil</Botao3>
-              <Botao4 onClick={toggleModale}>Excluir Perfil</Botao4>
+              <BotaoOrange onClick={() => setIsEditing(true)}>Editar Perfil</BotaoOrange>
+              <BotaoRed onClick={toggleModale}>Excluir Perfil</BotaoRed>
               <BaseModalSair
                 userId={userId}
                 isModalVisiblee={isModalVisiblee}
