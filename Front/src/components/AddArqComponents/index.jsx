@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
 import ajuda from "../../assets/help.png";
 import perfil from "../../assets/menu.png";
-import butaogeraraqui from "../../assets/geraraqui.png";
+import butaogeraraqui from "../../assets/geraraquii.png";
 import adicionar from "../../assets/adicionar.png";
 import BaseModalWrapper from "../ModalSettings/BaseModalWrapper";
 import Button from "react-bootstrap/Button";
@@ -221,11 +221,11 @@ function AddArqComponents() {
       </div>
       <div className={styles.container2}>
         <div className={styles.alinharpracima}>
-          <p className={styles.gereseu}>GERE SEU</p>
-          <p className={styles.diagrama}>DIAGRAMA</p>
+          {/* <p className={styles.gereseu}>GERE SEU</p> */}
+          <p className={styles.gereseu}>MANAGE YOU</p>
+          <p className={styles.diagrama}>DIAGRAM</p>
           <p className={styles.conteudo}>
-            Faça UPLOAD ou arraste e solte os arquivos necessários na área
-            designada abaixo.
+          UPLOAD or drag and drop the required files into the designated area below.
           </p>
 
           <div className={styles.adicionararea}>
