@@ -41,7 +41,7 @@ export const Link = styled.p`
   color: #2D56ED;
   text-decoration: none;
   font-weight: 500;
-  margin: 0 5px; /* Remove o espaçamento extra nas laterais */
+  margin: 0 5px;
   cursor: pointer;
 
   &:hover {

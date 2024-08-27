@@ -160,7 +160,7 @@ export const Botao2 = styled(BaseBotao)`
 export const Botao3 = styled(BaseBotao)`
   color: orange;
   border-color: orange;
-  margin-top: -30%;
+  margin-top: -40%;
 `;
 
 export const Botao4 = styled(BaseBotao)`
@@ -227,21 +227,23 @@ const BaseContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  margin-top: 12%;
+
 `;
 
 export const Diva = styled(BaseContainer)`
-  align-items: center;
-  margin-top: 12%;
+  margin-left: 15%;
   margin-bottom: -1%;
 `;
 
 
 export const Dive = styled(BaseContainer)`
-  margin-left: 45px;
-  margin-top: 12%;
+  margin-left: 15%;
+  margin-bottom: -1%;
+
 `;
 
-const BaseLabel = styled.div`
+ export const BaseLabel = styled.div`
   background-color: #102482;
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
@@ -254,28 +256,13 @@ const BaseLabel = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: ${props => props.$top || 'auto'};
-  left: ${props => props.$left || '0px'};
-  transform: translateY(${props => props.$transformY || '0%'});
-  height: ${props => props.$height || '100%'};
-  width: ${props => props.$width || '30%'};
-  margin-left: ${props => props.$marginLeft || '0'};
-`;
-
-
-export const Negr = styled(BaseLabel)`
-  top: 50%;
-  transform: translateY(-50%);
-`;
-
-export const Letras = styled(BaseLabel)`
   top: auto;
-  height: 48px;
-  width: 30.2%;
-  margin-left: -2px;
+  left: 0px;
   transform: translateY(0%);
+  height: 100%;
+  width: 30%;
+  margin-left: 0px;
 `;
-
 
 const BaseContent = styled.div`
   font-size: 17px;
@@ -287,14 +274,14 @@ const BaseContent = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.2;
+  line-height: 1.3;
   margin-left: ${props => props.marginLeft || '0px'};
 `;
 
 export const Content = styled(BaseContent)`
-  margin-left: 100px;
+  margin-left: 110px;
 `;
 
 export const Content2 = styled(BaseContent)`
-  margin-left: 95px;
+  margin-left: 110px;
 `;
