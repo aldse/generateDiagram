@@ -81,8 +81,15 @@ body {
   height: auto;
   z-index: 10;
 
-  @media (min-width: 1500px) {
-    width: 16%; 
+  @media (max-width: 1875px) {
+    width: 16% !important; 
+  }
+  @media (max-width: 1640px) {
+    width: 15%; 
+  }
+
+  @media (max-width: 1570px) {
+    width: 15% !important; 
   }
 
   @media (max-width: 1499px) and (min-width: 1300px) {
@@ -94,11 +101,11 @@ body {
   }
 
   @media (max-width: 1099px) and (min-width: 900px) {
-    width: 13%; 
+    width: 17% !important; 
   }
 
   @media (max-width: 899px) and (min-width: 700px) {
-    width: 12%; 
+    width: 18% !important; 
   }
 
   @media (max-width: 699px) {
