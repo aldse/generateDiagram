@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Modal from "./Modal";
 import {
   Label,
@@ -11,7 +10,7 @@ import {
   Link
 } from "./ModalCadastro.styles";
 import BaseModalLogin from "../ModalLogin/BaseModalLogin";
-import { generateDiagram } from "../../api/genereateDiagram";
+import { generateDiagram, fetchAddressByCep } from "../../api/index";
 
 const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
   const [name, setName] = useState("");
@@ -42,36 +41,22 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  
   const openLoginModal = () => {
-    
     setIsLoginModalVisible(true);
     onBackdropClicke(); 
   };
 
-  
-
-  const handleBlur = (e) => {
-    fetchAddressByCep(e.target.value);
-  };
-
-  const fetchAddressByCep = async (cep) => {
+  const handleBlur = async (e) => {
     try {
-      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-      const data = response.data;
-
-      if (!data.erro) {
+      const data = await fetchAddressByCep(e.target.value);
+      if (data) {
         setStreet(data.logradouro);
-      } else {
-        console.log("Erro: CEP não encontrado.");
       }
     } catch (error) {
       console.error("Erro ao buscar o CEP:", error);
     }
   };
 
-
-  
   useEffect(() => {
     setStreet("");
   }, [cep]);
@@ -184,18 +169,3 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
 };
 
 export default BaseModalCadastro;
-
-export const fetchAddressByCep1 = async (cep) => {
-  try {
-    const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-    const data = response.data;
-
-    if (data.erro) {
-      throw new Error('CEP não encontrado');
-    }
-
-    return data;
-  } catch (error) {
-    throw new Error('Erro ao buscar o CEP');
-  }
-};
