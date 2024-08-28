@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Modal from "./Modal";
 import {
   Label,
@@ -11,7 +10,7 @@ import {
   Link
 } from "./ModalCadastro.styles";
 import BaseModalLogin from "../ModalLogin/BaseModalLogin";
-import { generateDiagram } from "../../api/genereateDiagram";
+import { generateDiagram, fetchAddressByCep } from "../../api/index";
 
 const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
   const [name, setName] = useState("");
@@ -42,28 +41,16 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  
   const openLoginModal = () => {
-    
     setIsLoginModalVisible(true);
     onBackdropClicke(); 
   };
 
-  
-
-  const handleBlur = (e) => {
-    fetchAddressByCep(e.target.value);
-  };
-
-  const fetchAddressByCep = async (cep) => {
+  const handleBlur = async (e) => {
     try {
-      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-      const data = response.data;
-
-      if (!data.erro) {
+      const data = await fetchAddressByCep(e.target.value);
+      if (data) {
         setStreet(data.logradouro);
-      } else {
-        console.log("Erro: CEP não encontrado.");
       }
     } catch (error) {
       console.error("Erro ao buscar o CEP:", error);
@@ -73,16 +60,16 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
   useEffect(() => {
     setStreet("");
   }, [cep]);
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+    
     if (!validateForm()) {
       setLoading(false);
       return;
     }
-
+    
     try {
       const response = await generateDiagram.post("/user/register", {
         name,
@@ -93,12 +80,12 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
         street,
         number,
       });
-
+      
       console.log("Usuário registrado com sucesso!", response.data);
       setLoading(false);
-
+      
       openLoginModal();
-
+      
     } catch (error) {
       setLoading(false);
       if (error.response) {
@@ -110,20 +97,20 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
       }
     }
   };
-
+  
   if (isLoginModalVisible) {
     return (
       <BaseModalLogin
-        isModalVisible={isLoginModalVisible}
-        onBackdropClick={() => setIsLoginModalVisible(false)}
+      isModalVisible={isLoginModalVisible}
+      onBackdropClick={() => setIsLoginModalVisible(false)}
       />
     );
   }
-
+  
   if (!isModalVisiblee) {
     return null;
   }
-
+  
   return (
     <Modal onBackdropClicke={onBackdropClicke}>
       <form onSubmit={handleSubmit}>
@@ -138,13 +125,13 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
+          />
         <A>Confirm Password</A>
         <Input
           type="password"
           value={confPassword}
           onChange={(e) => setConfPassword(e.target.value)}
-        />
+          />
         <A>CEP</A>
         <Input
           id="cep"
@@ -152,21 +139,21 @@ const BaseModalCadastro = ({ onBackdropClicke, isModalVisiblee }) => {
           value={cep}
           onChange={(e) => setCep(e.target.value)}
           onBlur={handleBlur}
-        />
+          />
         <A>Street</A>
         <Input
           id="street"
           type="text"
           value={street}
           onChange={(e) => setStreet(e.target.value)}
-        />
+          />
         <A>Number</A>
         <Input
           id="number"
           type="text"
           value={number}
           onChange={(e) => setNumber(e.target.value)}
-        />
+          />
         <Div>
           <Botao type="submit" disabled={loading}>
             {loading ? "Registering..." : "Sign Up"}

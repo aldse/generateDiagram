@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
-import { generateDiagram } from "../../api/genereateDiagram";
+import { generateDiagram } from "../../api/index";
 import Modal from "./Modal";
 import {
   Label,
