@@ -27,7 +27,6 @@ const routes = [
     path: "/",
     element: <LandingPage />,
   },
-
 ];
 
 const router = createBrowserRouter(routes);

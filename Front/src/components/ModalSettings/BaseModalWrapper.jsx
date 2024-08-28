@@ -23,6 +23,8 @@ import {
   BaseContent,
   DiminuirTam,
   Imagem,
+  Imagem2,
+  Imagem2Container,
 } from "./ModalPopup.styles";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
@@ -250,6 +252,9 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
               </DiminuirTam>
             </Divi>
            )}
+           <Imagem2Container>
+            <Imagem2 />
+          </Imagem2Container>
         </VAMBORA>
       </DekstopModalContainer>
     </Modal>

@@ -221,7 +221,6 @@ function AddArqComponents() {
       </div>
       <div className={styles.container2}>
         <div className={styles.alinharpracima}>
-          {/* <p className={styles.gereseu}>GERE SEU</p> */}
           <p className={styles.gereseu}>MANAGE YOU</p>
           <p className={styles.diagrama}>DIAGRAM</p>
           <p className={styles.conteudo}>

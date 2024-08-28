@@ -51,11 +51,24 @@ body {
     left: 58%;
   }
 
-  @media (max-width: 1570px) {
-    width: 18%;
+  @media (max-width: 1630px) {
+    width: 14% !important;
   }
+
+  @media (max-width: 1570px) {
+    width: 16% !important;
+  }
+
+  @media (max-width: 1500px) {
+    width: 13% !important;
+  }
+
+  @media (max-width: 1350px) {
+    width: 12% !important;
+  }
+
     @media (max-width: 1250px) {
-      width: 19%;
+      width: 15%;
     }
 
     @media (max-width: 900px) {
@@ -84,6 +97,7 @@ body {
   @media (max-width: 1875px) {
     width: 16% !important; 
   }
+
   @media (max-width: 1640px) {
     width: 15%; 
   }
@@ -93,19 +107,19 @@ body {
   }
 
   @media (max-width: 1499px) and (min-width: 1300px) {
-    width: 15%; 
+    width: 14% !important; 
   }
 
   @media (max-width: 1299px) and (min-width: 1100px) {
-    width: 14%; 
+    width: 14.5% !important; 
   }
 
   @media (max-width: 1099px) and (min-width: 900px) {
-    width: 17% !important; 
+    width: 14.5% !important; 
   }
 
   @media (max-width: 899px) and (min-width: 700px) {
-    width: 18% !important; 
+    width: 14% !important; 
   }
 
   @media (max-width: 699px) {
@@ -268,6 +282,11 @@ margin-top: -3%;
     width: 70%;
   }
 
+  @media (max-width: 1200px) {
+    font-size: 4.5rem;
+    width: 60%;
+  }
+
   @media (max-width: 880px) {
     font-size: 4.5rem;
     width: 80%;
@@ -313,6 +332,11 @@ margin-top: -3%;
     width: 70%;
   }
 
+  @media (max-width: 1200px) {
+    font-size: 4.5rem;
+    width: 60%;
+  }
+
   @media (max-width: 880px) {
     font-size: 4.5rem;
     width: 80%;
@@ -343,6 +367,17 @@ margin-top: -3%;
   display: block; 
   justify-content: center; 
 
+  @media (max-width: 1580px) {
+    font-size: 180%; 
+    margin-left: 2%;
+  }
+
+  @media (max-width: 1415px) {
+    font-size: 160%; 
+    margin-left: 2%;
+    width: 34%;
+  }
+
   @media (max-width: 1200px) {
     font-size: 150%; 
     margin-left: 2%;
@@ -352,7 +387,7 @@ margin-top: -3%;
     margin-left: 1.5%;
   }
   @media (max-width: 768px) {
-    font-size: 100%;
+    font-size: 120%;
     margin-left: 1%;
   }
   @media (max-width: 576px) {
@@ -362,32 +397,55 @@ margin-top: -3%;
 }
 
 
-.adicionararea{
+.adicionararea {
   margin-top: 3%;
-width: 150px;
-z-index: 99;
+  width: 150px;
+  z-index: 99;
+  transition: transform 0.3s ease;
 }
 
 .adicionararea:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 
-
-.adicionar{
+.adicionar {
   width: 100%;
 }
 
-.image{
-  width: 250px;
-  margin-top: 25%;
+@media (max-width: 600px) {
+  .adicionararea {
+    width: 100px; 
+    margin-top: 2%;
+  }
+
+  .adicionar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .adicionararea {
+    width: 130px; 
+    margin-top: 2.5%;
+  }
+
+  .adicionar {
+    width: 100%;
+  }
+}
+
+.image {
+  width: 260px;
+  margin-top: 25%; 
+  transition: width 0.3s ease; 
 }
 
 .hov {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease; 
-  z-index:10;
+  transition: transform 0.3s ease;
+  z-index: 10;
 }
 
 .hov a {
@@ -397,6 +455,27 @@ z-index: 99;
 .hov:hover {
   transform: scale(1.1); 
 }
+
+@media (max-width: 600px) {
+  .image {
+    width: 150px; 
+    margin-top: 15%; 
+  }
+}
+
+@media (max-width: 900px) {
+  .image {
+    width: 200px; 
+    margin-top: 20%; 
+  }
+}
+  @media (max-width: 1300px) {
+    .image {
+      width: 230px; 
+      margin-top: 20%; 
+    }
+}
+
 
 .centerimg {
   width: 100%;
@@ -413,7 +492,7 @@ z-index: 99;
 
 @media (max-width: 1020px) {
   .im {
-    width: 20%;
+    width: 18%;
   }
 }
 
