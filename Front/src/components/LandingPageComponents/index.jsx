@@ -13,10 +13,9 @@ import Card9LadingPageComponents from '../Card9LadingPageComponents';
 import Card10LadingPageComponents from '../Card10LadingPageComponents';
 import AlertComponents from '../AlertComponents';
 
-import React, { useCallback, useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import BaseModalLogin from "../ModalLogin/BaseModalLogin";
 import Button from "react-bootstrap/Button";
-import { Link, useNavigate } from "react-router-dom";
 
 
 function LandingPageComponents() {
@@ -32,9 +31,9 @@ function LandingPageComponents() {
     }
   };
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [loginModalVisible, setLoginModalVisible] = useState(false);
   const toggleModal = () => {
-    setIsModalVisible((wasModalVisible) => !wasModalVisible);
+    setLoginModalVisible((wasModalVisible) => !wasModalVisible);
   };
   return (
     <>
@@ -46,7 +45,7 @@ function LandingPageComponents() {
           <p className={styles.p}>Open an Account</p>
         </Button>
         <BaseModalLogin
-          isModalVisible={isModalVisible}
+          loginModalVisible={loginModalVisible}
           onBackdropClick={toggleModal}
         />
         </div>
