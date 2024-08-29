@@ -15,8 +15,8 @@ import {
 import BaseModalCadastro from "../ModalCadastro/BaseModalCadastro";
 import AlertComponents from "../AlertComponents";
 
-const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
-  const [isModalVisiblee, setIsModalVisiblee] = useState(false);
+const BaseModalLogin = ({ onBackdropClick, loginModalVisible }) => {
+  const [registerModalVisible, setRegisterModalVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -70,21 +70,20 @@ const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
   };
 
   const openCadastroModal = () => {
-    onBackdropClick();
-    setIsModalVisiblee(true);
+    setRegisterModalVisible(true);
   };
 
   const closeCadastroModal = () => {
-    setIsModalVisiblee(false);
+    setRegisterModalVisible(false);
   };
 
-  if (!isModalVisible && !isModalVisiblee) {
+  if (!loginModalVisible) {
     return null;
   }
 
   return (
     <>
-      {isModalVisible && (
+      {loginModalVisible && (
         <Modal onBackdropClick={onBackdropClick}>
           <AlertComponents ref={alertRef} />
           <Label>Log in</Label>
@@ -115,10 +114,10 @@ const BaseModalLogin = ({ userId, onBackdropClick, isModalVisible }) => {
           </A>
         </Modal>
       )}
-      {isModalVisiblee && (
+      {registerModalVisible && (
         <BaseModalCadastro
-          isModalVisiblee={isModalVisiblee}
-          onBackdropClicke={closeCadastroModal}
+        registerModalVisible={registerModalVisible}
+          onBackdropClick={closeCadastroModal}
         />
       )}
     </>
