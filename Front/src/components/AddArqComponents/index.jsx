@@ -9,8 +9,10 @@ import adicionar from "../../assets/adicionar.png";
 import BaseModalWrapper from "../ModalSettings/BaseModalWrapper";
 import Button from "react-bootstrap/Button";
 import { Link, useNavigate } from "react-router-dom";
+import { useGlobalContext } from '../../context/context';
 
 function AddArqComponents() {
+  const { openSidebar } = useGlobalContext();
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
   const [file, setFile] = useState(null);
@@ -210,7 +212,14 @@ function AddArqComponents() {
           <Image src={ajuda} className={styles.ajuda} alt="ajuda" />
         </Link>
       </div>
+
       <div className={styles.butao}>
+      <Button className={styles.vem} onClick={openSidebar}>
+          <Image src={perfil} className={styles.perfil} alt="Perfil" />
+        </Button>      
+        </div>
+
+      {/* <div className={styles.butao}>
         <Button className={styles.vem} onClick={toggleModal}>
           <Image src={perfil} className={styles.perfil} alt="Perfil" />
         </Button>
@@ -218,7 +227,7 @@ function AddArqComponents() {
           isModalVisible={isModalVisible}
           onBackdropClick={toggleModal}
         />
-      </div>
+      </div> */}
       <div className={styles.container2}>
         <div className={styles.alinharpracima}>
           <p className={styles.gereseu}>MANAGE YOU</p>
@@ -251,10 +260,10 @@ function AddArqComponents() {
                 alt="botão"
               />
             </a>
+            </div>
+            </div>
           </div>
         </div>
-      </div>
-      </div>
     </>
   );
 }

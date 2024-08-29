@@ -9,6 +9,7 @@ import Logo from "./pages/Logo";
 import Alert from "./pages/Alert";
 import LandingPage from "./pages/LandingPage";
 import LandingPageComponents from "./components/LandingPageComponents";
+import { AppProvider } from "./context/context";
 
 const routes = [
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
+    <AppProvider>
     <RouterProvider router={router}>
  
     <React.StrictMode>
@@ -41,5 +43,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       ))}
   </React.StrictMode>
     </RouterProvider>
+    </AppProvider>
   </AuthProvider>
 );
