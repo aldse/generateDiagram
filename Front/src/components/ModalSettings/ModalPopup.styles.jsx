@@ -5,21 +5,17 @@ import perfil from "../../assets/menu.png";
 export const DekstopModalContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center;    /* Centraliza horizontalmente */
   z-index: 9999;
   width: 100vw;
-  height: 105vh;
-  position: absolute;
-  top: -5%;
+  height: 100vh; /* Ajustado para ocupar a altura total da tela */
+  position: fixed; /* Alterado para fixed */
+  top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.2);
-  align-items: flex-end;
-  flex-shrink: 0;
-
-  @media (max-width: 768px) {
-    height: 100vh;
-    top: 0;
-  }
 `;
+
 
 export const BaseHeader = styled.div`
   background-color: white;
@@ -48,13 +44,13 @@ export const BaseHeader = styled.div`
 
 const BaseTitulo = styled.h3`
   font-family: "Alegreya Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
   color: white;
-  font-size: 40px;
-  line-height: 3em;
+  font-size: 45px;
+  line-height: 2.7em;
   margin: ${(props) => props.$margin || "-5% 0 0"};
-  margin-left: ${(props) => props.$marginLeft || "-248px"};
+  margin-left: ${(props) => props.$marginLeft || "-380px"};
   word-break: break-word;
   z-index: 1000;
   @media (max-width: 768px) {
@@ -67,26 +63,24 @@ const BaseTitulo = styled.h3`
 export const Titulo = (props) => <BaseTitulo {...props} />;
 
 export const Titulo2 = (props) => (
-  <BaseTitulo $margin="-80px 0 0" $marginLeft="-210px" {...props} />
+  <BaseTitulo $margin="-80px 0 0" $marginLeft="-330px" {...props} />
 );
 
 export const VAMBORA = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #102482;
-  width: 20%;
-  height: 100%;
+  width: 90%; /* Ajustado para garantir que o modal tenha algum espaço */
+  max-width: 600px;
+  height: auto; /* Ajustado para permitir que o conteúdo se ajuste */
   padding: 1.5rem;
   position: relative;
-  overflow: auto;
+  overflow: auto; /* Permite rolar se o conteúdo exceder a altura */
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  border-left: 25px solid #102482;
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 1rem;
-  }
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); 
+  z-index: 1000;
 `;
 
 export const Imagem2Container = styled.div`
@@ -94,14 +88,14 @@ export const Imagem2Container = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  top: -90px;
-  height: 800px; 
+  top: 0; /* Ajustado para ocupar a altura total do modal */
+  height: auto; /* Ajustado para se ajustar ao tamanho do modal */
   z-index: 0; 
 `;
 
 export const Imagem2 = styled.div`
   background-image: url(${backgroundModal});
-  background-size: cover;
+  background-size: fill;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
@@ -139,12 +133,13 @@ export const Divi = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 60%;
+  margin-top: 20px; /* Ajustado para garantir que os botões fiquem visíveis */
   z-index: 1000;
   @media (max-width: 768px) {
-    margin-top: 40%;
+    margin-top: 10px;
   }
 `;
+
 
 const BaseBotao = styled.button`
   font-family: "Alegreya Sans", sans-serif;
@@ -176,7 +171,6 @@ const BaseBotao = styled.button`
 export const BotaoGreen = styled(BaseBotao)`
   color: #06e229;
   border-color: #06e229;
-  margin-top: -40%;
   z-index: 1000;
 `;
 
@@ -189,50 +183,7 @@ export const BotaoRed = styled(BaseBotao)`
 export const BotaoOrange = styled(BaseBotao)`
   color: orange;
   border-color: orange;
-  margin-top: -40%;
   z-index: 1000;
-`;
-
-export const Botao = styled.button`
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  background-color: #2649ec;
-  color: white;
-  width: 80px;
-  font-size: 25px;
-  padding: 10px 20px;
-  border: none;
-  margin: 1%;
-  margin-top: 20%;
-  cursor: pointer;
-  border-radius: 25% 10%;
-  transition: color 0.3s, background-position 0.3s;
-  background: linear-gradient(to right, #4146ec 50%, #5d6ff4 50%);
-  background-size: 200% 100%;
-  z-index: 1000;
-  &:hover {
-    background-position: -100% 0;
-    color: #fff;
-  }
-
-  @media (max-width: 768px) {
-    width: 60px;
-    font-size: 20px;
-    padding: 8px 16px;
-    margin-top: 10%;
-  }
-`;
-
-export const DiminuirTam = styled.div`
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  z-index: 1000;
-
-  @media (max-width: 768px) {
-    width: 150px;
-  }
 `;
 
 export const BaseContainer = styled.div`
@@ -241,15 +192,15 @@ export const BaseContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  margin-top: 12%;
-  margin-left: 15%;
-  margin-bottom: -1%;
+  margin: 0; /* Remova a margem superior para evitar deslocamento */
+  padding: 0 1rem; /* Adicione um pouco de padding para evitar que o conteúdo toque as bordas */
+  box-sizing: border-box;
   z-index: 1000;
   @media (max-width: 768px) {
-    margin-left: 5%;
-    margin-top: 8%;
+    padding: 0 0.5rem; /* Ajuste o padding para dispositivos menores */
   }
 `;
+
 
 export const BaseLabel = styled.div`
   background-color: #102482;

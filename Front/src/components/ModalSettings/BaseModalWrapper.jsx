@@ -6,7 +6,6 @@ import { generateDiagram, fetchAddressByCep } from "../../api/index";
 import { useNavigate } from "react-router-dom";
 import BaseModalSair from "../ModalExit/BaseModalSair";
 import {
-  Botao,
   DekstopModalContainer,
   BaseContainer,
   BaseHeader,
@@ -20,8 +19,6 @@ import {
   BotaoGreen,
   Titulo2,
   BaseContent,
-  DiminuirTam,
-  Imagem,
   Imagem2,
   Imagem2Container,
 } from "./ModalPopup.styles";
@@ -136,10 +133,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     setIsModalVisiblee((wasModalVisiblee) => !wasModalVisiblee);
   };
 
-  const handleImageClick = () => {
-    onBackdropClick();
-  };
-
   if (!isModalVisible) {
     return null;
   }
@@ -148,7 +141,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     <Modal onBackdropClick={onBackdropClick}>
       <DekstopModalContainer onClick={onBackdropClick}>
         <VAMBORA onClick={(e) => e.stopPropagation()}>
-          <Imagem onClick={handleImageClick}></Imagem>
           <Titulo>DADOS</Titulo>
           <Titulo2>PESSOAIS</Titulo2>
           {isEditing ? (
@@ -238,9 +230,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
             <Divi>
               <BotaoGreen onClick={handleSave}>Salvar</BotaoGreen>
               <BotaoRed onClick={handleCancel}>Cancelar</BotaoRed>
-              <DiminuirTam>
-                <Botao onClick={handleLogout}>Sair</Botao>
-              </DiminuirTam>
             </Divi>
           ) : (
             <Divi>
@@ -253,9 +242,6 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                 isModalVisiblee={isModalVisiblee}
                 onBackdropClicke={toggleModale}
               />
-              <DiminuirTam>
-                <Botao onClick={handleLogout}>Sair</Botao>
-              </DiminuirTam>
             </Divi>
            )}
            <Imagem2Container>

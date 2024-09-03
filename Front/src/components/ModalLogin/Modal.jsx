@@ -22,8 +22,9 @@ const ModalContent = styled.div`
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 414.43px; 
-  height: 608.51px; 
-  overflow: auto;
+  height: 680.51px; 
+  overflow: auto; 
+  scrollbar-width: none;
 `;
 
 const Modal = ({ onBackdropClick, children }) => {

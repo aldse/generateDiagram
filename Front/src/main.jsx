@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Route, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
-import { Route } from "react-router-dom";
 import AddArq from "./pages/AddArq";
 import ProtectedRoute from "./components/ProtectedRoutes/protectedRoute";
 import Logo from "./pages/Logo";
 import Alert from "./pages/Alert";
 import LandingPage from "./pages/LandingPage";
-import LandingPageComponents from "./components/LandingPageComponents";
-import { AppProvider } from "./context/context";
+import { Helmet } from "react-helmet";
+import { ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme } from "./styles/theme";
+import { GlobalStyle } from "./styles/globalStyles";
+import Sidebar from "./components/SidebarComponents/Sidebar";
+
+export const ThemeContext = React.createContext(null);
 
 const routes = [
   {
@@ -32,17 +36,38 @@ const routes = [
 
 const router = createBrowserRouter(routes);
 
+const App = () => {
+    const [theme, setTheme] = useState("light");
+    const themeStyle = theme === "light" ? lightTheme : darkTheme;
+
+    return (
+        <ThemeContext.Provider value={{ setTheme, theme }}>
+            <ThemeProvider theme={themeStyle}>
+                <GlobalStyle />
+                <Helmet>
+                    <title>PyDiagram</title>
+                    <link rel="preconnect" href="https://fonts.googleapis.com" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+                        rel="stylesheet"
+                    />
+                </Helmet>
+                <RouterProvider router={router}>
+                    <Sidebar />
+                    <React.StrictMode>
+                        {routes.map((route) => (
+                            <Route key={route.path} path={route.path} element={route.element} />
+                        ))}
+                    </React.StrictMode>
+                </RouterProvider>
+            </ThemeProvider>
+        </ThemeContext.Provider>
+    );
+};
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <AuthProvider>
-    <AppProvider>
-    <RouterProvider router={router}>
- 
-    <React.StrictMode>
-      {routes.map((route) => (
-        <Route key={route.path} path={route.path} element={route.element} />
-      ))}
-  </React.StrictMode>
-    </RouterProvider>
-    </AppProvider>
-  </AuthProvider>
+    <AuthProvider>
+      <App />
+    </AuthProvider>
 );
