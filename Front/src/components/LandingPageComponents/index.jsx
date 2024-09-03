@@ -15,6 +15,8 @@ import AlertComponents from '../AlertComponents';
 
 import React, { useState, useRef, useEffect } from "react";
 import BaseModalLogin from "../ModalLogin/BaseModalLogin";
+import BaseModalCadastro from "../ModalCadastro/BaseModalCadastro"
+
 import Button from "react-bootstrap/Button";
 
 
@@ -31,9 +33,15 @@ function LandingPageComponents() {
     }
   };
 
-  const [loginModalVisible, setLoginModalVisible] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
+  const [openRegister, setOpenRegister] = useState(false);
+
   const toggleModal = () => {
-    setLoginModalVisible((wasModalVisible) => !wasModalVisible);
+    setOpenLogin((wasModalVisible) => !wasModalVisible);
+  };
+
+  const toggleModal2 = () => {
+    setOpenRegister((wasModalVisible) => !wasModalVisible);
   };
   return (
     <>
@@ -42,12 +50,21 @@ function LandingPageComponents() {
         <div className={styles.nav}>
           <h1 className={styles.titlenav}>PYDIAGRAM</h1>
           <Button className={styles.button} onClick={toggleModal}>
-          <p className={styles.p}>Open an Account</p>
-        </Button>
-        <BaseModalLogin
-          loginModalVisible={loginModalVisible}
-          onBackdropClick={toggleModal}
-        />
+            <p className={styles.p}>Open an Account</p>
+          </Button>
+          <BaseModalLogin
+            openLogin={openLogin}
+            setOpenLogin={setOpenLogin}
+            setOpenRegister={setOpenRegister}
+            onBackdropClick={toggleModal}
+          />
+
+          <BaseModalCadastro
+            openRegister={openRegister}
+            setOpenRegister={setOpenRegister}
+            setOpenLogin={setOpenLogin}
+            onBackdropClick={toggleModal2}
+          />
         </div>
 
         <div className={styles.line3}>

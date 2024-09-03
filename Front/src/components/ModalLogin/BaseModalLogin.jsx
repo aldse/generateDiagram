@@ -12,11 +12,10 @@ import {
   Input,
   Link
 } from "./ModalLogin.styles";
-import BaseModalCadastro from "../ModalCadastro/BaseModalCadastro";
 import AlertComponents from "../AlertComponents";
 
-const BaseModalLogin = ({ onBackdropClick, loginModalVisible }) => {
-  const [registerModalVisible, setRegisterModalVisible] = useState(false);
+const BaseModalLogin = ({ onBackdropClick, openLogin, setOpenLogin, setOpenRegister }) => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -49,9 +48,9 @@ const BaseModalLogin = ({ onBackdropClick, loginModalVisible }) => {
         console.error("Token não encontrado na resposta da API.");
         if (alertRef.current) {
           alertRef.current.addAlert(
-              "Informações inválidas",
-              "Informações inválidas",
-              "Usuário ou senha não coincidem."
+            "Informações inválidas",
+            "Informações inválidas",
+            "Usuário ou senha não coincidem."
           );
         }
       }
@@ -59,9 +58,9 @@ const BaseModalLogin = ({ onBackdropClick, loginModalVisible }) => {
       console.error("Erro ao chamar a API:", error);
       if (alertRef.current) {
         alertRef.current.addAlert(
-            "Informações inválidas",
-            "Informações inválidas",
-            "Usuário ou senha não coincidem."
+          "Informações inválidas",
+          "Informações inválidas",
+          "Usuário ou senha não coincidem."
         );
       }
     } finally {
@@ -70,56 +69,46 @@ const BaseModalLogin = ({ onBackdropClick, loginModalVisible }) => {
   };
 
   const openCadastroModal = () => {
-    setRegisterModalVisible(true);
+    setOpenRegister(true);
+    setOpenLogin(false)
   };
 
-  const closeCadastroModal = () => {
-    setRegisterModalVisible(false);
-  };
 
-  if (!loginModalVisible) {
+  if (!openLogin) {
     return null;
   }
 
   return (
     <>
-      {loginModalVisible && (
-        <Modal onBackdropClick={onBackdropClick}>
-          <AlertComponents ref={alertRef} />
-          <Label>Log in</Label>
-          <P>to start diagraming</P>
-          <A>Email</A>
-          <Input 
-            id="email"
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <A $variant="A2">Password</A>
-          <Input 
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Div>
-            <Botao onClick={handleSubmit} disabled={loading}>
-              {loading ? "Loading..." : "Log in"}
-            </Botao>
-          </Div>
-          <A $variant="A2">
-            Don’t have an account? 
-            <Link onClick={openCadastroModal}> Sign Up</Link>
-            now!
-          </A>
-        </Modal>
-      )}
-      {registerModalVisible && (
-        <BaseModalCadastro
-        registerModalVisible={registerModalVisible}
-          onBackdropClick={closeCadastroModal}
+      <Modal onBackdropClick={onBackdropClick}>
+        <AlertComponents ref={alertRef} />
+        <Label>Log in</Label>
+        <P>to start diagraming</P>
+        <A>Email</A>
+        <Input
+          id="email"
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-      )}
+        <A $variant="A2">Password</A>
+        <Input
+          id="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Div>
+          <Botao onClick={handleSubmit} disabled={loading}>
+            {loading ? "Loading..." : "Log in"}
+          </Botao>
+        </Div>
+        <A $variant="A2">
+          Don’t have an account?
+          <Link onClick={openCadastroModal}> Sign Up</Link>
+          now!
+        </A>
+      </Modal>
     </>
   );
 };

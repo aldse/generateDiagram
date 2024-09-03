@@ -31,13 +31,13 @@ const ModalContent = styled.div`
   }
 `;
 
-const Modal = ({ onBackdropClicke, children }) => {
+const Modal = ({ onBackdropClick, children }) => {
   const handleModalClick = (e) => {
     e.stopPropagation();
   };
 
   return ReactDOM.createPortal(
-    <ModalContainer onClick={onBackdropClicke}>
+    <ModalContainer onClick={onBackdropClick}>
       <ModalContent onClick={handleModalClick}>
         {children}
       </ModalContent>

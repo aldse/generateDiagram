@@ -4,8 +4,8 @@ import { Label, P, A, Div, Botao, Input, Link } from "./ModalCadastro.styles";
 import BaseModalLogin from "../ModalLogin/BaseModalLogin";
 import { generateDiagram, fetchAddressByCep } from "../../api/index";
 
-const BaseModalCadastro = ({ onBackdropClick, registerModalVisible }) => {
-  const [loginModalVisible, setLoginModalVisible] = useState(false);
+const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, setOpenLogin }) => {
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,14 +50,6 @@ const BaseModalCadastro = ({ onBackdropClick, registerModalVisible }) => {
     setStreet("");
   }, [cep]);
 
-  const openLoginModal = () => {
-    onBackdropClick();
-    setLoginModalVisible(true);
-  };
-  const closeLoginModal = () => {
-    setLoginModalVisible(false);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -94,73 +86,71 @@ const BaseModalCadastro = ({ onBackdropClick, registerModalVisible }) => {
     }
   };
 
-  if (!registerModalVisible & !loginModalVisible) {
+  const openLoginModal = () => {
+    setOpenLogin(true);
+    setOpenRegister(false)
+  };
+
+
+  if (!openRegister) {
     return null;
   }
 
   return (
     <>
-      {registerModalVisible && (
-        <Modal onBackdropClick={onBackdropClick}>
-          <form onSubmit={handleSubmit}>
-            <Label>Sign Up</Label>
-            <P>Welcome to the team</P>
-            <A>Name</A>
-            <Input value={name} onChange={(e) => setName(e.target.value)} />
-            <A>Email</A>
-            <Input value={email} onChange={(e) => setEmail(e.target.value)} />
-            <A>Password</A>
-            <Input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <A>Confirm Password</A>
-            <Input
-              type="password"
-              value={confPassword}
-              onChange={(e) => setConfPassword(e.target.value)}
-            />
-            <A>CEP</A>
-            <Input
-              id="cep"
-              type="text"
-              value={cep}
-              onChange={(e) => setCep(e.target.value)}
-              onBlur={handleBlur}
-            />
-            <A>Street</A>
-            <Input
-              id="street"
-              type="text"
-              value={street}
-              onChange={(e) => setStreet(e.target.value)}
-            />
-            <A>Number</A>
-            <Input
-              id="number"
-              type="text"
-              value={number}
-              onChange={(e) => setNumber(e.target.value)}
-            />
-            <Div>
-              <Botao type="submit" disabled={loading}>
-                {loading ? "Registering..." : "Sign Up"}
-              </Botao>
-            </Div>
-            <A $variant="A2">
-              Do you already have an account?
-              <Link onClick={openLoginModal}> Log In</Link>
-            </A>
-          </form>
-        </Modal>
-      )}
-      {loginModalVisible && (
-        <BaseModalLogin
-        loginModalVisible={loginModalVisible}
-        onBackdropClick={closeLoginModal}
-        />
-      )}
+      <Modal onBackdropClick={onBackdropClick}>
+        <form onSubmit={handleSubmit}>
+          <Label>Sign Up</Label>
+          <P>Welcome to the team</P>
+          <A>Name</A>
+          <Input value={name} onChange={(e) => setName(e.target.value)} />
+          <A>Email</A>
+          <Input value={email} onChange={(e) => setEmail(e.target.value)} />
+          <A>Password</A>
+          <Input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <A>Confirm Password</A>
+          <Input
+            type="password"
+            value={confPassword}
+            onChange={(e) => setConfPassword(e.target.value)}
+          />
+          <A>CEP</A>
+          <Input
+            id="cep"
+            type="text"
+            value={cep}
+            onChange={(e) => setCep(e.target.value)}
+            onBlur={handleBlur}
+          />
+          <A>Street</A>
+          <Input
+            id="street"
+            type="text"
+            value={street}
+            onChange={(e) => setStreet(e.target.value)}
+          />
+          <A>Number</A>
+          <Input
+            id="number"
+            type="text"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+          />
+          <Div>
+            <Botao type="submit" disabled={loading}>
+              {loading ? "Registering..." : "Sign Up"}
+            </Botao>
+          </Div>
+          <A $variant="A2">
+            Do you already have an account?
+            <Link onClick={openLoginModal}> Log In</Link>
+          </A>
+        </form>
+      </Modal>
     </>
   );
 };
