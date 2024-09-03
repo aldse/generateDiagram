@@ -141,8 +141,8 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     <Modal onBackdropClick={onBackdropClick}>
       <DekstopModalContainer onClick={onBackdropClick}>
         <VAMBORA onClick={(e) => e.stopPropagation()}>
-          <Titulo>DADOS</Titulo>
-          <Titulo2>PESSOAIS</Titulo2>
+          <Titulo>MANAGE</Titulo>
+          <Titulo2>PROFILE</Titulo2>
           {isEditing ? (
             <BaseContainer>
               <BaseHeader>

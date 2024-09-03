@@ -50,7 +50,7 @@ const BaseTitulo = styled.h3`
   font-size: 45px;
   line-height: 2.7em;
   margin: ${(props) => props.$margin || "-5% 0 0"};
-  margin-left: ${(props) => props.$marginLeft || "-380px"};
+  margin-left: ${(props) => props.$marginLeft || "-335px"};
   word-break: break-word;
   z-index: 1000;
   @media (max-width: 768px) {
@@ -63,7 +63,7 @@ const BaseTitulo = styled.h3`
 export const Titulo = (props) => <BaseTitulo {...props} />;
 
 export const Titulo2 = (props) => (
-  <BaseTitulo $margin="-80px 0 0" $marginLeft="-330px" {...props} />
+  <BaseTitulo $margin="-80px 0 0" $marginLeft="-345px" {...props} />
 );
 
 export const VAMBORA = styled.div`
