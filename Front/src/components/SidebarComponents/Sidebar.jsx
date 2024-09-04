@@ -14,8 +14,6 @@ import {
   SToggleThumb,
 } from "./styles";
 import {
-  AiOutlineApartment,
-  AiOutlineHome,
   AiOutlineLeft,
   AiOutlineSetting,
 } from "react-icons/ai";
@@ -29,7 +27,6 @@ import BaseModalWrapper from "../ModalSettings/BaseModalWrapper";
 const Sidebar = () => {
   const { setTheme, theme } = useContext(ThemeContext);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { pathname } = useLocation();
   const { logout } = useAuth();
   const navigate = useNavigate();
   const [isModalVisible, setIsModalVisible] = useState(false);

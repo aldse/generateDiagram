@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import { Label, P, A, Div, Botao, Input, Link } from "./ModalCadastro.styles";
-import BaseModalLogin from "../ModalLogin/BaseModalLogin";
 import { generateDiagram, fetchAddressByCep } from "../../api/index";
 
 const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, setOpenLogin }) => {
