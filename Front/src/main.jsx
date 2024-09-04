@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Route, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
-import AddArq from "./pages/AddArq";
+import Home from "./pages/Home";
 import ProtectedRoute from "./components/ProtectedRoutes/protectedRoute";
 import Logo from "./pages/Logo";
 import Alert from "./pages/Alert";
@@ -18,7 +18,7 @@ export const ThemeContext = React.createContext(null);
 const routes = [
   {
     path: "/home",
-    element: <ProtectedRoute element={<AddArq />} />,
+    element: <ProtectedRoute element={<Home />} />,
   },
   {
     path: "/logo",

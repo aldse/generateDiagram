@@ -13,7 +13,7 @@ const ModalContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 9999; 
 `;
 
 const ModalContent = styled.div`
@@ -32,7 +32,8 @@ const ModalContent = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: auto;
+  overflow: auto; 
+  scrollbar-width: none;
 `;
 
 const Modal = ({ onBackdropClicke, children }) => {

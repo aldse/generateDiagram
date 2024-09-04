@@ -1,18 +1,14 @@
-import React, { useCallback, useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
-import ajuda from "../../assets/help.png";
-import perfil from "../../assets/menu.png";
-import butaogeraraqui from "../../assets/geraraquii.png";
-import adicionar from "../../assets/adicionar.png";
-import BaseModalWrapper from "../ModalSettings/BaseModalWrapper";
-import Button from "react-bootstrap/Button";
-import { Link, useNavigate } from "react-router-dom";
+import help from "../../assets/help.png";
+import generateHere from "../../assets/geraraquii.png";
+import inputAdd from "../../assets/inputAdd.png";
+import { Link } from "react-router-dom";
 import Sidebar from "../SidebarComponents/Sidebar";
 
-function AddArqComponents() {
-  const navigate = useNavigate();
+function HomeComponents() {
   const fileInputRef = useRef(null);
   const [file, setFile] = useState(null);
 
@@ -48,11 +44,6 @@ function AddArqComponents() {
     }
   };
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const toggleModal = () => {
-    setIsModalVisible((wasModalVisible) => !wasModalVisible);
-  };
-
   useEffect(() => {
     const container = document.getElementById('scrollContainer');
     if (container) {
@@ -68,11 +59,11 @@ function AddArqComponents() {
   
   return (
     <>
-    <div id="scrollContainer" className={styles.pageContainer}>
-      <div className={styles.container}>
+    <div id="scrollContainer">
+      <div className={styles.fixedLayout}>
     <Sidebar/>
-        <div className={styles.roundedpolygon}>
-          <div className={styles.svgTopLeft}>
+        <div>
+          <div className={styles.topLeftSvg}>
             <svg
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +148,7 @@ function AddArqComponents() {
             </svg>
           </div>
 
-          <div className={styles.svgTopRight}>
+          <div className={styles.topRightSvg}>
             <svg
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +172,7 @@ function AddArqComponents() {
             </svg>
           </div>
 
-          <div className={styles.svgBottomCenter}>
+          <div className={styles.bottomCenterSvg}>
             <svg
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
@@ -205,38 +196,22 @@ function AddArqComponents() {
             </svg>
           </div>
         </div>
-        <div className={styles.centerimg}>
-          <Image src={bosch} className={styles.im} alt="Logo cima" />
+        <div className={styles.centerImageContainer}>
+          <Image src={bosch} className={styles.responsiveImage} alt="bosch image" />
         </div>
         <Link to="/landingpage">
-          <Image src={ajuda} className={styles.ajuda} alt="ajuda" />
+          <Image src={help} className={styles.helpIcon} alt="help image" />
         </Link>
       </div>
-
-      {/* <div className={styles.butao}>
-      <Button className={styles.vem} onClick={openSidebar}>
-          <Image src={perfil} className={styles.perfil} alt="Perfil" />
-        </Button>      
-        </div> */}
-
-      {/* <div className={styles.butao}>
-        <Button className={styles.vem} onClick={toggleModal}>
-          <Image src={perfil} className={styles.perfil} alt="Perfil" />
-        </Button>
-        <BaseModalWrapper
-          isModalVisible={isModalVisible}
-          onBackdropClick={toggleModal}
-        />
-      </div> */}
-      <div className={styles.container2}>
-        <div className={styles.alinharpracima}>
-          <p className={styles.gereseu}>MANAGE YOU</p>
-          <p className={styles.diagrama}>DIAGRAM</p>
-          <p className={styles.conteudo}>
+      <div className={styles.secondaryContainer}>
+        <div className={styles.alignCenter}>
+          <p className={styles.mainTitle}>MANAGE YOU</p>
+          <p className={styles.subtitle}>DIAGRAM</p>
+          <p className={styles.contentText}>
           UPLOAD or drag and drop the required files into the designated area below.
           </p>
 
-          <div className={styles.adicionararea}>
+          <div className={styles.uploadArea}>
             <input
               ref={fileInputRef}
               id="file"
@@ -245,19 +220,19 @@ function AddArqComponents() {
               style={{ display: "none" }}
             />
             <Image
-              src={adicionar}
-              className={styles.adicionar}
-              alt="adicionar"
+              src={inputAdd}
+              className={styles.uploadButton}
+              alt="input arquivos"
               onClick={handleImageClick}
             />
           </div>
 
-          <div className={styles.hov}>
+          <div className={styles.hoverEffect}>
             <a href="#" onClick={handleUpload}>
               <Image
-                src={butaogeraraqui}
-                className={styles.image}
-                alt="botão"
+                src={generateHere}
+                className={styles.actionButtonImage}
+                alt="button generate Here"
               />
             </a>
             </div>
@@ -268,4 +243,4 @@ function AddArqComponents() {
   );
 }
 
-export default AddArqComponents;
+export default HomeComponents;

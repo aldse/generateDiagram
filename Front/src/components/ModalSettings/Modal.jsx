@@ -10,7 +10,7 @@ const Modal = ({ onBackdropClick, children }) => {
     <div 
       onClick={onBackdropClick} 
       style={{
- zIndex: 9999,
+        zIndex: 9999,
       }}
     >
       <div 
@@ -23,6 +23,9 @@ const Modal = ({ onBackdropClick, children }) => {
           maxWidth: '100%',
           maxHeight: '90%',
           overflow: 'auto',
+          scrollbarWidth: 'none',
+          width: '90%',
+          height: 'auto',
         }}
       >
         {children}

@@ -47,7 +47,7 @@ const Sidebar = () => {
   const secondaryLinksArray = [
     {
       label: "Settings",
-      onClick: toggleModal, // Abre o modal ao clicar
+      onClick: toggleModal, 
       icon: <AiOutlineSetting />,
     },
     {
@@ -75,7 +75,7 @@ const Sidebar = () => {
           <SLink
             to="#"
             style={!sidebarOpen ? { width: `fit-content` } : {}}
-            onClick={onClick} // Adiciona o onClick aqui
+            onClick={onClick} 
           >
             <SLinkIcon>{icon}</SLinkIcon>
             {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}
@@ -93,7 +93,6 @@ const Sidebar = () => {
         </SThemeToggler>
       </STheme>
 
-      {/* Renderize o modal fora da lista de links */}
       <BaseModalWrapper
         isModalVisible={isModalVisible}
         onBackdropClick={toggleModal}

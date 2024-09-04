@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 
-function LogoComponents({ theme }) {
+function LogoComponents() {
   const [isFilled, setIsFilled] = useState(false);
 
   useEffect(() => {
@@ -11,8 +11,6 @@ function LogoComponents({ theme }) {
 
     return () => clearTimeout(timer);
   }, []);
-
-  // const logoColor = theme === "dark" ? "#2F5DEB" : "rgb(16, 37, 130)";
 
   return (
     <>

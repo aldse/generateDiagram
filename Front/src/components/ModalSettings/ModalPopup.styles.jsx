@@ -5,15 +5,19 @@ import perfil from "../../assets/menu.png";
 export const DekstopModalContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centraliza verticalmente */
-  align-items: center;    /* Centraliza horizontalmente */
+  justify-content: center; 
+  align-items: center;    
   z-index: 9999;
   width: 100vw;
-  height: 100vh; /* Ajustado para ocupar a altura total da tela */
-  position: fixed; /* Alterado para fixed */
+  height: 100vh; 
+  position: fixed; 
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.2);
+
+   @media (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
 
 
@@ -21,8 +25,6 @@ export const BaseHeader = styled.div`
   background-color: white;
   border-radius: 50px;
   font-family: "Noto Sans JP", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
   font-weight: 500;
   color: #102482;
   font-size: 20px;
@@ -35,6 +37,7 @@ export const BaseHeader = styled.div`
   max-width: 85%;
   box-sizing: border-box;
   z-index: 1000;
+
   @media (max-width: 768px) {
     font-size: 16px;
     padding: 6px 12px;
@@ -53,11 +56,6 @@ const BaseTitulo = styled.h3`
   margin-left: ${(props) => props.$marginLeft || "-335px"};
   word-break: break-word;
   z-index: 1000;
-  @media (max-width: 768px) {
-    font-size: 24px;
-    margin: -2% 0 0;
-    margin-left: -150px;
-  }
 `;
 
 export const Titulo = (props) => <BaseTitulo {...props} />;
@@ -70,12 +68,13 @@ export const VAMBORA = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #102482;
-  width: 90%; /* Ajustado para garantir que o modal tenha algum espaço */
+  width: 90%; 
   max-width: 600px;
-  height: auto; /* Ajustado para permitir que o conteúdo se ajuste */
+  height: auto; 
   padding: 1.5rem;
   position: relative;
-  overflow: auto; /* Permite rolar se o conteúdo exceder a altura */
+  overflow: auto;
+  scrollbar-width: none;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
@@ -88,8 +87,8 @@ export const Imagem2Container = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  top: 0; /* Ajustado para ocupar a altura total do modal */
-  height: auto; /* Ajustado para se ajustar ao tamanho do modal */
+  top: 0; 
+  height: auto; 
   z-index: 0; 
 `;
 
@@ -133,7 +132,7 @@ export const Divi = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px; /* Ajustado para garantir que os botões fiquem visíveis */
+  margin-top: 20px;
   z-index: 1000;
   @media (max-width: 768px) {
     margin-top: 10px;
@@ -144,7 +143,6 @@ export const Divi = styled.div`
 const BaseBotao = styled.button`
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
-  font-style: normal;
   color: ${(props) => props.color || "red"};
   background-color: ${(props) => props.backgroundColor || "transparent"};
   font-size: 19px;
@@ -156,6 +154,7 @@ const BaseBotao = styled.button`
   width: 200px;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   z-index: 1000;
+
   &:hover {
     transform: scale(1.1);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -191,13 +190,15 @@ export const BaseContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
-  margin: 0; /* Remova a margem superior para evitar deslocamento */
-  padding: 0 1rem; /* Adicione um pouco de padding para evitar que o conteúdo toque as bordas */
+  overflow: auto;
+  scrollbar-width: none;
+  margin: 0; 
+  padding: 0 1rem; 
   box-sizing: border-box;
   z-index: 1000;
+
   @media (max-width: 768px) {
-    padding: 0 0.5rem; /* Ajuste o padding para dispositivos menores */
+    padding: 0 0.5rem; 
   }
 `;
 
@@ -240,7 +241,8 @@ export const BaseContent = styled.div`
   display: inline-block;
   max-width: calc(100% - 40px);
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
+  scrollbar-width: none;
   text-overflow: ellipsis;
   line-height: 1.3;
   margin-left: 30%;
@@ -266,10 +268,11 @@ export const Input = styled.input`
   padding: 0px;
   transition: border-color 0.3s, box-shadow 0.3s;
   width: calc(100% - 20px);
-  height: 40px;
+  height: auto;
   color: #102482;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
+  scrollbar-width: none;
   text-overflow: ellipsis;
   line-height: 1.2;
   z-index: 1000;
