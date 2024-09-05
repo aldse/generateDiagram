@@ -1,5 +1,5 @@
 body {
-  margin: 0%;
+  margin: 0;
 }
 
 .noScroll {
@@ -13,18 +13,13 @@ body {
 
 .fixedLayout {
   display: flex;
-  height: 5vh; 
-  max-height: 5vh; 
-  overflow: hidden !important; 
+  height: 5vh;
+  max-height: 5vh;
+  overflow: hidden !important;
   background-color: #102582;
-
-  @media (max-width: 1200px) {
-    height: 5vh; 
-    max-height: 6vh; 
-  }
 }
 
-.helpIcon{
+.helpIcon {
   overflow: hidden !important;
   position: absolute;
   top: 0;
@@ -41,89 +36,21 @@ body {
   transform: translateX(-50%);
   margin: -20px;
   padding: 0;
-  width: auto; 
+  width: 15%;
   height: auto;
-  z-index: 10; 
-  
-  @media (max-width: 1875px) {
-    width: 16%; 
-    left: 58%;
-  }
-
-  @media (max-width: 1630px) {
-    width: 14% !important;
-  }
-
-  @media (max-width: 1570px) {
-    width: 16% !important;
-  }
-
-  @media (max-width: 1500px) {
-    width: 13% !important;
-  }
-
-  @media (max-width: 1350px) {
-    width: 12% !important;
-  }
-
-    @media (max-width: 1250px) {
-      width: 15%;
-    }
-
-    @media (max-width: 900px) {
-      width: 19%; 
-      bottom: 0 !important; 
-    }
-  
-    @media (max-width: 768px) {
-      width: 23%; 
-      left: 50%; 
-      bottom: 0; 
-    }
+  z-index: 10;
 }
 
 .topLeftSvg {
   position: absolute;
   top: 0;
-  left: 0; 
-  transform: translateX(0); 
+  left: 0;
+  transform: translateX(0);
   margin: 0;
   padding: 0;
-  width: auto; 
+  width: 15%;
   height: auto;
   z-index: 10;
-
-  @media (max-width: 1875px) {
-    width: 16% !important; 
-  }
-
-  @media (max-width: 1640px) {
-    width: 15%; 
-  }
-
-  @media (max-width: 1570px) {
-    width: 15% !important; 
-  }
-
-  @media (max-width: 1499px) and (min-width: 1300px) {
-    width: 14% !important; 
-  }
-
-  @media (max-width: 1299px) and (min-width: 1100px) {
-    width: 14.5% !important; 
-  }
-
-  @media (max-width: 1099px) and (min-width: 900px) {
-    width: 14.5% !important; 
-  }
-
-  @media (max-width: 899px) and (min-width: 700px) {
-    width: 14% !important; 
-  }
-
-  @media (max-width: 699px) {
-    width: 11%; 
-  }
 }
 
 .topRightSvg {
@@ -132,76 +59,9 @@ body {
   right: 300px !important;
   margin: 0;
   padding: 0;
-  width: auto; 
+  width: 13%;
   height: auto;
-  z-index: 10; 
-
-  @media (max-width: 1875px) {
-    width: 17%; 
-    right: 250px !important;
-  }
-
-  
-  @media (max-width: 1640px) {
-    width: 16%; 
-    right: 220px !important;
-  }
-
-  @media (max-width: 1570px) {
-    right: 210px !important;
-  }
-
-  @media (max-width: 1500px) {
-    width: 18%; 
-    right: 190px !important;
-  }
-
-  @media (max-width: 1465px) {
-    width: 17%; 
-    right: 180px !important;
-  }
-
-  @media (max-width: 1385px) {
-    width: 16%; 
-    right: 170px !important;
-  }
-
-  @media (max-width: 1325px) { 
-    right: 160px !important;
-  }
-
-  @media (max-width: 1210px) { 
-    right: 150px !important;
-  }
-
-  @media (max-width: 1195px) {
-    width: 18%;  
-    right: 135px !important;
-  }
-
-  @media (max-width: 1050px) { 
-    right: 125px !important;
-  }
-
-  @media (max-width: 950px) { 
-    right: 120px !important;
-  }
-
-  @media (max-width: 910px) { 
-    right: 110px !important;
-  }
-
-  @media (max-width: 860px) { 
-    right: 100px !important;
-  }
-
-  @media (max-width: 750px) { 
-    right: 90px !important;
-  }
-
-  @media (max-width: 685px) { 
-    right: 80px !important;
-  }
+  z-index: 10;
 }
 
 .secondaryContainer {
@@ -215,17 +75,17 @@ body {
   z-index: 1;
 }
 
-.alignCenter{
-width: 100%;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-margin-top: -3%;
+.alignCenter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: -3%;
 }
 
-.mainTitle{
+.mainTitle {
   color: white;
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
@@ -234,45 +94,12 @@ margin-top: -3%;
   margin: 0;
   width: 50%;
   padding: 0;
-  align-items: center;
   display: flex;
   justify-content: center;
-
-  @media (max-width: 1500px) {
-    font-size: 6rem;
-    width: 60%;
-  } 
-
-  @media (max-width: 1260px) {
-    font-size: 5.5rem;
-    width: 70%;
-  }
-
-  @media (max-width: 1155px) {
-    font-size: 5rem;
-    width: 70%;
-  }
-
-  @media (max-width: 1200px) {
-    font-size: 4.5rem;
-    width: 60%;
-  }
-
-  @media (max-width: 880px) {
-    font-size: 4.5rem;
-    width: 80%;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 4rem;
-    width: 80%;
-  }
-  @media (max-width: 576px) {
-    font-size: 3.5rem;
-  }
+  align-items: center;
 }
 
-.subtitle{
+.subtitle {
   color: white;
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
@@ -282,43 +109,9 @@ margin-top: -3%;
   margin-top: -2%;
   width: 30%;
   padding: 0;
-  align-items: center;
   display: flex;
   justify-content: center;
-
- 
-  @media (max-width: 1500px) {
-    font-size: 6rem;
-    width: 60%;
-  } 
-
-  @media (max-width: 1260px) {
-    font-size: 5.5rem;
-    width: 70%;
-  }
-
-  @media (max-width: 1155px) {
-    font-size: 5rem;
-    width: 70%;
-  }
-
-  @media (max-width: 1200px) {
-    font-size: 4.5rem;
-    width: 60%;
-  }
-
-  @media (max-width: 880px) {
-    font-size: 4.5rem;
-    width: 80%;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 4rem;
-    width: 80%;
-  }
-  @media (max-width: 576px) {
-    font-size: 3.5rem;
-  }
+  align-items: center;
 }
 
 .contentText {
@@ -326,44 +119,14 @@ margin-top: -3%;
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 300;
   font-style: normal;
-  font-size: 200%; 
+  font-size: 200%;
   margin: 0;
   margin-left: 0%;
   width: 30%;
   padding: 0;
-  text-align: center; 
-  line-height: 1.2; 
-  align-items: center;
-  display: block; 
-  justify-content: center; 
-
-  @media (max-width: 1580px) {
-    font-size: 180%; 
-    margin-left: 2%;
-  }
-
-  @media (max-width: 1415px) {
-    font-size: 160%; 
-    margin-left: 2%;
-    width: 34%;
-  }
-
-  @media (max-width: 1200px) {
-    font-size: 150%; 
-    margin-left: 2%;
-  }
-  @media (max-width: 992px) {
-    font-size: 125%; 
-    margin-left: 1.5%;
-  }
-  @media (max-width: 768px) {
-    font-size: 120%;
-    margin-left: 1%;
-  }
-  @media (max-width: 576px) {
-    font-size: 80%; 
-    margin-left: 0.5%;
-  }
+  text-align: center;
+  line-height: 1.2;
+  display: block;
 }
 
 .uploadArea {
@@ -371,52 +134,16 @@ margin-top: -3%;
   width: 150px;
   z-index: 99;
   transition: transform 0.3s ease;
-
-  @media (max-width: 1200px) {
-      width: 130px; 
-      margin-top: 2.5%;
-    }
-
-  @media (max-width: 600px) {  
-    width: 100%;
-}
-}
-
-.adicionararea:hover {
-  transform: scale(1.05);
 }
 
 .uploadButton {
   width: 100%;
-
-  @media (max-width: 1200px) {
-    width: 100%;
-  }
-
-  @media (max-width: 600px) {  
-      width: 100%;
-  }
 }
 
 .actionButtonImage {
   width: 260px;
-  margin-top: 25%; 
-  transition: width 0.3s ease; 
-
-  @media (max-width: 1300px) {
-    width: 230px; 
-    margin-top: 20%; 
-  }
-  
-  @media (max-width: 900px) {
-    width: 200px; 
-    margin-top: 20%; 
-  }
-  
-  @media (max-width: 600px) {
-      width: 150px; 
-      margin-top: 15%; 
-  }
+  margin-top: 25%;
+  transition: width 0.3s ease;
 }
 
 .hoverEffect {
@@ -428,11 +155,11 @@ margin-top: -3%;
 }
 
 .hov a {
-  display: block; 
+  display: block;
 }
 
 .hov:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .centerImageContainer {
@@ -443,22 +170,66 @@ margin-top: -3%;
 
 .responsiveImage {
   max-width: 100%;
-  height: auto; 
-  width: auto;  
-
-@media (max-width: 1020px) {
-    width: 18%;
+  height: auto;
+  width: auto;
 }
 
-@media (max-width: 768px) {
-    width: 22%; 
-}
-
-@media (max-width: 480px) {
-    width: 30%; 
-}
-
-@media (max-width: 360px) {
-    width: 40%; 
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+  .bottomCenterSvg {
+    width: 15%;
+  }
+  .mainTitle {
+    font-size: 4.5rem;
+    width: 60%;
+  }
+  .subtitle {
+    font-size: 4.5rem;
+    width: 60%;
+  }
+  .contentText {
+    font-size: 150%;
+  }
+  .uploadArea {
+    width: 130px;
+    margin-top: 2.5%;
   }
 }
+
+@media only screen and (max-width: 1155px) {
+  .mainTitle {
+    font-size: 5rem;
+  }
+  .subtitle {
+    font-size: 5rem;
+  }
+  .contentText {
+    font-size: 125%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .mainTitle, .subtitle {
+    font-size: 4rem;
+    width: 80%;
+  }
+  .contentText {
+    font-size: 120%;
+    margin-left: 1%;
+  }
+  .bottomCenterSvg {
+    width: 23%;
+    left: 50%;
+  }
+  .uploadArea {
+    width: 100%;
+  }
+  .actionButtonImage {
+    width: 150px;
+    margin-top: 15%;
+  }
+  .responsiveImage {
+    width: 22%;
+  }
+}
+

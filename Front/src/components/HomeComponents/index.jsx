@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
 import help from "../../assets/help.png";
 import generateHere from "../../assets/geraraquii.png";
-import inputAdd from "../../assets/inputAdd.png";
+import inputAdd from "../../assets/inputAdd.webp";
 import { Link } from "react-router-dom";
 import Sidebar from "../SidebarComponents/Sidebar";
 
@@ -219,7 +219,7 @@ function HomeComponents() {
               onChange={handleFileChange}
               style={{ display: "none" }}
             />
-            <Image
+            <img
               src={inputAdd}
               className={styles.uploadButton}
               alt="input arquivos"

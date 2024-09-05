@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import backgroundModal from "../../assets/red.png";
-import perfil from "../../assets/menu.png";
 
 export const DekstopModalContainer = styled.div`
   display: flex;
@@ -15,7 +14,7 @@ export const DekstopModalContainer = styled.div`
   left: 0;
   background: rgba(0, 0, 0, 0.2);
 
-   @media (max-width: 768px) {
+   @media only screen and  (max-width: 768px) {
     padding: 0 1rem;
   }
 `;
@@ -38,7 +37,7 @@ export const BaseHeader = styled.div`
   box-sizing: border-box;
   z-index: 1000;
 
-  @media (max-width: 768px) {
+  @media only screen and  (max-width: 768px) {
     font-size: 16px;
     padding: 6px 12px;
     margin: 4px;
@@ -101,31 +100,31 @@ export const Imagem2 = styled.div`
   height: 100%;
 `;
 
-export const Imagem = styled.div`
-  background-image: url(${perfil});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 55px;
-  height: 55px;
-  position: absolute;
-  top: 68px;
-  right: 25px;
-  z-index: 1000;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+// export const Imagem = styled.div`
+//   background-image: url(${perfil});
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   width: 55px;
+//   height: 55px;
+//   position: absolute;
+//   top: 68px;
+//   right: 25px;
+//   z-index: 1000;
+//   cursor: pointer;
+//   transition: transform 0.3s ease;
 
-  &:hover {
-    transform: scale(1.1);
-  }
+//   &:hover {
+//     transform: scale(1.1);
+//   }
 
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-    top: 50px;
-    right: 15px;
-  }
-`;
+//   @media only screen and  (max-width: 768px) {
+//     width: 40px;
+//     height: 40px;
+//     top: 50px;
+//     right: 15px;
+//   }
+// `;
 
 export const Divi = styled.div`
   display: flex;
@@ -134,7 +133,7 @@ export const Divi = styled.div`
   justify-content: center;
   margin-top: 20px;
   z-index: 1000;
-  @media (max-width: 768px) {
+  @media only screen and  (max-width: 768px) {
     margin-top: 10px;
   }
 `;
@@ -160,7 +159,7 @@ const BaseBotao = styled.button`
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
 
-  @media (max-width: 768px) {
+  @media only screen and  (max-width: 768px) {
     font-size: 16px;
     width: 150px;
     padding: 8px 16px;
@@ -197,7 +196,7 @@ export const BaseContainer = styled.div`
   box-sizing: border-box;
   z-index: 1000;
 
-  @media (max-width: 768px) {
+  @media only screen and  (max-width: 768px) {
     padding: 0 0.5rem; 
   }
 `;
@@ -224,7 +223,7 @@ export const BaseLabel = styled.div`
   padding: 0 10px;
   z-index: 1000;
 
-  @media (max-width: 768px) {
+  @media only screen and  (max-width: 768px) {
     font-size: 16px;
     width: 25%;
   }
@@ -248,7 +247,7 @@ export const BaseContent = styled.div`
   margin-left: 30%;
   z-index: 1000;
 
-  @media (max-width: 768px) {
+  @media only screen and  (max-width: 768px) {
     font-size: 14px;
     margin-left: 25%;
   }
@@ -281,7 +280,7 @@ export const Input = styled.input`
     outline: none;
   }
 
-  @media (max-width: 768px) {
+  @media only screen and  (max-width: 768px) {
     font-size: 14px;
     height: 35px;
   }
