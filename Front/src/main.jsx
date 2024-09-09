@@ -12,6 +12,7 @@ import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./styles/theme";
 import { GlobalStyle } from "./styles/globalStyles";
 import Sidebar from "./components/SidebarComponents/Sidebar";
+import { Analytics } from '@vercel/analytics/react';
 
 export const ThemeContext = React.createContext(null);
 
@@ -68,6 +69,7 @@ const App = () => {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <AuthProvider>
+      <Analytics/>
       <App />
     </AuthProvider>
 );
