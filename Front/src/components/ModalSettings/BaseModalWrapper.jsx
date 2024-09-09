@@ -75,6 +75,9 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
       const response = await generateDiagram.get(`/user/${id}`);
       setUserData(response.data);
       setEditData(response.data);
+      console.log(response.data)
+    
+
     } catch (error) {
       console.error("Erro ao buscar dados do usuário:", error);
     }

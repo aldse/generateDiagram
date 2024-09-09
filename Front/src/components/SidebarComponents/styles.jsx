@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { btnReset, v } from "../../styles/variables";
 
 export const SSidebar = styled.div`
-    width: ${({ isOpen }) => (!isOpen ? `100px` : (v.sidebarWidth - `5px`))};
+    width: ${({ $isOpen }) => (!$isOpen ? `100px` : (v.sidebarWidth - `5px`))};
     background: ${({ theme }) => theme.bg};
     height: 100vh;
     padding: ${v.lgSpacing};
@@ -18,7 +18,7 @@ export const SSidebarButton = styled.button`
     ${btnReset};
     position: absolute;
     top: ${v.xxlSpacing};
-    left: ${({ isOpen }) => (isOpen ? `-16px` : `-40px`)}; 
+    left: ${({ $isOpen }) => ($isOpen ? `-16px` : `-40px`)}; 
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -29,7 +29,7 @@ export const SSidebarButton = styled.button`
     justify-content: center;
     cursor: pointer;
 
-    transform: ${({ isOpen }) => (!isOpen ? `rotate(360deg)` : `initial`)};
+    transform: ${({ $isOpen }) => (!$isOpen ? `rotate(360deg)` : `initial`)};
     user-select: none; 
     pointer-events: auto; 
 `;
@@ -54,7 +54,7 @@ export const SDivider = styled.div`
 `;
 
 export const SLinkContainer = styled.div`
-    background: ${({ theme, isActive }) => (!isActive ? `transparent` : theme.bg3)};
+    background: ${({ theme, $isActive }) => (!$isActive ? `transparent` : theme.bg3)};
     border-radius: ${v.borderRadius};
     margin: 8px 0;
     user-select: none; 
@@ -114,7 +114,7 @@ export const SThemeToggler = styled.button`
     width: 36px;
     height: 20px;
     border-radius: 10px;
-    background: ${({ theme, isActive }) => (!isActive ? theme.bg3 : theme.primary)};
+    background: ${({ theme, $isActive }) => (!$isActive ? theme.bg3 : theme.primary)};
     position: relative;
     user-select: none;
 `;

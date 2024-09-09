@@ -19,7 +19,7 @@ import {
 } from "react-icons/ai";
 import { MdLogout } from "react-icons/md";
 import { ThemeContext } from "../../main";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LogoComponents from "../LogoComponents";
 import { useAuth } from "../../context/authContext";
 import BaseModalWrapper from "../ModalSettings/BaseModalWrapper";
@@ -55,9 +55,9 @@ const Sidebar = () => {
   ];
 
   return (
-    <SSidebar isOpen={sidebarOpen}>
+    <SSidebar $isOpen={sidebarOpen}>
       <SSidebarButton
-        isOpen={sidebarOpen}
+        $isOpen={sidebarOpen}
         onClick={() => setSidebarOpen((p) => !p)}
       >
         <AiOutlineLeft />
@@ -83,7 +83,7 @@ const Sidebar = () => {
       <STheme>
         {sidebarOpen && <SThemeLabel>Dark Mode</SThemeLabel>}
         <SThemeToggler
-          isActive={theme === "dark"}
+          $isActive={theme === "dark"}
           onClick={() => setTheme((p) => (p === "light" ? "dark" : "light"))}
         >
           <SToggleThumb style={theme === "dark" ? { right: "1px" } : {}} />
