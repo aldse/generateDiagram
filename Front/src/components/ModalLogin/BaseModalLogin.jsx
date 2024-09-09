@@ -44,6 +44,7 @@ const BaseModalLogin = ({ onBackdropClick, openLogin, setOpenLogin, setOpenRegis
 
       if (data && data.token) {
         login(data.token);
+        //localstorange.setItem a language
       } else {
         console.error("Token não encontrado na resposta da API.");
         if (alertRef.current) {

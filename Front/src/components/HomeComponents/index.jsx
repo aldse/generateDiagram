@@ -7,6 +7,7 @@ import generateHere from "../../assets/geraraquii.png";
 import inputAdd from "../../assets/inputAdd.webp";
 import { Link } from "react-router-dom";
 import Sidebar from "../SidebarComponents/Sidebar";
+import Translate from "../LanguageComponents/index"; 
 
 function HomeComponents() {
   const fileInputRef = useRef(null);
@@ -56,7 +57,9 @@ function HomeComponents() {
       }
     };
   }, []);
-  
+
+  const translate = localStorage.getItem("translate");
+
   return (
     <>
     <div id="scrollContainer">
@@ -205,11 +208,11 @@ function HomeComponents() {
       </div>
       <div className={styles.secondaryContainer}>
         <div className={styles.alignCenter}>
-          <p className={styles.mainTitle}>MANAGE YOU</p>
-          <p className={styles.subtitle}>DIAGRAM</p>
-          <p className={styles.contentText}>
-          UPLOAD or drag and drop the required files into the designated area below.
-          </p>
+        <p className={styles.mainTitle}>{Translate.getText("generateTitle1", translate)}</p>
+            <p className={styles.subtitle}>{Translate.getText("generateTitle2", translate)}</p>
+            <p className={styles.contentText}>
+              {Translate.getText("textGenerate", translate)}
+            </p>
 
           <div className={styles.uploadArea}>
             <input
