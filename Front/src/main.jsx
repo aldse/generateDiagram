@@ -13,6 +13,7 @@ import { darkTheme, lightTheme } from "./styles/theme";
 import { GlobalStyle } from "./styles/globalStyles";
 import Sidebar from "./components/SidebarComponents/Sidebar";
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 export const ThemeContext = React.createContext(null);
 
@@ -70,6 +71,7 @@ const App = () => {
 ReactDOM.createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <Analytics/>
+      <SpeedInsights/>
       <App />
     </AuthProvider>
 );
