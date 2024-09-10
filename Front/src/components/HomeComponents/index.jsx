@@ -7,7 +7,7 @@ import generateHere from "../../assets/geraraquii.png";
 import inputAdd from "../../assets/inputAdd.webp";
 import { Link } from "react-router-dom";
 import Sidebar from "../SidebarComponents/Sidebar";
-import Translate from "../LanguageComponents/index"; 
+import Translate from "../TranslateComponents/index"; 
 
 function HomeComponents() {
   const fileInputRef = useRef(null);
@@ -58,8 +58,8 @@ function HomeComponents() {
     };
   }, []);
 
-  const translate = localStorage.getItem("translate");
-
+  const translate = localStorage.getItem("translate") || "eng";
+  console.log("Translate language:", translate);
   return (
     <>
     <div id="scrollContainer">

@@ -1,22 +1,21 @@
 import styled from 'styled-components';
-
+// Styled components with transient props
 export const Label = styled.h3`
   font-family: "General Sans", sans-serif;  
   font-weight: 510;
   font-style: normal;
   color: black;
-  font-size: 55px; 
+  font-size: ${(props) => (props.$language === 'pt' ? '48px' : props.$language === 'es' ? '50px' : '55px')}; 
   display: flex;
   align-items: center; 
   margin: 0;
 `;
 
-
 export const P = styled.p`
-font-family: "General Sans", sans-serif;
-color: #626262;
-font-size: 30px; 
-margin: 0;
+  font-family: "General Sans", sans-serif;
+  color: #626262;
+  font-size: ${(props) => (props.$language === 'pt' ? '26px' : props.$language === 'es' ? '28px' : '30px')}; 
+  margin: 0;
 `;
 
 
@@ -24,7 +23,7 @@ export const A = styled.div`
   font-family: "General Sans", sans-serif;
   font-weight: 400;
   color: #626262;
-  margin-top: 40px; 
+  margin-top: ${({ $variant }) => ($variant === "A2" ? "20px" : "40px")};
   margin-bottom: 7px; 
   justify-content: "initial";
   display: ${({ $variant }) => ($variant === "A2" ? "flex" : "block")};

@@ -3,19 +3,20 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/index";
 import Modal from "./Modal";
-import {
-  Label,
-  P,
-  A,
-  Div,
-  Botao,
-  Input,
-  Link
-} from "./ModalLogin.styles";
+import { Label, P, A, Div, Botao, Input, Link } from "./ModalLogin.styles";
 import AlertComponents from "../AlertComponents";
+import DropdownWithImages from "../DropdownComponents/index";
+import flagEN from "../../assets/bandeiradoreinounido.png";
+import flagES from "../../assets/bandeiradaespanha.png";
+import flagPT from "../../assets/bandeiradobrasil.png";
+import Translate from "../TranslateComponents/index";
 
-const BaseModalLogin = ({ onBackdropClick, openLogin, setOpenLogin, setOpenRegister }) => {
-
+const BaseModalLogin = ({
+  onBackdropClick,
+  openLogin,
+  setOpenLogin,
+  setOpenRegister,
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -44,7 +45,11 @@ const BaseModalLogin = ({ onBackdropClick, openLogin, setOpenLogin, setOpenRegis
 
       if (data && data.token) {
         login(data.token);
-        //localstorange.setItem a language
+        // Set language in localStorage
+        const selectedLang = localStorage.getItem("selectedLanguage");
+        if (selectedLang) {
+          localStorage.setItem("translate", JSON.parse(selectedLang).code);
+        }
       } else {
         console.error("Token não encontrado na resposta da API.");
         if (alertRef.current) {
@@ -71,20 +76,49 @@ const BaseModalLogin = ({ onBackdropClick, openLogin, setOpenLogin, setOpenRegis
 
   const openCadastroModal = () => {
     setOpenRegister(true);
-    setOpenLogin(false)
+    setOpenLogin(false);
   };
 
+  const options = [
+    { name: "Inglês", image: flagEN, code: "eng" },
+    { name: "Espanhol", image: flagES, code: "es" },
+    { name: "Português", image: flagPT, code: "pt" },
+  ];
 
-  if (!openLogin) {
-    return null;
-  }
+  const handleLanguageChange = (option) => {
+    localStorage.setItem("selectedLanguage", JSON.stringify(option));
+    localStorage.setItem("translate", option.code);
+    window.location.reload(); // Recarregar a página para aplicar a mudança
+  };
+
+  const translate = localStorage.getItem("translate") || "eng";
+  const selectedLanguage =
+    options.find((option) => option.code === translate) || options[0];
 
   return (
     <>
       <Modal onBackdropClick={onBackdropClick}>
         <AlertComponents ref={alertRef} />
-        <Label>Log in</Label>
-        <P>to start diagraming</P>
+        <Div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            margin: "0",
+          }}
+        >
+          <Label $language={translate}>
+            {Translate.getText("login", translate)}
+          </Label>
+          <DropdownWithImages
+            options={options}
+            selectedOption={selectedLanguage}
+            onSelect={handleLanguageChange}
+          />
+        </Div>
+        <P $language={translate}>
+          {Translate.getText("phraselogin", translate)}
+        </P>
         <A>Email</A>
         <Input
           id="email"
