@@ -73,12 +73,15 @@ const BaseModalLogin = ({
       setLoading(false);
     }
   };
-
+  
   const openCadastroModal = () => {
     setOpenRegister(true);
     setOpenLogin(false);
   };
-
+  
+  if (!openLogin) {
+    return null;
+  }
   const options = [
     { name: "Inglês", image: flagEN, code: "eng" },
     { name: "Espanhol", image: flagES, code: "es" },

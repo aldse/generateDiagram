@@ -15,6 +15,10 @@
     login: ["Conecte-se", "Log in", "Conectar"],
     // Frase do Login
     phraselogin: ["para começar a diagramar", "to start diagraming", "para empezar a diagramar"],
+    // email
+    phraselogin: ["E-mail", "Email", "E-mail"],
+    // password
+    phraselogin: ["Senha", "Password", "Contraseña"],
   };
   
   
