@@ -32,7 +32,7 @@ export const A = styled.div`
 
 
 export const Div = styled.div`
-  margin-top: 80px;
+  margin-top: 40px;
 `;
 
 export const Link = styled.p`

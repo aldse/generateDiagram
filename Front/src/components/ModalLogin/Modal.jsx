@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
@@ -22,24 +22,24 @@ const ModalContent = styled.div`
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 414.43px; 
-  height: 630.51px; 
+  height: 570.51px; 
   overflow: auto; 
   scrollbar-width: none;
 `;
 
-const Modal = ({ onBackdropClick, children }) => {
+const Modal = forwardRef(({ onBackdropClick, children }, ref) => {
   const handleModalClick = (e) => {
     e.stopPropagation(); 
   };
 
   return ReactDOM.createPortal(
     <ModalContainer onClick={onBackdropClick}>
-      <ModalContent onClick={handleModalClick}>
+      <ModalContent onClick={handleModalClick} ref={ref}>
         {children}
       </ModalContent>
     </ModalContainer>,
     document.getElementById("modal-root")
   );
-};
+});
 
 export default Modal;

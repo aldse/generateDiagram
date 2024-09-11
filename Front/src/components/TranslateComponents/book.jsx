@@ -16,9 +16,15 @@
     // Frase do Login
     phraselogin: ["para começar a diagramar", "to start diagraming", "para empezar a diagramar"],
     // email
-    phraselogin: ["E-mail", "Email", "E-mail"],
+    email: ["E-mail", "Email", "E-mail"],
     // password
-    phraselogin: ["Senha", "Password", "Contraseña"],
+    password: ["Senha", "Password", "Contraseña"],
+    // se cadastre
+    phaseRegister1: ["Don’t have an account?", "", ""],
+    // se cadastre
+    phaseRegister2: [" Sign Up now!", "", ""],
+    // se cadastre
+    phaseRegister3: ["Don’t have an account? Sign Up now!", "", ""],
   };
   
   

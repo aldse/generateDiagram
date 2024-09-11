@@ -36,6 +36,13 @@ body {
   font-size: 25px;
   font-weight: 400;
   margin-left: 3%;
+  color: black;
+}
+
+.alingRow{
+  display: grid;
+  grid-template-columns: 80px 100px 70px;
+  grid-template-rows: auto;
 }
 
 .button {
