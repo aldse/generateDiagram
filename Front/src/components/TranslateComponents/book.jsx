@@ -20,11 +20,13 @@
     // password
     password: ["Senha", "Password", "Contraseña"],
     // se cadastre
-    phaseRegister1: ["Don’t have an account?", "", ""],
+    phaseRegister1: ["Não tem uma conta?","Don’t have an account?", "¿No tienes una cuenta?"],
     // se cadastre
-    phaseRegister2: [" Sign Up now!", "", ""],
+    phaseRegister2: ["Inscrever-se", "Sign Up", "Suscribir"],
     // se cadastre
-    phaseRegister3: ["Don’t have an account? Sign Up now!", "", ""],
+    phaseRegister3: ["agora!", "now!", "¡ahora!"],
+    // botao logar
+    buttonLogin: ["Abrir uma conta", "Open an Account", "Abrir una cuenta"],
   };
   
   

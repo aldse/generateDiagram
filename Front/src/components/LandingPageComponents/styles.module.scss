@@ -41,21 +41,30 @@ body {
 
 .alingRow{
   display: grid;
-  grid-template-columns: 80px 100px 70px;
+  grid-template-columns: 110px 70px 5px;
   grid-template-rows: auto;
+  display: flex;
+  align-items: center;
+  width: 205px;
 }
 
 .button {
   background-color: black;
   color: #ffffff;
   border-radius: 5px;
-  padding: 11px 17px;
+  padding: 11px 15px;
   border: none;
+  height: 40px;
+  width: 200px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-inline: 3%;
+}
+
+.hoverBandeiras{
+  transform: scale(1.1);
 }
 
 .p {

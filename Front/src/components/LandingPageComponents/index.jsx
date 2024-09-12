@@ -7,20 +7,22 @@ import BaseModalLogin from "../ModalLogin/BaseModalLogin";
 import BaseModalCadastro from "../ModalCadastro/BaseModalCadastro";
 import Button from "react-bootstrap/Button";
 import DropdownWithImages from "../DropdownComponents/index";
-import flagEN from "../../assets/bandeiradoreinounido.png";
-import flagES from "../../assets/bandeiradaespanha.png";
-import flagPT from "../../assets/bandeiradobrasil.png";
+import flagEN from "../../assets/estadosunidosbandeira.png";
+import flagES from "../../assets/espanhabandeira.png";
+import flagPT from "../../assets/brasilbandeira.png";
 import Translate from "../TranslateComponents/index";
+import { useNavigate } from "react-router-dom";
 
 function LandingPageComponents() {
   const alertRef = useRef(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     AOS.init();
   }, []);
 
   const [openLogin, setOpenLogin] = useState(false);
   const [openRegister, setOpenRegister] = useState(false);
+
 
   const toggleModal = () => {
     setOpenLogin((wasModalVisible) => !wasModalVisible);
@@ -44,7 +46,7 @@ function LandingPageComponents() {
   const handleLanguageChange = (option) => {
     localStorage.setItem("selectedLanguage", JSON.stringify(option));
     localStorage.setItem("translate", option.code);
-    window.location.reload();
+    navigate("/");
   };
 
   const translate = localStorage.getItem("translate") || "eng";
@@ -58,14 +60,15 @@ function LandingPageComponents() {
         <div className={styles.nav}>
           <h1 className={styles.titlenav}>PYDIAGRAM</h1>
           <div className={styles.alingRow}>
+          <Button className={styles.button} onClick={toggleModal}>
+            <p className={styles.p} $language={translate}>{Translate.getText("buttonLogin", translate)}</p>
+          </Button>
           <DropdownWithImages
             options={options}
             selectedOption={selectedLanguage}
             onSelect={handleLanguageChange}
+            className={styles.hoverBandeiras}
           />
-          <Button className={styles.button} onClick={toggleModal}>
-            <p className={styles.p}>Open an Account</p>
-          </Button>
           </div>
           <BaseModalLogin
             openLogin={openLogin}

@@ -13,9 +13,9 @@ const DropdownButton = styled.button`
   padding: 0;
   display: flex;
   align-items: center;
-`;
-
-const DropdownMenu = styled.div`
+  `;
+  
+  const DropdownMenu = styled.div`
   display: ${({ open }) => (open ? 'block' : 'none')};
   position: absolute;
   top: 100%;
@@ -24,12 +24,12 @@ const DropdownMenu = styled.div`
   border: 1px solid #ccc;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  width: 150px;
+  width: 140px;
   max-height: 200px;
   overflow-y: auto;
-`;
-
-const Option = styled.div`
+  `;
+  
+  const Option = styled.div`
   display: flex;
   align-items: center;
   padding: 8px;
@@ -41,9 +41,16 @@ const Option = styled.div`
 
 const OptionImage = styled.img`
   width: 30px;
+  min-width: 30px;
+  max-width: 30px;
+
   height: 30px;
+  min-height: 30px;
+  max-height: 30px;
   margin-right: 8px;
 `;
+
+
 
 const OptionText = styled.span`
   font-size: 14px;
