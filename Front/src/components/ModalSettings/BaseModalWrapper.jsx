@@ -6,22 +6,23 @@ import { generateDiagram, fetchAddressByCep } from "../../api/index";
 import { useNavigate } from "react-router-dom";
 import BaseModalSair from "../ModalExit/BaseModalSair";
 import {
-  DekstopModalContainer,
-  BaseContainer,
-  BaseHeader,
+  ModalContainer,
+  ProfileContainer,
+  ProfileHeader,
   Input,
-  Titulo,
-  VAMBORA,
-  Divi,
-  BaseLabel,
-  BotaoOrange,
-  BotaoRed,
-  BotaoGreen,
-  Titulo2,
-  BaseContent,
-  Imagem2,
-  Imagem2Container,
+  ModalTitle,
+  ModalSubtitle,
+  ButtonGroup,
+  ProfileLabel,
+  ButtonEdit,
+  ButtonDelete,
+  ButtonSave,
+  ModalTitle2,
+  Encompass,
+  Background,
+  BackgroundContainer,
 } from "./ModalPopup.styles";
+import Translate from "../TranslateComponents/index";
 
 const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
   const [userData, setUserData] = useState({
@@ -140,50 +141,51 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
     return null;
   }
 
+  const translate = localStorage.getItem("translate") || "eng";
   return (
     <Modal onBackdropClick={onBackdropClick}>
-      <DekstopModalContainer onClick={onBackdropClick}>
-        <VAMBORA onClick={(e) => e.stopPropagation()}>
-          <Titulo>MANAGE</Titulo>
-          <Titulo2>PROFILE</Titulo2>
+      <ModalContainer onClick={onBackdropClick}>
+        <ModalSubtitle onClick={(e) => e.stopPropagation()}>
+          <ModalTitle $language={translate}>{Translate.getText("title1", translate)}</ModalTitle>
+          <ModalTitle2 $language={translate}>{Translate.getText("title2", translate)}</ModalTitle2>
           {isEditing ? (
-            <BaseContainer>
-              <BaseHeader>
-                <BaseLabel>Nome:</BaseLabel>
-                <BaseContent>
+            <ProfileContainer>
+              <ProfileHeader>
+                <ProfileLabel $language={translate}>{Translate.getText("name", translate)}:</ProfileLabel>
+                <Encompass>
                   <Input
                     type="text"
                     name="name"
                     value={editData.name}
                     onChange={handleInputChange}
                   />
-                </BaseContent>
-              </BaseHeader>
-              <BaseHeader>
-                <BaseLabel>Email:</BaseLabel>
-                <BaseContent>
+                </Encompass>
+              </ProfileHeader>
+              <ProfileHeader>
+                <ProfileLabel $language={translate}>{Translate.getText("email", translate)}:</ProfileLabel>
+                <Encompass>
                   <Input
                     type="email"
                     name="email"
                     value={editData.email}
                     onChange={handleInputChange}
                   />
-                </BaseContent>
-              </BaseHeader>
-              <BaseHeader>
-                <BaseLabel>Cep:</BaseLabel>
-                <BaseContent>
+                </Encompass>
+              </ProfileHeader>
+              <ProfileHeader>
+                <ProfileLabel $language={translate}>{Translate.getText("cep", translate)}:</ProfileLabel>
+                <Encompass>
                   <Input
                     type="text"
                     name="cep"
                     value={editData.cep}
                     onChange={handleInputChange}
                   />
-                </BaseContent>
-              </BaseHeader>
-              <BaseHeader>
-                <BaseLabel>Rua:</BaseLabel>
-                <BaseContent>
+                </Encompass>
+              </ProfileHeader>
+              <ProfileHeader>
+                <ProfileLabel $language={translate}>{Translate.getText("street", translate)}:</ProfileLabel>
+                <Encompass>
                   <Input
                     type="text"
                     name="street"
@@ -191,67 +193,67 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                     onChange={handleInputChange}
                     readOnly
                   />
-                </BaseContent>
-              </BaseHeader>
-              <BaseHeader>
-                <BaseLabel>Número:</BaseLabel>
-                <BaseContent>
+                </Encompass>
+              </ProfileHeader>
+              <ProfileHeader>
+                <ProfileLabel $language={translate}>{Translate.getText("number", translate)}:</ProfileLabel>
+                <Encompass>
                   <Input
                     type="text"
                     name="number"
                     value={editData.number}
                     onChange={handleInputChange}
                   />
-                </BaseContent>
-              </BaseHeader>
-            </BaseContainer>
+                </Encompass>
+              </ProfileHeader>
+            </ProfileContainer>
           ) : (
-            <BaseContainer>
-              <BaseHeader>
-                <BaseLabel>Nome:</BaseLabel>
-                <BaseContent>{userData.name}</BaseContent>
-              </BaseHeader>
-              <BaseHeader>
-                <BaseLabel>Email:</BaseLabel>
-                <BaseContent>{userData.email}</BaseContent>
-              </BaseHeader>
-              <BaseHeader>
-                <BaseLabel>Cep:</BaseLabel>
-                <BaseContent>{userData.cep}</BaseContent>
-              </BaseHeader>
-              <BaseHeader>
-                <BaseLabel>Rua:</BaseLabel>
-                <BaseContent>{userData.street}</BaseContent>
-              </BaseHeader>
-              <BaseHeader>
-                <BaseLabel>Número:</BaseLabel>
-                <BaseContent>{userData.number}</BaseContent>
-              </BaseHeader>
-            </BaseContainer>
+            <ProfileContainer>
+              <ProfileHeader>
+                <ProfileLabel $language={translate}>{Translate.getText("name", translate)}:</ProfileLabel>
+                <Encompass>{userData.name}</Encompass>
+              </ProfileHeader>
+              <ProfileHeader>
+                <ProfileLabel $language={translate}>{Translate.getText("email", translate)}:</ProfileLabel>
+                <Encompass>{userData.email}</Encompass>
+              </ProfileHeader>
+              <ProfileHeader>
+                <ProfileLabel $language={translate}>{Translate.getText("cep", translate)}:</ProfileLabel>
+                <Encompass>{userData.cep}</Encompass>
+              </ProfileHeader>
+              <ProfileHeader>
+                <ProfileLabel $language={translate}>{Translate.getText("street", translate)}:</ProfileLabel>
+                <Encompass>{userData.street}</Encompass>
+              </ProfileHeader>
+              <ProfileHeader>
+                <ProfileLabel $language={translate}>{Translate.getText("number", translate)}:</ProfileLabel>
+                <Encompass>{userData.number}</Encompass>
+              </ProfileHeader>
+            </ProfileContainer>
           )}
           {isEditing ? (
-            <Divi>
-              <BotaoGreen onClick={handleSave}>Salvar</BotaoGreen>
-              <BotaoRed onClick={handleCancel}>Cancelar</BotaoRed>
-            </Divi>
+            <ButtonGroup>
+              <ButtonSave onClick={handleSave} $language={translate}>{Translate.getText("save", translate)}</ButtonSave>
+              <ButtonDelete onClick={handleCancel} $language={translate}>{Translate.getText("cancel", translate)}</ButtonDelete>
+            </ButtonGroup>
           ) : (
-            <Divi>
-              <BotaoOrange onClick={() => setIsEditing(true)}>
-                Editar Perfil
-              </BotaoOrange>
-              <BotaoRed onClick={toggleModale}>Excluir Perfil</BotaoRed>
+            <ButtonGroup>
+              <ButtonEdit onClick={() => setIsEditing(true)} $language={translate}>
+              {Translate.getText("edit", translate)}
+              </ButtonEdit>
+              <ButtonDelete onClick={toggleModale} $language={translate}>{Translate.getText("delete", translate)}</ButtonDelete>
               <BaseModalSair
                 userId={userId}
                 isModalVisiblee={isModalVisiblee}
                 onBackdropClicke={toggleModale}
               />
-            </Divi>
+            </ButtonGroup>
            )}
-           <Imagem2Container>
-            <Imagem2 />
-          </Imagem2Container>
-        </VAMBORA>
-      </DekstopModalContainer>
+           <BackgroundContainer>
+            <Background />
+          </BackgroundContainer>
+        </ModalSubtitle>
+      </ModalContainer>
     </Modal>
   );
 };

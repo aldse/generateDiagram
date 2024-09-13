@@ -30,7 +30,6 @@ export const A = styled.div`
   font-size: ${({ $variant }) => ($variant === "A2" ? "18px" : "20px")};
 `;
 
-
 export const Div = styled.div`
   margin-top: 40px;
 `;

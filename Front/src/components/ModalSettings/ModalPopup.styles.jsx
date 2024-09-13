@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import backgroundModal from "../../assets/red.png";
 
-export const DekstopModalContainer = styled.div`
+export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center; 
@@ -20,7 +20,7 @@ export const DekstopModalContainer = styled.div`
 `;
 
 
-export const BaseHeader = styled.div`
+export const ProfileHeader = styled.div`
   background-color: white;
   border-radius: 50px;
   font-family: "Noto Sans JP", sans-serif;
@@ -44,7 +44,7 @@ export const BaseHeader = styled.div`
   }
 `;
 
-const BaseTitulo = styled.h3`
+const BaseModalTitle = styled.h3`
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -52,18 +52,25 @@ const BaseTitulo = styled.h3`
   font-size: 45px;
   line-height: 2.7em;
   margin: ${(props) => props.$margin || "-5% 0 0"};
-  margin-left: ${(props) => props.$marginLeft || "-335px"};
+  margin-left: ${(props) => props.$marginLeft || "-335px" && props.$language === 'pt' ? '-270px' : props.$language === 'es' ? '-280px' : '-335px'};
   word-break: break-word;
   z-index: 1000;
 `;
+export const ModalTitle = (props) => <BaseModalTitle {...props} />;
 
-export const Titulo = (props) => <BaseTitulo {...props} />;
-
-export const Titulo2 = (props) => (
-  <BaseTitulo $margin="-80px 0 0" $marginLeft="-345px" {...props} />
-);
-
-export const VAMBORA = styled.div`
+export const ModalTitle2 = styled.h3`
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: white;
+  font-size: 45px;
+  line-height: 2.7em;
+  margin: -80px 0 0;
+  margin-left: ${(props) => props.$marginLeft || "-335px" && props.$language === 'pt' ? '-360px' : props.$language === 'es' ? '-370px' : '-345px'};
+  word-break: break-word;
+  z-index: 1000;
+`;
+export const ModalSubtitle = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #102482;
@@ -81,7 +88,7 @@ export const VAMBORA = styled.div`
   z-index: 1000;
 `;
 
-export const Imagem2Container = styled.div`
+export const BackgroundContainer = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -91,7 +98,7 @@ export const Imagem2Container = styled.div`
   z-index: 0; 
 `;
 
-export const Imagem2 = styled.div`
+export const Background = styled.div`
   background-image: url(${backgroundModal});
   background-size: fill;
   background-repeat: no-repeat;
@@ -126,7 +133,7 @@ export const Imagem2 = styled.div`
 //   }
 // `;
 
-export const Divi = styled.div`
+export const ButtonGroup = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,25 +173,25 @@ const BaseBotao = styled.button`
   }
 `;
 
-export const BotaoGreen = styled(BaseBotao)`
+export const ButtonSave = styled(BaseBotao)`
   color: #06e229;
   border-color: #06e229;
   z-index: 1000;
 `;
 
-export const BotaoRed = styled(BaseBotao)`
+export const ButtonDelete = styled(BaseBotao)`
   color: red;
   border-color: red;
   z-index: 1000;
 `;
 
-export const BotaoOrange = styled(BaseBotao)`
+export const ButtonEdit = styled(BaseBotao)`
   color: orange;
   border-color: orange;
   z-index: 1000;
 `;
 
-export const BaseContainer = styled.div`
+export const ProfileContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -202,7 +209,7 @@ export const BaseContainer = styled.div`
 `;
 
 
-export const BaseLabel = styled.div`
+export const ProfileLabel = styled.div`
   background-color: #102482;
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
@@ -229,7 +236,7 @@ export const BaseLabel = styled.div`
   }
 `;
 
-export const BaseContent = styled.div`
+export const Encompass = styled.div`
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;

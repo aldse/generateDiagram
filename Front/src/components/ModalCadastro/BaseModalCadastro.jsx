@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import { Label, P, A, Div, Botao, Input, Link } from "./ModalCadastro.styles";
 import { generateDiagram, fetchAddressByCep } from "../../api/index";
+import Translate from "../TranslateComponents/index";
 
 const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, setOpenLogin }) => {
 
@@ -95,29 +96,30 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
     return null;
   }
 
+  const translate = localStorage.getItem("translate") || "eng";
   return (
     <>
       <Modal onBackdropClick={onBackdropClick}>
         <form onSubmit={handleSubmit}>
-          <Label>Sign Up</Label>
-          <P>Welcome to the team</P>
-          <A>Name</A>
+          <Label $language={translate}>{Translate.getText("phaseRegister2", translate)}</Label>
+          <P $language={translate}>{Translate.getText("phaseRegister", translate)}</P>
+          <A $language={translate}>{Translate.getText("name", translate)}</A>
           <Input value={name} onChange={(e) => setName(e.target.value)} />
-          <A>Email</A>
+          <A $language={translate}>{Translate.getText("email", translate)}</A>
           <Input value={email} onChange={(e) => setEmail(e.target.value)} />
-          <A>Password</A>
+          <A $language={translate}>{Translate.getText("password", translate)}</A>
           <Input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <A>Confirm Password</A>
+          <A $language={translate}>{Translate.getText("confirmPassword", translate)}</A>
           <Input
             type="password"
             value={confPassword}
             onChange={(e) => setConfPassword(e.target.value)}
           />
-          <A>CEP</A>
+          <A $language={translate}>{Translate.getText("cep", translate)}</A>
           <Input
             id="cep"
             type="text"
@@ -125,14 +127,14 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
             onChange={(e) => setCep(e.target.value)}
             onBlur={handleBlur}
           />
-          <A>Street</A>
+          <A $language={translate}>{Translate.getText("street", translate)}</A>
           <Input
             id="street"
             type="text"
             value={street}
             onChange={(e) => setStreet(e.target.value)}
           />
-          <A>Number</A>
+          <A $language={translate}>{Translate.getText("number", translate)}</A>
           <Input
             id="number"
             type="text"
@@ -144,9 +146,9 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
               {loading ? "Registering..." : "Sign Up"}
             </Botao>
           </Div>
-          <A $variant="A2">
-            Do you already have an account?
-            <Link onClick={openLoginModal}> Log In</Link>
+          <A $variant="A2" $language={translate}>
+          {Translate.getText("accont", translate)}
+            <Link onClick={openLoginModal} $language={translate}>{Translate.getText("conectar", translate)}</Link>
           </A>
         </form>
       </Modal>

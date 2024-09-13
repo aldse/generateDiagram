@@ -3,7 +3,9 @@ import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 import bosch from "../../assets/bosch.png";
 import help from "../../assets/help.png";
-import generateHere from "../../assets/geraraquii.png";
+import generateHereEn from "../../assets/geraraquiingles.png";
+import generateHerePt from "../../assets/geraraquiportugues.png";
+import generateHereEs from "../../assets/geraraquiespanhol.png";
 import inputAdd from "../../assets/inputAdd.webp";
 import { Link } from "react-router-dom";
 import Sidebar from "../SidebarComponents/Sidebar";
@@ -60,6 +62,19 @@ function HomeComponents() {
 
   const translate = localStorage.getItem("translate") || "eng";
   console.log("Translate language:", translate);
+
+  const getGenerateHereImage = () => {
+    switch (translate) {
+      case "pt":
+        return generateHerePt;
+      case "es":
+        return generateHereEs;
+      case "eng":
+      default:
+        return generateHereEn;
+    }
+  };
+
   return (
     <>
     <div id="scrollContainer">
@@ -232,8 +247,8 @@ function HomeComponents() {
 
           <div className={styles.hoverEffect}>
             <a href="#" onClick={handleUpload}>
-              <Image
-                src={generateHere}
+             <Image
+                src={getGenerateHereImage()}
                 className={styles.actionButtonImage}
                 alt="button generate Here"
               />

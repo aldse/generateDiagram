@@ -96,16 +96,18 @@ const BaseModalLogin = ({
   return (
     <Modal onBackdropClick={onBackdropClick} ref={modalRef}>
       <AlertComponents ref={alertRef} />
-      <Label $language={translate}>{Translate.getText("login", translate)}</Label>
+      <Label $language={translate}>
+        {Translate.getText("login", translate)}
+      </Label>
       <P $language={translate}>{Translate.getText("phraselogin", translate)}</P>
-      <A>Email</A>
+      <A $language={translate}>{Translate.getText("email", translate)}</A>
       <Input
         id="email"
         type="text"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <A $variant="A2">Password</A>
+      <A $variant="A2" $language={translate}>{Translate.getText("password", translate)}</A>
       <Input
         id="password"
         type="password"
@@ -117,8 +119,12 @@ const BaseModalLogin = ({
           {loading ? "Loading..." : "Log in"}
         </Botao>
       </Div>
-      <A $variant="A2">
-        Don’t have an account? <Link onClick={openCadastroModal}>Sign Up</Link> now!
+      <A $variant="A2" $language={translate}>
+        {Translate.getText("phaseRegister1", translate)}{" "}
+        <Link onClick={openCadastroModal} $language={translate}>
+          {Translate.getText("phaseRegister2", translate)}
+        </Link>{" "}
+        {Translate.getText("phaseRegister3", translate)}
       </A>
     </Modal>
   );
