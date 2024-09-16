@@ -5,8 +5,6 @@ import AlertComponents from "../AlertComponents";
 import React, {  useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import React, { useRef, useEffect } from "react";
-
 import blob_bakcground from "../../assets/blob.svg";
 import big_blob_bakcground from "../../assets/big_blob.svg";
 
@@ -22,6 +20,7 @@ import ZoomIn from "../CardsLandingPageComponets/animations/ZoomIn";
 import Footer from "../CardsLandingPageComponets/elements/Footer";
 import Responsive from "../CardsLandingPageComponets/Responsive";
 import FadeRight from "../CardsLandingPageComponets/animations/FadeRight";
+import Translate from "../TranslateComponents/index";
 
 function LandingPageComponents() {
   const alertRef = useRef(null);
@@ -48,6 +47,7 @@ function LandingPageComponents() {
         ],
       },
     ];
+    const translate = localStorage.getItem("translate") || "eng";
   return (
         <>
       <AlertComponents ref={alertRef} />
@@ -57,13 +57,20 @@ function LandingPageComponents() {
             {/* <Responsive> */}
             <ZoomIn duration={1500}>
           <Default
-            header="Increase your efficiency with diagram generation"
-            subheader="Boost your productivity with our tool designed for fast, dynamic diagram creation."
-            button="See details"
+            // header="Increase your efficiency with diagram generation"
+            header={Translate.getText("headercard1", translate)}
+            // subheader="Boost your productivity with our tool designed for fast, dynamic diagram creation."
+            subheader={Translate.getText("subheadercard1", translate)}
+            // button="See details"
+            button={Translate.getText("buttoncard1", translate)}
+            // topics={[
+            //   "Accelerated Project Timelines",
+            //   "Optimized Resource Management",
+            // ]}
             topics={[
-              "Accelerated Project Timelines",
-              "Optimized Resource Management",
-            ]}
+              {Translate.getText("topics1card1", translate)},
+              {Translate.getText("topics2card1", translate)},
+             ]}
           />
         </ZoomIn>
         <ZoomIn duration={1500}>

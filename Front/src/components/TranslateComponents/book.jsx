@@ -53,6 +53,12 @@
     accont: ["Você já tem uma conta?", "Do you already have an account?", "¿Ya tienes una cuenta?"],
     // conectar
     conectar: ["Conecte-se", "Log In", "Conectar"],
+    //card 1 da landing page 
+    headercard1: ["Aumente sua eficiência com geração de diagramas", "Increase your efficiency with diagram generation", "Aumenta tu eficiencia con la generación de diagramas"],
+    subheadercard1: ["Aumente sua produtividade com nossa ferramenta projetada para criação rápida e dinâmica de diagramas.", "Boost your productivity with our tool designed for fast, dynamic diagram creation.", "Aumente su productividad con nuestra herramienta diseñada para la creación de diagramas rápida y dinámica."],
+    buttoncard1: ["Ver detalhes", "See details", "Ver detalles"],
+    topics1card1: ["Cronogramas de Projeto Acelerados", "Accelerated Project Timelines", "Calendarios de proyectos acelerados"],
+    topics2card1: ["Gestão Otimizada de Recursos", "Optimized Resource Management", "Gestión de recursos optimizada"]
   }
   
   
