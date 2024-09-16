@@ -1,0 +1,43 @@
+$border-radius: 1.63456rem;
+$border-width: 0.671px;
+$border-color: #c9cdd6;
+$background-color: #fff;
+$width: 39.0625rem;
+$height: 30.17706rem;
+
+.input {
+  font-family: "General Sans", sans-serif;
+
+  margin-top: 0.8rem;
+  
+  padding: 1rem;
+  // width: 35.4375rem;
+  height: 8.75rem;
+  border-radius: 0.625rem;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+
+  resize: none;
+
+  outline: none;
+  transition: 0.2s;
+
+  color: #000;
+  font-size: 1.00588rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 139.397%;
+
+  &:focus {
+    border: 1px solid #2d56ed;
+    box-shadow: inset 0 0 0 1px #2d56ed;
+  }
+  &::placeholder {
+    color: #c8c8c8;
+
+    font-size: 1.00588rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 139.397%;
+  }
+}
