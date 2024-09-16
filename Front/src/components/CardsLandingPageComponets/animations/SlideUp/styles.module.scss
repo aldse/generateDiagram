@@ -1,0 +1,11 @@
+.flex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 810px) {
+  .flex{
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,57 @@
+$border-radius: 1.63456rem;
+$border-width: 0.671px;
+$border-color: #c9cdd6;
+$background-color: #fff;
+$width: 45.9375rem;
+$height: 26.74719rem;
+
+.card {
+  font-family: "General Sans", sans-serif;
+
+  border-radius: $border-radius;
+  border: $border-width solid $border-color;
+  background: $background-color;
+
+  width: $width;
+  height: $height;
+
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    width: 80.7939328%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__header {
+    width: 100%;
+    // width: 31.56013rem;
+
+    height: 6.07731rem;
+
+    color: #000;
+    font-size: 2.55669rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 114.887%;
+  }
+
+  &__controls {
+    margin-top: 0.81rem;
+    column-gap: 0.88rem;
+
+    width: 95.7414474351%;
+
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 810px) {
+  .card {
+    width: 100%;
+  }
+}

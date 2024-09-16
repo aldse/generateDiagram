@@ -1,0 +1,108 @@
+$footer-bg-color: #fff;
+$footer-border-color: #c9cdd6;
+$footer-text-color: #7e8490;
+$footer-font-family: "General Sans", sans-serif;
+
+$footer-width: 100%;
+$footer-height: 14.1875rem;
+$footer-margin-top: 0.89rem;
+
+$link-width: 10.875rem;
+$link-height: 1.4375rem;
+$link-font-size: 1.0625rem;
+$link-line-height: 139.397%;
+
+.footer {
+  background: $footer-bg-color;
+  border-top: 1px solid $footer-border-color;
+  width: $footer-width;
+  height: $footer-height;
+  margin-top: $footer-margin-top;
+
+  &__container {
+    height: 100%;
+    padding-top: 1.63rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__left_content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5.13rem;
+    height: 10.875rem;
+
+    &__title {
+      font-family: $footer-font-family;
+      font-size: 1.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      color: black;
+    }
+
+    &__subtitle {
+      width: 17.4375rem;
+      height: 1rem;
+      flex-shrink: 0;
+
+      color: #7e8490;
+      font-family: $footer-font-family;
+      font-size: 1.0625rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 139.397%; /* 1.48106rem */
+
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__right_content {
+    margin-right: 5.13rem;
+    display: flex;
+    column-gap: 5.06rem;
+  }
+
+  &__links_section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.81rem;
+
+    &__title {
+      width: $link-width;
+      height: $link-height;
+      flex-shrink: 0;
+      color: $footer-text-color;
+      font-family: $footer-font-family;
+      font-size: $link-font-size;
+      font-weight: 600;
+      line-height: $link-line-height;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1.13rem;
+
+      &__item {
+        width: $link-width;
+        height: $link-height;
+        flex-shrink: 0;
+        color: $footer-text-color;
+        font-family: $footer-font-family;
+        font-size: $link-font-size;
+        font-weight: 400;
+        line-height: $link-line-height;
+
+        text-decoration: none;
+        transition: 200ms;
+
+        &:hover {
+          transform: translateY(-0.05em);
+          color: #646974;
+        }
+      }
+    }
+  }
+}

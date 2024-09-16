@@ -1,0 +1,50 @@
+$width: 6.16113rem;
+$height: 2.17944rem;
+
+.button {
+  // width: $width;
+  // height: $height;
+  border-radius: 0.50294rem;
+  text-align: center;
+  font-size: 0.7125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  // transition: transform 0.1s ease, background-color 0.1s ease;
+
+  &__dark {
+    border-top: 1.341px solid #434958;
+    border-right: 1.341px solid #434958;
+    border-bottom: 2.682px solid #434958;
+    border-left: 1.341px solid #434958;
+    background: #2a2f3a;
+    color: #fff;
+
+    &:hover {
+      transform: translateY(-0.05em);
+    }
+
+    &:active {
+      transform: translateY(0.18em);
+      background: lighten(#2a2f3a, 7%);
+    }
+  }
+
+  &__light {
+    border-top: 1.341px solid #e3e5e8;
+    border-right: 1.341px solid #e3e5e8;
+    border-bottom: 2.682px solid #e3e5e8;
+    border-left: 1.341px solid #e3e5e8;
+    background: #fff;
+    color: #000;
+
+    &:hover {
+      transform: translateY(-0.05em);
+    }
+
+    &:active {
+      transform: translateY(0.18em);
+      background: darken(#fff, 5%);
+    }
+  }
+}

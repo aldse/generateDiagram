@@ -1,0 +1,8 @@
+:root {
+  --scale-factor: calc(100vw / 120rem);
+}
+
+.box {
+  transform-origin: top left;
+  transform: scale(var(--scale-factor));
+}

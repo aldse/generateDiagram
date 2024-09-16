@@ -1,0 +1,129 @@
+$border-radius: 1.63456rem;
+$border-width: 0.671px;
+$border-color: #c9cdd6;
+$background-color: #fff;
+$width: 35.625rem;
+$height: 26.74719rem;
+
+.card {
+  font-family: "General Sans", sans-serif;
+
+  border-radius: $border-radius;
+  border: $border-width solid $border-color;
+  background: $background-color;
+
+  width: $width;
+  height: $height;
+
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    width: 80.7939328%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__header {
+    width: 100%;
+    // width: 31.56013rem;
+
+    height: 3.92669rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #000;
+    font-size: 2.55669rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 114.887%;
+
+    &__left {
+      display: flex;
+      column-gap: 1.14rem;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+    }
+    &__username {
+      color: #000;
+
+      font-size: 1.13819rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    &__type {
+      color: #c9cdd6;
+      /* font-family: Inter; */
+      font-size: 1.13819rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    &__icon {
+      width: 8.4225rem;
+      height: 1.82106rem;
+    }
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+
+    width: 28.85281rem;
+    height: 7.39819rem;
+
+    color: #7e8490;
+    font-size: 1.22275rem;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+
+    color: #c9cdd6;
+    text-align: center;
+    font-size: 1.13819rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    column-gap: 0.5625rem;
+    &__icon {
+      width: 1.15625rem;
+      height: 1.15625rem;
+    }
+  }
+}
+
+.separator {
+  border-bottom: 0.125rem dashed #e5e7ed;
+  margin: 20px 0;
+  width: 100%;
+
+  &__start {
+    margin-top: 1.59rem;
+    margin-bottom: 2.05rem;
+  }
+  &__end {
+    margin-top: 1.59rem;
+    margin-bottom: 2.05rem;
+  }
+}
+
+@media (max-width: 810px) {
+  .card{
+    width: 100%;
+  }
+}
