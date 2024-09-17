@@ -21,6 +21,7 @@ import Footer from "../CardsLandingPageComponets/elements/Footer";
 import Responsive from "../CardsLandingPageComponets/Responsive";
 import FadeRight from "../CardsLandingPageComponets/animations/FadeRight";
 import Translate from "../TranslateComponents/index";
+import Video1 from "../CardsLandingPageComponets/cards/Videos/Video1";
 
 function LandingPageComponents() {
   const alertRef = useRef(null);
@@ -29,9 +30,10 @@ function LandingPageComponents() {
     AOS.init();
   });
 
+  const translate = localStorage.getItem("translate") || "eng";
     const footerLinks = [
       {
-        title: "Developers Github",
+        title: Translate.getText("title", translate),
         links: [
           { text: "Benhur Feld", href: "#" },
           { text: "Renato Mendes", href: "#" },
@@ -39,7 +41,7 @@ function LandingPageComponents() {
         ],
       },
       {
-        title: "Source Code",
+        title: Translate.getText("title2", translate),
         links: [
           { text: "Pydiagram", href: "#" },
           { text: "Backend", href: "#" },
@@ -47,7 +49,20 @@ function LandingPageComponents() {
         ],
       },
     ];
-    const translate = localStorage.getItem("translate") || "eng";
+
+    const topics1card1 = [
+      Translate.getText("topics1card1", translate),
+      Translate.getText("topics2card1", translate),
+    ];
+    const topics1card5 = [
+      Translate.getText("topics1card5", translate),
+      Translate.getText("topics2card5", translate),
+    ];
+    const topics1card7 = [
+      Translate.getText("topics1card7", translate),
+      Translate.getText("topics2card7", translate),
+      Translate.getText("topics3card7", translate),
+    ];
   return (
         <>
       <AlertComponents ref={alertRef} />
@@ -57,100 +72,80 @@ function LandingPageComponents() {
             {/* <Responsive> */}
             <ZoomIn duration={1500}>
           <Default
-            // header="Increase your efficiency with diagram generation"
             header={Translate.getText("headercard1", translate)}
-            // subheader="Boost your productivity with our tool designed for fast, dynamic diagram creation."
             subheader={Translate.getText("subheadercard1", translate)}
             // button="See details"
             button={Translate.getText("buttoncard1", translate)}
-            // topics={[
-            //   "Accelerated Project Timelines",
-            //   "Optimized Resource Management",
-            // ]}
-            topics={[
-              {Translate.getText("topics1card1", translate)},
-              {Translate.getText("topics2card1", translate)},
-             ]}
+            topics={topics1card1}
           />
         </ZoomIn>
         <ZoomIn duration={1500}>
           <Blob
-            header={"Transform Your Codebase with Ease"}
-            subheader={
-              "Transform your code repositories into diagrams to enhance understanding and streamline your workflow. Ensure efficient collaboration and keep your documentation up-to-date with just a few clicks."
-            }
-            button={"Open an Account"}
+            header={Translate.getText("headercard2", translate)}
+            subheader={Translate.getText("subheadercard2", translate)}
+            // button={"Open an Account"}
+            button={Translate.getText("buttoncard2", translate)}
             background={blob_bakcground}
             width={"39.0625rem"}
             height={"30.17706rem"}
           />
         </ZoomIn>
-
+        <ZoomIn duration={1500}>
+          <Video1/>
+        </ZoomIn>
         <FadeLeft duration={1000}>
-          <Forms header={"Insights and suggestions for project success"} />
+          <Forms header={Translate.getText("headercard3", translate)} />
         </FadeLeft>
         <FadeLeft duration={1000}>
           <Feedback
             owner={"Benhur Feld"}
             type={"Praise"}
-            text={
-              "I want to express my appreciation for the excellent work on this project. The results exceeded expectations, demonstrating both high quality and attention to detail. Great job to everyone involved!"
-            }
+            text={Translate.getText("text3", translate)}
           ></Feedback>
         </FadeLeft>
         <FadeLeft duration={1000}>
           <Feedback
             owner={"Benhur Feld"}
             type={"Praise"}
-            text={
-              "I want to express my appreciation for the excellent work on this project. The results exceeded expectations, demonstrating both high quality and attention to detail. Great job to everyone involved!"
-            }
+            text={Translate.getText("text4", translate)}
           ></Feedback>
         </FadeLeft>
 
         <FadeRight duration={1000}>
           <Default
-            header="Visual representation for clarity and collaboration"
-            subheader="A visual representation simplifies complex project information,
-        supports planning, and tracks progress, enhancing collaboration and
-        communication. It ensures clarity and alignment among stakeholders."
-            button="See details"
-            topics={[
-              "Streamlined Workflow and Reduced Errors",
-              "Enhanced Collaboration and Iteration",
-            ]}
+            header={Translate.getText("headercard5", translate)}
+            subheader={Translate.getText("subheadercard5", translate)}
+            // button="See details"
+            button={Translate.getText("buttoncard1", translate)}
+            topics={topics1card5}
           />
         </FadeRight>
         <FadeRight duration={1000}>
           <Default
-            header="Maximizing Project Accuracy and Scalability"
-            subheader="Diagrams boost project accuracy and scalability by simplifying
-        complex information, enabling precise planning and adjustments. This
-        clarity enhances maintenance and overall robustness."
-            button="See details"
-            topics={[
-              "Maintenance and Robustness",
-              "Enhanced Scalability for Growing Projects",
-              "Improved Accuracy in Documentation",
-            ]}
+            header={Translate.getText("headercard6", translate)}
+            subheader={Translate.getText("subheadercard6", translate)}
+            // button="See details"
+            button={Translate.getText("buttoncard1", translate)}
+            topics={topics1card7}
           />
         </FadeRight>
 
         <FadeLeft duration={1000}>
           <Blob
             header={[
-              "Improving Usage Insights",
-              <br />,
-              "with User Reports and Charts",
+              Translate.getText("header1card8", translate),
+              <br key="break2" />,
+              Translate.getText("header2card8", translate),
             ]}
             subheader={[
-              "Visualizing user data through comprehensive graphs and",
-              <br />,
-              "reports significantly improves insight into project",
-              <br />,
-              "development.",
+              Translate.getText("subheader1card8", translate),
+              <br key="break2" />,
+              Translate.getText("subheader2card8", translate),
+              <br key="break2" />,
+              Translate.getText("subheader3card8", translate),
             ]}
-            button={"See Charts"}
+            // button={"See Charts"}
+            button={Translate.getText("buttoncard8", translate)}
             background={big_blob_bakcground}
             width={"50.88063rem"}
             height={"30.17706rem"}
@@ -159,8 +154,8 @@ function LandingPageComponents() {
         {/* </Responsive> */}
         <Footer
           leftTitle="PYDIAGRAM"
-          leftSubtitle="Automates your documentation"
-          buttonText="Open an Account"
+          leftSubtitle={Translate.getText("leftSubtitle", translate)}
+          buttonText={Translate.getText("buttonText", translate)}
           linksData={footerLinks}
         />
           </div>
