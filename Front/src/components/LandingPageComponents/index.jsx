@@ -22,6 +22,7 @@ import Responsive from "../CardsLandingPageComponets/Responsive";
 import FadeRight from "../CardsLandingPageComponets/animations/FadeRight";
 import Translate from "../TranslateComponents/index";
 import Video1 from "../CardsLandingPageComponets/cards/Videos/Video1";
+import Video2 from "../CardsLandingPageComponets/cards/Videos/Video2";
 
 function LandingPageComponents() {
   const alertRef = useRef(null);
@@ -41,7 +42,7 @@ function LandingPageComponents() {
         ],
       },
       {
-        title: Translate.getText("title2", translate),
+        title: Translate.getText("title22", translate),
         links: [
           { text: "Pydiagram", href: "#" },
           { text: "Backend", href: "#" },
@@ -130,6 +131,10 @@ function LandingPageComponents() {
           />
         </FadeRight>
 
+        <FadeRight duration={1500}>
+          <Video1/>
+        </FadeRight>
+
         <FadeLeft duration={1000}>
           <Blob
             header={[
@@ -150,6 +155,10 @@ function LandingPageComponents() {
             width={"50.88063rem"}
             height={"30.17706rem"}
           />
+        </FadeLeft>
+
+        <FadeLeft duration={1500}>
+          <Video2/>
         </FadeLeft>
         {/* </Responsive> */}
         <Footer

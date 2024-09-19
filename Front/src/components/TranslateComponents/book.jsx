@@ -32,11 +32,11 @@
     // em configurações titulo 2
     title2: ["PERFIL", "PROFILE", "PERFIL"],    
     // configurações
-    name: ["Nome", "Name", "Nombre"],
-    email: ["Email", "Email", "Email"],
-    cep: ["Cep", "Cep", "Cep"],
-    street: ["Rua", "Street", "Camino"],
-    number: ["Número", "Number", "Número"], 
+    nameconfig: ["Nome", "Name", "Nombre"],
+    emailconfig: ["Email", "Email", "Email"],
+    cepconfig: ["Cep", "Cep", "Cep"],
+    streetconfig: ["Rua", "Street", "Camino"],
+    numberconfig: ["Número", "Number", "Número"], 
     // botao salvar
     save: ["Salvar", "Save", "Ahorrar"],
     // botao cancelar
@@ -54,7 +54,7 @@
     // conectar
     conectar: ["Conecte-se", "Log In", "Conectar"],
     //card 1 da landing page 
-    headercard1: ["Aumente sua eficiência com geração de diagramas", "Increase your efficiency with diagram generation", "Aumenta tu eficiencia con la generación de diagramas"],
+    headercard1: ["Aumente sua eficiência com geração de diagramas", "Increase your efficiency with diagram generation", "Aumenta tu eficiencia con diagramas"],
     subheadercard1: ["Aumente sua produtividade com nossa ferramenta projetada para criação rápida e dinâmica de diagramas.", "Boost your productivity with our tool designed for fast, dynamic diagram creation.", "Aumente su productividad con nuestra herramienta diseñada para la creación de diagramas rápida y dinámica."],
     buttoncard1: ["Ver detalhes", "See details", "Ver detalles"],
     topics1card1: ["Cronogramas de Projeto Acelerados", "Accelerated Project Timelines", "Calendarios de proyectos acelerados"],
@@ -69,8 +69,8 @@
     //card 4 da landing page 
     text4: ["Quero expressar meu agradecimento pelo excelente trabalho neste projeto. Os resultados superaram as expectativas, demonstrando alta qualidade e atenção aos detalhes. Ótimo trabalho para todos os envolvidos!", "I want to express my appreciation for the excellent work on this project. The results exceeded expectations, demonstrating both high quality and attention to detail. Great job to everyone involved!", "Quiero expresar mi gratitud por el excelente trabajo en este proyecto. Los resultados superaron las expectativas, demostrando alta calidad y atención al detalle. ¡Buen trabajo para todos los involucrados!"],
     //card 5 da landing page 
-    headercard5: ["Representação visual para clareza e colaboração", "Visual representation for clarity and collaboration", "Representación visual para mayor claridad y colaboración."],
-    subheadercard5: ["Uma representação visual simplifica informações complexas do projeto, apoia o planejamento e acompanha o progresso, melhorando a colaboração e a comunicação. Garante clareza e alinhamento entre as partes interessadas.", "A visual representation simplifies complex project information, supports planning, and tracks progress, enhancing collaboration and communication. It ensures clarity and alignment among stakeholders.", "Una representación visual simplifica la información compleja del proyecto, respalda la planificación y realiza un seguimiento del progreso, mejorando la colaboración y la comunicación. Garantiza claridad y alineación entre las partes interesadas."],
+    headercard5: ["Representação visual para clareza e colaboração", "Visual representation for clarity and collaboration", "Visualización para más claridad y colaboración."],
+    subheadercard5: ["Uma representação visual simplifica informações complexas, apoia o planejamento, acompanha o progresso e melhora a colaboração e comunicação, garantindo clareza e alinhamento entre os envolvidos.", "A visual representation simplifies complex project information, supports planning, and tracks progress, enhancing collaboration and communication. It ensures clarity and alignment among stakeholders.", "Una representación visual simplifica la información del proyecto, apoya la planificación, sigue el progreso y mejora la colaboración y comunicación, garantizando claridad y alineación entre las partes interesadas."],
     topics1card5: ["Fluxo de trabalho simplificado e erros reduzidos", "Streamlined Workflow and Reduced Errors", "Flujo de trabajo simplificado y errores reducidos"],
     topics2card5: ["Colaboração e iteração aprimoradas", "Enhanced Collaboration and Iteration", "Colaboración e iteración mejoradas"],
     //card 6 da landing page 
@@ -81,8 +81,8 @@
     topics2card7: ["Escalabilidade aprimorada para projetos em crescimento", "Enhanced Scalability for Growing Projects", "Escalabilidad mejorada para proyectos en crecimiento"],
     topics3card7: ["Melhor precisão na documentação", "Improved Accuracy in Documentation", "Mayor precisión en la documentación"],
     //card 8 da landing page 
-    header1card8: ["Melhorando os insights de uso", "Improving Usage Insights", "Mejora de los conocimientos de uso."],
-    header2card8: ["com relatórios e gráficos de usuários", "with User Reports and Charts", "con informes de usuario y gráficos"],
+    header1card8: ["Aprimorando os insights de uso", "Improving Usage Insights", "Mejora del conocimiento de uso"],
+    header2card8: ["com relatórios e gráficos.", "with User Reports and Charts", "con informes y gráficos."],
     subheader1card8: ["Visualizando dados do usuário por meio de gráficos abrangentes e", "Visualizing user data through comprehensive graphs and", "Visualización de datos de usuario a través de gráficos completos y"], 
     subheader2card8: ["relatórios melhoram significativamente a visão do projeto", "reports significantly improves insight into project", "los informes mejoran significativamente el conocimiento del proyecto."], 
     subheader3card8: ["desenvolvimento.", "development.", "desarrollo."], 
@@ -92,7 +92,7 @@
     buttonText: ["Abrir uma conta", "Open an Account", "Abrir una cuenta"],
     //footer links 
     title: ["Desenvolvedores Github", "Developers Github", "Desarrolladores de Github"],
-    title2: ["Código Fonte", "Source Code", "Código fuente"],
+    title22: ["Código Fonte", "Source Code", "Código fuente"],
   }
   
   

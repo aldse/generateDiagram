@@ -151,7 +151,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
           {isEditing ? (
             <ProfileContainer>
               <ProfileHeader>
-                <ProfileLabel $language={translate}>{Translate.getText("name", translate)}:</ProfileLabel>
+                <ProfileLabel $language={translate}>{Translate.getText("nameconfig", translate)}:</ProfileLabel>
                 <Encompass>
                   <Input
                     type="text"
@@ -162,7 +162,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                 </Encompass>
               </ProfileHeader>
               <ProfileHeader>
-                <ProfileLabel $language={translate}>{Translate.getText("email", translate)}:</ProfileLabel>
+                <ProfileLabel $language={translate}>{Translate.getText("emailconfig", translate)}:</ProfileLabel>
                 <Encompass>
                   <Input
                     type="email"
@@ -173,7 +173,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                 </Encompass>
               </ProfileHeader>
               <ProfileHeader>
-                <ProfileLabel $language={translate}>{Translate.getText("cep", translate)}:</ProfileLabel>
+                <ProfileLabel $language={translate}>{Translate.getText("cepconfig", translate)}:</ProfileLabel>
                 <Encompass>
                   <Input
                     type="text"
@@ -184,7 +184,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                 </Encompass>
               </ProfileHeader>
               <ProfileHeader>
-                <ProfileLabel $language={translate}>{Translate.getText("street", translate)}:</ProfileLabel>
+                <ProfileLabel $language={translate}>{Translate.getText("streetconfig", translate)}:</ProfileLabel>
                 <Encompass>
                   <Input
                     type="text"
@@ -196,7 +196,7 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
                 </Encompass>
               </ProfileHeader>
               <ProfileHeader>
-                <ProfileLabel $language={translate}>{Translate.getText("number", translate)}:</ProfileLabel>
+                <ProfileLabel $language={translate}>{Translate.getText("numberconfig", translate)}:</ProfileLabel>
                 <Encompass>
                   <Input
                     type="text"
@@ -210,23 +210,23 @@ const BaseModalWrapper = ({ onBackdropClick, isModalVisible }) => {
           ) : (
             <ProfileContainer>
               <ProfileHeader>
-                <ProfileLabel $language={translate}>{Translate.getText("name", translate)}:</ProfileLabel>
+                <ProfileLabel $language={translate}>{Translate.getText("nameconfig", translate)}:</ProfileLabel>
                 <Encompass>{userData.name}</Encompass>
               </ProfileHeader>
               <ProfileHeader>
-                <ProfileLabel $language={translate}>{Translate.getText("email", translate)}:</ProfileLabel>
+                <ProfileLabel $language={translate}>{Translate.getText("emailconfig", translate)}:</ProfileLabel>
                 <Encompass>{userData.email}</Encompass>
               </ProfileHeader>
               <ProfileHeader>
-                <ProfileLabel $language={translate}>{Translate.getText("cep", translate)}:</ProfileLabel>
+                <ProfileLabel $language={translate}>{Translate.getText("cepconfig", translate)}:</ProfileLabel>
                 <Encompass>{userData.cep}</Encompass>
               </ProfileHeader>
               <ProfileHeader>
-                <ProfileLabel $language={translate}>{Translate.getText("street", translate)}:</ProfileLabel>
+                <ProfileLabel $language={translate}>{Translate.getText("streetconfig", translate)}:</ProfileLabel>
                 <Encompass>{userData.street}</Encompass>
               </ProfileHeader>
               <ProfileHeader>
-                <ProfileLabel $language={translate}>{Translate.getText("number", translate)}:</ProfileLabel>
+                <ProfileLabel $language={translate}>{Translate.getText("numberconfig", translate)}:</ProfileLabel>
                 <Encompass>{userData.number}</Encompass>
               </ProfileHeader>
             </ProfileContainer>
