@@ -1,7 +1,7 @@
-import video from '../../../../../assets/video/gif1.gif'
+import video from '../../../../../assets/video/unnamed.gif'
 import styles from "./styles.module.scss";
 
-export default function Video1() {
+export default function Video3() {
   return (
     <div >
       <img className={styles.tamanhovideo} src={video} alt="Loading"/>

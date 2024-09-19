@@ -23,6 +23,7 @@ import FadeRight from "../CardsLandingPageComponets/animations/FadeRight";
 import Translate from "../TranslateComponents/index";
 import Video1 from "../CardsLandingPageComponets/cards/Videos/Video1";
 import Video2 from "../CardsLandingPageComponets/cards/Videos/Video2";
+import Video3 from "../CardsLandingPageComponets/cards/Videos/Video3";
 
 function LandingPageComponents() {
   const alertRef = useRef(null);
@@ -132,7 +133,7 @@ function LandingPageComponents() {
         </FadeRight>
 
         <FadeRight duration={1500}>
-          <Video1/>
+          <Video2/>
         </FadeRight>
 
         <FadeLeft duration={1000}>
@@ -158,7 +159,7 @@ function LandingPageComponents() {
         </FadeLeft>
 
         <FadeLeft duration={1500}>
-          <Video2/>
+          <Video3/>
         </FadeLeft>
         {/* </Responsive> */}
         <Footer
