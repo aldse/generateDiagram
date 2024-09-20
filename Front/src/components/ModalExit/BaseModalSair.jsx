@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "./Modal";
-import { Label, Botao, Botao1, Dive } from "./ModalSair.styles";
+import { Label, Button, Button1, Div } from "./ModalSair.styles";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -38,10 +38,10 @@ const BaseModalSair = ({ userId, onBackdropClicke, isModalVisiblee }) => {
     <Modal onBackdropClicke={onBackdropClicke}>
       <>
         <Label>Tem certeza que deseja excluir sua conta?</Label>
-        <Dive>
-          <Botao onClick={handleDelete}>Sim</Botao>
-          <Botao1 onClick={onBackdropClicke}>Não</Botao1>
-        </Dive>
+        <Div>
+          <Button onClick={handleDelete}>Sim</Button>
+          <Button1 onClick={onBackdropClicke}>Não</Button1>
+        </Div>
       </>
     </Modal>
   );

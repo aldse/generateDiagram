@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/index";
 import Modal from "./Modal";
-import { Label, P, A, Div, Botao, Input, Link } from "./ModalLogin.styles";
+import { Label, P, A, Div, Button, Input, Link } from "./ModalLogin.styles";
 import AlertComponents from "../AlertComponents";
 import Translate from "../TranslateComponents/index";
 
@@ -115,9 +115,9 @@ const BaseModalLogin = ({
         onChange={(e) => setPassword(e.target.value)}
       />
       <Div>
-        <Botao onClick={handleSubmit} disabled={loading}>
+        <Button onClick={handleSubmit} disabled={loading}>
           {loading ? "Loading..." : "Log in"}
-        </Botao>
+        </Button>
       </Div>
       <A $variant="A2" $language={translate}>
         {Translate.getText("phaseRegister1", translate)}{" "}

@@ -15,7 +15,7 @@ export const Label = styled.h3`
   padding-bottom: 20px;
 `;
 
-export const Botao = styled.button`
+export const Button = styled.button`
   font-family: "Alegreya Sans", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -39,7 +39,7 @@ export const Botao = styled.button`
   }
 `;
 
-export const Botao1 = styled.button`
+export const Button1 = styled.button`
 font-family: "Alegreya Sans", sans-serif;
 font-weight: 500;
 font-style: normal;
@@ -63,7 +63,7 @@ background-size: 200% 100%;
 }
 `;
 
-export const Dive = styled.div`
+export const Div = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: row;

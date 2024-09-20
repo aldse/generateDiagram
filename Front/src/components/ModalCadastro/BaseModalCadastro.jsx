@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Modal from "./Modal";
-import { Label, P, A, Div, Botao, Input, Link } from "./ModalCadastro.styles";
+import { Label, P, A, Div, Button, Input, Link } from "./ModalCadastro.styles";
 import { generateDiagram, fetchAddressByCep } from "../../api/index";
 import Translate from "../TranslateComponents/index";
 
@@ -168,9 +168,9 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
             onChange={(e) => setNumber(e.target.value)}
           />
           <Div>
-            <Botao type="submit" disabled={loading}>
+            <Button type="submit" disabled={loading}>
               {loading ? "Registering..." : "Sign Up"}
-            </Botao>
+            </Button>
           </Div>
           <A $variant="A2" $language={translate}>
           {Translate.getText("accont", translate)}

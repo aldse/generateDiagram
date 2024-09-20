@@ -1,4 +1,4 @@
-import video from '../../../../../assets/video/unnamed.gif'
+import video from '../../../../../assets/video/gif2.gif'
 import styles from "./styles.module.scss";
 
 export default function Video3() {

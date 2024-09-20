@@ -61,7 +61,7 @@ export const Link = styled.a`
   }
 `;
 
-export const Botao = styled.button`
+export const Button = styled.button`
   font-family: "General Sans", sans-serif;
   background-color: #2D56ED;
   color: white;
