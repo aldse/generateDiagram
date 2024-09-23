@@ -93,9 +93,20 @@
     //footer links 
     title: ["Desenvolvedores Github", "Developers Github", "Desarrolladores de Github"],
     title22: ["Código Fonte", "Source Code", "Código fuente"],
+    //card gif
+    titleCard:["Código acessível, aberto para colaboração e inovação", "Open Source Code for Collaboration and Innovation", "Código abierto para la colaboración y la innovación"],
+    textCard:["Junte-se ao movimento – contribua com nosso código-fonte aberto e ajude a impulsionar a inovação!", "Join the movement—contribute to our open source code and help drive innovation!", "Únase al movimiento: ¡contribuya con nuestro código fuente abierto y ayude a impulsar la innovación!"],
+    buttonCard:["Contribuir", "Contribute", "Contribuir"],
+    //placeholder
+    placeholdercard4:["Seu feedback aqui: compartilhe suas idéias e sugestões", "Your Feedback Here: Share Your Thoughts and Suggestions", "Tus comentarios aquí: comparte tus ideas y sugerencias"],
+    //select
+    titleSelect:["Escolha o tipo de retorno", "Select feedback type", "Elige el tipo de feedback"],
+    //submit feedback
+    submitFeedback:["Enviar comentários", "Submit feedback", "Enviar comentarios"],
+    //See details
+    seedetails:["Ver detalhes", "See details", "Ver detalles"],
   }
-  
-  
+    
   export default book;
   
   
