@@ -9,7 +9,7 @@ import generateHereEs from "../../assets/geraraquiespanhol.png";
 import inputAdd from "../../assets/inputAdd.webp";
 import { Link } from "react-router-dom";
 import Sidebar from "../SidebarComponents/Sidebar";
-import Translate from "../TranslateComponents/index"; 
+import Translate from "../TranslateComponents/index";
 
 function HomeComponents() {
   const fileInputRef = useRef(null);
@@ -25,18 +25,23 @@ function HomeComponents() {
     if (file) {
       const formData = new FormData();
       formData.append("file", file);
-      console.log(file);
 
       try {
-        const result = await fetch("https://httpbin.org/post", {
+        const result = await fetch("http://127.0.0.1:5000", {
           method: "POST",
           body: formData,
         });
+        const blob = await result.blob();
+        const url = window.URL.createObjectURL(blob);
 
-        const data = await result.json();
-        console.log(data);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "output.xml";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
       } catch (error) {
-        console.error(error);
+        console.error("Erro ao enviar o arquivo:", error);
       }
     }
   };
@@ -48,7 +53,7 @@ function HomeComponents() {
   };
 
   useEffect(() => {
-    const container = document.getElementById('scrollContainer');
+    const container = document.getElementById("scrollContainer");
     if (container) {
       container.classList.add(styles.noScroll);
     }
@@ -77,54 +82,57 @@ function HomeComponents() {
 
   return (
     <>
-    <div id="scrollContainer">
-      <div className={styles.fixedLayout}>
-    <Sidebar/>
-        <div>
-          <div className={styles.topLeftSvg}>
-            <svg
-              version="1.0"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              width="260%"
-              height="100%"
-              viewBox="0 0 794 614"
-              preserveAspectRatio="xMidYMid meet"
+      <div id="scrollContainer">
+        <div className={styles.fixedLayout}>
+          <Sidebar />
+          <div>
+            <div className={styles.topLeftSvg}>
+              <svg
+                version="1.0"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                width="260%"
+                height="100%"
+                viewBox="0 0 794 614"
+                preserveAspectRatio="xMidYMid meet"
               >
-              <defs>
-                <radialGradient
-                  id="grad1"
-                  cx="50%"
-                  cy="50%"
-                  r="50%"
-                  fx="50%"
-                  fy="50%"
+                <defs>
+                  <radialGradient
+                    id="grad1"
+                    cx="50%"
+                    cy="50%"
+                    r="50%"
+                    fx="50%"
+                    fy="50%"
                   >
-                  <stop
-                    offset="0%"
-                    style={{ stopColor: "rgba(61,124,236,1)", stopOpacity: 1 }}
+                    <stop
+                      offset="0%"
+                      style={{
+                        stopColor: "rgba(61,124,236,1)",
+                        stopOpacity: 1,
+                      }}
                     />
-                  <stop
-                    offset="60%"
-                    style={{ stopColor: "rgba(38,72,235,1)", stopOpacity: 1 }}
+                    <stop
+                      offset="60%"
+                      style={{ stopColor: "rgba(38,72,235,1)", stopOpacity: 1 }}
                     />
-                  <stop
-                    offset="100%"
-                    style={{ stopColor: "rgba(75,95,236,1)", stopOpacity: 1 }}
+                    <stop
+                      offset="100%"
+                      style={{ stopColor: "rgba(75,95,236,1)", stopOpacity: 1 }}
                     />
-                </radialGradient>
-                <clipPath id="blobClip">
-                  <path d="M 150,50 C 180,40 250,60 210,150 C 180,220 100,150 90,120 C 80,80 150,50 150,50 Z" />
-                </clipPath>
-              </defs>
+                  </radialGradient>
+                  <clipPath id="blobClip">
+                    <path d="M 150,50 C 180,40 250,60 210,150 C 180,220 100,150 90,120 C 80,80 150,50 150,50 Z" />
+                  </clipPath>
+                </defs>
 
-              <g
-                transform="translate(0, 614) scale(0.1, -0.1)"
-                fill="url(#grad1)"
-                stroke="none"
+                <g
+                  transform="translate(0, 614) scale(0.1, -0.1)"
+                  fill="url(#grad1)"
+                  stroke="none"
                 >
-                <path
-                  d="M0 4515 c0 -1433 2 -1626 15 -1631 8 -4 12 -10 9 -15 -3 -5 -1 -9 4
+                  <path
+                    d="M0 4515 c0 -1433 2 -1626 15 -1631 8 -4 12 -10 9 -15 -3 -5 -1 -9 4
                   -9 6 0 23 -20 39 -45 15 -25 31 -45 34 -45 4 0 19 -19 34 -42 26 -39 48 -66
                   97 -118 9 -10 14 -21 11 -24 -4 -3 -1 -6 5 -6 14 0 73 -56 66 -63 -3 -3 4 -8
                   15 -12 12 -3 21 -11 21 -16 0 -12 49 -59 61 -59 5 0 9 -7 9 -15 0 -8 4 -15 10
@@ -162,101 +170,109 @@ function HomeComponents() {
                   -10 12 0 6 -13 32 -29 57 -54 85 -109 256 -126 386 -24 194 -24 656 1
                   696 2 4 7 37 10 73 l5 66 -2186 0 -2185 0 0 -1625z"
                   />
-              </g>
-            </svg>
-          </div>
+                </g>
+              </svg>
+            </div>
 
-          <div className={styles.topRightSvg}>
-            <svg
-              version="1.0"
-              xmlns="http://www.w3.org/2000/svg"
-              width="200%"
-              height="100%"
-              viewBox="0 0 398.000000 333.000000"
-              preserveAspectRatio="xMidYMid meet"
+            <div className={styles.topRightSvg}>
+              <svg
+                version="1.0"
+                xmlns="http://www.w3.org/2000/svg"
+                width="200%"
+                height="100%"
+                viewBox="0 0 398.000000 333.000000"
+                preserveAspectRatio="xMidYMid meet"
               >
-              <g
-                transform="translate(0.000000,333.000000) scale(0.100000,-0.100000)"
-                fill="url(#grad1)"
-                stroke="none"
+                <g
+                  transform="translate(0.000000,333.000000) scale(0.100000,-0.100000)"
+                  fill="url(#grad1)"
+                  stroke="none"
                 >
-                <path
-                  d="M912 4163 c-251 -249 -506 -548 -636 -747 -124 -188 -213 -403 -251
+                  <path
+                    d="M912 4163 c-251 -249 -506 -548 -636 -747 -124 -188 -213 -403 -251
                   -606 -29 -149 -25 -371 8 -531 57 -272 175 -523 395 -839 507 -726 1267 -1241
                   2048 -1385 443 -82 903 -45 1371 111 502 166 851 431 1079 816 l54 92 0 1628
                   0 1628 -1950 0 -1950 0 -168 -167z"
                   />
-              </g>
-            </svg>
-          </div>
+                </g>
+              </svg>
+            </div>
 
-          <div className={styles.bottomCenterSvg}>
-            <svg
-              version="1.0"
-              xmlns="http://www.w3.org/2000/svg"
-              width="300%"
-              height="100%"
-              viewBox="0 0 815.000000 406.000000"
-              preserveAspectRatio="xMidYMid meet"
+            <div className={styles.bottomCenterSvg}>
+              <svg
+                version="1.0"
+                xmlns="http://www.w3.org/2000/svg"
+                width="300%"
+                height="100%"
+                viewBox="0 0 815.000000 406.000000"
+                preserveAspectRatio="xMidYMid meet"
               >
-              <g
-                transform="translate(0.000000,466.000000) scale(0.100000,-0.100000)"
-                fill="url(#grad1)"
-                stroke="none"
+                <g
+                  transform="translate(0.000000,466.000000) scale(0.100000,-0.100000)"
+                  fill="url(#grad1)"
+                  stroke="none"
                 >
-                <path
-                  d="M3581 4058 c-383 -40 -705 -307 -944 -784 -304 -606 -497 -1683 -514
+                  <path
+                    d="M3581 4058 c-383 -40 -705 -307 -944 -784 -304 -606 -497 -1683 -514
                   -2871 l-6 -403 2796 0 2797 0 -6 33 c-52 304 -132 544 -280 838 -277 553 -769
                   1182 -1436 1834 -887 868 -1594 1307 -2182 1354 -66 6 -128 9 -136 8 -8 -1
                   -48 -5 -89 -9z"
                   />
-              </g>
-            </svg>
+                </g>
+              </svg>
+            </div>
           </div>
+          <div className={styles.centerImageContainer}>
+            <Image
+              src={bosch}
+              className={styles.responsiveImage}
+              alt="bosch image"
+            />
+          </div>
+          <Link to="/landingpage">
+            <Image src={help} className={styles.helpIcon} alt="help image" />
+          </Link>
         </div>
-        <div className={styles.centerImageContainer}>
-          <Image src={bosch} className={styles.responsiveImage} alt="bosch image" />
-        </div>
-        <Link to="/landingpage">
-          <Image src={help} className={styles.helpIcon} alt="help image" />
-        </Link>
-      </div>
-      <div className={styles.secondaryContainer}>
-        <div className={styles.alignCenter}>
-        <p className={styles.mainTitle}>{Translate.getText("generateTitle1", translate)}</p>
-            <p className={styles.subtitle}>{Translate.getText("generateTitle2", translate)}</p>
+        <div className={styles.secondaryContainer}>
+          <div className={styles.alignCenter}>
+            <p className={styles.mainTitle}>
+              {Translate.getText("generateTitle1", translate)}
+            </p>
+            <p className={styles.subtitle}>
+              {Translate.getText("generateTitle2", translate)}
+            </p>
             <p className={styles.contentText}>
               {Translate.getText("textGenerate", translate)}
             </p>
 
-          <div className={styles.uploadArea}>
-            <input
-              ref={fileInputRef}
-              id="file"
-              type="file"
-              onChange={handleFileChange}
-              style={{ display: "none" }}
-            />
-            <img
-              src={inputAdd}
-              className={styles.uploadButton}
-              alt="input arquivos"
-              onClick={handleImageClick}
-            />
-          </div>
-
-          <div className={styles.hoverEffect}>
-            <a href="#" onClick={handleUpload}>
-             <Image
-                src={getGenerateHereImage()}
-                className={styles.actionButtonImage}
-                alt="button generate Here"
+            <div className={styles.uploadArea}>
+              <input
+                ref={fileInputRef}
+                id="file"
+                type="file"
+                onChange={handleFileChange}
+                style={{ display: "none" }}
               />
-            </a>
+              <img
+                src={inputAdd}
+                className={styles.uploadButton}
+                alt="input arquivos"
+                onClick={handleImageClick}
+              />
             </div>
+
+            <div className={styles.hoverEffect}>
+              <a href="#" onClick={handleUpload}>
+                <Image
+                  src={getGenerateHereImage()}
+                  className={styles.actionButtonImage}
+                  alt="button generate Here"
+                />
+              </a>
             </div>
           </div>
         </div>
+      </div>
     </>
   );
 }
