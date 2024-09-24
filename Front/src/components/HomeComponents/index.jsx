@@ -229,7 +229,7 @@ function HomeComponents() {
               alt="bosch image"
             />
           </div>
-          <Link to="/landingpage">
+          <Link to="/">
             <Image src={help} className={styles.helpIcon} alt="help image" />
           </Link>
         </div>
