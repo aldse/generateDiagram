@@ -5,12 +5,12 @@ import Select from "../../../elements/Select";
 import Translate from "../../../../TranslateComponents/index";
 
 export default function Forms({ header }) {
-  const options = [
-    { value: "suggestion", label: "Suggestion" },
-    { value: "something is not right", label: "Something is not right" },
-    { value: "praise", label: "Praise" },
-  ];
   const translate = localStorage.getItem("translate") || "eng";
+  const options = [
+    { value: "suggestion", label: Translate.getText("suggestion", translate)},
+    { value: "something is not right", label: Translate.getText("somethingRight", translate)},
+    { value: "praise", label: Translate.getText("praise", translate)},
+  ];
 
   return (
     <div className={styles.card}>

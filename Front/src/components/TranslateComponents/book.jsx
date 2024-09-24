@@ -105,6 +105,9 @@
     submitFeedback:["Enviar comentários", "Submit feedback", "Enviar comentarios"],
     //See details
     seedetails:["Ver detalhes", "See details", "Ver detalles"],
+    suggestion:["Sugestão", "Suggestion", "Sugerencia"],
+    somethingRight:["Algo não está certo", "Something is not right", "Algo no esta bien"],
+    praise:["Elogio", "Praise", "Louvar"],
   }
     
   export default book;
