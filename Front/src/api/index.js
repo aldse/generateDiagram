@@ -4,6 +4,10 @@ export const generateDiagram = axios.create({
   baseURL: "https://generatediagramabackend.onrender.com/api",
 });
 
+export const feedback = axios.create({
+  baseURL: "https://generatediagramabackend.onrender.com/api/feedback"
+});
+
 export const fetchAddressByCep = async (cep) => {
   try {
     const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);

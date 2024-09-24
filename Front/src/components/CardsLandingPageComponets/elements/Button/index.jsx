@@ -22,7 +22,6 @@ export default function Button({
   const [openRegister, setOpenRegister] = useState(false);
 
   const toggleModal = () => {
-    console.log("clicado")
     setOpenLogin((wasModalVisible) => !wasModalVisible);
   };
 
@@ -55,3 +54,5 @@ export default function Button({
 </>
   );
 }
+
+
