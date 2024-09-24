@@ -10,11 +10,12 @@ import inputAdd from "../../assets/inputAdd.webp";
 import { Link } from "react-router-dom";
 import Sidebar from "../SidebarComponents/Sidebar";
 import Translate from "../TranslateComponents/index";
+import AlertComponents from "../AlertComponents";
 
 function HomeComponents() {
   const fileInputRef = useRef(null);
   const [file, setFile] = useState(null);
-
+  const alertRef = useRef();
   const handleFileChange = (e) => {
     if (e.target.files) {
       setFile(e.target.files[0]);
@@ -42,6 +43,11 @@ function HomeComponents() {
         a.remove();
       } catch (error) {
         console.error("Erro ao enviar o arquivo:", error);
+        alertRef.current?.addAlert(
+          "Erro ao adicionar o arquivo",
+          "Erro ao adicionar o arquivo",
+          "Insira um arquivo do tipo '.zip'."
+        );
       }
     }
   };
@@ -85,6 +91,7 @@ function HomeComponents() {
       <div id="scrollContainer">
         <div className={styles.fixedLayout}>
           <Sidebar />
+          <AlertComponents ref={alertRef} />
           <div>
             <div className={styles.topLeftSvg}>
               <svg

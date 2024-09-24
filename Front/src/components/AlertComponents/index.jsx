@@ -13,6 +13,7 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
     switch (type) {
       case "Senha Incorreta":
       case "Informações inválidas":
+      case "Erro ao adicionar o arquivo":
         return (
           <svg fill="currentColor" viewBox="0 0 20 20" className="h-6 w-6">
             <path
@@ -72,6 +73,7 @@ const Alert = ({ type, title, description, onRemove, index, isExiting }) => {
     {
       "Senha Incorreta": "error",
       "Informações inválidas": "error",
+      "Erro ao adicionar o arquivo": "error",
       "Usuário cadastrado com sucesso": "success",
       "Por favor, insira um nome de usuário válido.": "warning",
       "Por favor, insira um email válido.": "warning",
