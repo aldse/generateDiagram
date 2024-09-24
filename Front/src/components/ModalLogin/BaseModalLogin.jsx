@@ -38,11 +38,6 @@ const BaseModalLogin = ({
     setShowPassword(!showPassword);
   };
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/home");
-    }
-  }, [isAuthenticated, navigate]);
 
   useEffect(() => {
     if (openLogin === null) {
@@ -81,12 +76,14 @@ const BaseModalLogin = ({
 
       if (data?.token) {
         login(data.token);
+        navigate("/home");
       } else {
         alertRef.current?.addAlert(
           "Informações inválidas",
           "Informações inválidas",
           "Usuário ou senha não coincidem."
         );
+  
       }
     } catch (error) {
       alertRef.current?.addAlert(
