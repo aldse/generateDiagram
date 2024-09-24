@@ -3,9 +3,21 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { generateDiagram } from "../../api/index";
 import Modal from "./Modal";
-import { Label, P, A, Div, Button, Input, Link } from "./ModalLogin.styles";
+import {
+  Label,
+  P,
+  A,
+  Div,
+  Button,
+  Input,
+  Link,
+  DivTogglePassword,
+  ImagePassword,
+  ToggleIcon,
+} from "./ModalLogin.styles";
 import AlertComponents from "../AlertComponents";
 import Translate from "../TranslateComponents/index";
+import olho from "../../assets/olho.png";
 
 const BaseModalLogin = ({
   onBackdropClick,
@@ -20,6 +32,11 @@ const BaseModalLogin = ({
   const navigate = useNavigate();
   const alertRef = useRef();
   const modalRef = useRef();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -101,19 +118,28 @@ const BaseModalLogin = ({
       </Label>
       <P $language={translate}>{Translate.getText("phraselogin", translate)}</P>
       <A $language={translate}>{Translate.getText("email", translate)}</A>
-      <Input
-        id="email"
-        type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <A $variant="A2" $language={translate}>{Translate.getText("password", translate)}</A>
-      <Input
-        id="password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+      <DivTogglePassword>
+        <Input
+          id="email"
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </DivTogglePassword>
+      <A $variant="A2" $language={translate}>
+        {Translate.getText("password", translate)}
+      </A>
+      <DivTogglePassword>
+        <Input
+          id="password"
+          type={showPassword ? "text" : "password"}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <ToggleIcon onClick={togglePasswordVisibility}>
+          <ImagePassword src={olho} alt="Toggle password visibility" />
+        </ToggleIcon>
+      </DivTogglePassword>
       <Div>
         <Button onClick={handleSubmit} disabled={loading}>
           {loading ? "Loading..." : "Log in"}

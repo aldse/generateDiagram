@@ -1,10 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
 import Modal from "./Modal";
-import { Label, P, A, Div, Button, Input, Link } from "./ModalCadastro.styles";
+import {
+  Label,
+  P,
+  A,
+  Div,
+  Button,
+  Input,
+  Link,
+  DivTogglePassword,
+  ImagePassword,
+  ToggleIcon,
+} from "./ModalCadastro.styles";
 import { generateDiagram, fetchAddressByCep } from "../../api/index";
 import Translate from "../TranslateComponents/index";
+import olho from "../../assets/olho.png";
 
-const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, setOpenLogin }) => {
+const BaseModalCadastro = ({
+  onBackdropClick,
+  openRegister,
+  setOpenRegister,
+  setOpenLogin,
+}) => {
   const alertRef = useRef();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,39 +31,58 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfPassword, setShowConfPassword] = useState(false);
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfPasswordVisibility = () => {
+    setShowConfPassword(!showConfPassword);
+  };
 
   const validateForm = () => {
     const newErrors = {};
 
-    if (!name) newErrors.name =  alertRef.current?.addAlert(
-      "Por favor, insira um nome de usuário válido.",
-      "Por favor, insira um nome de usuário válido.",
-      "Por favor, insira um nome de usuário válido.")
+    if (!name)
+      newErrors.name = alertRef.current?.addAlert(
+        "Por favor, insira um nome de usuário válido.",
+        "Por favor, insira um nome de usuário válido.",
+        "Por favor, insira um nome de usuário válido."
+      );
     if (!email || !emailPattern.test(email))
       newErrors.email = alertRef.current?.addAlert(
         "Por favor, insira um email válido.",
         "Por favor, insira um email válido.",
-        "Por favor, insira um email válido.")
-    if (!password) newErrors.password = alertRef.current?.addAlert(
-      "Senha menor que 8 digitos, NÃO!",
-      "Senha menor que 8 digitos, NÃO!",
-      "Senha menor que 8 digitos, NÃO!")
+        "Por favor, insira um email válido."
+      );
+    if (!password)
+      newErrors.password = alertRef.current?.addAlert(
+        "Senha menor que 8 digitos, NÃO!",
+        "Senha menor que 8 digitos, NÃO!",
+        "Senha menor que 8 digitos, NÃO!"
+      );
     if (password !== confPassword)
       newErrors.confPassword = alertRef.current?.addAlert(
-      "As senhas não foram inseridas iguais!",
-      "As senhas não foram inseridas iguais!",
-      "As senhas não foram inseridas iguais!")
-    if (!number) newErrors.number = alertRef.current?.addAlert(
-      "Insira um número válido",
-      "Insira um número válido",
-      "Insira um número válido")
+        "As senhas não foram inseridas iguais!",
+        "As senhas não foram inseridas iguais!",
+        "As senhas não foram inseridas iguais!"
+      );
+    if (!number)
+      newErrors.number = alertRef.current?.addAlert(
+        "Insira um número válido",
+        "Insira um número válido",
+        "Insira um número válido"
+      );
 
     if (Object.keys(newErrors).length > 0) {
       alertRef.current?.addAlert(
         "Informações inválidas",
         "Informações inválidas",
-        "Informações inválidas")
+        "Informações inválidas"
+      );
       console.log("Validation Errors:", newErrors);
     }
 
@@ -63,7 +99,8 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
       alertRef.current?.addAlert(
         "CEP inválido",
         "CEP inválido",
-        "CEP inválido.")
+        "CEP inválido."
+      );
       console.error("Erro ao buscar o CEP:", error);
     }
   };
@@ -94,7 +131,8 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
       alertRef.current?.addAlert(
         "Usuário cadastrado com sucesso",
         "Usuário cadastrado com sucesso",
-        "Usuário ou senha não coincidem.")
+        "Usuário ou senha não coincidem."
+      );
 
       console.log("Usuário registrado com sucesso!", response.data);
       setLoading(false);
@@ -114,9 +152,8 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
 
   const openLoginModal = () => {
     setOpenLogin(true);
-    setOpenRegister(false)
+    setOpenRegister(false);
   };
-
 
   if (!openRegister) {
     return null;
@@ -127,25 +164,52 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
     <>
       <Modal onBackdropClick={onBackdropClick}>
         <form onSubmit={handleSubmit}>
-          <Label $language={translate}>{Translate.getText("phaseRegister2", translate)}</Label>
-          <P $language={translate}>{Translate.getText("phaseRegister", translate)}</P>
-          <A $language={translate}>{Translate.getText("nameconfig", translate)}</A>
+          <Label $language={translate}>
+            {Translate.getText("phaseRegister2", translate)}
+          </Label>
+          <P $language={translate}>
+            {Translate.getText("phaseRegister", translate)}
+          </P>
+          <A $language={translate}>
+            {Translate.getText("nameconfig", translate)}
+          </A>
           <Input value={name} onChange={(e) => setName(e.target.value)} />
           <A $language={translate}>{Translate.getText("email", translate)}</A>
           <Input value={email} onChange={(e) => setEmail(e.target.value)} />
-          <A $language={translate}>{Translate.getText("password", translate)}</A>
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <A $language={translate}>{Translate.getText("confirmPassword", translate)}</A>
-          <Input
-            type="password"
-            value={confPassword}
-            onChange={(e) => setConfPassword(e.target.value)}
-          />
-          <A $language={translate}>{Translate.getText("cepconfig", translate)}</A>
+          <A $language={translate}>
+            {Translate.getText("password", translate)}
+          </A>
+
+          <DivTogglePassword>
+            <Input
+              id="password"
+              type={showPassword ? "password" : "text"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <ToggleIcon onClick={togglePasswordVisibility}>
+              <ImagePassword src={olho} alt="Toggle password visibility" />
+            </ToggleIcon>
+          </DivTogglePassword>
+
+          <A $language={translate}>
+            {Translate.getText("confirmPassword", translate)}
+          </A>
+          <DivTogglePassword>
+            <Input
+              id="confirmPassword"
+              type={showConfPassword ? "text" : "password"}
+              value={confPassword}
+              onChange={(e) => setConfPassword(e.target.value)}
+            />
+            <ToggleIcon onClick={toggleConfPasswordVisibility}>
+              <ImagePassword src={olho} alt="Toggle confirmation password visibility" />
+            </ToggleIcon>
+          </DivTogglePassword>
+
+          <A $language={translate}>
+            {Translate.getText("cepconfig", translate)}
+          </A>
           <Input
             id="cep"
             type="text"
@@ -153,14 +217,18 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
             onChange={(e) => setCep(e.target.value)}
             onBlur={handleBlur}
           />
-          <A $language={translate}>{Translate.getText("streetconfig", translate)}</A>
+          <A $language={translate}>
+            {Translate.getText("streetconfig", translate)}
+          </A>
           <Input
             id="street"
             type="text"
             value={street}
             onChange={(e) => setStreet(e.target.value)}
           />
-          <A $language={translate}>{Translate.getText("numberconfig", translate)}</A>
+          <A $language={translate}>
+            {Translate.getText("numberconfig", translate)}
+          </A>
           <Input
             id="number"
             type="text"
@@ -173,8 +241,10 @@ const BaseModalCadastro = ({ onBackdropClick, openRegister, setOpenRegister, set
             </Button>
           </Div>
           <A $variant="A2" $language={translate}>
-          {Translate.getText("accont", translate)}
-            <Link onClick={openLoginModal} $language={translate}>{Translate.getText("conectar", translate)}</Link>
+            {Translate.getText("accont", translate)}
+            <Link onClick={openLoginModal} $language={translate}>
+              {Translate.getText("conectar", translate)}
+            </Link>
           </A>
         </form>
       </Modal>

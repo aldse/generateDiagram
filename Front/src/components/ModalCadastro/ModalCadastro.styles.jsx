@@ -19,6 +19,25 @@ font-size: 30px;
 margin: 0;
 `;
 
+export const ImagePassword = styled.img`
+  width: 10%;
+`;
+
+export const DivTogglePassword = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+export const ToggleIcon = styled.div`
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  justify-content: end;
+`;
+
 export const LabelContainer = styled.div`
   display: flex;
   flex-direction: column; 
