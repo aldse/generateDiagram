@@ -18,14 +18,12 @@ import {
   AiOutlineSetting,
 } from "react-icons/ai";
 import { MdLogout } from "react-icons/md";
-import { ThemeContext } from "../../main";
 import { useNavigate } from "react-router-dom";
 import LogoComponents from "../LogoComponents";
 import { useAuth } from "../../context/authContext";
 import BaseModalWrapper from "../ModalSettings/BaseModalWrapper";
 
 const Sidebar = () => {
-  const { setTheme, theme } = useContext(ThemeContext);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { logout } = useAuth();
   const navigate = useNavigate();
@@ -63,7 +61,7 @@ const Sidebar = () => {
         <AiOutlineLeft />
       </SSidebarButton>
       <SLogo>
-        <LogoComponents theme={theme} />
+        <LogoComponents/>
       </SLogo>
 
       <SDivider />

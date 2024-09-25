@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.6px;
 }
 
 * {
