@@ -1,8 +1,8 @@
 import styles from "./styles.module.scss";
 
-export default function Select({ placeholder, options }) {
+export default function Select({ placeholder, options, onChange }) {
   return (
-    <select className={styles.select} defaultValue="">
+    <select className={styles.select} defaultValue="" onChange={onChange}>
       <option value="" disabled hidden className={styles.placeholderOption}>
         {placeholder}
       </option>
