@@ -13,10 +13,7 @@ import {
   SThemeToggler,
   SToggleThumb,
 } from "./styles";
-import {
-  AiOutlineLeft,
-  AiOutlineSetting,
-} from "react-icons/ai";
+import { AiOutlineLeft, AiOutlineSetting } from "react-icons/ai";
 import { MdLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import LogoComponents from "../LogoComponents";
@@ -32,7 +29,7 @@ const Sidebar = () => {
   const toggleModal = () => {
     setIsModalVisible((wasModalVisible) => !wasModalVisible);
   };
-  
+
   const handleLogout = () => {
     console.log("Logout clicked");
     logout();
@@ -42,7 +39,7 @@ const Sidebar = () => {
   const secondaryLinksArray = [
     {
       label: "Settings",
-      onClick: toggleModal, 
+      onClick: toggleModal,
       icon: <AiOutlineSetting />,
     },
     {
@@ -61,7 +58,7 @@ const Sidebar = () => {
         <AiOutlineLeft />
       </SSidebarButton>
       <SLogo>
-        <LogoComponents/>
+        <LogoComponents />
       </SLogo>
 
       <SDivider />
@@ -70,7 +67,7 @@ const Sidebar = () => {
           <SLink
             to="#"
             style={!sidebarOpen ? { width: `fit-content` } : {}}
-            onClick={onClick} 
+            onClick={onClick}
           >
             <SLinkIcon>{icon}</SLinkIcon>
             {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}

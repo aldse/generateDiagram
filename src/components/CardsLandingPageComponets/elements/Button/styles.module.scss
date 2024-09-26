@@ -2,15 +2,12 @@ $width: 6.16113rem;
 $height: 2.17944rem;
 
 .button {
-  // width: $width;
-  // height: $height;
-  border-radius: 0.50294rem;
+  border-radius: 0.41911666666vw;
   text-align: center;
-  font-size: 0.7125rem;
+  font-size: 0.59375vw;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  // transition: transform 0.1s ease, background-color 0.1s ease;
 
   &__dark {
     border-top: 1.341px solid #434958;

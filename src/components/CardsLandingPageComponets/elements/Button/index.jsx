@@ -7,8 +7,8 @@ export default function Button({
   action,
   theme,
   text,
-  width = "6.16113rem",
-  height = "2.17944rem",
+  width = "5.134275vw",
+  height = "1.8162vw",
 }) {
   const buttonClass =
     theme === "dark" ? styles.button__dark : styles.button__light;
@@ -22,7 +22,7 @@ export default function Button({
   const [openRegister, setOpenRegister] = useState(false);
 
   const toggleModal = () => {
-    console.log("clicado")
+    console.log("clicado");
     setOpenLogin((wasModalVisible) => !wasModalVisible);
   };
 
@@ -32,26 +32,26 @@ export default function Button({
 
   return (
     <>
-    <button
-      className={`${styles.button} ${buttonClass}`}
-      style={size}
-      // onClick={action}
-      onClick={toggleModal}
-    >
-      {text}
-    </button>
- <BaseModalLogin
- openLogin={openLogin}
- setOpenLogin={setOpenLogin}
- setOpenRegister={setOpenRegister}
- onBackdropClick={toggleModal}
-/>
-<BaseModalCadastro
- openRegister={openRegister}
- setOpenRegister={setOpenRegister}
- setOpenLogin={setOpenLogin}
- onBackdropClick={toggleModal2}
-/>
-</>
+      <button
+        className={`${styles.button} ${buttonClass}`}
+        style={size}
+        // onClick={action}
+        onClick={toggleModal}
+      >
+        {text}
+      </button>
+      <BaseModalLogin
+        openLogin={openLogin}
+        setOpenLogin={setOpenLogin}
+        setOpenRegister={setOpenRegister}
+        onBackdropClick={toggleModal}
+      />
+      <BaseModalCadastro
+        openRegister={openRegister}
+        setOpenRegister={setOpenRegister}
+        setOpenLogin={setOpenLogin}
+        onBackdropClick={toggleModal2}
+      />
+    </>
   );
 }

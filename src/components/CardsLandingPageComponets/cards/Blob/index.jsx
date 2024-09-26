@@ -14,7 +14,7 @@ export default function Blob({
     backgroundSize: "cover",
     width: width,
     height: height,
-    borderRadius: "1.63456rem",
+    borderRadius: "1.36213333333vw",
   };
 
   return (
@@ -25,8 +25,8 @@ export default function Blob({
         <Button
           text={button}
           theme={"dark"}
-          width={"8.42444rem"}
-          height={"2.17944rem"}
+          width={"7.02036666667vw"}
+          height={"1.8162vw"}
         />
         <div className={styles.card__topics}></div>
       </div>

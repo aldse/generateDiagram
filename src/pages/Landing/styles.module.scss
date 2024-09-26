@@ -1,12 +1,25 @@
 .body {
+  background-color: #e4e4e4;
+
   overflow-x: hidden;
   scrollbar-width: none;
-  &__content{
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__grid {
     display: flex;
     flex-wrap: wrap;
   }
 }
 
-body{
+body {
   scrollbar-width: none;
+}
+
+.container {
+  display: flex; /* Use Flexbox */
+  flex-wrap: wrap; /* Allow wrapping of items */
+  justify-content: center; /* Center items horizontally */
+  gap: 0.5rem;
 }
