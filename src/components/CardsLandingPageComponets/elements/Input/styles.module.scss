@@ -1,19 +1,19 @@
-$border-radius: 1.63456rem;
+$border-radius: 1.36213333333vw;
 $border-width: 0.671px;
 $border-color: #c9cdd6;
 $background-color: #fff;
-$width: 39.0625rem;
-$height: 30.17706rem;
+$width: 32.5520833333vw;
+$height: 25.14755vw;
 
 .input {
   font-family: "General Sans", sans-serif;
 
-  margin-top: 0.8rem;
-  
-  padding: 1rem;
+  margin-top: 0.66666666666vw;
+
+  padding: 0.83333333333vw;
   // width: 35.4375rem;
-  height: 8.75rem;
-  border-radius: 0.625rem;
+  height: 7.29166666667vw;
+  border-radius: 0.52083333333vw;
   border: 1px solid #d9d9d9;
   background: #fff;
 
@@ -23,7 +23,7 @@ $height: 30.17706rem;
   transition: 0.2s;
 
   color: #000;
-  font-size: 1.00588rem;
+  font-size: 0.83823333333vw;
   font-style: normal;
   font-weight: 400;
   line-height: 139.397%;
@@ -35,7 +35,7 @@ $height: 30.17706rem;
   &::placeholder {
     color: #c8c8c8;
 
-    font-size: 1.00588rem;
+    font-size: 0.83823333333vw;
     font-style: normal;
     font-weight: 400;
     line-height: 139.397%;

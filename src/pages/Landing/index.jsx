@@ -7,13 +7,16 @@ import React, { useRef, useEffect } from "react";
 import blob_bakcground from "../../assets/blob.svg";
 import big_blob_bakcground from "../../assets/big_blob.svg";
 
+import background_video from "../../assets/video/gif2.gif";
+import integrated_video from "../../assets/video/gif1.gif";
+import diagram_video from "../../assets/video/DiagramaEn.mp4";
+
 import Blob from "../../components/CardsLandingPageComponets/cards/Blob";
 import Default from "../../components/CardsLandingPageComponets/cards/Default";
 import Forms from "../../components/CardsLandingPageComponets/cards/Feedbacks/Forms";
 import Feedback from "../../components/CardsLandingPageComponets/cards/Feedbacks/Feedback";
-import Video1 from "../../components/CardsLandingPageComponets/cards/Videos/Video1";
-import Video2 from "../../components/CardsLandingPageComponets/cards/Videos/Video2";
-import Video3 from "../../components/CardsLandingPageComponets/cards/Videos/Video3";
+import Video from "../../components/CardsLandingPageComponets/cards/Videos/Video";
+import Gif from "../../components/CardsLandingPageComponets/cards/Videos/Gif";
 
 import Navbar from "../../components/CardsLandingPageComponets/elements/Navbar";
 import Footer from "../../components/CardsLandingPageComponets/elements/Footer";
@@ -36,17 +39,23 @@ export default function PageInitial() {
     {
       title: Translate.getText("title", language),
       links: [
-        { text: "Benhur Feld", href: "#" },
-        { text: "Renato Mendes", href: "#" },
-        { text: "Eliana Almeida", href: "#" },
+        { text: "Benhur Feld", href: "https://github.com/benhuuur" },
+        { text: "Renato Mendes", href: "https://github.com/mendes-11" },
+        { text: "Eliana Almeida", href: "https://github.com/aldse" },
       ],
     },
     {
       title: Translate.getText("title22", language),
       links: [
-        { text: "Pydiagram", href: "#" },
-        { text: "Backend", href: "#" },
-        { text: "Website", href: "#" },
+        {
+          text: "Pydiagram",
+          href: "https://github.com/benhuuur/pydiagram-server",
+        },
+        {
+          text: "Backend",
+          href: "https://github.com/mendes-11/generateDiagramaBackend",
+        },
+        { text: "Website", href: "https://github.com/aldse/generateDiagram" },
       ],
     },
   ];
@@ -85,12 +94,16 @@ export default function PageInitial() {
               subheader={Translate.getText("subheadercard2", language)}
               button={Translate.getText("buttoncard2", language)}
               background={blob_bakcground}
-              width={"32.5520833333vw"}
-              height={"25.14755vw"}
+              width={"32.5521vw"}
+              height={"25.1475vw"}
             />
           </ZoomIn>
           <ZoomIn duration={1500}>
-            <Video1 />
+            <Gif
+              background={integrated_video}
+              width={"32.5521vw"}
+              height={"25.1475vw"}
+            />
           </ZoomIn>
           <FadeLeft duration={1000}>
             <Forms header={Translate.getText("headercard3", language)} />
@@ -128,7 +141,14 @@ export default function PageInitial() {
           </FadeRight>
 
           <FadeRight duration={1500}>
-            <Video2 />
+            <Gif
+              background={background_video}
+              width={"32.5521vw"}
+              height={"25.1475vw"}
+              header={Translate.getText("titleCard", language)}
+              subheader={Translate.getText("textCard", language)}
+              button={Translate.getText("buttonCard", language)}
+            />
           </FadeRight>
 
           <FadeLeft duration={1000}>
@@ -148,12 +168,16 @@ export default function PageInitial() {
               button={Translate.getText("buttoncard8", language)}
               background={big_blob_bakcground}
               width={"42.400525vw"}
-              height={"25.14755vw"}
+              height={"25.5208333333vw"}
             />
           </FadeLeft>
 
           <FadeLeft duration={1500}>
-            <Video3 />
+            <Video
+              src={diagram_video}
+              width={"55.2083333333vw"}
+              height={"25.5208333333vw"}
+            />
           </FadeLeft>
         </div>
         <Footer

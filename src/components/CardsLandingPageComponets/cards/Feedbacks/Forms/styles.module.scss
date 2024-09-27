@@ -1,9 +1,9 @@
-$border-radius: 1.63456rem;
+$border-radius: 1.36213333333vw;
 $border-width: 0.671px;
 $border-color: #c9cdd6;
 $background-color: #fff;
-$width: 45.9375rem;
-$height: 26.74719rem;
+$width: 38.28125vw;
+$height: 22.289325vw;
 
 .card {
   font-family: "General Sans", sans-serif;
@@ -30,18 +30,18 @@ $height: 26.74719rem;
     width: 100%;
     // width: 31.56013rem;
 
-    height: 6.07731rem;
+    height: 5.064425vw;
 
     color: #000;
-    font-size: 2.55669rem;
+    font-size: 2.130575vw;
     font-style: normal;
     font-weight: 400;
     line-height: 114.887%;
   }
 
   &__controls {
-    margin-top: 0.81rem;
-    column-gap: 0.88rem;
+    margin-top: 0.675vw;
+    column-gap: 0.73333333333vw;
 
     width: 95.7414474351%;
 

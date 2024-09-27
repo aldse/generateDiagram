@@ -10,7 +10,11 @@ export default function Feedback({ owner, type, text }) {
       <div className={styles.card__content}>
         <div className={styles.card__header}>
           <div className={styles.card__header__left}>
-            <img src={profile_icon} alt="" />
+            <img
+              src={profile_icon}
+              className={styles.card__header__profile}
+              alt=""
+            />
             <div className={styles.card__header__text}>
               <span className={styles.card__header__username}>{owner}</span>
               <span className={styles.card__header__type}>{type}</span>
