@@ -52,6 +52,19 @@ $height: 22.289325vw;
 
 @media (max-width: 810px) {
   .card {
-    width: 100%;
+    border-radius: 3.22876049383vw;
+
+    width: 98%;
+    height: 49.0282962963vw;
+
+    &__header {
+      height: 12.004562963vw;
+      font-size: 5.05025185185vw;
+    }
+
+    &__controls {
+      margin-top: 1.6vw;
+      column-gap: 1.73827160494vw;
+    }
   }
 }

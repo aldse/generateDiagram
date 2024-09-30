@@ -5,11 +5,10 @@ export default function Video({
   autoplay = true,
   muted = true,
   loop = true,
-  height = "25.5208333333vw",
-  width = "55.2083333333vw",
 }) {
+
   return (
-    <div className={styles.container} style={{ height, width }}>
+    <div className={styles.container}>
       <video
         className={styles.container__video}
         autoPlay={autoplay}

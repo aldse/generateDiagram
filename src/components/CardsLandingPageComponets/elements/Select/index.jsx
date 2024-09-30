@@ -7,7 +7,7 @@ export default function Select({ placeholder, options }) {
         {placeholder}
       </option>
       {options.map((item) => (
-        <option key={item.value} value={item.value} className={styles.option}>
+        <option key={item.value} value={item.value}>
           {item.label}
         </option>
       ))}

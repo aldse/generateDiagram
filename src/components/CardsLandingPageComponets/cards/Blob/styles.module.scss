@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
 
+  
   &__content {
     width: 80.7939328%;
 
@@ -14,8 +15,6 @@
 
   &__header {
     width: 100%;
-    // width: 31.56013rem;
-
     height: 5.064425vw;
 
     color: #000;
@@ -24,13 +23,13 @@
     font-weight: 400;
     line-height: 114.887%;
   }
+
   &__subheader {
     margin-top: 0.63333333333vw;
 
     width: 89.9071391657766%;
-    // width: 28.37481rem;
-
     height: 5.064425vw;
+    
     color: #7e8490;
 
     font-size: 0.83823333333vw;
@@ -38,6 +37,7 @@
     font-weight: 400;
     line-height: 139.397%;
   }
+
   &__topics {
     display: flex;
     flex-direction: column;
@@ -49,6 +49,7 @@
     display: flex;
     align-items: stretch;
     justify-content: flex-start;
+
     &__text {
       color: #000;
 
@@ -57,6 +58,7 @@
       font-weight: 400;
       line-height: 139.397%;
     }
+
     &__icon {
       width: 1.01286666667vw;
       height: 1.01286666667vw;
@@ -67,6 +69,21 @@
 
 @media (max-width: 810px) {
   .card {
-    width: 100% !important;
+    height: 60.6090074074vw !important;
+    width: 98% !important;
+
+    border-radius: 3.22876049383vw !important;
+
+    &__header {
+      height: 13.004562963vw;
+      font-size: 5.55025185185vw !important;
+    }
+
+    &__subheader {
+      margin-top: 2.5012345679vw;
+      height: 13.004562963vw;
+      font-size: 2.48692345679vw;
+    }
   }
+
 }

@@ -52,6 +52,7 @@ $height: 22.289325vw;
 
       justify-content: center;
     }
+
     &__username {
       color: #000;
 
@@ -60,6 +61,7 @@ $height: 22.289325vw;
       font-weight: 600;
       line-height: normal;
     }
+
     &__type {
       color: #c9cdd6;
       /* font-family: Inter; */
@@ -68,10 +70,12 @@ $height: 22.289325vw;
       font-weight: 500;
       line-height: normal;
     }
+
     &__icon {
       width: 7.01875vw;
       height: 1.51755vw;
     }
+
     &__profile {
       width: 3.59375vw;
       height: 3.28125vw;
@@ -103,6 +107,7 @@ $height: 22.289325vw;
     font-weight: 600;
     line-height: normal;
     column-gap: 0.46875vw;
+
     &__icon {
       width: 0.96354166666vw;
       height: 0.96354166666vw;
@@ -119,6 +124,7 @@ $height: 22.289325vw;
     margin-top: 1.325vw;
     margin-bottom: 1.70833333333vw;
   }
+
   &__end {
     margin-top: 1.325vw;
     margin-bottom: 1.70833333333vw;
@@ -127,6 +133,69 @@ $height: 22.289325vw;
 
 @media (max-width: 810px) {
   .card {
-    width: 100%;
+    width: 98%;
+    height: 49.0282962963vw;
+
+    border-radius: 3.22876049383vw;
+
+    &__header {
+      height: 8.75642469136vw;
+
+      font-size: 6.05025185185vw;
+
+      &__left {
+        column-gap: 3.25185185185vw;
+      }
+
+      &__username {
+        font-size: 3.24827654321vw;
+      }
+
+      &__type {
+        font-size: 2.24827654321vw;
+      }
+
+      &__icon {
+        width: 17.637037037vw;
+        height: 4.59715555556vw;
+      }
+
+      &__profile {
+        width: 8.51851851852vw;
+        height: 7.77777777778vw;
+      }
+    }
+
+    &__text {
+      width: 100%;
+      height: 14.613708642vw;
+
+      font-size: 2.41530864198vw;
+    }
+
+    &__footer {
+      font-size: 3.24827654321vw;
+      column-gap: 2.11111111111vw;
+
+      &__icon {
+        width: 3.28395061728vw;
+        height: 3.28395061728vw;
+      }
+    }
+  }
+
+  .separator {
+    border-bottom: 0.125rem dashed #e5e7ed;
+    margin: 20px 0;
+
+    &__start {
+      margin-top: 3.14074074074vw;
+      margin-bottom: 4.04938271605vw;
+    }
+
+    &__end {
+      margin-top: 4.04938271605vw;
+      margin-bottom: 3.14074074074vw;
+    }
   }
 }

@@ -1,10 +1,3 @@
-$border-radius: 1.36213333333vw;
-$border-width: 0.671px;
-$border-color: #c9cdd6;
-$background-color: #fff;
-$width: 32.5520833333vw;
-$height: 25.14755vw;
-
 .input {
   font-family: "General Sans", sans-serif;
 
@@ -32,6 +25,7 @@ $height: 25.14755vw;
     border: 1px solid #2d56ed;
     box-shadow: inset 0 0 0 1px #2d56ed;
   }
+
   &::placeholder {
     color: #c8c8c8;
 
@@ -39,5 +33,20 @@ $height: 25.14755vw;
     font-style: normal;
     font-weight: 400;
     line-height: 139.397%;
+  }
+}
+
+@media (max-width: 810px) {
+  .input {
+    margin-top: 1.58024691356vw;
+    padding: 1.97530864196vw;
+    height: 17.2839506173vw;
+    border-radius: 1.23456790121vw;
+
+    font-size: 2.92478707514vw;
+
+    &::placeholder {
+      font-size: 2.92478707514vw;
+    }
   }
 }

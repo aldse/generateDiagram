@@ -6,15 +6,10 @@ export default function Gif({
   subheader,
   button,
   background,
-  width,
-  height,
 }) {
   const cardStyle = {
     background: `url(${background}) no-repeat center center`,
     backgroundSize: "cover",
-    width: width,
-    height: height,
-    borderRadius: "1.36213333333vw",
   };
 
   return (
