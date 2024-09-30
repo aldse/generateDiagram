@@ -1,6 +1,8 @@
 import styles from "./styles.module.scss";
 import Button from "../../elements/Button";
 
+import { useEffect, useState } from "react";
+
 export default function Blob({
   header,
   subheader,
@@ -9,6 +11,21 @@ export default function Blob({
   width,
   height,
 }) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const width_button =
+    windowWidth < 810 ? "16.8792691358vw" : "7.12094166667vw";
+  const height_button = windowWidth < 810 ? "4.30506666667vw" : "1.8162vw";
+
   const cardStyle = {
     background: `url(${background}) no-repeat center center`,
     backgroundSize: "cover",
@@ -25,8 +42,8 @@ export default function Blob({
         <Button
           text={button}
           theme={"dark"}
-          width={"7.02036666667vw"}
-          height={"1.8162vw"}
+          width={width_button}
+          height={height_button}
         />
         <div className={styles.card__topics}></div>
       </div>

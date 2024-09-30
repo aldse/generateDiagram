@@ -27,7 +27,8 @@ export default function Forms({ header }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const width  = windowWidth < 800 ? "16.8792691358vw" : "7.12094166667vw"
+  const width = windowWidth < 810 ? "16.8792691358vw" : "7.12094166667vw";
+  const height = windowWidth < 810 ? "4.30506666667vw" : "1.8162vw";
 
   return (
     <div className={styles.card}>
@@ -46,6 +47,7 @@ export default function Forms({ header }) {
             text={Translate.getText("submitFeedback", translate)}
             theme={"dark"}
             width={width}
+            height={height}
           />
         </div>
       </div>
