@@ -1,0 +1,34 @@
+.select {
+  padding-left: 0.73333333333vw;
+  width: 9.12395833333vw;
+  height: 1.81615vw;
+
+  border-radius: 0.41666666666vw;
+  border: 1px solid #d9d9d9;
+  background: rgba(255, 255, 255, 0.79);
+
+  color: #000;
+  font-size: 0.59375vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  outline: none;
+  transition: 0.2s;
+
+  &:focus {
+    border: 1px solid #2d56ed;
+    box-shadow: inset 0 0 0 1px #2d56ed;
+  }
+}
+
+@media (max-width: 810px) {
+  .select {
+    padding-left: 1.73827160492vw;
+    width: 22.1271604938vw;
+    height: 4.80494814815vw;
+
+    border-radius: 0.98765432096vw;
+    font-size: 1.90740740741vw;
+  }
+}

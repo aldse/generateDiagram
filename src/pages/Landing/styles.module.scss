@@ -1,0 +1,40 @@
+.body {
+  background-color: #e4e4e4;
+
+  overflow-x: hidden;
+  scrollbar-width: none;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+body {
+  scrollbar-width: none;
+}
+
+.container {
+  display: flex;
+  /* Use Flexbox */
+  flex-wrap: wrap;
+  /* Allow wrapping of items */
+  justify-content: center;
+  /* Center items horizontally */
+  gap: 0.41666666666vw;
+}
+
+@media (max-width: 810px) {
+  .container {
+    gap: 0.98765432096vw !important;
+  }
+
+  .video {
+    display: none;
+  }
+}

@@ -1,0 +1,201 @@
+$border-radius: 1.36213333333vw;
+$border-width: 0.671px;
+$border-color: #c9cdd6;
+$background-color: #fff;
+$width: 29.6875vw;
+$height: 22.289325vw;
+
+.card {
+  font-family: "General Sans", sans-serif;
+
+  border-radius: $border-radius;
+  border: $border-width solid $border-color;
+  background: $background-color;
+
+  width: $width;
+  height: $height;
+
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    width: 80.7939328%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__header {
+    width: 100%;
+
+    height: 3.27224166667vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #000;
+    font-size: 2.130575vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 114.887%;
+
+    &__left {
+      display: flex;
+      column-gap: 0.95vw;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+    }
+
+    &__username {
+      color: #000;
+
+      font-size: 0.94849166666vw;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    &__type {
+      color: #c9cdd6;
+      /* font-family: Inter; */
+      font-size: 0.94849166666vw;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    &__icon {
+      width: 7.01875vw;
+      height: 1.51755vw;
+    }
+
+    &__profile {
+      width: 3.59375vw;
+      height: 3.28125vw;
+    }
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+
+    width: 24.0440083333vw;
+    height: 6.16515833333vw;
+
+    color: #7e8490;
+    font-size: 1.01895833333vw;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+
+    color: #c9cdd6;
+    text-align: center;
+    font-size: 0.94849166666vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    column-gap: 0.46875vw;
+
+    &__icon {
+      width: 0.96354166666vw;
+      height: 0.96354166666vw;
+    }
+  }
+}
+
+.separator {
+  border-bottom: 0.10416666666vw dashed #e5e7ed;
+  margin: 20px 0;
+  width: 100%;
+
+  &__start {
+    margin-top: 1.325vw;
+    margin-bottom: 1.70833333333vw;
+  }
+
+  &__end {
+    margin-top: 1.325vw;
+    margin-bottom: 1.70833333333vw;
+  }
+}
+
+@media (max-width: 810px) {
+  .card {
+    width: 98%;
+    height: 49.0282962963vw;
+
+    border-radius: 3.22876049383vw;
+
+    &__header {
+      height: 8.75642469136vw;
+
+      font-size: 6.05025185185vw;
+
+      &__left {
+        column-gap: 3.25185185185vw;
+      }
+
+      &__username {
+        font-size: 3.24827654321vw;
+      }
+
+      &__type {
+        font-size: 2.24827654321vw;
+      }
+
+      &__icon {
+        width: 17.637037037vw;
+        height: 4.59715555556vw;
+      }
+
+      &__profile {
+        width: 8.51851851852vw;
+        height: 7.77777777778vw;
+      }
+    }
+
+    &__text {
+      width: 100%;
+      height: 14.613708642vw;
+
+      font-size: 2.41530864198vw;
+    }
+
+    &__footer {
+      font-size: 3.24827654321vw;
+      column-gap: 2.11111111111vw;
+
+      &__icon {
+        width: 3.28395061728vw;
+        height: 3.28395061728vw;
+      }
+    }
+  }
+
+  .separator {
+    border-bottom: 0.125rem dashed #e5e7ed;
+    margin: 20px 0;
+
+    &__start {
+      margin-top: 3.14074074074vw;
+      margin-bottom: 4.04938271605vw;
+    }
+
+    &__end {
+      margin-top: 4.04938271605vw;
+      margin-bottom: 3.14074074074vw;
+    }
+  }
+}

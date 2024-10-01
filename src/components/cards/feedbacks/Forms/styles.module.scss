@@ -1,0 +1,70 @@
+$border-radius: 1.36213333333vw;
+$border-width: 0.671px;
+$border-color: #c9cdd6;
+$background-color: #fff;
+$width: 38.28125vw;
+$height: 22.289325vw;
+
+.card {
+  font-family: "General Sans", sans-serif;
+
+  border-radius: $border-radius;
+  border: $border-width solid $border-color;
+  background: $background-color;
+
+  width: $width;
+  height: $height;
+
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    width: 80.7939328%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__header {
+    width: 100%;
+    // width: 31.56013rem;
+
+    height: 5.064425vw;
+
+    color: #000;
+    font-size: 2.130575vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 114.887%;
+  }
+
+  &__controls {
+    margin-top: 0.675vw;
+    column-gap: 0.73333333333vw;
+
+    width: 95.7414474351%;
+
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 810px) {
+  .card {
+    border-radius: 3.22876049383vw;
+
+    width: 98%;
+    height: 49.0282962963vw;
+
+    &__header {
+      height: 12.004562963vw;
+      font-size: 5.05025185185vw;
+    }
+
+    &__controls {
+      margin-top: 1.6vw;
+      column-gap: 1.73827160494vw;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.6px;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+button {
+  transition: all 200ms ease-in;
+}
+
+button:hover {
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
