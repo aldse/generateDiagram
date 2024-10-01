@@ -13,8 +13,8 @@ import diagram_video from "../../assets/video/DiagramaEn.mp4";
 
 import Blob from "../../components/cards/Blob";
 import Default from "../../components/cards/Default";
-import Forms from "../../components/cards/Feedbacks/Forms";
-import Feedback from "../../components/cards/Feedbacks/Feedback";
+import Forms from "../../components/cards/feedbacks/Forms";
+import Feedback from "../../components/cards/feedbacks/Feedback";
 import Video from "../../components/cards/Videos/Video";
 import Gif from "../../components/cards/Videos/Gif";
 
