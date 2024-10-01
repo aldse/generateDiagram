@@ -110,52 +110,57 @@ $link-line-height: 139.397%;
 
 @media (max-width: 810px) {
   .footer {
+    height: auto;
     width: $footer-width;
-    height: $footer-height;
     margin-top: $footer-margin-top;
 
+    padding-bottom: 2rem;
+
     &__container {
-      padding-top: 1.63rem;
+      flex-direction: column;
+      padding-top: 3.21975308642vw;
     }
 
     &__left_content {
-      margin-left: 5.13rem;
-      height: 10.875rem;
+      margin-left: 4.9975308642vw;
+      height: auto;
 
       &__title {
-        font-size: 1.875rem;
+        font-size: 5.7037037037vw;
       }
 
       &__subtitle {
-        width: 17.4375rem;
-        height: 1rem;
-        font-size: 1.0625rem;
-        margin-bottom: 1.5rem;
+        width: 40.4444444444vw;
+        height: 1.97530864198vw;
+        font-size: 2.4869234568vw;
+        margin-bottom: 2.96296296296vw;
       }
     }
 
     &__right_content {
-      margin-right: 5.13rem;
-      column-gap: 5.06rem;
+      margin-left: 4.9975308642vw;
+      display: flex;
+      column-gap: 1.06913580247vw;
+      margin-top: 2rem;
     }
 
     &__links_section {
-      row-gap: 1.81rem;
+      row-gap: 0.57530864198vw;
 
       &__title {
-        width: $link-width;
+        width: 26.4814814815vw;
         height: $link-height;
-        font-size: $link-font-size;
+        font-size: 2.4869234568vw;
         line-height: $link-line-height;
       }
 
       &__list {
-        row-gap: 1.13rem;
+        row-gap: 0 !important;
 
         &__item {
           width: $link-width;
           height: $link-height;
-          font-size: $link-font-size;
+          font-size: 2.4869234568vw;
           line-height: $link-line-height;
         }
       }

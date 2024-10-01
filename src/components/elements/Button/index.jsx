@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import React, { useState } from "react";
-import BaseModalLogin from "../../../ModalLogin/BaseModalLogin";
-import BaseModalCadastro from "../../../ModalCadastro/BaseModalCadastro";
+import BaseModalLogin from "../../ModalLogin/BaseModalLogin";
+import BaseModalCadastro from "../../ModalCadastro/BaseModalCadastro";
 
 export default function Button({
   action,

@@ -11,15 +11,15 @@ import background_video from "../../assets/video/gif2.gif";
 import integrated_video from "../../assets/video/gif1.gif";
 import diagram_video from "../../assets/video/DiagramaEn.mp4";
 
-import Blob from "../../components/CardsLandingPageComponets/cards/Blob";
-import Default from "../../components/CardsLandingPageComponets/cards/Default";
-import Forms from "../../components/CardsLandingPageComponets/cards/Feedbacks/Forms";
-import Feedback from "../../components/CardsLandingPageComponets/cards/Feedbacks/Feedback";
-import Video from "../../components/CardsLandingPageComponets/cards/Videos/Video";
-import Gif from "../../components/CardsLandingPageComponets/cards/Videos/Gif";
+import Blob from "../../components/cards/Blob";
+import Default from "../../components/cards/Default";
+import Forms from "../../components/cards/Feedbacks/Forms";
+import Feedback from "../../components/cards/Feedbacks/Feedback";
+import Video from "../../components/cards/Videos/Video";
+import Gif from "../../components/cards/Videos/Gif";
 
-import Navbar from "../../components/CardsLandingPageComponets/elements/Navbar";
-import Footer from "../../components/CardsLandingPageComponets/elements/Footer";
+import Navbar from "../../components/elements/Navbar";
+import Footer from "../../components/elements/Footer";
 
 import FadeLeft from "../../components/animations/FadeLeft";
 import ZoomIn from "../../components/animations/ZoomIn";
@@ -172,13 +172,15 @@ export default function PageInitial() {
             />
           </FadeLeft>
 
-          <FadeLeft duration={1500}>
-            <Video
-              src={diagram_video}
-              width={"55.2083333333vw"}
-              height={"25.5208333333vw"}
-            />
-          </FadeLeft>
+          <div className={styles.video}>
+            <FadeLeft duration={1500} >
+              <Video
+                src={diagram_video}
+                width={"55.2083333333vw"}
+                height={"25.5208333333vw"}
+              />
+            </FadeLeft>
+          </div>
         </div>
         <Footer
           leftTitle="PYDIAGRAM"

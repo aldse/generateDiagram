@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import Button from "../../../elements/Button";
 import Input from "../../../elements/Input";
 import Select from "../../../elements/Select";
-import Translate from "../../../../TranslateComponents/index";
+import Translate from "../../../TranslateComponents/index";
 import { useEffect, useState } from "react";
 
 export default function Forms({ header }) {

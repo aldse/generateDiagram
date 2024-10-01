@@ -5,11 +5,10 @@ import Button from "../Button";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import DropdownWithImages from "../../../DropdownComponents/index";
-import flagEN from "../../../../assets/estadosunidosbandeira.png";
-import flagES from "../../../../assets/espanhabandeira.png";
-import flagPT from "../../../../assets/brasilbandeira.png";
-import Translate from "../../../TranslateComponents/index";
+import DropdownWithImages from "../Dropdown/index";
+import flagEN from "../../../assets/estadosunidosbandeira.png";
+import flagPT from "../../../assets/brasilbandeira.png";
+import Translate from "../../TranslateComponents/index";
 
 import { useEffect, useState } from "react";
 
@@ -22,7 +21,6 @@ const Navbar = () => {
 
   const options = [
     { name: "Inglês", image: flagEN, code: "eng" },
-    { name: "Espanhol", image: flagES, code: "es" },
     { name: "Português", image: flagPT, code: "pt" },
   ];
 
@@ -47,8 +45,8 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const width = windowWidth < 810 ? "20.54513vw" : "8.54513rem";
-  const height = windowWidth < 810 ? "5.17944vw" : "2.17944rem";
+  const width = windowWidth < 810 ? "16.8793vw" : "7.12094vw";
+  const height = windowWidth < 810 ? "4.30507vw" : "1.8162vw";
 
   return (
     <div className={styles.navbar}>

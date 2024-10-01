@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import Button from "../../elements/Button";
-import check from "../../../../assets/check.png";
+import check from "../../../assets/check.png";
 
 import { useEffect, useState } from "react";
 

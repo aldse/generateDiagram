@@ -1,8 +1,8 @@
 import styles from "./styles.module.scss";
 
-import lamp from "../../../../../assets/lamp.png";
-import gray_bosch_icon from "../../../../../assets/gray_bosch_icon.svg";
-import profile_icon from "../../../../../assets/profile_icon.png";
+import lamp from "../../../../assets/lamp.png";
+import gray_bosch_icon from "../../../../assets/gray_bosch_icon.svg";
+import profile_icon from "../../../../assets/profile_icon.png";
 
 export default function Feedback({ owner, type, text }) {
   return (
