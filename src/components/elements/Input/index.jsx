@@ -1,11 +1,13 @@
 import styles from "./styles.module.scss";
 
-export default function Input({ placeholder, width }) {
+export default function Input({ placeholder, width, value, onChange }) {
   return (
     <textarea
-      style={{width}}
+      style={{ width }}
       className={styles.input}
       placeholder={placeholder}
+      value={value}
+      onChange={onChange}
     ></textarea>
   );
 }
