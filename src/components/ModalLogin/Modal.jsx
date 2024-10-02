@@ -12,19 +12,23 @@ const ModalContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   z-index: 9999;
   overflow: hidden;
 `;
 
 const ModalContent = styled.div`
-  background-color: white;
-  padding: 35px; 
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 414.43px; 
-  height: 570.51px; 
-  overflow: auto; 
-  scrollbar-width: none;
+    background-color: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 414.43px;
+    height: 570.51px;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
 `;
 
 const Modal = forwardRef(({ onBackdropClick, children }, ref) => {

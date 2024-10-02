@@ -67,6 +67,9 @@
 }
 
 @media (max-width: 810px) {
+  .none {
+    display: none;
+  }
   .card {
     height: 60.6090074074vw !important;
     width: 98% !important;

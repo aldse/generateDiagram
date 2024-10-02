@@ -36,6 +36,10 @@
 }
 
 @media (max-width: 810px) {
+  .none {
+    display: none;
+  }
+
   .navbar {
     &__left_content {
       margin-left: 8.3950617284vw;

@@ -109,6 +109,10 @@ $link-line-height: 139.397%;
 }
 
 @media (max-width: 810px) {
+  .none {
+    display: none;
+  }
+
   .footer {
     height: auto;
     width: $footer-width;
@@ -149,7 +153,7 @@ $link-line-height: 139.397%;
 
       &__title {
         width: 26.4814814815vw;
-        height: $link-height;
+        height: auto;
         font-size: 2.4869234568vw;
         line-height: $link-line-height;
       }

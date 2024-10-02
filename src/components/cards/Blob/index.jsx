@@ -39,12 +39,14 @@ export default function Blob({
       <div className={styles.card__content}>
         <div className={styles.card__header}>{header}</div>
         <div className={styles.card__subheader}>{subheader}</div>
-        <Button
-          text={button}
-          theme={"dark"}
-          width={width_button}
-          height={height_button}
-        />
+        <div className={styles.none}>
+          <Button
+            text={button}
+            theme={"dark"}
+            width={width_button}
+            height={height_button}
+          />
+        </div>
         <div className={styles.card__topics}></div>
       </div>
     </div>
