@@ -110,13 +110,15 @@ export default function PageInitial() {
               <Forms header={Translate.getText("headercard3", language)} />
             </FadeLeft>
           </div>
-          <FadeLeft duration={1000}>
-            <Feedback
-              owner={"Benhur Feld"}
-              type={"Praise"}
-              text={Translate.getText("text3", language)}
-            ></Feedback>
-          </FadeLeft>
+          <div className={styles.none}>
+            <FadeLeft duration={1000}>
+              <Feedback
+                owner={"Benhur Feld"}
+                type={"Praise"}
+                text={Translate.getText("text3", language)}
+              ></Feedback>
+            </FadeLeft>
+          </div>
           <FadeLeft duration={1000}>
             <Feedback
               owner={"Benhur Feld"}
