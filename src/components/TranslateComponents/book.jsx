@@ -81,7 +81,7 @@
     topics2card7: ["Escalabilidade aprimorada para projetos em crescimento", "Enhanced Scalability for Growing Projects", "Escalabilidad mejorada para proyectos en crecimiento"],
     topics3card7: ["Melhor precisão na documentação", "Improved Accuracy in Documentation", "Mayor precisión en la documentación"],
     //card 8 da landing page 
-    header1card8: ["Aprimorando os insights de uso", "Improving Usage Insights", "Mejora del conocimiento de uso"],
+    header1card8: ["Aprimorando os insights de uso ", "Improving Usage Insights ", "Mejora del conocimiento de uso "],
     header2card8: ["com relatórios e gráficos.", "with User Reports and Charts", "con informes y gráficos."],
     subheader1card8: ["Visualizando dados do usuário por meio de gráficos abrangentes e", "Visualizing user data through comprehensive graphs and", "Visualización de datos de usuario a través de gráficos completos y"], 
     subheader2card8: ["relatórios melhoram significativamente a visão do projeto", "reports significantly improves insight into project", "los informes mejoran significativamente el conocimiento del proyecto."], 

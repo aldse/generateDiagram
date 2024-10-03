@@ -105,9 +105,11 @@ export default function PageInitial() {
               height={"25.1475vw"}
             />
           </ZoomIn>
-          <FadeLeft duration={1000}>
-            <Forms header={Translate.getText("headercard3", language)} />
-          </FadeLeft>
+          <div className={styles.none}>
+            <FadeLeft duration={1000}>
+              <Forms header={Translate.getText("headercard3", language)} />
+            </FadeLeft>
+          </div>
           <FadeLeft duration={1000}>
             <Feedback
               owner={"Benhur Feld"}
@@ -155,7 +157,7 @@ export default function PageInitial() {
             <Blob
               header={[
                 Translate.getText("header1card8", language),
-                <br key="break2" />,
+                // <br key="break2" />,
                 Translate.getText("header2card8", language),
               ]}
               subheader={[
@@ -172,7 +174,7 @@ export default function PageInitial() {
             />
           </FadeLeft>
 
-          <div className={styles.video}>
+          <div className={styles.none}>
             <FadeLeft duration={1500} >
               <Video
                 src={diagram_video}

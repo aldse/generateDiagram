@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const generateDiagram = axios.create({
-  baseURL: "https://generatediagramabackend.onrender.com/api",
+  baseURL: "http://localhost:8080//api",
 });
 
 export const fetchAddressByCep = async (cep) => {

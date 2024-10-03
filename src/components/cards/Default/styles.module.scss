@@ -77,6 +77,10 @@ $color: #000 !important;
 }
 
 @media (max-width: 810px) {
+  .none {
+    display: none;
+  }
+  
   .card {
     height: 60.6090074074vw;
     width: 98%;

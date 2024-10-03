@@ -66,6 +66,7 @@ const BaseModalLogin = ({
     if (loading) return;
 
     setLoading(true);
+    // navigate("/home");
 
     try {
       const response = await generateDiagram.post("/user/login", {
@@ -83,7 +84,7 @@ const BaseModalLogin = ({
           "Informações inválidas",
           "Usuário ou senha não coincidem."
         );
-  
+
       }
     } catch (error) {
       alertRef.current?.addAlert(

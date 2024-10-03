@@ -24,12 +24,14 @@ export default function Default({ header, subheader, topics }) {
       <div className={styles.card__content}>
         <div className={styles.card__header}>{header}</div>
         <div className={styles.card__subheader}>{subheader}</div>
-        <Button
-          text={"See details"}
-          theme={"light"}
-          width={width}
-          height={height}
-        />
+        <div className={styles.none}>
+          <Button
+            text={"See details"}
+            theme={"light"}
+            width={width}
+            height={height}
+          />
+        </div>
         <div className={styles.card__topics}>
           {topics.map((item, index) => (
             <div key={index} className={styles.card__topic}>

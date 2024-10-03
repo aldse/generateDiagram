@@ -27,7 +27,7 @@ const Navbar = () => {
   const handleLanguageChange = (option) => {
     localStorage.setItem("selectedLanguage", JSON.stringify(option));
     localStorage.setItem("translate", option.code);
-    navigate("/");
+    window.location.reload();
   };
 
   const translate = localStorage.getItem("translate") || "eng";
@@ -55,13 +55,15 @@ const Navbar = () => {
       </div>
 
       <div className={styles.navbar__right_content}>
-        <Button
-          text={Translate.getText("buttonLogin", translate)}
-          width={width}
-          height={height}
-          theme={"dark"}
-        />
+        <div className={styles.none}>
+          <Button
+            text={Translate.getText("buttonLogin", translate)}
+            width={width}
+            height={height}
+            theme={"dark"}
+          />
 
+        </div>
         <DropdownWithImages
           options={options}
           selectedOption={selectedLanguage}

@@ -26,12 +26,14 @@ const Footer = ({ leftTitle, leftSubtitle, buttonText, linksData }) => {
           <div className={styles.footer__left_content__subtitle}>
             {leftSubtitle}
           </div>
-          <Button
-            text={buttonText}
-            width={width}
-            height={height}
-            theme={"dark"}
-          />
+          <div className={styles.none}>
+            <Button
+              text={buttonText}
+              width={width}
+              height={height}
+              theme={"dark"}
+            />
+          </div>
         </div>
         <div className={styles.footer__right_content}>
           {linksData.map((section, index) => (

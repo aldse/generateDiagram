@@ -78,6 +78,10 @@ $height: 25.14755vw;
 }
 
 @media (max-width: 810px) {
+  .none {
+    display: none;
+  }
+
   .card {
     width: 98% !important;
     height: 66.6090074074VW;
